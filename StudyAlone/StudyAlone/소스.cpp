@@ -30,6 +30,7 @@
 #include"SeoJoon.h"
 #include"Snake2.h"
 #include"DIce.h"
+#include"Jjaro.h"
 using namespace std;
 
 void t()
@@ -42,11 +43,6 @@ void t()
 
 int main()
 {
-	//BeomJoonClass b; 
-	//b.BeomJoon()
-	//Counsler();
-	//PushOperator2();
-	//LCS();
-	Dice();
+	Jjarro();
 	return 0;
 }

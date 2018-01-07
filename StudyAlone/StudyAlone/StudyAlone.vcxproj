@@ -172,6 +172,7 @@
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="JangHoon.h" />
+    <ClInclude Include="Jjaro.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="MinCut.h" />
