@@ -31,6 +31,7 @@
 #include"Snake2.h"
 #include"DIce.h"
 #include"Jjaro.h"
+#include"2048.h"
 using namespace std;
 
 void t()
@@ -43,6 +44,6 @@ void t()
 
 int main()
 {
-	Jjarro();
+	Solve2048();
 	return 0;
 }

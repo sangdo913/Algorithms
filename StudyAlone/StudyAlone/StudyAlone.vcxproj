@@ -159,6 +159,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="2048.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BC.h" />
     <ClInclude Include="BeomJoon2.h" />
