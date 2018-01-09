@@ -42,8 +42,10 @@ void t()
 
 }
 
+#include"TestSupervisor.h"
+#include"Tetromino.h"
 int main()
 {
-	Solve2048();
+	Tetromino();
 	return 0;
 }

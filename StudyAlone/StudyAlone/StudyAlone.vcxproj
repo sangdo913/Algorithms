@@ -190,6 +190,8 @@
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
+    <ClInclude Include="TestSupervisor.h" />
+    <ClInclude Include="Tetromino.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
