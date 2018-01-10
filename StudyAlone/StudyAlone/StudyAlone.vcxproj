@@ -184,6 +184,7 @@
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
+    <ClInclude Include="Resign.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SeoJoon.h" />
     <ClInclude Include="Snake.h" />

@@ -44,8 +44,9 @@ void t()
 
 #include"TestSupervisor.h"
 #include"Tetromino.h"
+#include"Resign.h"
 int main()
 {
-	Tetromino();
+	Resign();
 	return 0;
 }
