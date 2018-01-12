@@ -159,6 +159,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BC.h" />
@@ -170,10 +171,12 @@
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="DIce.h" />
+    <ClInclude Include="DoubleScale.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="Jjaro.h" />
+    <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="MinCut.h" />

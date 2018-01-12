@@ -113,9 +113,6 @@ void PopPing()
 				if (PopPing_map[i][j] != '*') result++;
 			}
 		}
-		
-
-
 		cout << "#" << k << " " << result << endl;
 	}
 }

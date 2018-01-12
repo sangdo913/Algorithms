@@ -45,8 +45,12 @@ void t()
 #include"TestSupervisor.h"
 #include"Tetromino.h"
 #include"Resign.h"
+#include"Labaratory.h"
+#include"01knapsack.h"
+#include"DoubleScale.h"
+
 int main()
 {
-	Resign();
+	DoubleScale();
 	return 0;
 }
