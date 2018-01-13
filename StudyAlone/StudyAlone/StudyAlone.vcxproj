@@ -171,6 +171,7 @@
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="DIce.h" />
+    <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DoubleScale.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />

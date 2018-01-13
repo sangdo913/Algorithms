@@ -48,9 +48,10 @@ void t()
 #include"Labaratory.h"
 #include"01knapsack.h"
 #include"DoubleScale.h"
+#include"DonateAngel.h"
 
 int main()
 {
-	DoubleScale();
+	Jayeong();
 	return 0;
 }
