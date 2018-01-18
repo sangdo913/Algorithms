@@ -54,7 +54,7 @@ void t()
 #include<stdlib.h>
 #include<time.h>
 #include"JaYeong2.h"
-
+#include"StringType.h"
 int main()
 {
 

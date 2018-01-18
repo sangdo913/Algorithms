@@ -7,7 +7,6 @@
 using namespace std;
 
 char JaYeong_MAP[9][9];
-int JaYeong_Value = 81;
 const int JaYeong_ROW = 1;
 const int JaYeong_COL = 2;
 const int JaYeong_VIL = 0;

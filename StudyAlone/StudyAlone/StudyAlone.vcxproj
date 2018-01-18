@@ -194,6 +194,7 @@
     <ClInclude Include="SeoJoon.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
+    <ClInclude Include="StringType.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="TestSupervisor.h" />
