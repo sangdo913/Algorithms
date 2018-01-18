@@ -176,6 +176,7 @@
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="JangHoon.h" />
+    <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />

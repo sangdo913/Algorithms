@@ -50,8 +50,14 @@ void t()
 #include"DoubleScale.h"
 #include"DonateAngel.h"
 
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include"JaYeong2.h"
+
 int main()
 {
+
 	Jayeong();
 	return 0;
 }
