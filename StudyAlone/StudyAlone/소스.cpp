@@ -55,9 +55,11 @@ void t()
 #include<time.h>
 #include"JaYeong2.h"
 #include"StringType.h"
+#include"JungTriangle.h"
+#include"ManageClub.h"
 int main()
 {
 
-	Jayeong();
+	ManageClub();
 	return 0;
 }

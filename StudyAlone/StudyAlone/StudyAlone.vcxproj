@@ -178,9 +178,11 @@
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
+    <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="ManageClub.h" />
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
