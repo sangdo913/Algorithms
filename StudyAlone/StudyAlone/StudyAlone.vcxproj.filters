@@ -158,6 +158,15 @@
     <ClInclude Include="ManageClub.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="JongMin.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BuBoon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="JongMin2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

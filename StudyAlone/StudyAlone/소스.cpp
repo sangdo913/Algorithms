@@ -57,9 +57,10 @@ void t()
 #include"StringType.h"
 #include"JungTriangle.h"
 #include"ManageClub.h"
+#include"JongMin.h"
 int main()
 {
 
-	ManageClub();
+	JongMin_Domi();
 	return 0;
 }

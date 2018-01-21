@@ -166,6 +166,7 @@
     <ClInclude Include="BeomJoon2.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BoemJoon.h" />
+    <ClInclude Include="BuBoon.h" />
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
@@ -178,6 +179,8 @@
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
+    <ClInclude Include="JongMin.h" />
+    <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
