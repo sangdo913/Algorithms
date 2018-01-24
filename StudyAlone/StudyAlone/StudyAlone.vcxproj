@@ -189,6 +189,7 @@
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
+    <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />
     <ClInclude Include="Processor.h" />
