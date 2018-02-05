@@ -14,6 +14,8 @@ https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId
 #include<cstdio>
 #include<queue>
 #include<functional>
+#include<queue>
+
 #define JongMIN_ARR_SIZE 30
 
 using namespace std;

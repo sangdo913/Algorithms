@@ -166,13 +166,17 @@
     <ClInclude Include="BeomJoon2.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BoemJoon.h" />
+    <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BuBoon.h" />
     <ClInclude Include="chessTeam.h" />
+    <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Counsler.h" />
+    <ClInclude Include="Dalant.h" />
     <ClInclude Include="DIce.h" />
     <ClInclude Include="DonateAngel.h" />
+    <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
@@ -182,13 +186,16 @@
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JungTriangle.h" />
+    <ClInclude Include="Kaing.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="LineDivide.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
+    <ClInclude Include="N-Queens.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />
@@ -205,6 +212,8 @@
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
+    <ClInclude Include="Union.h" />
+    <ClInclude Include="WaveClass.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />

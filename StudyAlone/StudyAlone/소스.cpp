@@ -58,9 +58,17 @@ void t()
 #include"JungTriangle.h"
 #include"ManageClub.h"
 #include"JongMin.h"
+#include"CircularQueue.h"
+#include"WaveClass.h"
+#include"Dalant.h"
+#include"Union.h"
+#include"Kaing.h"
+#include"BongEoBBangh.h"
+#include"N-Queens.h"
+#include"DongCheol.h"
+#include"LineDivide.h"
 int main()
 {
-
-	JongMin_Domi();
+	LineDivide();
 	return 0;
 }
