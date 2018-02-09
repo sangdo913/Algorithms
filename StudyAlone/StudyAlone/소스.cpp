@@ -66,9 +66,15 @@ void t()
 #include"BongEoBBangh.h"
 #include"N-Queens.h"
 #include"DongCheol.h"
+#include"MyStack.h"
 #include"LineDivide.h"
+#include"MyQueue.h"
+#include"DBLinkedList.h"
+#include"Quicksort.h"
+#include"ToOne.h"
+
 int main()
 {
-	LineDivide();
+	ToOne();
 	return 0;
 }

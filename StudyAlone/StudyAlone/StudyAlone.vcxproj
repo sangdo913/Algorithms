@@ -174,6 +174,7 @@
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="Dalant.h" />
+    <ClInclude Include="DBLinkedList.h" />
     <ClInclude Include="DIce.h" />
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
@@ -195,6 +196,9 @@
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
+    <ClInclude Include="MyHeap.h" />
+    <ClInclude Include="MyQueue.h" />
+    <ClInclude Include="MyStack.h" />
     <ClInclude Include="N-Queens.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="Permulation.h" />
@@ -202,16 +206,19 @@
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
+    <ClInclude Include="Quicksort.h" />
     <ClInclude Include="Resign.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SeoJoon.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
+    <ClInclude Include="Soccer.h" />
     <ClInclude Include="StringType.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
+    <ClInclude Include="ToOne.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿빌드 시작: 2018-02-04 오후 5:24:38
+﻿빌드 시작: 2018-02-09 오후 1:02:13
      1>2 노드의 "C:\Users\SD\Documents\Algorithms\StudyAlone\StudyAlone\StudyAlone.vcxproj" 프로젝트(Build 대상)입니다.
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "소스.cpp"
@@ -46,6 +46,10 @@
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\n-queens.h(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\dongcheol.h(34): warning C4101: 'in' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\myqueue.h(27): warning C4091: 'typedef ': 변수를 선언하지 않으면 'MyQueue' 왼쪽은 무시됩니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\dblinkedlist.h(35): warning C4091: 'typedef ': 변수를 선언하지 않으면 'DBLinkedList' 왼쪽은 무시됩니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\quicksort.h(18): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\toone.h(11): warning C4091: 'typedef ': 변수를 선언하지 않으면 'ToOneCOD' 왼쪽은 무시됩니다.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\jungtriangle.h(19): warning C4700: 초기화되지 않은 'B' 지역 변수를 사용했습니다.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\snake.h(50): warning C4715: 'SNAKE_LINE::GetLength': 모든 제어 경로에서 값을 반환하지는 않습니다.
        Link:
@@ -55,4 +59,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:01.91
+경과 시간: 00:00:01.92
