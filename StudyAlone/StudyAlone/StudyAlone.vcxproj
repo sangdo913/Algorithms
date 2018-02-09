@@ -165,6 +165,7 @@
     <ClInclude Include="BC.h" />
     <ClInclude Include="BeomJoon2.h" />
     <ClInclude Include="BinarySubSet.h" />
+    <ClInclude Include="BIT.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BuBoon.h" />
@@ -214,6 +215,7 @@
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="Soccer.h" />
     <ClInclude Include="StringType.h" />
+    <ClInclude Include="SuJung.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="TestSupervisor.h" />

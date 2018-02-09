@@ -72,9 +72,10 @@ void t()
 #include"DBLinkedList.h"
 #include"Quicksort.h"
 #include"ToOne.h"
-
+#include"BIT.h"
+#include"SuJung.h"
 int main()
 {
-	ToOne();
+	SuJung();
 	return 0;
 }
