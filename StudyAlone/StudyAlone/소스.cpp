@@ -74,8 +74,7 @@ void t()
 #include"ToOne.h"
 #include"BIT.h"
 #include"SuJung.h"
-int main()
+void main()
 {
-	SuJung();
-	return 0;
+
 }

@@ -1,9 +1,78 @@
-﻿빌드 시작: 2018-02-09 오후 8:49:28
+﻿빌드 시작: 2018-02-10 오후 7:24:18
      1>2 노드의 "C:\Users\SD\Documents\Algorithms\StudyAlone\StudyAlone\StudyAlone.vcxproj" 프로젝트(Build 대상)입니다.
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "소스.cpp"
+         소스.cpp
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\completesearch.h(184): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\backjoon.h(30): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\backjoon.h(35): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\backjoon.h(37): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\backjoon.h(41): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\boemjoon.h(289): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\boemjoon.h(357): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\boemjoon.h(373): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\janghoon.h(9): warning C4101: 'N' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\mincut.h(153): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\mincut.h(34): warning C4101: 'input' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\hongjoon.h(13): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\hongjoon.h(43): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\hongjoon.h(50): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\hongjoon.h(21): warning C4101: 'N' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\counsler.h(26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\counsler.h(44): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\lcs.h(34): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\lcs.h(36): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\seojoon.h(25): warning C4101: 'number' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\testsupervisor.h(12): warning C4101: 'A' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\stringtype.h(38): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\jongmin.h(138): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\jongmin.h(146): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\jongmin.h(152): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\jongmin.h(139): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\union.h(37): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\union.h(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\union.h(39): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\union.h(48): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\kaing.h(10): warning C4101: 'y' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bongeobbangh.h(124): warning C4101: 't' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\n-queens.h(53): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\n-queens.h(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\dongcheol.h(34): warning C4101: 'in' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\myqueue.h(27): warning C4091: 'typedef ': 변수를 선언하지 않으면 'MyQueue' 왼쪽은 무시됩니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\dblinkedlist.h(35): warning C4091: 'typedef ': 변수를 선언하지 않으면 'DBLinkedList' 왼쪽은 무시됩니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\quicksort.h(18): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\toone.h(11): warning C4091: 'typedef ': 변수를 선언하지 않으면 'ToOneCOD' 왼쪽은 무시됩니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bit.h(33): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bit.h(46): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bit.h(49): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bit.h(58): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\bit.h(40): warning C4101: 'C' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(31): warning C4334: '<<': 32비트 시프트의 결과가 암시적으로 64비트로 변환됩니다. 64비트 시프트를 사용하시겠습니까?
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(36): warning C4244: 'return': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(84): warning C4334: '<<': 32비트 시프트의 결과가 암시적으로 64비트로 변환됩니다. 64비트 시프트를 사용하시겠습니까?
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(86): warning C4334: '<<': 32비트 시프트의 결과가 암시적으로 64비트로 변환됩니다. 64비트 시프트를 사용하시겠습니까?
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(67): warning C4101: 'remain' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(101): warning C4101: 'length' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\sujung.h(101): warning C4101: 'tile_made' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\jungtriangle.h(19): warning C4700: 초기화되지 않은 'B' 지역 변수를 사용했습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\snake.h(50): warning C4715: 'SNAKE_LINE::GetLength': 모든 제어 경로에서 값을 반환하지는 않습니다.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\SD\Documents\Algorithms\StudyAlone\Debug\StudyAlone.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\SD\Documents\Algorithms\StudyAlone\Debug\StudyAlone.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\SD\Documents\Algorithms\StudyAlone\Debug\StudyAlone.lib" /MACHINE:X86 "Debug\소스.obj"
          StudyAlone.vcxproj -> C:\Users\SD\Documents\Algorithms\StudyAlone\Debug\StudyAlone.exe
      1>"C:\Users\SD\Documents\Algorithms\StudyAlone\StudyAlone\StudyAlone.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
 
 빌드했습니다.
 
-경과 시간: 00:00:00.04
+경과 시간: 00:00:02.16
