@@ -215,6 +215,7 @@
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="Soccer.h" />
+    <ClInclude Include="SpaceGod.h" />
     <ClInclude Include="StringType.h" />
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SWExpert1_1.h" />

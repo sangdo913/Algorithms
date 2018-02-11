@@ -74,7 +74,8 @@ void t()
 #include"ToOne.h"
 #include"BIT.h"
 #include"SuJung.h"
+#include"SpaceGod.h"
 void main()
 {
-
+	SpaceGod();
 }
