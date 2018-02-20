@@ -148,6 +148,7 @@
     <ClCompile Include="HJ.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="InSu_Heap.cpp" />
     <ClCompile Include="소스.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -183,6 +184,8 @@
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
+    <ClInclude Include="InSuBirthDayParty.h" />
+    <ClInclude Include="InSu_Birthday_Party.h" />
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
@@ -190,11 +193,14 @@
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
+    <ClInclude Include="Kid_Car_Robot.h" />
+    <ClInclude Include="King%27s_Position.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LineDivide.h" />
     <ClInclude Include="ManageClub.h" />
+    <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
@@ -202,6 +208,7 @@
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="N-Queens.h" />
+    <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />
@@ -225,6 +232,8 @@
     <ClInclude Include="ToOne.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
+    <ClInclude Include="YeongJoon_Scale.h" />
+    <ClInclude Include="YeungJoon_Get_Number.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />

@@ -75,7 +75,16 @@ void t()
 #include"BIT.h"
 #include"SuJung.h"
 #include"SpaceGod.h"
-void main()
+#include"InSuBirthDayParty.h"
+#include"InSu_Birthday_Party.h"
+#include"YeungJoon_Get_Number.h"
+#include"YeongJoon_Scale.h"
+#include"Kid_Car_Robot.h"
+#include"Nolboo_Salary_Reduction.h"
+#include"Maximum_Prize.h"
+#include"King's_Position.h"
+int main()
 {
-	SpaceGod();
+	Kings_Position();
+	return 0;
 }

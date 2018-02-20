@@ -72,7 +72,7 @@ int SuJung_Get_Min_Tiles(int *tiles, long long M, int size,int cnt)
 		now_length = M;
 		prevlength = 0;
 
-		//비트마스킹을 이용한다.
+		//비트연산을 이용.
 		for (int bit = max_bit; bit >= 0; bit= SuJung_Get_Max_Bit(now_length))
 		{
 			decrease = 0;

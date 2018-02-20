@@ -30,6 +30,9 @@
     <ClCompile Include="소스2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="InSu_Heap.cpp">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SWExpert1_1.h">
@@ -228,6 +231,30 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SpaceGod.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InSuBirthDayParty.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InSu_Birthday_Party.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YeungJoon_Get_Number.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YeongJoon_Scale.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Kid_Car_Robot.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Nolboo_Salary_Reduction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="King%27s_Position.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Maximum_Prize.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
