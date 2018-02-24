@@ -83,8 +83,12 @@ void t()
 #include"Nolboo_Salary_Reduction.h"
 #include"Maximum_Prize.h"
 #include"King's_Position.h"
+//#include"YeongJoon_Real_BFS.h"
+#include"YeongJoon_Real_BFS_LCA.h"
+#include"Make_Password.h"
+#include"TermProject.h"
 int main()
 {
-	Kings_Position();
+	TermProject();
 	return 0;
 }

@@ -199,6 +199,7 @@
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LineDivide.h" />
+    <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MinCut.h" />
@@ -227,11 +228,14 @@
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
+    <ClInclude Include="TermProject.h" />
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="ToOne.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
+    <ClInclude Include="YeongJoon_Real_BFS.h" />
+    <ClInclude Include="YeongJoon_Real_BFS_LCA.h" />
     <ClInclude Include="YeongJoon_Scale.h" />
     <ClInclude Include="YeungJoon_Get_Number.h" />
   </ItemGroup>

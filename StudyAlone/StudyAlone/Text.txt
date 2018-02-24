@@ -1,43 +1,5 @@
+2
 7
-5 30
-oooooooooooooooooooooooooooooo
-oooooooooooooooooooooooooooooo
-o***************************oo
-XX.ooooooooooooooooooooooooooo
-XX.ooooooooooooooooooooooooooo
-3 3
-oo.
-oXX
-.XX
-9 14
-oooooooooooooo
-oooooooooooooo
-oooooooooooooo
-ooooo*****oooo
-oooooo****oooo
-o**ooo***ooooo
-o***ooooo..ooo
-o**ooooooXXooo
-ooooo****XXooo
-
-4 6
-oooooo
-ooXXoo
-ooXXoo
-oo..oo
-
-4 4
-oooo
-.ooo
-ooXX
-o.XX 
-3 3
-XXo
-XX.
-o.o
-3 5
-.o*XX
-oooXX
-oooo.
-
-
+3 1 3 7 3 4 6
+8
+1 2 3 4 5 6 7 8
