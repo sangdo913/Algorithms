@@ -184,6 +184,7 @@
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="HongJoon.h" />
+    <ClInclude Include="HyeonHo_Password.h" />
     <ClInclude Include="InSuBirthDayParty.h" />
     <ClInclude Include="InSu_Birthday_Party.h" />
     <ClInclude Include="JangHoon.h" />
@@ -213,11 +214,13 @@
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />
+    <ClInclude Include="Predicth.h" />
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
     <ClInclude Include="Quicksort.h" />
     <ClInclude Include="Resign.h" />
+    <ClInclude Include="RichProject.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SeoJoon.h" />
     <ClInclude Include="Snake.h" />

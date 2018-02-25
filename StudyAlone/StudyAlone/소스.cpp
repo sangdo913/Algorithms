@@ -87,8 +87,11 @@ void t()
 #include"YeongJoon_Real_BFS_LCA.h"
 #include"Make_Password.h"
 #include"TermProject.h"
+#include"Predicth.h"
+#include"HyeonHo_Password.h"
+#include"RichProject.h"
 int main()
 {
-	TermProject();
+	RichProject();
 	return 0;
 }

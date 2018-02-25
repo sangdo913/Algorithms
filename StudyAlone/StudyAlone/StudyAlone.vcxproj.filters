@@ -269,6 +269,15 @@
     <ClInclude Include="TermProject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Predicth.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HyeonHo_Password.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RichProject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
