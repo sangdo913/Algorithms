@@ -172,6 +172,7 @@
     <ClInclude Include="BuBoon.h" />
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="CircularQueue.h" />
+    <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Counsler.h" />
