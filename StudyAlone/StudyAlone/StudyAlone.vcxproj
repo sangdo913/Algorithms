@@ -155,20 +155,23 @@
     <ClCompile Include="소스1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="소스2.cpp">
+    <ClCompile Include="다른사람코드.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
+    <ClInclude Include="AllSum.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BC.h" />
     <ClInclude Include="BeomJoon2.h" />
+    <ClInclude Include="BestTaxiDriver.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BIT.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />
+    <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="CircularQueue.h" />
@@ -184,6 +187,8 @@
     <ClInclude Include="DoubleScale.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="GNS.h" />
+    <ClInclude Include="Hacking.h" />
+    <ClInclude Include="HackingBFS.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="HyeonHo_Password.h" />
     <ClInclude Include="InSuBirthDayParty.h" />
@@ -213,8 +218,10 @@
     <ClInclude Include="N-Queens.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />
+    <ClInclude Include="PossibleScore.h" />
     <ClInclude Include="Predicth.h" />
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
@@ -242,6 +249,7 @@
     <ClInclude Include="YeongJoon_Real_BFS_LCA.h" />
     <ClInclude Include="YeongJoon_Scale.h" />
     <ClInclude Include="YeungJoon_Get_Number.h" />
+    <ClInclude Include="MetalStick.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />

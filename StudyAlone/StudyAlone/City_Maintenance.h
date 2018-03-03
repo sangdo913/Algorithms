@@ -124,7 +124,7 @@ City_List::City_List()
 }
 struct City_Heap
 {
-	typedef City_QueueData Data;
+	typedef City_Edge Data;
 	typedef bool(*order)(Data d1, Data d2);
 	Data *datas;
 	int size;
@@ -302,16 +302,19 @@ long long City_GetMinCost(long long total,int N, long long C)
 	isConnected[1] = true;
 	distances[1] = 0;
 
-	EdgeValue edge;
-	queue que(10000, [](queue::Data d1, queue::Data d2)->bool {return d1.untilDistance < d2.untilDistance; });
+	Edge edge;
+	queue que(10000, [](queue::Data d1, queue::Data d2)->bool {return d1.distance < d2.distance; });
 	int newNode;
 	
 	int cnt = 1; long long newDistance;
-	EdgeValue newEdge;
+	Edge newEdge;
 	Edge e,nextEdge;
-	edge = { 1, 0 };
-	que.insert(edge);
-
+	City_lists[1].first();
+	while ((edge = City_lists[1].next()).from)
+	{
+		que.insert(edge);
+	}
+/*
 	while (que.size)
 	{
 		edge = que.pop();
@@ -326,8 +329,8 @@ long long City_GetMinCost(long long total,int N, long long C)
 			newEdge = { e.to,newDistance };
 			que.insert(newEdge);
 		}
-	}
-	/*
+	}*/
+	
 	while (cnt < N)
 	{
 		edge = que.pop();
@@ -346,9 +349,15 @@ long long City_GetMinCost(long long total,int N, long long C)
 			que.insert(newEdge);
 		}
 		cnt++;
-	}*/
+	}
 
 	//City_QuickSort(orderedIndex, 2, N,order);
+
+	for (int i = 1; i <= N; i++)
+	{
+		isConnected[i] = false;
+	}
+	isConnected[1] = true;
 	sort(orderedIndex + 2, orderedIndex + N + 1, Order());
 	long long minCost = total;
 	long long JiHaDoCost;

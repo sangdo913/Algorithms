@@ -91,8 +91,16 @@ void t()
 #include"HyeonHo_Password.h"
 #include"RichProject.h"
 #include"City_Maintenance.h"
+#include"AllSum.h"
+#include"BestTaxiDriver.h"
+#include"PerfectShuffle.h"
+#include"Hacking.h"
+#include"HackingBFS.h"
+#include"BreadStroe.h";
+#include"PossibleScore.h"
+#include"MetalStick.h"
 int main()
 {
-	City_Maintenance();
+	MetalStick();
 	return 0;
 }
