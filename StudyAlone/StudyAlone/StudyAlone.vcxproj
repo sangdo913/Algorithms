@@ -164,6 +164,7 @@
     <ClInclude Include="2048.h" />
     <ClInclude Include="AllSum.h" />
     <ClInclude Include="BackJoon.h" />
+    <ClInclude Include="BalabongStory.h" />
     <ClInclude Include="BC.h" />
     <ClInclude Include="BeomJoon2.h" />
     <ClInclude Include="BestTaxiDriver.h" />

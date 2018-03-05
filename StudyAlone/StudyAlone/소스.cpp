@@ -99,8 +99,9 @@ void t()
 #include"BreadStroe.h";
 #include"PossibleScore.h"
 #include"MetalStick.h"
+#include"BalabongStory.h"
 int main()
 {
-	MetalStick();
+	BalabongStory();
 	return 0;
 }
