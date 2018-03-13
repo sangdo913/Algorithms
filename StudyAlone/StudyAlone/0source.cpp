@@ -96,14 +96,13 @@ void t()
 #include"PerfectShuffle.h"
 #include"Hacking.h"
 #include"HackingBFS.h"
-#include"BreadStroe.h";
+#include"BreadStroe.h"
 #include"PossibleScore.h"
 #include"MetalStick.h"
-#include<iostream>
-using namespace std;
+#include"Jump.h"
 int main()
 {
-	freopen("Text.txt","r",stdin);
-	MetalStick();
+	freopen("0Text.txt","r",stdin);
+	ChangeJump();
 	return 0;
 }
