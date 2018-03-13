@@ -100,8 +100,19 @@ void t()
 #include"PossibleScore.h"
 #include"MetalStick.h"
 #include"BalabongStory.h"
+#include"JongMinHamberger.h"
+//#include"È«ÁØ´Ô ÇÜ¹ö°Å ÄÚµå.h"
+#include"HyeJungPaint.h"
+#include"Ninja_Corp.h"
+#include"RamCess.h"
+#include"MakeBridge.h"
+#include"DesertCafe.h"
 int main()
 {
-	BalabongStory();
+	DesertCafe();
+	//MakeBridge();
+	//HyeJung_Paint();
+	//GodHongJoon();
+	//HongJoonGod2();
 	return 0;
 }

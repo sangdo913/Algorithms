@@ -182,6 +182,7 @@
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="Dalant.h" />
     <ClInclude Include="DBLinkedList.h" />
+    <ClInclude Include="DesertCafe.h" />
     <ClInclude Include="DIce.h" />
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
     <ClInclude Include="HongJoon.h" />
+    <ClInclude Include="HyeJungPaint.h" />
     <ClInclude Include="HyeonHo_Password.h" />
     <ClInclude Include="InSuBirthDayParty.h" />
     <ClInclude Include="InSu_Birthday_Party.h" />
@@ -199,6 +201,7 @@
     <ClInclude Include="Jjaro.h" />
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
+    <ClInclude Include="JongMinHamberger.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
     <ClInclude Include="Kid_Car_Robot.h" />
@@ -207,6 +210,7 @@
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LineDivide.h" />
+    <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="Maximum_Prize.h" />
@@ -217,6 +221,7 @@
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="N-Queens.h" />
+    <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="PerfectShuffle.h" />
@@ -228,6 +233,7 @@
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
     <ClInclude Include="Quicksort.h" />
+    <ClInclude Include="RamCess.h" />
     <ClInclude Include="Resign.h" />
     <ClInclude Include="RichProject.h" />
     <ClInclude Include="SandTop.h" />
@@ -251,6 +257,7 @@
     <ClInclude Include="YeongJoon_Scale.h" />
     <ClInclude Include="YeungJoon_Get_Number.h" />
     <ClInclude Include="MetalStick.h" />
+    <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />

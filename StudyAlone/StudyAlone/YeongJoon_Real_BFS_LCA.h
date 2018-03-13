@@ -349,7 +349,7 @@ int YeongJoon_Init(int N)
 	int memoryAc;
 	for (int node = 2; node <= N;node++)
 	{
-		for (int acOrder = 1; acOrder <= maxHeight;acOrder++)
+		for (int acOrder = 1; acOrder < maxHeight;acOrder++)
 		{
 			memoryAc = YeongJoon_ancestors[node][acOrder-1];
 			YeongJoon_ancestors[node][acOrder] = YeongJoon_ancestors[memoryAc][acOrder - 1];
