@@ -103,9 +103,10 @@ void t()
 #include"PaintCube.h"
 #include"SwimPool.h"
 #include"SangBeomBuilding.h"
+#include"GetHoney.h"
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	SangBeomBuilding();
+	GetHoney();
 	return 0;
 }
