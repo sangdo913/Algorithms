@@ -100,9 +100,12 @@ void t()
 #include"PossibleScore.h"
 #include"MetalStick.h"
 #include"Jump.h"
+#include"PaintCube.h"
+#include"SwimPool.h"
+#include"SangBeomBuilding.h"
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	ChangeJump();
+	SangBeomBuilding();
 	return 0;
 }
