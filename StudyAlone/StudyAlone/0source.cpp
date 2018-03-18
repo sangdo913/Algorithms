@@ -104,9 +104,14 @@ void t()
 #include"SwimPool.h"
 #include"SangBeomBuilding.h"
 #include"GetHoney.h"
+#include"LunchTime.h"
+#include"CarReapirShop.h"
+
+
+
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	GetHoney();
+	CarRepairShop();
 	return 0;
 }

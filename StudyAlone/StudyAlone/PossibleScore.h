@@ -18,18 +18,15 @@ int PossibleScore()
 		{
 			cin >> Possible_array[i];
 			max += Possible_array[i];
-
 		}
+
+
 		for (int i = 1; i <= max; i++) Possible_check[i] = false;
 		for (int i = 0; i < N; i++)
 		{
 			for (int i2 = max; i2--;)
 			{
-				if (Possible_check[i2])
-				{
-					Possible_check[i2 + Possible_array[i]] = true;
-				}
-
+				Possible_check[i2 + Possible_array[i]] |= Possible_check[i2];				
 			}
 		}
 
