@@ -106,12 +106,12 @@ void t()
 #include"GetHoney.h"
 #include"LunchTime.h"
 #include"CarReapirShop.h"
-
+#include"HideAndSeek.h"
 
 
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	CarRepairShop();
+	HideAndSeek();
 	return 0;
 }
