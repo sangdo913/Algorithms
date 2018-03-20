@@ -107,11 +107,12 @@ void t()
 #include"LunchTime.h"
 #include"CarReapirShop.h"
 #include"HideAndSeek.h"
+#include"FindPath.h"
 
 
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	HideAndSeek();
+	FindPath();
 	return 0;
 }
