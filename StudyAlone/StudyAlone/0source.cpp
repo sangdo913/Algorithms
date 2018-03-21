@@ -108,11 +108,11 @@ void t()
 #include"CarReapirShop.h"
 #include"HideAndSeek.h"
 #include"FindPath.h"
-
+#include"PaintChess.h"
 
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	FindPath();
+	PaintChess();
 	return 0;
 }
