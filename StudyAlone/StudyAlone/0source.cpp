@@ -109,10 +109,14 @@ void t()
 #include"HideAndSeek.h"
 #include"FindPath.h"
 #include"PaintChess.h"
+#include"Hansoo.h"
+#include"RollDice.h"
+#include"GetOuter.h"
+
 
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	PaintChess();
+	GetOuter();
 	return 0;
 }
