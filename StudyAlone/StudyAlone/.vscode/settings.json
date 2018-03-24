@@ -9,5 +9,6 @@
         "initializer_list": "cpp",
         "utility": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Disabled"
 }

@@ -70,10 +70,10 @@
         // 바이너리 실행
         {
             "label": "execute",
-            "command": "cmd",
+            "command": "",
             "group": "test",
             "args": [
-               "/C", "${fileDirname}\\${fileBasenameNoExtension}"
+               "${fileDirname}/${fileBasenameNoExtension}"
             ]
         }
     ]

@@ -1,21 +1,23 @@
-#include<iostream>
-#include<queue>
+#include<bits/stdc++.h>
 using namespace std;
+
+    
+typedef struct 
+{
+    int x;
+    int y;
+} pos;
+
 
 int GetOuter()
 {
-    
+
     bool visit[52][52];
     int map[52][52];
     int t,n,m,l;
     int time;
     cin >>t;
 
-    typedef struct 
-    {
-        int x;
-        int y;
-    } pos;
 
     pos enter;
 
