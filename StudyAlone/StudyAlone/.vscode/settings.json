@@ -10,5 +10,5 @@
         "utility": "cpp",
         "iostream": "cpp"
     },
-    "C_Cpp.intelliSenseEngineFallback": "Disabled"
+    "C_Cpp.intelliSenseEngineFallback": "Enabled"
 }
