@@ -1,7 +1,6 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-
     
 typedef struct 
 {
@@ -12,7 +11,6 @@ typedef struct
 
 int GetOuter()
 {
-
     bool visit[52][52];
     int map[52][52];
     int t,n,m,l;
