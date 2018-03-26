@@ -191,6 +191,7 @@
     <ClInclude Include="GNS.h" />
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
+    <ClInclude Include="homeBangBeom.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="HyeJungPaint.h" />
     <ClInclude Include="HyeonHo_Password.h" />
