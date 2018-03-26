@@ -26,16 +26,28 @@
         {
             "name": "Linux",
             "includePath": [
-                "/usr/include",
+                "/usr/include/c++/5",
+                "/usr/include/x86_64-linux-gnu/c++/5",
+                "/usr/include/c++/5/backward",
+                "/usr/lib/gcc/x86_64-linux-gnu/5/include",
                 "/usr/local/include",
+                "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
+                "/usr/include/x86_64-linux-gnu",
+                "/usr/include",
                 "${workspaceRoot}"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
-                    "/usr/include",
+                    "/usr/include/c++/5",
+                    "/usr/include/x86_64-linux-gnu/c++/5",
+                    "/usr/include/c++/5/backward",
+                    "/usr/lib/gcc/x86_64-linux-gnu/5/include",
                     "/usr/local/include",
+                    "/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed",
+                    "/usr/include/x86_64-linux-gnu",
+                    "/usr/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
@@ -45,35 +57,23 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}",
-                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++",
-                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32",
-                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward",
-                "C:/MinGW/include",
-                "C:/MinGW/lib/gcc/mingw32/6.3.0/include-fixed",
-                "C:/MinGW/lib/gcc/mingw32/6.3.0/include"
+                "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
+                "${workspaceRoot}"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "__GNUC__=6",
-                "__cdecl=__attribute__((__cdecl__))"
+                "_UNICODE"
             ],
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                    "${workspaceRoot}",
-                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++",
-                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32",
-                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward",
-                    "C:/MinGW/include",
-                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include-fixed",
-                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include"
+                    "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
+                    "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             }
-            
         }
     ],
     "version": 3

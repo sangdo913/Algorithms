@@ -5,6 +5,10 @@
         "ostream": "cpp",
         "*.tcc": "cpp",
         "cmath": "cpp",
-        "cstdlib": "cpp"
-    }
+        "cstdlib": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp"
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Disabled"
 }
