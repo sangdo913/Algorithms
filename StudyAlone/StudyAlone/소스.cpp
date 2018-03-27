@@ -101,7 +101,6 @@ void t()
 #include"MetalStick.h"
 #include"BalabongStory.h"
 #include"JongMinHamberger.h"
-//#include"È«ÁØ´Ô ÇÜ¹ö°Å ÄÚµå.h"
 #include"HyeJungPaint.h"
 #include"Ninja_Corp.h"
 #include"RamCess.h"
