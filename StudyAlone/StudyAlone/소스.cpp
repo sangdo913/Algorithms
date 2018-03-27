@@ -108,9 +108,11 @@ void t()
 #include"MakeBridge.h"
 #include"DesertCafe.h"
 #include"homeBangBeom.h"
+#include"Balelino.h"
+#include"BlockMeSang.h"
 int main()
 {
-	HomeBangbeom();
+	BlockMeSang();
 	//MakeBridge();
 	//HyeJung_Paint();
 	//GodHongJoon();

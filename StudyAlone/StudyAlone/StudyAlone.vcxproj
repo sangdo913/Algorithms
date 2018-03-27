@@ -165,11 +165,13 @@
     <ClInclude Include="AllSum.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BalabongStory.h" />
+    <ClInclude Include="Balelino.h" />
     <ClInclude Include="BC.h" />
     <ClInclude Include="BeomJoon2.h" />
     <ClInclude Include="BestTaxiDriver.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BIT.h" />
+    <ClInclude Include="BlockMeSang.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
