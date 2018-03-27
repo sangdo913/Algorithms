@@ -8,6 +8,6 @@ using namespace std;
 int main()
 {
 	freopen("0Text.txt","r",stdin);
-	
+	Balelino();
 	return 0;
 }
