@@ -338,6 +338,9 @@
     <ClInclude Include="BlockMeSang.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="FillingMoon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

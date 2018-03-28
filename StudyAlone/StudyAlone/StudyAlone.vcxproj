@@ -189,6 +189,7 @@
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
+    <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="Hacking.h" />
