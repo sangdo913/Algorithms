@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"LaserCommunication.h"
+#include"SamSungShopping.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	LaserCommunication();
+	SamSungShopping();
 	return 0;
 }
