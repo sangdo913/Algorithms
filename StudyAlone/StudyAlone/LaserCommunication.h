@@ -50,7 +50,6 @@ struct LaserComm_Info
 
     void mark(LaserComm_Cod now)
     {
-
         while(map[now.r][now.c] != '*')
         {
             check[!(now.direct & 0b10)][now.r][now.c] = true;
