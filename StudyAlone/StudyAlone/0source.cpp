@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"SamSungShopping.h"
+#include"MoveTree.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	SamSungShopping();
+	MoveTree();
 	return 0;
 }
