@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"MoveTree.h"
+#include"FlowerRoad.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	MoveTree();
+	FlowerRoad();
 	return 0;
 }
