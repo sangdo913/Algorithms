@@ -5,6 +5,7 @@
 #include<string.h>
 #include<vector>
 #include<stdint.h>
+#include<cstdio>
 using namespace std;
 struct Balelino_Group
 {
@@ -20,11 +21,6 @@ struct Balelino_Cod
 {
 	int r;
 	int c;
-	int num;
-	bool operator==(Balelino_Cod c2)
-	{
-		return r == c2.r && c == c2.c;
-	}
 };
 
 struct Balelino_Info
@@ -172,7 +168,6 @@ struct Balelino_Info
 			if(map[nextR][nextC] == 0) groups[groupNum].adj.push_back(group[nextR][nextC]);
 			else if((map[r+dy[d]][c + dx[d]] == -1) || (isGroup[nextR][nextC])) continue;
 			else if(map[nextR][nextC] == 1) MakeGroup(nextR,nextC,groupNum, isGroup);
-
 		}
 	}
 
@@ -209,7 +204,6 @@ struct Balelino_Info
 					q.push(i);
 					timeCheck[i] = t+1;
 					nums[i] = nums[now];
-				
 				}
 				else if(timeCheck[i] > t)
 				{
@@ -229,7 +223,6 @@ struct Balelino_Info
 				t++;
 			}
 		}
-
 		return -1;
 	}
 
@@ -243,6 +236,5 @@ int Balelino()
 	int num = Balelino_info.Dance();
 	printf("%d\n", num);
 	if (num != -1) printf("%lld\n", Balelino_info.result());
-
 	return 0;
 }
