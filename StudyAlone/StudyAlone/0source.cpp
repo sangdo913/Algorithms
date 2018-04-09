@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"FInalSwimLeague.h"
+#include"OffBulb.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	FinalSwimLeague();
+	OffBulb();
 	return 0;
 }

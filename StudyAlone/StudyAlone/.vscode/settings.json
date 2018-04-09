@@ -28,6 +28,8 @@
         "ctime": "cpp",
         "iomanip": "cpp",
         "sstream": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "fstream": "cpp",
+        "functional": "cpp"
     }
 }
