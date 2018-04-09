@@ -181,6 +181,7 @@
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
+    <ClInclude Include="Cooker.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="Dalant.h" />
     <ClInclude Include="DBLinkedList.h" />
