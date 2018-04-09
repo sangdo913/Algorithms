@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"TetRomino.h"
+#include"SnakeApple.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	TetRomino();
+	SnakeApple();
 	return 0;
 }
