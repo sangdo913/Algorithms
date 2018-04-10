@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"SnakeApple.h"
+#include"MakeDepart.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	SnakeApple();
+	MakeDepart();
 	return 0;
 }
