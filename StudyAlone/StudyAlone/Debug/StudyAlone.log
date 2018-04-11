@@ -1,4 +1,4 @@
-﻿빌드 시작: 2018-03-31 오전 1:13:05
+﻿빌드 시작: 2018-04-06 오후 12:46:16
      1>2 노드의 "C:\Users\SD\Documents\Algorithms\StudyAlone\StudyAlone\StudyAlone.vcxproj" 프로젝트(Build 대상)입니다.
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "소스.cpp"
@@ -164,18 +164,18 @@
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\homebangbeom.h(78): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(53): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(59): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(49): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(55): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(66): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(62): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(120): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(125): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(139): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(153): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(158): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(204): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(188): warning C4101: 'next' :참조되지 않은 지역 변수입니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(116): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(121): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(135): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(149): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(154): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(199): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\balelino.h(183): warning C4101: 'next' :참조되지 않은 지역 변수입니다.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\blockmesang.h(33): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\blockmesang.h(37): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -196,6 +196,13 @@
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\cooker.h(72): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하십시오. 괄호를 사용하여 우선 순위를 명확하게 지정하십시오.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\cooker.h(82): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\securefilm.h(16): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\securefilm.h(20): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'bool *'
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\securefilm.h(20): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
+     1>c:\users\sd\documents\algorithms\studyalone\studyalone\securefilm.h(117): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\jungtriangle.h(19): warning C4700: 초기화되지 않은 'B' 지역 변수를 사용했습니다.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\insubirthdayparty.h(123): warning C4715: '_InSu_Heap::Pop': 모든 제어 경로에서 값을 반환하지는 않습니다.
      1>c:\users\sd\documents\algorithms\studyalone\studyalone\nolboo_salary_reduction.h(183): warning C4715: 'NolBoo_Find': 모든 제어 경로에서 값을 반환하지는 않습니다.
@@ -210,4 +217,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:02.50
+경과 시간: 00:00:02.83
