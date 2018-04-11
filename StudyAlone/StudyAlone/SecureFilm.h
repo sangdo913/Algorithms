@@ -7,6 +7,7 @@
 using namespace std;
 struct SecureFilm_Info
 {
+	typedef unsigned int ui;
 	int d, w, k;
 	bool map[25][25];
 	bool storeMap[25][25];
@@ -20,18 +21,41 @@ struct SecureFilm_Info
 				scanf("%d", &map[i][j]);
 		}
 	}
-
+	int getZeroNum(int n)
+	{
+		if(n == 0) return -1;
+		int res = 0;
+		while(!(n & 1))
+		{
+			res ++;
+			n >>= 1;
+		}
+		return res;
+	}
+	
 	int getMin()
 	{
 		int num = k;
 
 		for (int cnt = 0; cnt < k; cnt++)
-			for ( int i = 0; i < (int)(( int)1 << d); i++)
+		{
+			int bit = (1 << cnt) - 1;
+
+			while(bit < ( 1 << d))
 			{
-				if (cnt != getBitNum(i)) continue;	
-				num = change(i);
+				int zeroNum = getZeroNum(bit);
+				int temp = bit | (bit - 1);
+
+				num = change(bit, false);
+				num = num == -1 ? change(bit,true) : num;
+
 				if (num != -1) return num;
+				else if( zeroNum == -1) break;
+
+				bit = (temp + 1) | (((~temp & -~temp) -1 ) >> (zeroNum + 1));
 			}
+		}
+
 		return k;
 	}
 
@@ -47,6 +71,29 @@ struct SecureFilm_Info
 		return cnt;
 	}
 
+	int change( int selected, bool flag)
+	{
+		memcpy(storeMap, map, sizeof(map));
+		int bitNum = getBitNum(selected);
+
+		int depth = 0;
+		while (selected)
+		{
+			if (selected & 1)
+			{
+				for (int i = 0; i < w; i++)
+				{
+					storeMap[depth][i] = flag;
+				}
+			}
+			depth++;
+			selected >>= 1;
+		}
+		if (check()) 
+			return bitNum;
+
+		return -1;
+	}
 	int change( int selected)
 	{
 		memcpy(storeMap, map, sizeof(map));
@@ -120,7 +167,7 @@ int SecureFilm()
 		SecureFilm_info.init();
 		int res = SecureFilm_info.getMin();
 
-		cout << '#' << tc << ' ' << res << endl;
+		printf("#%d %d\n", tc, res);
 	}
 	return 0;
 }

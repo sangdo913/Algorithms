@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"RedGreenWeak.h"
+#include"PegSoltarior.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	RedGreenWeak();
+	PagSoltarior();
 	return 0;
 }
