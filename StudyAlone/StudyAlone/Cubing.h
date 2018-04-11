@@ -43,7 +43,6 @@ struct CubingInfo
         return res;
     }
 
-
     void Rotate(int op, int bu)
     {
         char temp[3];
