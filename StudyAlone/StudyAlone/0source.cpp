@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include"LeakOfBackBird.h"
+#include"RedGreenWeak.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("0Text.txt", "r", stdin);
-	LeakOfBackBird();
+	RedGreenWeak();
 	return 0;
 }
