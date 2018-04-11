@@ -111,15 +111,10 @@ void t()
 #include"BlockMeSang.h"
 #include"FillingMoon.h"
 #include"Cooker.h"
+#include"SecureFilm.h"
 int main()
 {
-	int cnt = 0;
-	for (int i = 0; i <= 1024; i++)
-	{
-		if ((i&(i - 1)) == 0) ++cnt;
-	}
-
-	cout << cnt << endl;
+	SecureFilm();
 
 	//Cooker();
 	//MakeBridge();
