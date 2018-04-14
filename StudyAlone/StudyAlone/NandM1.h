@@ -1,40 +1,61 @@
 #include<iostream>
 
 using namespace std;
+void rightR(int, int);
+void leftR(int, int);
 
 int arr[8] = {1,2,3,4,5,6,7,8};
 
-void print(int select, int n)
+void print(int n)
 {
     for(int i = 0 ; i < n; i++)
     {
-        if(select & 1) cout << arr[i] << ' ';
-        select >>= 1; 
+        cout << arr[i] << ' ';
     }
     cout << '\n';
 }
 
-void combination(int r, int c, int length, int select)
+void permutation(int n, int r, int length)
 {
-    if(r == c || c == 0)
+    if(length == r)
     {
-       int sel = (1 << c) -1;
-       sel <<= length - r;
-       select |= sel;
-       print(select, length);
-       return;
+        print(r);   
+        return ;
     }
 
-    select |= (1 << (length - r));
-    combination(r-1,c-1,length, select);
-    select ^= (1 << (length - r));
-
-    combination(r-1,c,length, select);
+    for(int i = length; i < n; i++)
+    {
+       rightR(length,i);
+       permutation(n, r, length + 1);
+       leftR(length, i); 
+    }  
 }
+
+void rightR(int st, int end)
+{
+    int temp = arr[end];
+    for(int i = end; i > st; i--)
+    {
+        arr[i] = arr[i-1];
+    } 
+    arr[st] = temp;
+    return;
+}
+void leftR(int st, int end)
+{
+    int temp = arr[st];
+    for(int i = st; i < end; i++)
+    {
+        arr[i] = arr[i+1];
+    } 
+    arr[end] = temp;
+    return;
+}
+
 int NandM1()
 {
     int n,r;
     cin >> n >> r;
-    combination(n,r,n,0);
+    permutation(n,r,0);
     return 0;
 }
