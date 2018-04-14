@@ -1,6 +1,9 @@
 #include<iostream>
 #include<cstring>
 #include<queue>
+#include<vector>
+#include<algorithm>
+
 using namespace std;
 
 void rotateR(int,int);
@@ -26,9 +29,9 @@ void permutation(int n, int r, int length)
 
     for(int i = length; i < n; i++)
     {
-        rotateR(i,n);
+        rotateR(length,i);
         permutation(n,r, length+1);
-        rotateL(i,n);
+        rotateL(length,i);
     }
 }
 
@@ -55,12 +58,13 @@ void rotateL(int st, int dt)
 int NandM5()
 {
     
-    priority_queue<int> que;
+    priority_queue<int, vector<int>, greater<int> > que;
     int n,r;
     cin >> n >> r;
 
     int in;
-    while(n--)
+    
+    for(int i = 0; i < n; i++)
     {
         cin >> in;
         que.push(in);
