@@ -43,7 +43,6 @@ void t()
 }
 
 #include"TestSupervisor.h"
-#include"Tetromino.h"
 #include"Resign.h"
 #include"Labaratory.h"
 #include"01knapsack.h"
@@ -111,10 +110,12 @@ void t()
 #include"BlockMeSang.h"
 #include"FillingMoon.h"
 #include"Cooker.h"
+#include"Chicken.h"
 #include"SecureFilm.h"
+#include"DragonCurve.h"
 int main()
 {
-	SecureFilm();
+	DragonCurve();
 
 	//Cooker();
 	//MakeBridge();
