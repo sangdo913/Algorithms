@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/0source.dir/main.cpp.o  -o 0source -rdynamic 

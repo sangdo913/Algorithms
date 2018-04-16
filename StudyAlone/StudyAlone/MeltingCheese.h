@@ -13,7 +13,7 @@ struct Info
 
     queue<cod> cheeses;
     queue<cod> air;
-
+    
     void init()
     {
         cin >> n >> m;
