@@ -177,6 +177,7 @@
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
     <ClInclude Include="chessTeam.h" />
+    <ClInclude Include="Chicken.h" />
     <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CompleteSearch.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
+    <ClInclude Include="DragonCurve.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="GNS.h" />
@@ -226,6 +228,7 @@
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="N-Queens.h" />
+    <ClInclude Include="NandM9.h" />
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
@@ -266,6 +269,7 @@
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="00Text.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
