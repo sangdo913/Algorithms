@@ -3,29 +3,26 @@
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceRoot}/${fileBasenameNoExtension}",
                 "${workspaceRoot}",
                 "/usr/include",
                 "/usr/local/include"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "__GNUC__=6",
-                "__cdecl=__attribute__((__cdecl__))"
-            ],
+            "defines": [],
             "browse": {
                 "path": [
                     "${workspaceRoot}",
+                    "${workspaceRoot}/${fileBasenameNoExtension}",
                     "/usr/include",
                     "/usr/local/include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "intelliSenseMode": "clang-x64",
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 3

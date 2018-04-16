@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include<iostream>
 #include<cstring>
 #include<queue>
@@ -65,12 +64,3 @@ int NandM9()
     permutation(index,r,0);
     return 0;
 }
-=======
-#pragma once
-#include<iostream>
-#include<cstring>
-#include<queue>
-
-using namespace std;
-
->>>>>>> d373a0fa181a2ba56a5363ca45c6bb1ef7c529a6

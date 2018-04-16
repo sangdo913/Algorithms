@@ -8,10 +8,36 @@
           //C++ 컴파일
           {
             "label": "save and compile for C++",
-            "command": "g++",
-            "args": [
-                "${file} -g -o ${fileDirname}/${fileBasenameNoExtension}"
-            ],
+            "command": "g++ ${file} -g -o ${fileDirname}/${fileBasenameNoExtension}",
+            "group": "build",
+
+            //컴파일시 에러를 편집기에 반영
+            //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
+
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    // The regular expression. 
+                   //Example to match: helloWorld.c:5:3: warning: implicit declaration of function 'prinft'
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+
+
+
+        //C++ 컴파일
+        {
+            "label": "save and compile for C++ (0/source)",
+            "command": "g++ ${fileDirname}/0source.cpp -g -o ${fileDirname}/0source",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
