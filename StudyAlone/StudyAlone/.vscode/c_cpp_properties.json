@@ -9,7 +9,8 @@
                 "/usr/include/c++/5",
                 "/usr/include/c++/6",
                 "/usr/include/x86_64-linux-gnu/c++/5",
-                "/usr/include/x86_64-linux-gnu/c++/6"
+                "/usr/include/x86_64-linux-gnu/c++/6",
+                "/usr/include/x86_64-linux-gnu"
             ],
             "defines": [],
             "browse": {
@@ -20,7 +21,8 @@
                     "/usr/include/c++/5",
                     "/usr/include/c++/6",
                     "/usr/include/x86_64-linux-gnu/c++/5",
-                    "/usr/include/x86_64-linux-gnu/c++/6"
+                    "/usr/include/x86_64-linux-gnu/c++/6",
+                    "/usr/include/x86_64-linux-gnu"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

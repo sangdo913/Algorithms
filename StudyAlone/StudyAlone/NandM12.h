@@ -13,6 +13,8 @@ struct Cod {int r, c;};
 
 void print(int n)
 {
+    Cod a;
+
     for (int i = 0; i< n; i++)
     {
         cout << arr[selected[i]] << ' ';
@@ -24,6 +26,7 @@ void print(int n)
 void combination(int n, int r, int length, int index)
 {
     if(index == n) return;
+
     if(r == length)
     {
         print(r);
@@ -48,7 +51,7 @@ int NandM12()
         int num;
         cin >> num;
         if(nums[num]) continue;
-        
+
         nums[num] = true;
         que.push(num);
         index++;

@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	freopen("00Text.txt", "r", stdin);
+	freopen("/works/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
 	NandM12();
 	return 0;
 }
