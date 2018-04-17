@@ -113,9 +113,11 @@ void t()
 #include"Chicken.h"
 #include"SecureFilm.h"
 #include"DragonCurve.h"
+#include"SupervisorCCTV.h"
+
 int main()
 {
-	DragonCurve();
+	CCTV();
 
 	//Cooker();
 	//MakeBridge();
