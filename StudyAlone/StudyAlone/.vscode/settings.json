@@ -1,5 +1,5 @@
 {
-    "powermode.enabled": true,
+    "powermode.enabled":false,
     "powermode.shakeIntensity": 3,
     "powermode.explosionDuration": 500,
     "powermode.explosionFrequency": 5,
@@ -35,6 +35,7 @@
         "tuple": "cpp",
         "fstream": "cpp",
         "functional": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "vector": "cpp"
     }
 }

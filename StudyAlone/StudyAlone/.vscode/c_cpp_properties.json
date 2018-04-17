@@ -3,23 +3,24 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceRoot}/${fileBasenameNoExtension}",
                 "${workspaceRoot}",
                 "/usr/include",
                 "/usr/local/include",
                 "/usr/include/c++/5",
                 "/usr/include/c++/6",
-                "/usr/include/x86_64-linux-gnu/c++/5"
+                "/usr/include/x86_64-linux-gnu/c++/5",
+                "/usr/include/x86_64-linux-gnu/c++/6"
             ],
             "defines": [],
             "browse": {
                 "path": [
                     "${workspaceRoot}",
-                    "${workspaceRoot}/${fileBasenameNoExtension}",
                     "/usr/include",
                     "/usr/local/include",
                     "/usr/include/c++/5",
-                    "/usr/include/c++/6"
+                    "/usr/include/c++/6",
+                    "/usr/include/x86_64-linux-gnu/c++/5",
+                    "/usr/include/x86_64-linux-gnu/c++/6"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
