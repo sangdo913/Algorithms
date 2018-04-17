@@ -1,4 +1,8 @@
 {
+    "powermode.enabled": true,
+    "powermode.shakeIntensity": 3,
+    "powermode.explosionDuration": 500,
+    "powermode.explosionFrequency": 5,
     "files.associations": {
         "*.tcc": "cpp",
         "cctype": "cpp",

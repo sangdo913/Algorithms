@@ -2,7 +2,6 @@
 #include<vector>
 #include<queue>
 #include<algorithm>
-
 using namespace std;
 
 int arr[8];
@@ -59,7 +58,21 @@ int NandM12()
         arr[i] = que.top();
         que.pop();
     }
-
     combination(index,r,0,0);
     return 0;
+}
+
+void getNExt()
+{
+
+    for(int i = 0; i < 4; i++)
+    {
+        const int dr[4] = {-1,1,0,0};
+        const int dc[4] = {0,0,-1,1};
+        typedef cod{int r,c;} c;
+        c now, next;
+
+        next.r = now.r + dr[d];
+        next.c = now.c + dc[d];
+    }
 }
