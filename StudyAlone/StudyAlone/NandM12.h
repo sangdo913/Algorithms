@@ -9,12 +9,15 @@ int arr[8];
 bool nums[10001] = {false,};
 int selected[8];
 
+struct Cod {int r, c;};
+
 void print(int n)
 {
     for (int i = 0; i< n; i++)
     {
         cout << arr[selected[i]] << ' ';
     }
+
     cout << '\n';
 }
 
@@ -45,7 +48,7 @@ int NandM12()
         int num;
         cin >> num;
         if(nums[num]) continue;
-
+        
         nums[num] = true;
         que.push(num);
         index++;
