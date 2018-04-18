@@ -114,10 +114,11 @@ void t()
 #include"SecureFilm.h"
 #include"DragonCurve.h"
 #include"SupervisorCCTV.h"
-
+#include"LiftingLadder.h"
+#include"FIndStr.h"
 int main()
 {
-	CCTV();
+	FIndStr();
 
 	//Cooker();
 	//MakeBridge();

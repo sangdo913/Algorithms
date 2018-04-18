@@ -194,6 +194,7 @@
     <ClInclude Include="DragonCurve.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
+    <ClInclude Include="FIndStr.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LineDivide.h" />
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
