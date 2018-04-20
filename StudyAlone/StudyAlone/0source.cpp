@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"SamePlus.h"
+#include"PatternLength.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/works/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	SamePlus();
+	PatternLength();
 	return 0;
 }
