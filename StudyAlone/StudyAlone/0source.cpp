@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"PatternLength.h"
+#include"Discrease.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/works/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	PatternLength();
+	DisCrease();
 	return 0;
 }
