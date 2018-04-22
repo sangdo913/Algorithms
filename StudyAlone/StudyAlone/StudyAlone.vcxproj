@@ -219,6 +219,7 @@
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LineDivide.h" />
+    <ClInclude Include="MakeBiggestNumber.h" />
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />

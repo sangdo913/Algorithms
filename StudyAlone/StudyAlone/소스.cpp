@@ -116,9 +116,10 @@ void t()
 #include"SupervisorCCTV.h"
 #include"LiftingLadder.h"
 #include"FIndStr.h"
+#include"MakeBiggestNumber.h"
 int main()
 {
-	FIndStr();
+	MakeBiggestNumber();
 
 	//Cooker();
 	//MakeBridge();

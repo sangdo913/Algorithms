@@ -12,8 +12,10 @@ struct FindSTR_Info
 	int position[1000001];
 	int kmp[1000001];
 	int end;
+
 	string p;
 	string t;
+
 	int min(int i1, int i2)
 	{
 		return i1 < i2 ? i1 : i2;
@@ -65,14 +67,12 @@ struct FindSTR_Info
 		int lenP = p.length();
 		for (int i = 0; i < len; i++)
 		{
-
 			while (m != -1 && p[m] != t[i])
 			{
 				m = kmp[m];
 			}
 			
 			m++;
-
 		
 			if (m == lenP)
 			{
