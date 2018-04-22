@@ -365,7 +365,7 @@
     <ClInclude Include="FIndStr.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MakeBiggestNumber.h">
+    <ClInclude Include="MakeBiggestNumber1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
