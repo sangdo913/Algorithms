@@ -213,6 +213,7 @@
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
     <ClInclude Include="Kid_Car_Robot.h" />
+    <ClInclude Include="KillFly.h" />
     <ClInclude Include="King%27s_Position.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
@@ -235,6 +236,7 @@
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PoPPing.h" />

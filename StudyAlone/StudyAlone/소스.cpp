@@ -117,9 +117,11 @@ void t()
 #include"LiftingLadder.h"
 #include"FIndStr.h"
 #include"MakeBiggestNumber.h"
+#include"PascalTriangle.h"
+#include"KillFly.h"
 int main()
 {
-	MakeBiggestNumber();
+	KillFly();
 
 	//Cooker();
 	//MakeBridge();
