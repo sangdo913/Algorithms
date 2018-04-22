@@ -13,8 +13,6 @@ struct Cod {int r, c;};
 
 void print(int n)
 {
-    Cod a;
-
     for (int i = 0; i< n; i++)
     {
         cout << arr[selected[i]] << ' ';
