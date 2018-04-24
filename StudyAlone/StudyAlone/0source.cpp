@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"Discrease.h"
+#include"TimeCal.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	DisCrease();
+	TimeCal();
 	return 0;
 }
