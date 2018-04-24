@@ -46,6 +46,14 @@
                 }
             ]
 
+        },
+
+        {
+            "name": "Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "/Users/sangdolee/Algorithms/StudyAlone/StudyAlone/0source",
+            "args": [],
         }
     ]
 }

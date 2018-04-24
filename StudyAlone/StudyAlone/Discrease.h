@@ -1,4 +1,8 @@
 #include<stdio.h>
+#include<iostream>
+#include<vector>
+
+using namespace std;
 
 struct Info
 {
@@ -65,6 +69,7 @@ int DisCrease()
 {
     int t;
     scanf("%d\n", &t);
+
     for(int tc = 1; tc <= t; tc ++)
     {
         printf("#%d ",tc);
