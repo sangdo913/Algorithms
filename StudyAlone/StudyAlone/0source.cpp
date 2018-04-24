@@ -6,8 +6,9 @@
 using namespace std;
 
 int main()
-{
-	freopen("/works/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	DisCrease();
+{ 
+	cout << "TEstb" << endl;
+	//freopen("/Users/sangdolee/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
+	//DisCrease();
 	return 0;
 }

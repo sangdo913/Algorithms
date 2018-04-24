@@ -7,7 +7,7 @@ struct Info
         int parent;
         int child;
     } edge;
-
+    
     int p[100001];
     edge e[100000];
 
@@ -35,6 +35,8 @@ struct Info
             e[eNum].parent = parent;
             e[eNum++].child = child;
         }
+
+        
 
         for(int i = n; i > 1 ; i--)
         {
