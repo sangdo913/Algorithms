@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	freopen("/Users/sangdolee/Algorithms/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
 	ClockWiseNum();
 	return 0;
 }

@@ -37,7 +37,7 @@
         //C++ 컴파일
         {
             "label": "save and compile for C++ (0/source)",
-            "command": "g++ /Users/sangdolee/Algorithms/StudyAlone/StudyAlone/0source.cpp -g -o /Users/sangdolee/Algorithms/StudyAlone/StudyAlone/0source",
+            "command": "g++ ${workspaceRoot}/StudyAlone/StudyAlone/0source.cpp -g -o ${workspaceRoot}/StudyAlone/StudyAlone/0source",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
@@ -105,7 +105,7 @@
             "command": "",
             "group": "test",
             "args": [
-               "/Users/sangdolee/Algorithms/StudyAlone/StudyAlone/0source"
+               "${workspaceRoot}/StudyAlone/StudyAlone/0source"
             ]
         }
     ]
