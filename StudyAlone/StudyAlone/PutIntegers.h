@@ -1,7 +1,6 @@
 #include<cstdio>
 #include<cstring>
-#include<vector>
-#include<set>
+
 
 using namespace std;
 int PutInteger()
