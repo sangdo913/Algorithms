@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "lldb-mi",
+            "request": "launch",
+            "name": "Launch Program",
+            "target": "${workspaceRoot}/StudyAlone/StudyAlone/0source",//"./bin/executable",
+            "cwd": "${workspaceRoot}/StudyAlone/StudyAlone/"
+        },
+        {
             "name": "(gdb)Launch - 0source",
             "type": "cppdbg",
             "request": "launch",
@@ -53,7 +60,18 @@
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source",
-            "args": [],
-        }
+            "args": []
+        },
+
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source",
+            "MIMode": "lldb",
+            "stopAtEntry": false,
+            "launchCompleteCommand": "exec-run",
+            "cwd": "${workspaceRoot}/StudyAlone/StudyAlone/"
+         }
     ]
 }

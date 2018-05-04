@@ -6,10 +6,7 @@
                 "/usr/include",
                 "/usr/local/include",
                 "${workspaceRoot}/StudyAlone/StudyAlone",
-                "${workspaceFolder}",
-                "${fileDirname}",
-                "${file}",
-                "/Library/Developer/CommandLineTools/usr/bin"
+                "${fileDirname}"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -18,12 +15,7 @@
                     "/usr/include",
                     "/usr/local/include",
                     "${workspaceRoot}",
-                    "${file}",
-                    "${workspaceFolder}",
-                    "/Users/sangdolee/Algorithms/StudyAlone/StudyAlone",
-                    "/Users/sangdolee/Algorithms/StudyAlone",
-                    "${fileDirname}",
-                    "/Library/Developer/CommandLineTools/usr/bin"
+                    "${fileDirname}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

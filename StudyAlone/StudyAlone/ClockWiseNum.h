@@ -1,10 +1,24 @@
 #include<cstring>
 #include<iostream>
+#include<queue>
+#include<vector>
 
 using namespace std;
 
+template class queue<int> ;
+template class vector<int>;
+
 int ClockWiseNum()
 {
+    queue<int> que;
+    vector<int> vec;
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+
+    que.push(1);
+    que.push(3);
+    
     int arr[7][7];
     int clockWiseArr[7][7];
     int t;
