@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"FIndLengthOfRectangular.h"
+#include"JoonHwanExerciseManagement.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	FIndLengthOfRectangular();
+	JoonHwanExerciseManagement();
 	return 0;
 }
