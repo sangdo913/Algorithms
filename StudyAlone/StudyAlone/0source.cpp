@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"SimpleInSu.h"
+#include"Base64Decode.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	SimpleInSu();
+	Base64Decode();
 	return 0;
 }
