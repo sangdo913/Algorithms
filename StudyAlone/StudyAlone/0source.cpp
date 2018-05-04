@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"JoonHwanExerciseManagement.h"
+#include"PlusStudy.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	JoonHwanExerciseManagement();
+	PlusStudy();
 	return 0;
 }
