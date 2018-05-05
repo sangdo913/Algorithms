@@ -26,7 +26,7 @@
                 "/Library/Frameworks"
             ],
             "cStandard": "c11",
-            "cppStandard": "c++11",
+            "cppStandard": "c++17",
             "compilerPath": "/usr/bin/clang"
         },
         {
