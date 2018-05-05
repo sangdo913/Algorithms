@@ -36,6 +36,8 @@
         "cstddef": "cpp",
         "memory": "cpp",
         "queue": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "hash_map": "cpp",
+        "unordered_map": "cpp"
     }
 }
