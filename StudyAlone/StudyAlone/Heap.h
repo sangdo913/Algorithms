@@ -6,22 +6,24 @@ using namespace std;
 
 int Heap()
 {
-    priority_queue<int> pq;
-    int t, n, comm, num;
+    typedef long long ll;
+    int t, n, comm;
+    ll num;
     scanf("%d\n", &t);
 
-    for(int tc = 1 ; tc <= t; t++)
+    for(int tc = 1 ; tc <= t; tc++)
     {
-        scanf("%d", &n);
+        scanf("%d\n", &n);
+        priority_queue<ll> pq;
 
-        printf("#%d ", tc);
+        printf("#%d", tc);
         while(n--)
         {
             scanf("%d\n ", &comm);
             switch(comm)
             {
                 case 1:
-                scanf("%d \n", &num);
+                scanf("%lld\n", &num);
                 pq.push(num);
                 break;
 
@@ -33,10 +35,11 @@ int Heap()
                     pq.pop();
                 }
 
-                printf(" %d", num);
+                printf(" %lld", num);
                 break;
             }
         }
+        printf("\n");
     }
     return 0;
 }
