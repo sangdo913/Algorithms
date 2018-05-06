@@ -17,7 +17,7 @@ struct Memyro
         char prev = '0';
         int res = 0;
 
-        for(int i = s.size() - 1; i >= 0; i--)
+        for(int i = 0; i < s.size(); i++)
         {
             if(s[i] != prev)
             {
