@@ -9,7 +9,8 @@ struct Memyro
     string s;
     void init()
     {
-        cin >> s;
+        int g;
+        cin >> g >> s;
     }    
 
     int getMem()

@@ -38,6 +38,7 @@
         "queue": "cpp",
         "deque": "cpp",
         "hash_map": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "stack": "cpp"
     }
 }
