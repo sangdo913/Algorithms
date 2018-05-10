@@ -39,6 +39,7 @@
         "deque": "cpp",
         "hash_map": "cpp",
         "unordered_map": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "hashtable": "cpp"
     }
 }
