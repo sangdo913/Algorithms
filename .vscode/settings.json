@@ -40,6 +40,12 @@
         "hash_map": "cpp",
         "unordered_map": "cpp",
         "stack": "cpp",
-        "hashtable": "cpp"
+        "hashtable": "cpp",
+        "__split_buffer": "cpp",
+        "bitset": "cpp",
+        "iterator": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp"
     }
 }
