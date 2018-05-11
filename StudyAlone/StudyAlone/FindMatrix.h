@@ -16,7 +16,13 @@ struct FINDMATRIXINFO
     {
         bool operator()(MAT a, MAT b)
         {
-            return a.r * a.c > b.r * b.c; 
+            int i1 = a.r * a.c;
+            int i2 = b.r * b.c;
+            if(i1 == i2)
+            {
+                return a.r < b.r;
+            }
+            return i1 < i2; 
         }
     } MATVALUE;
 
@@ -91,7 +97,7 @@ int FindMatrix()
     {
         info.init();
         printf("#%d ", tc);
-        info.getValue();
+        printf("%d ",info.getValue());
         info.print();
         printf("\n");
     }
