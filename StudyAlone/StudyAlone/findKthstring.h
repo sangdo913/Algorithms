@@ -1,14 +1,16 @@
 #include<algorithm>
 #include<cstdio>
 #include<iostream>
+#include<cstring>
 
 using namespace std;
 
 char str[801];
-int group[400];
+int group[800];
 int newGroup[400], cnt, tree[400];
 int reverseTree[400];
 int LCP[400], len;
+int getLength(char* str);
 
 void makeLCP()
 {
@@ -18,15 +20,42 @@ void makeLCP()
     }
 
     int cnt = 0;
+    LCP[0] = 0;
     for(int i = 0 ; i < len; i++)
     {
-        if(reverseTree[i] == 0) continue;
-        int rev = tree[reverseTree[i] - 1];
-        while(str[rev + cnt] == str[reverseTree[i] + cnt]) cnt++;
-        LCP[reverseTree[i]] = cnt;
-        cnt--;
+        int rev = reverseTree[i];
+        if(rev == 0) 
+        {
+            cnt = 0;
+            continue;
+        }
+        int revPrev = tree[rev - 1];
+
+        while(str[i + cnt] == str[revPrev + cnt]) cnt++;
+        LCP[rev] = cnt--;
         cnt = cnt < 0 ? 0 : cnt;
     }
+}
+
+void print(int pos)
+{
+    int cnt = 0;
+    for(int i = 0; i < len; i++)
+    {
+        int lenth = getLength(str + tree[i]);
+
+        cnt += lenth - LCP[i];
+        if(pos <= cnt)
+        {
+            cnt -= lenth - LCP[i];
+            pos -= cnt;
+            str[tree[i] + pos + LCP[i]] = 0;
+            printf("%s", str + tree[i]);
+            return;
+        }
+    }
+
+    printf("none");
 }
 
 struct Order
@@ -35,7 +64,7 @@ struct Order
     {
         if(group[i1] == group[i2])
         {
-            return str[i1 + cnt] < str[i2 + cnt];
+            return group[i1 + cnt] < group[i2 + cnt];
         }
 
         return group[i1] < group[i2];
@@ -53,7 +82,7 @@ int getLength(char* str)
     return res;
 }
 
-int findKthStr()
+int findKthstring()
 {
     int t;
     scanf("%d\n", &t);
@@ -81,20 +110,25 @@ int findKthStr()
             newGroup[tree[0]] = 1;
             for(int i = 1; i < len; i++)
             {
-                if(!order(tree[i-1], tree[i]))
+                if(order(tree[i-1], tree[i]))
                 {
-                    newGroup[tree[i]] = newGroup[tree[i - 1]];
+                    newGroup[tree[i]] = newGroup[tree[i - 1]] + 1;
                 }
                 else
                 {
-                    newGroup[tree[i]] = newGroup[tree[i - 1]] + 1;
+                    newGroup[tree[i]] = newGroup[tree[i - 1]];
                 }
             }
 
             for(int i = 0; i < len; i++) group[i] = newGroup[i];
             cnt <<= 1;
         } 
-        printf("#%d %s\n", tc, &str[tree[pos - 1]]);
+
+        makeLCP();
+
+        printf("#%d ", tc);
+        print(pos);
+        printf("\n");
     }
 
     return 0;
