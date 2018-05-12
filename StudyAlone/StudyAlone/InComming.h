@@ -1,8 +1,4 @@
 #include<cstdio>
-#include<cstring>
-#include<iostream>
-
-using namespace std;
 
 int boats[5000];
 int bNum;
@@ -10,6 +6,7 @@ int bNum;
 int InComming()
 {
     int t, n;
+    bool find = false;
 
     scanf("%d\n", &t);
     for(int tc = 1; tc <= t; tc++)
@@ -22,7 +19,7 @@ int InComming()
 
         while(--n)
         {
-            bool find = false;
+            find = false;
             scanf("%d\n", &in);
             in--;
             for(int i = 0; i < bNum; i++)
