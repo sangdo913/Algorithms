@@ -98,7 +98,7 @@ struct ChemicalInfo
         for(int cnt = 0; cnt < bNum; cnt++)
         {
             for(int i = 1; i <= bNum - cnt; i++)
-            {
+            { 
                 int j = i + cnt;
                 if(i == j)
                 {
