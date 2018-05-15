@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"PlatingPrice.h"
+#include"returnToMyRoom.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	PlatingPrice();
+	returnToMyRoom();
 	return 0;
 }
