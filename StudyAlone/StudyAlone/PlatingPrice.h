@@ -1,6 +1,5 @@
 #include<cstdio>
 #include<cstring>
-#include<cmath>
 
 struct PlatingInfo
 {
@@ -9,10 +8,9 @@ struct PlatingInfo
     int size, maxRange;
     bool map[102][102];
     int blored[101][101];
-    int remain[101];
     int prices[101];
     int Q[10000][3], fr, re, num;
-    const int mask[5][5] = {{1,3,12,3,2},{3,5,14,5,3},{12,14,50,14,12}, {3,5,14,5,3},{1,3,12,3,1}}, std = 50;
+    const int mask[5][5] = {{1,4,7,4,1},{4,16,26,16,4},{7,26,50,26,7},{4,16,26,16,4},{1,4,7,4,1}}, std = 60;
 
     void blor()
     {
@@ -25,7 +23,6 @@ struct PlatingInfo
                 bool can = map[i-1][j] + map[i+1][j] + map[i][j+1] + map[i][j-1] >= 3; 
                 if(map[i][j] || can)
                 {
-                    blored[i][j]++;
                     for(int r = -2; r <= 2; r++)
                     {
                         for(int c = -2; c <= 2; c++)
@@ -39,19 +36,6 @@ struct PlatingInfo
                 }
             }
         }
-    }
-
-    bool canPlant(int r, int c, int range)
-    {
-        int cnt = 0;
-        for(int i = 0; i < range; i++)
-        {
-            for(int j = 0; j < range; j++)
-            {
-                cnt += blored[r + i][c + j] >= std;
-            }
-        }
-        return range*range == cnt;
     }
 
     void init()
@@ -68,6 +52,14 @@ struct PlatingInfo
             int r, c;
             scanf("%d %d \n", &r, &c);
             map[r][c] = true;
+        }
+    }
+
+    void setPrice()
+    {
+        for(int i = 1; i <= 100; i++)
+        {
+            prices[i] = (float)(i*i) / 2.f + (float)(i*2) / 3.f + 1;
         }
     }
 
@@ -118,12 +110,12 @@ struct PlatingInfo
         fr = re = 0;
 
         int l, r, m;
-        max.blorNum = -1;
         
-        while(maxRange > 3)
+        while(maxRange > 4)
         {
+            max.blorNum = -1;
             blor();
-            l = 3; r = maxRange;
+            l = 4; r = maxRange;
             while(l <= r)
             {
                 m = (l + r) / 2;
@@ -147,40 +139,40 @@ struct PlatingInfo
             maxRange = r;
         }
 
-
-        l = 1;
-        for(int s = 4; s >=  2; s--)
+        for(l = 2; l >= 1; l--)
         {
-            for(int i = 1; i + l <= size; i++)
+            for(int s = (l+1)*(l+1); s >=  l*l + 1; s--)
             {
-                for(int j = 1; j + l <= size; j++)
+                for(int i = 1; i + l <= size; i++)
                 {
-                    int cnt = 0;
-                    for(int r = 0; r < l + 1; r++)
+                    for(int j = 1; j + l <= size; j++)
                     {
-                        for(int c = 0; c < l + 1 ; c++)
-                        {
-                            cnt += map[i + r][j + c];
-                        }
-                    }
-                    if(cnt == s)
-                    {
-                        Q[re][0] = i;
-                        Q[re][1] = j;
-                        Q[re++][2] = l + 1;
-                        
+                        int cnt = 0;
                         for(int r = 0; r < l + 1; r++)
                         {
                             for(int c = 0; c < l + 1 ; c++)
                             {
-                                map[i + r][j + c] = false;
+                                cnt += map[i + r][j + c];
+                            }
+                        }
+                        if(cnt == s)
+                        {
+                            Q[re][0] = i;
+                            Q[re][1] = j;
+                            Q[re++][2] = l + 1;
+                            
+                            for(int r = 0; r < l + 1; r++)
+                            {
+                                for(int c = 0; c < l + 1 ; c++)
+                                {
+                                    map[i + r][j + c] = false;
+                                }
                             }
                         }
                     }
                 }
             }
         }
-
 
         for(int i = 1; i <= size; i++)
         {
@@ -207,32 +199,20 @@ struct PlatingInfo
         }
     }
 
-    void printBlor()
-    {
-        for(int i = 1; i <= size; i++)
-        {
-            printf("%3d : ", i);
-            for(int j =1; j <= size; j++)
-            {
-                printf("%d ", blored[i][j] >= std);
-            }
-            printf("\n");
-        }
-    }
-
     int edgeSum(int r, int c, int range)
     {
-        int res = 0, cnt = 0;
+        int res = 0, cnt = 0, bCnt = 0;
         for(int i = 0; i < range; i++)
         {
             for(int j = 0; j < range; j++)
             {
-                if(blored[r + i][c + j] >= std) cnt++;
                res += blored[r + i][c + j]; 
+               cnt+= map[r + i][ c + j];
+               bCnt += blored[r + i][c + j] >= std;
             }
         }
-
-        if(cnt < (float)(range*range)*0.99f) return -1; 
+        if(cnt < prices[range]) return -1;
+        if(bCnt < (float)(range*range)*0.99f) return -1; 
         return res;
     }
 
@@ -246,7 +226,7 @@ struct PlatingInfo
             cnt += blored[r][c+i] >= std;
         }
 
-        if(cnt < (float)(range * 2 - 1)* 0.95f) return -1;
+        if(cnt < (float)(range * 2 - 1 )*0.965f) return -1;
         
         return edgeSum(r, c,range);
     }
@@ -266,6 +246,7 @@ int PlatingPrice()
 {
     int t; 
     scanf("%d\n", &t);
+    info.setPrice();
     for(int tc = 1; tc <= t; tc++)
     {
         info.init();
