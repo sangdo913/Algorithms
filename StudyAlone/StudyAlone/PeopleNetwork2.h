@@ -1,7 +1,7 @@
 #include<cstdio>
+#define INF 0x7FFFFFFF
  int map[1000][1000], size;
-
-int main()
+int PeopleNetwork2()
 {
     int t;
     scanf("%d\n", &t);
@@ -51,6 +51,8 @@ int main()
             }
             if(min > res) min = res;
         }
+
+        printf("Test : %d\n", INF);
         
         printf("#%d %d\n", tc, min);
     }

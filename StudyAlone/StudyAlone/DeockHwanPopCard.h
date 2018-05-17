@@ -8,17 +8,15 @@ int DeockHwanPopCard()
     for(int tc = 1; tc <= t; tc++)
     {
         scanf("%lld %lld\n", &n, &k);
-        int res = k % 2, now = 3;
-        res = res == 0 ? 2 : res;
+        int res = ++k % 2, now = 3;
 
         while(now <= n)
         {
-            int st = (k + 2) % now;
-            res = (st + res - 1) % now;
-            res = res == 0 ? now : res;
+            int st = k % now;
+            res = (st + res) % now;
             now++;
         }
-        printf("#%d %d\n", tc, res);
+        printf("#%d %d\n", tc, ++res);
     }
 
     return 0;
