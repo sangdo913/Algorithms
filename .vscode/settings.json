@@ -52,6 +52,10 @@
         "chrono": "cpp",
         "__config": "cpp",
         "__nullptr": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "__functional_base": "cpp",
+        "atomic": "cpp",
+        "locale": "cpp",
+        "ratio": "cpp"
     }
 }
