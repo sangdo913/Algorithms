@@ -1,0 +1,33 @@
+#include<cstdio>
+#include<cstring>
+
+int getNum(char *str)
+{
+    int i = 0;
+    while(str[i])
+    {
+        i++;    
+    }
+    return 0;
+}
+
+int BoggleGame()
+{
+    char arr['Z' - 'A' + 1];
+    char str[11];
+
+    int t;
+    scanf("%d\n", &t);
+    
+    int num;
+    scanf("%d\n", &num);
+
+    while(num--)
+    {
+    scanf("%s\n", str);
+
+    }
+
+
+    return 0;
+}

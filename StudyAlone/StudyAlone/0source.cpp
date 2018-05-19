@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"viTest.h"
+#include"BoggleGame.h"
 
 using namespace std;
 
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
-	viTest();
-	printf("Hello world!\n");
+	BoggleGame();
 	
 	return 0;
 }
