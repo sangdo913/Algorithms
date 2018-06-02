@@ -56,6 +56,7 @@
         "__functional_base": "cpp",
         "atomic": "cpp",
         "locale": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "set": "cpp"
     }
 }
