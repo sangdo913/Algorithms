@@ -5,25 +5,6 @@
 
 int scores[101];
 
-int find(int value, int size)
-{
-    int l = 0; int r = size-1;
-    while(l <= r)
-    {
-        int m = (l + r) >> 1;
-
-        if(scores[m] < value )
-        {
-            l = m + 1;
-        }
-        else
-        {
-            r = m - 1;
-        }
-    }
-
-    return r;
-}
 int MakeMaximumRepot()
 {
     int t;
