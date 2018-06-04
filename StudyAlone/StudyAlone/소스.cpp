@@ -119,9 +119,13 @@ void t()
 #include"MakeBiggestNumber.h"
 #include"PascalTriangle.h"
 #include"KillFly.h"
+#include"HoimoonInspecetion.h"
+#include"GetMinAvg.h"
+#include"Grading.h"
+
 int main()
 {
-	KillFly();
+	Grading();
 
 	//Cooker();
 	//MakeBridge();

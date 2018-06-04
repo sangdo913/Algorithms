@@ -374,6 +374,18 @@
     <ClInclude Include="KillFly.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="HoimoonInspecetion.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZigZagNumber.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GetMinAvg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Grading.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

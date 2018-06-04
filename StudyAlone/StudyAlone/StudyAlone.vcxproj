@@ -195,9 +195,12 @@
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="FIndStr.h" />
+    <ClInclude Include="GetMinAvg.h" />
     <ClInclude Include="GNS.h" />
+    <ClInclude Include="Grading.h" />
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
+    <ClInclude Include="HoimoonInspecetion.h" />
     <ClInclude Include="homeBangBeom.h" />
     <ClInclude Include="HongJoon.h" />
     <ClInclude Include="HyeJungPaint.h" />
@@ -272,6 +275,7 @@
     <ClInclude Include="YeongJoon_Scale.h" />
     <ClInclude Include="YeungJoon_Get_Number.h" />
     <ClInclude Include="MetalStick.h" />
+    <ClInclude Include="ZigZagNumber.h" />
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>
