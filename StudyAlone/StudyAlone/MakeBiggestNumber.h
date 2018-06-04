@@ -12,7 +12,7 @@ int MakeLargestNum(void) {
 	int left_temp = 0, right_temp = 0;
 	int Answer;
 
-	//»óµµ Ãß°¡
+	//ï¿½ï¿½ ï¿½ß°ï¿½
 	typedef enum {MAX = 0, SECOND = 1} BIGORDER;
 
 	int both_left[2] = { -1,-1 };
@@ -103,9 +103,8 @@ int MakeLargestNum(void) {
 	{
 		for (int j = 0; j < 2; j++)
 		{
-			leftIndex = both_left[i]; 
+			leftIndex = both_left[i];
 			rightIndex = both_right[j];
-			
 			if (both_left[i] == both_right[j]) continue;
 			else if(card[leftIndex][0] + card[rightIndex][2] - '0' - '0' > both_sum)
 			{

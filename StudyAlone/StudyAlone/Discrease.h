@@ -1,4 +1,8 @@
 #include<stdio.h>
+#include<iostream>
+#include<vector>
+
+using namespace std;
 
 struct Info
 {
@@ -7,7 +11,7 @@ struct Info
         int parent;
         int child;
     } edge;
-
+    
     int p[100001];
     edge e[100000];
 
@@ -36,6 +40,8 @@ struct Info
             e[eNum++].child = child;
         }
 
+        
+
         for(int i = n; i > 1 ; i--)
         {
             numOfChild[p[i]] += numOfChild[i] + 1;
@@ -63,6 +69,7 @@ int DisCrease()
 {
     int t;
     scanf("%d\n", &t);
+
     for(int tc = 1; tc <= t; tc ++)
     {
         printf("#%d ",tc);
