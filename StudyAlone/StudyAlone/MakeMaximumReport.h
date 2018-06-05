@@ -1,4 +1,5 @@
-//4466. 최대 성적표 만들기 https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWOUfCJ6qVMDFAWg&categoryId=AWOUfCJ6qVMDFAWg&categoryType=CODE
+//4466. 최대 성적표 만들기 
+//https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWOUfCJ6qVMDFAWg&categoryId=AWOUfCJ6qVMDFAWg&categoryType=CODE
 
 #include<stdio.h>
 #include<string.h>
@@ -8,7 +9,6 @@ int scores[101];
 int MakeMaximumRepot()
 {
     int t;
-
     scanf("%d\n", &t);
     for(int tc = 1; tc <= t; tc++ )
     {
