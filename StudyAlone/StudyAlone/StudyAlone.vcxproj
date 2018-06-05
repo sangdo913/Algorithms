@@ -201,6 +201,7 @@
     <ClInclude Include="Grading.h" />
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
+    <ClInclude Include="HardCleaning.h" />
     <ClInclude Include="HoimoonInspecetion.h" />
     <ClInclude Include="homeBangBeom.h" />
     <ClInclude Include="HongJoon.h" />

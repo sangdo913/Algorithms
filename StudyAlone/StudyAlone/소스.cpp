@@ -1,6 +1,7 @@
-#include"GlobalPelindrome.h"
+#include"HardCleaning.h"
+
 int main()
 {
-	GlobalPelindrome();
+	HardCleaning();
 	return 0;
 }

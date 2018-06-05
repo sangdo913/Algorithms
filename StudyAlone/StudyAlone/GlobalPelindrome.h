@@ -1,4 +1,6 @@
 #pragma once
+//SWEA No. 1 세상의 모든 팰린드롬 
+//https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6Oao6N4QDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
 #include<cstdio>
 
 int getSize(char* str)
