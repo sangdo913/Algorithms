@@ -1,7 +1,7 @@
-#include"HardCleaning.h"
+#include"PaintBlackAndWhite.h"
 
 int main()
 {
-	HardCleaning();
+	PaintBlackAndWhite();
 	return 0;
 }

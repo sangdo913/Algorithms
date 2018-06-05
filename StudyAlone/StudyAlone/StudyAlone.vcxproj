@@ -241,6 +241,7 @@
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="PaintBlackAndWhite.h" />
     <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
