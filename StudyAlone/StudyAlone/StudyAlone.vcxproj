@@ -196,6 +196,7 @@
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="FIndStr.h" />
     <ClInclude Include="GetMinAvg.h" />
+    <ClInclude Include="GlobalPelindrome.h" />
     <ClInclude Include="GNS.h" />
     <ClInclude Include="Grading.h" />
     <ClInclude Include="Hacking.h" />
