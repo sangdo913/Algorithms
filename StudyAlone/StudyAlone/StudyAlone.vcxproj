@@ -171,6 +171,7 @@
     <ClInclude Include="BestTaxiDriver.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BIT.h" />
+    <ClInclude Include="BitCombinationa.h" />
     <ClInclude Include="BlockMeSang.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />

@@ -1,7 +1,7 @@
-#include"PaintBlackAndWhite.h"
+#include"BitCombinationa.h"
 
 int main()
 {
-	PaintBlackAndWhite();
+	BitCombination();
 	return 0;
 }
