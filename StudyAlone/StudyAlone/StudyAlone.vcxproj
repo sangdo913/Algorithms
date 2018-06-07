@@ -181,6 +181,7 @@
     <ClInclude Include="Chicken.h" />
     <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="City_Maintenance.h" />
+    <ClInclude Include="CLOCKSYNC.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Cooker.h" />

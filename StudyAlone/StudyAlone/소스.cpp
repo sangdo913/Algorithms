@@ -1,7 +1,7 @@
-#include"BitCombinationa.h"
+#include"CLOCKSYNC.h"
 
 int main()
 {
-	BitCombination();
+	CLOCKSYNC();
 	return 0;
 }

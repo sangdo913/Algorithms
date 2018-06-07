@@ -1,5 +1,7 @@
 #pragma once
-// SWEA 극한의 청소 작업 : https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
+// SWEA 
+//4530. 극한의 청소 작업
+//https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWO6cgzKOIEDFAWw&categoryType=CODE
 #include<cstdio>
 
 long long fourNum[13] = { 0 };
