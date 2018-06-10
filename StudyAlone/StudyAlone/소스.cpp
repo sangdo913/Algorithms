@@ -1,8 +1,9 @@
-#include"FENCE.h"
+#include"FANMEETING.h"
+
 
 int main()
 {
-	FENCE();
+	FANMEETING();
 
 	return 0;
 }

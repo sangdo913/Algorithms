@@ -91,4 +91,5 @@ int FENCE()
 		printf("%d\n", getMaxArea(0, n));
 	}
 	return 0;
+
 }
