@@ -280,6 +280,7 @@
     <ClInclude Include="ToOne.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
+    <ClInclude Include="WILDCARD.h" />
     <ClInclude Include="YeongJoon_Real_BFS.h" />
     <ClInclude Include="YeongJoon_Real_BFS_LCA.h" />
     <ClInclude Include="YeongJoon_Scale.h" />

@@ -42,7 +42,7 @@ bool follow(int r, int c)
 		if (ret) return true;
 	}
 
-	return false;
+	return false; 
 }
 
 void init()

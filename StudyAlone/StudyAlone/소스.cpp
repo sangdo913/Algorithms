@@ -1,9 +1,9 @@
-#include"JUMPGAME.h"
+#include"WILDCARD.h"
 
 
 int main()
 {
-	JUMPGAME();
+	WILDCARD();
 
 	return 0;
 }

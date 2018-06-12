@@ -1,8 +1,10 @@
 ﻿  소스.cpp
-c:\users\sd\documents\algorithms\studyalone\studyalone\jumpgame.h(52): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\sd\documents\algorithms\studyalone\studyalone\wildcard.h(20): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
-c:\users\sd\documents\algorithms\studyalone\studyalone\jumpgame.h(58): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\sd\documents\algorithms\studyalone\studyalone\wildcard.h(22): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
-c:\users\sd\documents\algorithms\studyalone\studyalone\jumpgame.h(66): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\sd\documents\algorithms\studyalone\studyalone\wildcard.h(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+c:\users\sd\documents\algorithms\studyalone\studyalone\wildcard.h(114): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
   StudyAlone.vcxproj -> C:\Users\SD\Documents\Algorithms\StudyAlone\Debug\StudyAlone.exe
