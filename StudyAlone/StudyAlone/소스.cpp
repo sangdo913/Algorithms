@@ -1,9 +1,9 @@
-#include"FANMEETING.h"
+#include"JUMPGAME.h"
 
 
 int main()
 {
-	FANMEETING();
+	JUMPGAME();
 
 	return 0;
 }

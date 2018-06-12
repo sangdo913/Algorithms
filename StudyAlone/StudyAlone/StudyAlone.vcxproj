@@ -221,6 +221,7 @@
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JongMinHamberger.h" />
+    <ClInclude Include="JUMPGAME.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
     <ClInclude Include="Kid_Car_Robot.h" />
