@@ -1,9 +1,8 @@
-#include"WILDCARD.h"
-
+#include"LIS.h"
 
 int main()
 {
-	WILDCARD();
+	LIS();
 
 	return 0;
 }

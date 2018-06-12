@@ -232,6 +232,7 @@
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LineDivide.h" />
+    <ClInclude Include="LIS.h" />
     <ClInclude Include="MakeBiggestNumber1.h" />
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
@@ -278,6 +279,7 @@
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="ToOne.h" />
+    <ClInclude Include="TRIANGLEPATH.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
     <ClInclude Include="WILDCARD.h" />
