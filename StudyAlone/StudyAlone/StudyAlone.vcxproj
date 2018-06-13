@@ -218,6 +218,7 @@
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
+    <ClInclude Include="JLIS.h" />
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JongMinHamberger.h" />

@@ -1,8 +1,8 @@
-#include"LIS.h"
+#include"JLIS.h"
 
 int main()
 {
-	LIS();
+	JLIS();
 
 	return 0;
 }
