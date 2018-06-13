@@ -254,6 +254,7 @@
     <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
+    <ClInclude Include="PI.h" />
     <ClInclude Include="PoPPing.h" />
     <ClInclude Include="PossibleScore.h" />
     <ClInclude Include="Predicth.h" />

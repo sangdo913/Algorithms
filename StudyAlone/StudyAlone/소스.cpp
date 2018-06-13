@@ -1,8 +1,8 @@
-#include"JLIS.h"
+#include"PI.h"
 
 int main()
 {
-	JLIS();
+	PI();
 
 	return 0;
 }
