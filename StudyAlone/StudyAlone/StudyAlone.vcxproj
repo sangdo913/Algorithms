@@ -261,6 +261,7 @@
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
+    <ClInclude Include="QUANTIZE.h" />
     <ClInclude Include="Quicksort.h" />
     <ClInclude Include="RamCess.h" />
     <ClInclude Include="Resign.h" />

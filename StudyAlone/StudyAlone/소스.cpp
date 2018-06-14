@@ -1,8 +1,8 @@
-#include"PI.h"
+#include"QUANTIZE.h"
 
 int main()
 {
-	PI();
+	QUANTIZE();
 
 	return 0;
 }
