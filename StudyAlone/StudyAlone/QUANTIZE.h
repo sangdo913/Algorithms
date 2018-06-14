@@ -7,8 +7,9 @@
 // https://algospot.com/judge/problem/read/QUANTIZE
 
 int nums[101] = { 0 }, n, s;
-int temp[101], memoi[11][101], cache[1001][101];
+int temp[101], memoi[11][101];
 const int INF = 987654321;
+int pSum[101] = { 0 }, p2Sum[101] = { 0 };
 
 int min(int i1, int i2)
 {
@@ -52,37 +53,39 @@ void mergeSort(int left, int right)
 	}
 }
 
-int getMin(int cnt, int idx)
+int sMin(int left, int right)
 {
-	int& ret = memoi[cnt][idx];
-	if (ret != -1) return ret;
+	int m = (int)((double(pSum[right] - pSum[left - 1])) / (right - left + 1) + 0.5);
 
-	ret = INF;
+	return p2Sum[right] - p2Sum[left - 1] - 2 * (pSum[right] - pSum[left - 1]) * m + m * m * (right - left + 1);
+}
 
-	if (cnt == 1)
+int getMin2(int cnt, int idx)
+{
+	int &ret = memoi[cnt][idx];
+
+	if (ret != -1)
 	{
-		for (int p = 1; p <= 1000; p++)
-		{
-			ret = min(cache[p][n] - cache[p][idx - 1], ret);
-		}
-
 		return ret;
 	}
 
-	if (idx == n) return ret = 0;
-
-	int p;
-
-	for (int i = 1; i <= nums[n]; i++)
+	if (idx == n)
 	{
-		for (int j = idx + 1; j <= n; j++)
-		{
-			p = cache[i][j - 1] - cache[i][idx - 1];
-
-			ret = min(ret, p + getMin(cnt - 1, j));
-		}
+		return ret = 0;
 	}
 
+	if (cnt == 1)
+	{
+		return ret = sMin(idx, n);
+	}
+
+	ret = INF;
+
+	for (int next = idx + 1; next <= n; next++)
+	{
+		ret = min(ret, sMin(idx, next - 1) + getMin2(cnt - 1, next));
+	}
+	
 	return ret;
 }
 
@@ -93,6 +96,7 @@ void init()
 	{
 		scanf("%d \n", &nums[i]);
 	}
+
 	mergeSort(1, n);
 }
 
@@ -107,20 +111,19 @@ int QUANTIZE()
 
 		int res = INF;
 		memset(memoi, -1, sizeof(memoi)); 
+		memset(pSum, 0, sizeof(pSum));
+		memset(p2Sum, 0, sizeof(p2Sum));
 
-		for (int p = 1; p <= 1000; p++)
+		for (int i = 1; i <= n; i++)
 		{
-			cache[p][1] = (nums[1] - p) * (nums[1] - p);
-
-			for (int i = 2; i <= n; i++)
-			{
-				cache[p][i] = cache[p][i - 1] + (nums[i] - p) * (nums[i] - p);
-			}
+			pSum[i] += pSum[i - 1] + nums[i];
+			p2Sum[i] += p2Sum[i - 1] + nums[i] * nums[i];
 		}
 
-		res = getMin(s, 1);
+		res = getMin2(s, 1);
 		
 		printf("%d\n", res);
 	}
+
 	return 0;
 }
