@@ -165,6 +165,7 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="AllSum.h" />
+    <ClInclude Include="ASYMTILING.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BalabongStory.h" />
     <ClInclude Include="Balelino.h" />
@@ -249,12 +250,14 @@
     <ClInclude Include="NandM9.h" />
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
+    <ClInclude Include="NUMB3RS.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="PaintBlackAndWhite.h" />
     <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PI.h" />
+    <ClInclude Include="POLY.h" />
     <ClInclude Include="PoPPing.h" />
     <ClInclude Include="PossibleScore.h" />
     <ClInclude Include="Predicth.h" />
@@ -269,6 +272,7 @@
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />
+    <ClInclude Include="SNAIL.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="Soccer.h" />
@@ -283,6 +287,7 @@
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="ToOne.h" />
     <ClInclude Include="TRIANGLEPATH.h" />
+    <ClInclude Include="TRIPATHCNT.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
     <ClInclude Include="WILDCARD.h" />
@@ -293,6 +298,7 @@
     <ClInclude Include="MetalStick.h" />
     <ClInclude Include="ZigZagNumber.h" />
     <ClInclude Include="QUADTREE.h" />
+    <ClInclude Include="TILING2.h" />
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>

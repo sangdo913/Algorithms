@@ -419,9 +419,6 @@
     <ClInclude Include="TRIANGLEPATH.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="LIS.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="JLIS.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -429,6 +426,27 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="QUANTIZE.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LIS.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TILING2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIPATHCNT.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SNAIL.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ASYMTILING.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="POLY.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="NUMB3RS.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
