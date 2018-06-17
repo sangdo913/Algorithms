@@ -252,6 +252,7 @@
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="NUMB3RS.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="PACKING.h" />
     <ClInclude Include="PaintBlackAndWhite.h" />
     <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="PerfectShuffle.h" />
