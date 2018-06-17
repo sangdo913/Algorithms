@@ -1,8 +1,8 @@
-#include"PACKING.h"
+#include"OCR.h"
 
 int main()
 {
-	PACKING();
+	OCR();
 	
 	return 0;
 }
