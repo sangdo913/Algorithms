@@ -1,8 +1,8 @@
-#include"OCR.h"
+#include"ReconstructStr.h"
 
 int main()
 {
-	OCR();
-	
+	//SevenShuffle();
+	ReconstructStr();
 	return 0;
 }

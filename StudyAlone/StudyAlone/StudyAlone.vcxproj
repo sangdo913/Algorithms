@@ -256,6 +256,7 @@
     <ClInclude Include="PACKING.h" />
     <ClInclude Include="PaintBlackAndWhite.h" />
     <ClInclude Include="PascalTriangle.h" />
+    <ClInclude Include="pelindrome2.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PI.h" />
@@ -269,11 +270,13 @@
     <ClInclude Include="QUANTIZE.h" />
     <ClInclude Include="Quicksort.h" />
     <ClInclude Include="RamCess.h" />
+    <ClInclude Include="ReconstructStr.h" />
     <ClInclude Include="Resign.h" />
     <ClInclude Include="RichProject.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />
+    <ClInclude Include="SevenShuffle.h" />
     <ClInclude Include="SNAIL.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
