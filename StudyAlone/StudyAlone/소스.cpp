@@ -1,8 +1,8 @@
-#include"ReconstructStr.h"
+#include"MaxNumOfDivisor.h"
 
 int main()
 {
 	//SevenShuffle();
-	ReconstructStr();
+	MaxNumOfDivisor();
 	return 0;
 }

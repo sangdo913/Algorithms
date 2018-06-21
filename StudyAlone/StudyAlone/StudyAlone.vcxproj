@@ -229,6 +229,7 @@
     <ClInclude Include="Kid_Car_Robot.h" />
     <ClInclude Include="KillFly.h" />
     <ClInclude Include="King%27s_Position.h" />
+    <ClInclude Include="KLIS.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
@@ -240,9 +241,11 @@
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="Maximum_Prize.h" />
+    <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
+    <ClInclude Include="MORSE.h" />
     <ClInclude Include="MyHeap.h" />
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
