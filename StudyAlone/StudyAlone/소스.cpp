@@ -1,8 +1,8 @@
-#include"MaxNumOfDivisor.h"
+#include"KLIS.h"
 
 int main()
 {
 	//SevenShuffle();
-	MaxNumOfDivisor();
+	KLIS();
 	return 0;
 }
