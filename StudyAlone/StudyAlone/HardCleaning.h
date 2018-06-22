@@ -1,12 +1,13 @@
 #pragma once
-// SWEA ±ØÇÑÀÇ Ã»¼Ò ÀÛ¾÷ : https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
+// SWEA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã»ï¿½ï¿½ ï¿½Û¾ï¿½ : https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
 #include<cstdio>
 
-long long fourNum[13] = { 0 };
+long long fourNum[13][10] = { 0 };
 
 int getDigit(long long n)
 {
 	int len = 0;
+
 	while (n)
 	{
 		len++;
@@ -16,40 +17,25 @@ int getDigit(long long n)
 	return len;
 }
 
-long long abs(long long ll)
+long long abss(long long ll)
 {
 	return ll > 0 ? ll : -ll;
 }
 
-long long getCnt(long long ll, int len, long long sum)
+long long getCnt(long long ll, int len, long long digit, long long sum)
 {
 	if (len == 0)
 	{
 		return sum;
 	}
 
-	long long digit = 1;
-
-	for (int i = 1; i < len; i++)
-	{
-		digit *= 10;
-	}
-
 	int cnt = ll / digit;
 
 	long long res = 0;
-	for (int i = 0; i < cnt; i++)
-	{
-		if (i == 4)
-		{
-			res += digit;
-			continue;
-		}
 
-		res += fourNum[len - 1];
-	}
+	res += fourNum[len][cnt];
 
-	return getCnt(ll % digit, len - 1, sum + res);
+	return getCnt(ll % digit, len - 1, digit / 10, sum + res);
 }
 
 int HardCleaning()
@@ -57,7 +43,18 @@ int HardCleaning()
 	long long digit = 1;
 	for (int i = 1; i < 13; i++)
 	{
-		fourNum[i] = fourNum[i - 1] + (fourNum[i - 1] << 3) + digit;
+		fourNum[i][1] = fourNum[i - 1][9] + fourNum[i - 1][1];
+
+		for(int j = 2; j < 10; j++)
+		{
+			if(j == 5)
+			{
+				fourNum[i][j] += fourNum[i][j - 1] + digit;
+				continue;
+			}
+			fourNum[i][j] = fourNum[i][j - 1] + fourNum[i][1];
+		}
+
 		digit *= 10;
 	}
 
@@ -70,23 +67,33 @@ int HardCleaning()
 		long long ll1, ll2;
 		scanf("%lld %lld\n", &ll1, &ll2);
 
-		long long res = ll2 - ll1;
-		int len1 = getDigit(abs(ll1));
-		int len2 = getDigit(abs(ll2));
+		long long res;
 
-		res -= getCnt(abs(ll1), len1, 0);
-		res -= getCnt(abs(ll2), len2, 0);
+		int len1 = getDigit(abss(ll1));
+		int len2 = getDigit(abss(ll2));
+
+		long long digit1 = 1, digit2 = 1;
+
+		for (int i = 1; i < len1; i++)
+		{
+			digit1 *= 10;
+		}
+
+		for(int i = 1; i < len2; i++)
+		{
+			digit2 *= 10;
+		}
 
 		if (ll1 >> 63 ^ ll2 >> 63)
 		{
-			res = ll2 - ll1 - getCnt(ll2, len2, 0) - getCnt(abs(ll1), len1, 0);
+			res = ll2 - ll1 - getCnt(ll2, len2, digit2, 0) - getCnt(abss(ll1), len1, digit1, 0);
 			res--;
 		}
 
 		else
 		{
 			res = ll2 - ll1;
-			res -= abs(getCnt(abs(ll1), len1, 0) - getCnt(abs(ll2), len2, 0));
+			res -= abss(getCnt(abss(ll1), len1, digit1, 0) - getCnt(abss(ll2), len2, digit2, 0));
 		}
 
 		printf("#%d %lld\n", tc, res);
