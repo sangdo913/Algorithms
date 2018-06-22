@@ -1,7 +1,8 @@
-#include"PaintBlackAndWhite.h"
+#include"KLIS.h"
 
 int main()
 {
-	PaintBlackAndWhite();
+	//SevenShuffle();
+	KLIS();
 	return 0;
 }

@@ -151,9 +151,11 @@
     <ClCompile Include="InSu_Heap.cpp" />
     <ClCompile Include="소스.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="다른사람코드.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -163,6 +165,7 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="AllSum.h" />
+    <ClInclude Include="ASYMTILING.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BalabongStory.h" />
     <ClInclude Include="Balelino.h" />
@@ -171,6 +174,7 @@
     <ClInclude Include="BestTaxiDriver.h" />
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BIT.h" />
+    <ClInclude Include="BitCombinationa.h" />
     <ClInclude Include="BlockMeSang.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />
@@ -180,6 +184,7 @@
     <ClInclude Include="Chicken.h" />
     <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="City_Maintenance.h" />
+    <ClInclude Include="CLOCKSYNC.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Cooker.h" />
@@ -192,6 +197,8 @@
     <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
     <ClInclude Include="DragonCurve.h" />
+    <ClInclude Include="FANMEETING.h" />
+    <ClInclude Include="FENCE.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="FIndStr.h" />
@@ -212,27 +219,33 @@
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
+    <ClInclude Include="JLIS.h" />
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JongMinHamberger.h" />
+    <ClInclude Include="JUMPGAME.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
     <ClInclude Include="Kid_Car_Robot.h" />
     <ClInclude Include="KillFly.h" />
     <ClInclude Include="King%27s_Position.h" />
+    <ClInclude Include="KLIS.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LineDivide.h" />
+    <ClInclude Include="LIS.h" />
     <ClInclude Include="MakeBiggestNumber1.h" />
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="Maximum_Prize.h" />
+    <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
+    <ClInclude Include="MORSE.h" />
     <ClInclude Include="MyHeap.h" />
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
@@ -240,24 +253,34 @@
     <ClInclude Include="NandM9.h" />
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
+    <ClInclude Include="NUMB3RS.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="OCR.h" />
+    <ClInclude Include="PACKING.h" />
     <ClInclude Include="PaintBlackAndWhite.h" />
     <ClInclude Include="PascalTriangle.h" />
+    <ClInclude Include="pelindrome2.h" />
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
+    <ClInclude Include="PI.h" />
+    <ClInclude Include="POLY.h" />
     <ClInclude Include="PoPPing.h" />
     <ClInclude Include="PossibleScore.h" />
     <ClInclude Include="Predicth.h" />
     <ClInclude Include="Processor.h" />
     <ClInclude Include="PushOperator.h" />
     <ClInclude Include="PushOperator2.h" />
+    <ClInclude Include="QUANTIZE.h" />
     <ClInclude Include="Quicksort.h" />
     <ClInclude Include="RamCess.h" />
+    <ClInclude Include="ReconstructStr.h" />
     <ClInclude Include="Resign.h" />
     <ClInclude Include="RichProject.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />
+    <ClInclude Include="SevenShuffle.h" />
+    <ClInclude Include="SNAIL.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="Soccer.h" />
@@ -271,14 +294,19 @@
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="ToOne.h" />
+    <ClInclude Include="TRIANGLEPATH.h" />
+    <ClInclude Include="TRIPATHCNT.h" />
     <ClInclude Include="Union.h" />
     <ClInclude Include="WaveClass.h" />
+    <ClInclude Include="WILDCARD.h" />
     <ClInclude Include="YeongJoon_Real_BFS.h" />
     <ClInclude Include="YeongJoon_Real_BFS_LCA.h" />
     <ClInclude Include="YeongJoon_Scale.h" />
     <ClInclude Include="YeungJoon_Get_Number.h" />
     <ClInclude Include="MetalStick.h" />
     <ClInclude Include="ZigZagNumber.h" />
+    <ClInclude Include="QUADTREE.h" />
+    <ClInclude Include="TILING2.h" />
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>

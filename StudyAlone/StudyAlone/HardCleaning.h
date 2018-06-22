@@ -1,5 +1,11 @@
 #pragma once
+<<<<<<< HEAD
 // SWEA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã»ï¿½ï¿½ ï¿½Û¾ï¿½ : https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
+=======
+// SWEA 
+//4530. ±ØÇÑÀÇ Ã»¼Ò ÀÛ¾÷
+//https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWO6cgzKOIEDFAWw&categoryId=AWO6cgzKOIEDFAWw&categoryType=CODE
+>>>>>>> b6b4a80fd2efed5a175cfb9c02e35d155cb82ba0
 #include<cstdio>
 
 long long fourNum[13][10] = { 0 };

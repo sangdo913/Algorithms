@@ -1,6 +1,7 @@
 #pragma once
-//Æ®¸® Èæ¹é »öÄ¥
-// ÁÖ¼Ò : https://www.swexpertacademy.com/main/talk/codeBattle/problemDetail.do?contestProbId=AWO6esOKOKQDFAWw&categoryId=AWOuXSOaAEgDFAWw&categoryType=BATTLE
+//SWEA
+//4534. Æ®¸® Èæ¹é »öÄ¥
+//https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWO6esOKOKQDFAWw&categoryId=AWO6esOKOKQDFAWw&categoryType=CODE
 #include<cstdio>
 #include<iostream>
 #include<vector>
