@@ -1,8 +1,8 @@
-#include"KLIS.h"
+#include"GagulJumping.h"
 
 int main()
 {
 	//SevenShuffle();
-	KLIS();
+	GagulJumping();
 	return 0;
 }

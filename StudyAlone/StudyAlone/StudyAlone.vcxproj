@@ -201,7 +201,10 @@
     <ClInclude Include="FENCE.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
+    <ClInclude Include="FindSameSuffixArray.h" />
     <ClInclude Include="FIndStr.h" />
+    <ClInclude Include="FunnyOcello.h" />
+    <ClInclude Include="GagulJumping.h" />
     <ClInclude Include="GetMinAvg.h" />
     <ClInclude Include="GlobalPelindrome.h" />
     <ClInclude Include="GNS.h" />
@@ -234,6 +237,7 @@
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="LiftingLadder.h" />
+    <ClInclude Include="LikeRussiaFlag.h" />
     <ClInclude Include="LineDivide.h" />
     <ClInclude Include="LIS.h" />
     <ClInclude Include="MakeBiggestNumber1.h" />
