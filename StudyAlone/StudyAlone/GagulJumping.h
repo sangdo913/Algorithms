@@ -2,7 +2,7 @@
 #include<cstdio>
 #include<vector>
 #include<cstring>
-#include<map>
+#include<queue>
 #include<algorithm>
 
 using namespace std;
@@ -14,8 +14,9 @@ struct YEON
 
 vector<int> moves[2][100001];
 int temp[300000], sIdx[2][300000];
-map<pair<int, int> , int> memoi;
-typedef map<pair<int, int>, int> MII;
+queue<int> que;
+int inQue[300000] = { 0 };
+int nums[300000];
 int n,k;
 
 
@@ -61,33 +62,33 @@ int max(int i1, int i2)
 	return i1 > i2 ? i1 : i2;
 }
 
-int GetMaxFly(int num, int f)
-{
-	if (num == n - 1) return yeons[num].f;
-
-	MII::iterator it = memoi.find(make_pair(f, num));
-	int& ret = it->second;
-	if (it != memoi.end()) return ret = it->second;
-	
-	ret = -100;
-	f += yeons[num].f - k;
-
-	if (f < 0) return ret;
-
-	for (int i = 0; i < 2; i++)
-	{
-		for (int j = sIdx[i][num] + 1; j < moves[i][yeons[num].pos[i]].size(); j++)
-		{
-			int nYeon = moves[i][yeons[num].pos[i]][j];
-
-			ret = max(ret, GetMaxFly(nYeon, f));
-		}
-	}
-
-	ret = ret > 0 ? ret + yeons[num].f : -100;
-
-	return ret;
-}
+//int GetMaxFly(int num, int f)
+//{
+//	if (num == n - 1) return yeons[num].f;
+//
+//	MII::iterator it = memoi.find(make_pair(f, num));
+//	if (it != memoi.end()) return it->second;
+//
+//	int& ret = memoi[make_pair(f, num)];
+//	ret = -100;
+//	f -= k;
+//
+//	if (f < 0) return ret;
+//
+//	for (int i = 0; i < 2; i++)
+//	{
+//		for (int j = sIdx[i][num] + 1; j < moves[i][yeons[num].pos[i]].size(); j++)
+//		{
+//			int nYeon = moves[i][yeons[num].pos[i]][j];
+//
+//			ret = max(ret, GetMaxFly(nYeon, f + yeons[nYeon].f));
+//		}
+//	}
+//
+//	ret = ret > 0 ? ret + yeons[num].f - k : -100;
+//
+//	return ret;
+//}
 
 int GagulJumping()
 {
@@ -96,9 +97,16 @@ int GagulJumping()
 
 	for (int tc = 1; tc <= t; tc++)
 	{
+		memset(nums, -1, sizeof(nums));
 		scanf("%d %d\n", &n, &k);
 
-		memoi.clear();
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 100001; j++)
+			{
+				moves[i][j].clear();
+			}
+		}
 
 		for (int i = 0; i < n; i++)
 		{
@@ -114,9 +122,41 @@ int GagulJumping()
 				merge(moves[i][j], 0, moves[i][j].size() - 1, i^1);
 			}
 		}
+		
+		que.push(0);
+		inQue[0] = tc;
+		nums[0] = 0;
 
-		int res = GetMaxFly(0, 0);
-		printf("#%d %d\n", tc, res);
+		while (que.size())
+		{
+			int now = que.front();
+			que.pop();
+			
+			inQue[now] = 0;
+
+			if (nums[now] < 0) continue;
+			if (yeons[now].pos[0] > yeons[n-1].pos[0] || yeons[now].pos[1] > yeons[n-1].pos[0]) continue;
+
+			for (int i = 0; i < 2; i++)
+			{
+				for (int j = sIdx[i][now] + 1; j < moves[i][yeons[now].pos[i]].size(); j++)
+				{
+					int next = moves[i][yeons[now].pos[i]][j];
+
+					int sum = nums[now] - k + yeons[now].f;
+					if (sum <= nums[next]) continue;
+
+					nums[next] = sum;
+
+					if (inQue[next] != tc) {
+						que.push(next);
+						inQue[next] = tc;
+					}
+				}
+			}
+		}
+
+		printf("#%d %d\n", tc, nums[n-1] + yeons[n-1].f);
 	}
 	return 0;
 }
