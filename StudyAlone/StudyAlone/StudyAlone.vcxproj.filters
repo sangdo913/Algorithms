@@ -485,6 +485,9 @@
     <ClInclude Include="FindSameSuffixArray.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="FindPath_Study.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

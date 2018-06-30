@@ -1,8 +1,8 @@
-#include"GagulJumping.h"
+#include"PairBrackets.h"
 
 int main()
 {
 	//SevenShuffle();
-	GagulJumping();
+	PairBrackets();
 	return 0;
 }

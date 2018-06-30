@@ -201,6 +201,7 @@
     <ClInclude Include="FENCE.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
+    <ClInclude Include="FindPath_Study.h" />
     <ClInclude Include="FindSameSuffixArray.h" />
     <ClInclude Include="FIndStr.h" />
     <ClInclude Include="FunnyOcello.h" />
