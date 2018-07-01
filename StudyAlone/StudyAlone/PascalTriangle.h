@@ -37,7 +37,6 @@ int PascalTriangle()
 			}
 			cout << '\n';
 		}
-
 	}
 	return 0;
 }

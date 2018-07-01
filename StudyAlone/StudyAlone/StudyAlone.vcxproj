@@ -196,6 +196,7 @@
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
+    <ClInclude Include="DRAGON.h" />
     <ClInclude Include="DragonCurve.h" />
     <ClInclude Include="FANMEETING.h" />
     <ClInclude Include="FENCE.h" />

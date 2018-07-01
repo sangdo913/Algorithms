@@ -1,8 +1,8 @@
-#include"PairBrackets.h"
+#include"DRAGON.h"
 
 int main()
 {
 	//SevenShuffle();
-	PairBrackets();
+	DRAGON();
 	return 0;
 }

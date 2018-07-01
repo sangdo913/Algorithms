@@ -31,8 +31,7 @@ int FindPath()
 
 		bool isEnd = false;
 		
-
-		while (re != fr )
+		while (re != fr)
 		{
 			int now = queue[fr++];
 			if (now == 99)
