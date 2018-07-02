@@ -157,9 +157,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="다른사람코드.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
@@ -180,6 +177,7 @@
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
+    <ClInclude Include="CARD1.h" />
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="Chicken.h" />
     <ClInclude Include="CircularQueue.h" />
@@ -225,6 +223,7 @@
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="Jjaro.h" />
     <ClInclude Include="JLIS.h" />
+    <ClInclude Include="JOCEPERS.h" />
     <ClInclude Include="JongMin.h" />
     <ClInclude Include="JongMin2.h" />
     <ClInclude Include="JongMinHamberger.h" />
@@ -313,6 +312,7 @@
     <ClInclude Include="ZigZagNumber.h" />
     <ClInclude Include="QUADTREE.h" />
     <ClInclude Include="TILING2.h" />
+    <ClInclude Include="ZIMBABWE.h" />
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>

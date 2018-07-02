@@ -28,7 +28,10 @@
     <ClInclude Include="FindPath.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\StudyAlone\PairBrackets.h">
+    <ClInclude Include="PairBrackets.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CARD1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -30,9 +30,6 @@
     <ClCompile Include="InSu_Heap.cpp">
       <Filter>헤더 파일</Filter>
     </ClCompile>
-    <ClCompile Include="다른사람코드.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SWExpert1_1.h">
@@ -489,6 +486,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="DRAGON.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZIMBABWE.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CARD1.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="JOCEPERS.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

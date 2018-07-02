@@ -124,8 +124,9 @@
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\StudyAlone\PairBrackets.h" />
+    <ClInclude Include="CARD1.h" />
     <ClInclude Include="FindPath.h" />
+    <ClInclude Include="PairBrackets.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

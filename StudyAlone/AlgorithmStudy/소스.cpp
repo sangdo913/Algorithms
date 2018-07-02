@@ -1,7 +1,7 @@
-#include"FindPath.h"
+#include"PairBrackets.h"
 
 int main()
 {
-	FindPath();
+	PairBrackets();
 	return 0;
 }

@@ -1,8 +1,8 @@
-#include"DRAGON.h"
+#include"JOCEPERS.h"
 
 int main()
 {
 	//SevenShuffle();
-	DRAGON();
+	JOCEPERS();
 	return 0;
 }
