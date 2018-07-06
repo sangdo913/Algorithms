@@ -9,7 +9,7 @@
 using namespace std;
 
 int dp[2][R]; // 0: 우측 이동 1: 하 이동.
-int test, n, k, ex, ey; // ex: n번째 x , n번째 y
+int test,n,k,ex,ey; // ex: n번째 x , n번째 y
 int num[2][R];  // 0: y좌표일때 해당 값의 index위치. 1: x좌표일때 index위치.
 vector<int> ax[L], ay[L]; // ax: 각각의 x좌표에 해당되는 index 저장, ay : y좌표에 해당되는 indext저장.
 
@@ -23,14 +23,14 @@ bool cmp(point a, point b) {
 	return a.x < b.x;
 }
 
-int f(int xy, int pos, int life, vector<point> &arr) { //life: 현재 에너지, pos: 현재 index, xy: 0:우측 1:아래
+int f(int xy, int pos,int life,vector<point> &arr) { //life: 현재 에너지, pos: 현재 index, xy: 0:우측 1:아래
 
 	if (pos >= n) return -INF;
 
 	if (dp[xy][pos] != -1) return dp[xy][pos];
 
 	if (arr[pos].x == ex && arr[pos].y == ey) {
-		return dp[xy][pos] = arr[pos].f;
+		return dp[xy][pos] = arr[pos].f; 
 	}
 
 	int &ret = dp[xy][pos];
@@ -61,10 +61,6 @@ int f(int xy, int pos, int life, vector<point> &arr) { //life: 현재 에너지, pos:
 	return ret;
 }
 
-int max(int i1, int i2) {
-	return i1 > i2 ? i1 : i2;
-}
-
 int main() {
 
 	scanf("%d", &test);
@@ -72,7 +68,7 @@ int main() {
 	for (int tc = 1; tc <= test; tc++) {
 
 		vector<point> arr;
-
+		
 		memset(num, 0, sizeof(num));
 
 		scanf("%d%d", &n, &k);
@@ -109,8 +105,7 @@ int main() {
 			cnt++;
 		}
 
-		int res = 
-		printf("#%d %d\n", tc, f(0, ans, 0, arr));
+		printf("#%d %d\n",tc, f(0, ans, 0, arr));
 
 		for (int i = 1; i < L; i++) {
 			ax[i].clear();
