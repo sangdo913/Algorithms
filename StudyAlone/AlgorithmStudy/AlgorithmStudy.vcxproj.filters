@@ -34,5 +34,11 @@
     <ClInclude Include="CARD1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="PELINDROME.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LongestPath.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

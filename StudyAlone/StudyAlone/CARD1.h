@@ -17,6 +17,7 @@ struct NODE
 static struct MYMAL
 {
 	NODE nodes[1000000];
+
 	int idx;
 	MYMAL()
 	{

@@ -1,8 +1,8 @@
-#include"JOCEPERS.h"
+#include"GagulJumping.h"
 
 int main()
 {
 	//SevenShuffle();
-	JOCEPERS();
+	GagulJumping();
 	return 0;
 }

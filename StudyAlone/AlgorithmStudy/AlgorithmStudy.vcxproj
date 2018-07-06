@@ -126,7 +126,9 @@
   <ItemGroup>
     <ClInclude Include="CARD1.h" />
     <ClInclude Include="FindPath.h" />
+    <ClInclude Include="LongestPath.h" />
     <ClInclude Include="PairBrackets.h" />
+    <ClInclude Include="PELINDROME.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
