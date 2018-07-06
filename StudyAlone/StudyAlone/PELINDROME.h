@@ -1,6 +1,7 @@
 #include<cstdio>
 #include<cstring>
 #include<algorithm>
+#include<functional>
 using namespace std;
 int getDigit(int n)
 {
