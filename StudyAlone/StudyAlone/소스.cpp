@@ -1,8 +1,8 @@
-#include"GagulJumping.h"
+#include"TenesPrime.h"
 
 int main()
 {
 	//SevenShuffle();
-	GagulJumping();
+	TenesPrime();
 	return 0;
 }
