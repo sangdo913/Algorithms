@@ -1,8 +1,8 @@
-#include"KongSoonPelindrome.h"
+#include"7Month7Day.h"
 
 int main()
 {
 	//SevenShuffle();
-	KongSoonPelindrome();
+	SevenMonth7Day();
 	return 0;
 }
