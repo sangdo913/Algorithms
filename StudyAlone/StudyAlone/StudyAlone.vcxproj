@@ -236,6 +236,7 @@
     <ClInclude Include="KillFly.h" />
     <ClInclude Include="King%27s_Position.h" />
     <ClInclude Include="KLIS.h" />
+    <ClInclude Include="KongSoonPelindrome.h" />
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
@@ -247,6 +248,7 @@
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
+    <ClInclude Include="ManagerThinking.h" />
     <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />

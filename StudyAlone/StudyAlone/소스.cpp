@@ -1,8 +1,8 @@
-#include"TenesPrime.h"
+#include"KongSoonPelindrome.h"
 
 int main()
 {
 	//SevenShuffle();
-	TenesPrime();
+	KongSoonPelindrome();
 	return 0;
 }
