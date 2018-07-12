@@ -306,6 +306,7 @@
     <ClInclude Include="TermProject.h" />
     <ClInclude Include="TestSupervisor.h" />
     <ClInclude Include="Tetromino.h" />
+    <ClInclude Include="TICTACTOE.h" />
     <ClInclude Include="ToOne.h" />
     <ClInclude Include="TRIANGLEPATH.h" />
     <ClInclude Include="TRIPATHCNT.h" />

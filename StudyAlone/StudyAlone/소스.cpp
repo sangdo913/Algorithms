@@ -1,8 +1,7 @@
-#include"7Month7Day.h"
+#include"TICTACTOE.h"
 
 int main()
 {
-	//SevenShuffle();
-	SevenMonth7Day();
+	TICTACTOE();
 	return 0;
 }
