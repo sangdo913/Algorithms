@@ -125,7 +125,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CARD1.h" />
+    <ClInclude Include="CARD2.h" />
     <ClInclude Include="FindPath.h" />
+    <ClInclude Include="JocepusProblem.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LongestPath.h" />
     <ClInclude Include="PairBrackets.h" />
     <ClInclude Include="PELINDROME.h" />
