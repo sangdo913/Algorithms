@@ -51,6 +51,7 @@ int JagwanBigSale() {
 
 		merge(0, len - 1);
 
+		//3번째 마다의 물건 가격을 빼준다.
 		for (int i = 2; i < len; i += 3) {
 			sum -= (long long)price[i];
 		}
