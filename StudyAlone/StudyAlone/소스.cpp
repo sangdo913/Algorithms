@@ -1,7 +1,7 @@
-#include"TICTACTOE.h"
+#include"JagwanBigSale.h"
 
 int main()
 {
-	TICTACTOE();
+	JagwanBigSale();
 	return 0;
 }

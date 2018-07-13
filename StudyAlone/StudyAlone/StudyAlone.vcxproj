@@ -221,6 +221,7 @@
     <ClInclude Include="HyeonHo_Password.h" />
     <ClInclude Include="InSuBirthDayParty.h" />
     <ClInclude Include="InSu_Birthday_Party.h" />
+    <ClInclude Include="JagwanBigSale.h" />
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="JaYeongFactorial.h" />

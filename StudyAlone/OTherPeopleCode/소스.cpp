@@ -1,70 +1,54 @@
-#include<iostream>
-#include<string>
-int insert[26];
-int erase[26];
-int L, K;
-using namespace std;
-int min(int i1, int i2);
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 
-int findAnswer(string s) {
-	int left = 0;
-	int right = s.size() - 1;
-	int price = 0;
-	while (left<right) {
-		if (s.at(left) == s.at(right)) {
-			left++;
-			right--;
-		}
-		else {
-			//그리디 알고리즘
-			if (min(insert[s.at(left) - 97], erase[s.at(left) - 97])<min(insert[s.at(right) - 97], erase[s.at(right) - 97])) {
-				if (insert[s.at(left) - 97] <erase[s.at(left) - 97]) {
-					price += insert[s.at(left) - 97];
-					left++;
-				}
-				else {
-					price += erase[s.at(left) - 97];
-					left++;
-				}
-			}
-			else {
-				if (insert[s.at(right) - 97]  <  erase[s.at(right) - 97]) {
-					price += insert[s.at(right) - 97];
-					right--;
-				}
-				else {
-					price += erase[s.at(right) - 97];
-					right--;
-				}
-			}
-		}
+#define MAX(a, b) ((a > b) ? a : b)
 
-	}
+int tc, N = 0;
+int arrCnt[100001] = {};
 
-	return price;
-
-}
-
-int min(int a, int b) {
-	return a<b ? a : b;
-}
-
-int main(int argc, char** argv)
+long long Logic()
 {
-	int test_case;
-	int T;
-	//freopen("input.txt", "r", stdin);
-	cin >> T;
-	string s;
-	for (test_case = 1; test_case <= T; ++test_case)
+	long long sum = 0;
+
+	// Set arrCnt
+	int tmp, max = 0;
+	for (int i = 0; i < N; ++i)
 	{
-		cin >> L >> K;
-		cin >> s;
-		for (int i = 0; i<K; i++)cin >> insert[i] >> erase[i];
-		cout << "#" << test_case << " " << findAnswer(s) << endl;
-		s.clear();
-
-
+		scanf("%d", &tmp);
+		arrCnt[tmp]++;
+		// Set Sum
+		sum += tmp;
+		// Set Max
+		max = MAX(tmp, max);
 	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+
+	// Logic
+	int cnt = 0;
+	for (int i = max; i > 0; --i)
+	{
+		if (cnt == N)	break;
+		if (arrCnt[i] == 0)	continue;
+
+		tmp = ((arrCnt[i] + cnt) / 3) - (cnt / 3);
+
+		sum -= ((long long)i * tmp);
+		cnt += arrCnt[i];
+	}
+
+	return sum;
+}
+
+int main()
+{
+
+	int T;
+	scanf("%d", &T);
+
+	for (tc = 1; tc <= T; ++tc)
+	{
+		for (int i = 0; i < N; ++i)
+			arrCnt[i] = 0;
+		scanf("%d", &N);
+		printf("#%d %lld\n", tc, Logic());
+	}
 }

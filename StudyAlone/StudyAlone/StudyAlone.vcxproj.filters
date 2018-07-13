@@ -527,6 +527,9 @@
     <ClInclude Include="TICTACTOE.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="JagwanBigSale.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
