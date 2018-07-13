@@ -39,7 +39,7 @@ int main()
 
     for(int  t = 1; t <= tc; t++){
         scanf("%d\n", &n);
-        )
+    
     }
     return 0;
 }
