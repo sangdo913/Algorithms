@@ -1,7 +1,7 @@
-#include"SUSHI.h"
+#include"GENIUS.h"
 
 int main()
 {
-	SUSHI();
+	GENIUS();
 	return 0;
 }
