@@ -303,6 +303,7 @@
     <ClInclude Include="StringType.h" />
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SupervisorCCTV.h" />
+    <ClInclude Include="SUSHI.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="TenesPrime.h" />

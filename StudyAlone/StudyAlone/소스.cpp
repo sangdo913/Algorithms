@@ -1,7 +1,7 @@
-#include"BLOCKGAME.h"
+#include"SUSHI.h"
 
 int main()
 {
-	BLOCKGAME();
+	SUSHI();
 	return 0;
 }
