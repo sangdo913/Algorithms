@@ -18,8 +18,7 @@ bool KNAP_ISOUT(int x, int y, int size,int weight)
 	return x < 0 || x >= size || y < 0 || y > weight;
 }
 
-void kanpsack()
-{
+void kanpsack() {
 	int T,N, K;
 	int knap_dp[101][1001];
 	cin >> T;

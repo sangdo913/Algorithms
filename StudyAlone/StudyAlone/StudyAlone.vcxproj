@@ -173,6 +173,7 @@
     <ClInclude Include="BinarySubSet.h" />
     <ClInclude Include="BIT.h" />
     <ClInclude Include="BitCombinationa.h" />
+    <ClInclude Include="BLOCKGAME.h" />
     <ClInclude Include="BlockMeSang.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BongEoBBangh.h" />
@@ -265,6 +266,7 @@
     <ClInclude Include="Ninja_Corp.h" />
     <ClInclude Include="Nolboo_Salary_Reduction.h" />
     <ClInclude Include="NUMB3RS.h" />
+    <ClInclude Include="NUMBERGAME.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="OCR.h" />
     <ClInclude Include="OrthorpeStraightGame.h" />

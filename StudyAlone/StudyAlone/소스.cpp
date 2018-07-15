@@ -1,7 +1,7 @@
-#include"JagwanBigSale.h"
+#include"BLOCKGAME.h"
 
 int main()
 {
-	JagwanBigSale();
+	BLOCKGAME();
 	return 0;
 }
