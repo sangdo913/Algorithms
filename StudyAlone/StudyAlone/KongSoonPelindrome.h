@@ -46,21 +46,11 @@ int KongSoonPelindrome()
 
 		scanf("%d %d\n", &n, &k);
 		scanf("%s\n", str);
-
-		//n = 100; k = rand() % 25 + 1;
-		//int cnt = 0;
-		//for (int i = 0; i < n; i++) {
-		//	str[i] = rand() % k + 'a';
-		//	str[n] = 0;
-		//}
-
 		int i1, i2;
 
 		for (int i = 0; i < k; i++) {
 			scanf("%d %d\n", &i1, &i2);
 
-			//i1 = rand() % 10001;
-			//i2 = rand() % 10001;
 			price[i + 'a'] = i1 < i2 ? i1 : i2;
 		}
 
@@ -85,8 +75,6 @@ int KongSoonPelindrome()
 
 		int res = getMin(0, n - 1);
 		
-		//if (memoi[0][n - 1] != res)
-		//printf("#%d %s %d %d\n", tc, str, res, memoi[0][n-1]);
 		printf("#%d %d %d\n", tc, memoi[0][n - 1], res);
 	}
 
