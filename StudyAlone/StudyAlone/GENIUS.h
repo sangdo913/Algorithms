@@ -93,6 +93,7 @@ int GENIUS() {
 		for (int i = 0; i < m; i++) {
 			int ri = num[i];
 
+			//노래 길이 len[num[i]] 이후에 시작한 i 노래들은 모두 영향을 줄 수 있는 노래들이다!
 			for (int st = 0; st < len[num[i]]; st++) {
 				res[i] += W[(maxLen - st - 1)*n + ri][(maxLen - 1)*n];
 			}

@@ -35,6 +35,10 @@ int diff(int turn, int l, int r) {
 
 	ret = rets[turn];
 
+	//cal[] : 서하의 경우엔 - 점수가 큰 점수, 따라서 min을 이용해 계산
+	//		  현우의 경우엔 + 점수가 큰 점수, 따라서 max를 이용해 계산
+	//conv[] : 서하의 경우엔 점수를 얻으면 - 실행
+	//		   현우의 경우엔 점수를 얻으면 + 실행
 	ret = cal[turn](ret, diff(turn ^ 1, l + 1, r) + conv[turn](prices[l])); // 왼쪽꺼 하나 떼기
 	ret = cal[turn](ret, diff(turn ^ 1, l, r - 1) + conv[turn](prices[r])); //오른쪽꺼 하나 빼기
 	if (r != l) {
