@@ -190,6 +190,7 @@
     <ClInclude Include="Cooker.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="Dalant.h" />
+    <ClInclude Include="DasolDiamondDecoration.h" />
     <ClInclude Include="DBLinkedList.h" />
     <ClInclude Include="DesertCafe.h" />
     <ClInclude Include="DIce.h" />
@@ -227,6 +228,7 @@
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
     <ClInclude Include="JaYeongFactorial.h" />
+    <ClInclude Include="JinyMetInDesert.h" />
     <ClInclude Include="Jjaro.h" />
     <ClInclude Include="JLIS.h" />
     <ClInclude Include="JOCEPERS.h" />

@@ -545,6 +545,12 @@
     <ClInclude Include="PIZZA.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="JinyMetInDesert.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DasolDiamondDecoration.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

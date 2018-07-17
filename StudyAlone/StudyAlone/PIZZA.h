@@ -99,7 +99,7 @@ int PIZZA() {
 	init();
 	/*
 	int t;
-	scanf("%d\n", &t);
+	scanf("%d\n", &t); 
 
 	celcius[1][1] = celcius[1][0] = celcius[0][0] = 1;
 	

@@ -1,7 +1,7 @@
-#include"PIZZA.h"
+#include"JinymetInDesert.h"
 
 int main()
 {
-	PIZZA();
+	JinymetInDesert();
 	return 0;
 }
