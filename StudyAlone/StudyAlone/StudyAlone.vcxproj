@@ -258,6 +258,7 @@
     <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />
+    <ClInclude Include="MINGEBLOCK.h" />
     <ClInclude Include="MinimumPath.h" />
     <ClInclude Include="MinimumPath2.h" />
     <ClInclude Include="MORSE.h" />

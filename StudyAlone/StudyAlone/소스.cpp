@@ -1,7 +1,7 @@
-#include"JinymetInDesert.h"
+#include"DasolDiamondDecoration.h"
 
 int main()
 {
-	JinymetInDesert();
+	DasolDiamondDecoration();
 	return 0;
 }
