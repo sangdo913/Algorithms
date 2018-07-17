@@ -1,152 +1,146 @@
-#include<iostream>
-#include<limits>
-#include<queue>
-using namespace std;
-// 두 개의 벡터를 이어붙이는 곳
-void mergef(vector <pair<int, int>>(&v1), vector <pair<int, int>> v2) {
-	for (int i = 0, imax = v2.size(); i < imax; i++) {
-		v1.push_back(v2[i]);
+#include <string>
+#include<cstdio>
+
+struct NODE {
+	NODE* next, *prev;
+	char value[4];
+	NODE() {
+		next = prev = NULL;
+		value[0] = value[1] = value[2] = value[3] = 9;
 	}
-}
-class Client {
-public:
-	int a, b;
-	int pos = 0;
-};
-int main(int argc, char** argv)
-{
-	int test_case;
-	int T;
-	//freopen("input.txt", "r", stdin);
-	cin >> T;
-	for (test_case = 1; test_case <= T; ++test_case)
-	{
-		// Init.
-		int Answer = -1;
-		int N, M, K, A, B;
-		cin >> N >> M >> K >> A >> B;
-		queue <int> wq[3];
-		int* a = new int[N + 1];
-		int* b = new int[M + 1];
-		int* t = new int[K + 1];
-		Client* cli = new Client[K + 1];
-		for (int i = 1; i <= N; i++) {
-			cin >> a[i];
-		}
-		for (int i = 1; i <= M; i++) {
-			cin >> b[i];
-		}
-		for (int i = 1; i <= K; i++) {
-			cin >> t[i];
-		}
-		int window[10][2] = { { 0 } };
-		int imax, i, iter, nCli;
+} nodes[10000];
 
-		vector <pair <int, int>> v[5];
-		int simult = 0;
-		while (v[4].size() < K) {
-			for (int k = 1; k <= K; k++) {
-				if (!t[k]) {
-					switch (cli[k].pos) {
-					case 0:
-						v[0].push_back(make_pair(k, k)); cli[k].pos++;
-						break;
-					case 2:
-						v[2].push_back(make_pair(cli[k].a, k));
-						cli[k].pos++;
-						window[cli[k].a][0] = 0; // evacuate the window
-						break;
-					case 4:
-						v[4].push_back(make_pair(k, k));
-						cli[k].pos++;
-						window[cli[k].b][1] = 0;// evacuate the window
-						break;
-					default:
-						break;
-					}
-				}
-				else {
-					t[k]--;
-				}
-			}
-
-			mergef(v[1], v[0]);
-			v[0].clear();
-			//// v[2] 창구번호순 정렬
-			{
-				pair<int, int> tmppair;
-				for (int j = 0, jmax = v[2].size() - 2; j <= jmax; j++) {
-					for (int i = 1, imax = v[2].size() - j; i < imax; i++) {
-						if (v[2][i].first < v[2][i - 1].first) {
-							tmppair = v[2][i - 1];
-							v[2][i - 1] = v[2][i];
-							v[2][i] = tmppair;
-						}
-					}
-				}
-
-				for (int i = 0; i < v[2].size(); i++) {
-					for (int j = 0; j < i; j++) {
-						if (v[2][i].first < v[2][j].first) {
-							tmppair = v[2][j];
-							v[2][j] = v[2][i];
-							v[2][i] = tmppair;
-						}
-					}
-				}
-			}
-			///
-			mergef(v[3], v[2]);
-			v[2].clear();
-			iter = v[3].size();
-			while (iter) {
-				for (int i = 1; i <= M; i++) {
-					if (!window[i][1]) {
-						nCli = v[3].front().second;
-						window[i][1] = nCli;
-						t[nCli] = b[i] - 1;
-						cli[nCli].b = i;
-						cli[nCli].pos = 4;
-						v[3].erase(v[3].begin());
-						break;
-					}
-				}
-				iter--;
-			}
-			iter = v[1].size();
-			while (iter) {
-				for (int i = 1; i <= N; i++) {
-					if (!window[i][0]) {
-						nCli = v[1].front().second;
-						window[i][0] = nCli;
-						t[nCli] = a[i] - 1;
-						cli[nCli].a = i;
-						cli[nCli].pos = 2;
-						v[1].erase(v[1].begin());
-						break;
-					}
-				}
-				iter--;
-			}
-		}
-
-		bool first = true;
-		for (int k = 1; k <= K; k++) {
-			if (cli[k].a == A && cli[k].b == B) {
-				if (first) {
-					Answer++; // to get rid of -1
-					first = false;
-				}
-				Answer += k;
-			}
-		}
-
-		cout << "#" << test_case << " " << Answer << endl;
-		delete[] a;
-		delete[] b;
-		delete[] t;
-		delete[] cli;
+struct MYAL {
+	int i;
+	MYAL() {
+		i = 0;
 	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+	void clear() {
+		i = 0;
+	}
+
+	NODE* alloc() {
+		if (i >= 10000) return NULL;
+
+		return &nodes[i++];
+	}
+}myal;
+
+struct List {
+	int size;
+
+	NODE *head, *tail, *cursor;
+	List() {
+		head = myal.alloc();
+		tail = myal.alloc();
+		head->next = tail;
+		tail->prev = head;
+	}
+
+	void insert(const char num[4]) {
+		NODE* nn = myal.alloc();
+		memcpy(nn->value, num, sizeof(char) * 4);
+
+		nn->prev = tail->prev;
+		nn->next = tail;
+
+		tail->prev->next = nn;
+		tail->prev = nn;
+		size++;
+	}
+
+	void clear() {
+		size = 0;
+		head = myal.alloc();
+		tail = myal.alloc();
+
+		head->next = tail;
+		tail->prev = head;
+	}
+	void setCursor() {
+		cursor = head;
+	}
+
+	bool next(char num[4]) {
+		if (cursor->next == tail) {
+			return false;
+		}
+
+		cursor = cursor->next;
+		memcpy(num, cursor->value, sizeof(char) * 4);
+		return true;
+	}
+
+	void del() {
+		if (cursor == head) return;
+
+		cursor->prev->next = cursor->next;
+		cursor->next->prev = cursor->prev;
+		cursor = cursor->prev;
+		size--;
+	}
+}list;
+
+int nums[10] = { 0,1,2,3,4,5,6,7,8,9 };
+
+void swap(int &a, int &b) {
+	int temp = a;
+	a = b;
+	b = temp;
 }
 
+void setFirst(int depth, char num[4]) {
+	if (depth == 4) {
+		for (int i = 0; i < depth; i++) {
+			num[i] = nums[i] + '0';
+		}
+		list.insert(num);
+	}
+
+	for (int i = depth; i < 10; i++) {
+		swap(nums[depth], nums[i]);
+		setFirst(depth + 1, num);
+		swap(nums[depth], nums[i]);
+	}
+}
+
+void init() {
+	myal.clear();
+	list.clear();
+
+	char num[4];
+	for (int i = 1; i < 10; i++) {
+		swap(nums[0], nums[i]);
+		setFirst(1, num);
+		swap(nums[0], nums[i]);
+	}
+}
+
+typedef struct QUERTY {
+	int str, ball;
+} QUERTY;
+
+QUERTY ballAndStrike(const char numA[4], const char numB[4]) {
+	bool nums[10] = { false };
+	int b = 0, s = 0;
+	for (int i = 0; i < 4; i++) {
+		s += numA[i] == numB[i];
+		nums[numA[i] - '0'] = true;
+	}
+
+	for (int i = 0; i < 4; i++) {
+		b += nums[numB[i] - '0'];
+	}
+	return { s, b - s };
+}
+
+int main() {
+	init();
+
+	list.setCursor();
+	char num[4];
+
+	list.next(num);
+	int x = 5;
+	return 0;
+}

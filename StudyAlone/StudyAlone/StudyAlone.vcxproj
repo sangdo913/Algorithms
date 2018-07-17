@@ -278,6 +278,7 @@
     <ClInclude Include="PerfectShuffle.h" />
     <ClInclude Include="Permulation.h" />
     <ClInclude Include="PI.h" />
+    <ClInclude Include="PIZZA.h" />
     <ClInclude Include="POLY.h" />
     <ClInclude Include="PoPPing.h" />
     <ClInclude Include="PossibleScore.h" />

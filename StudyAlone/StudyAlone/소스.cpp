@@ -1,7 +1,7 @@
-#include"GENIUS.h"
+#include"PIZZA.h"
 
 int main()
 {
-	GENIUS();
+	PIZZA();
 	return 0;
 }
