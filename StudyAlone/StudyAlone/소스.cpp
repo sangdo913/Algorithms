@@ -1,7 +1,7 @@
-#include"DasolDiamondDecoration.h"
+#include"7Month7Day.h"
 
 int main()
 {
-	DasolDiamondDecoration();
+	SevenMonth7Day();
 	return 0;
 }

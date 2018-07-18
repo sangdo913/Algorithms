@@ -1,13 +1,29 @@
 #pragma once
 #include<cstdio>
 #include<cstring>
+#include<algorithm>
 
 int n, m, map[12][12] = { 0 };
 bool visit[12][12];
 int que[100000][2], f,r;
-
+enum DIR {DOWN = 0, UP = 1, RIGHT = 2, LEFT = 3};
 int dx[4] = { 0,1,0,-1 };
 int dy[4] = { -1,0,1,0 };
+
+int min(int i1, int i2) {
+	return i1 < i2 ? i1 : i2;
+}
+
+
+bool isCross(int r, int c) {
+	bool ch[3] = { false };
+
+	for (int d = 0; d < 4; d++) {
+		ch[d&2] |= map[r + dy[d]][c+dx[d]] != 1 && map[r + dy[d]][c + dx[d]] != -1;
+	}
+
+	return ch[0] && ch[2];
+}
 
 int getTime() {
 	f = r = 0;
@@ -38,6 +54,7 @@ int getTime() {
 
 			if (visit[ny][nx]) continue; // ÀÌ¹Ì °¬´ø°÷
 			if (map[ny][nx] == 0) continue; //  ¸·Èù°÷
+			if (map[ny][nx] == -1) continue; // ¸Ê ¹Û
 
 			if (time % map[ny][nx] == 0) {
 				que[r][0] = nx;
@@ -59,9 +76,6 @@ int getTime() {
 	return can ? --time : 987654321;
 }
 
-int min(int i1, int i2) {
-	return i1 < i2 ? i1 : i2;
-}
 
 int SevenMonth7Day() {
 	int t;
@@ -69,7 +83,7 @@ int SevenMonth7Day() {
 
 	for (int tc = 1; tc <= t; tc++) {
 		scanf("%d %d\n", &n, &m);
-		memset(map, 0, sizeof(map));
+		memset(map, -1, sizeof(map));
 
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++) {
@@ -81,7 +95,9 @@ int SevenMonth7Day() {
 
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++) {
-				if (map[i][j] == 0) {
+				if (isCross(i, j)) continue; //±³Â÷·ÎÀÎ °æ¿ì
+
+				if (map[i][j] == 0 && m ) {
 
 					memset(visit, false, sizeof(visit));
 					map[i][j] = m;
