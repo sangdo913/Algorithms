@@ -1,7 +1,7 @@
-#include"hodongFindStr.h"
+#include"FindPresure.h"
 
 int main()
 {
-	hodongFindStr();
+	FindPresure();
 	return 0;
 }

@@ -185,6 +185,7 @@
     <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CLOCKSYNC.h" />
+    <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="Cooker.h" />
@@ -204,7 +205,9 @@
     <ClInclude Include="FENCE.h" />
     <ClInclude Include="FillingMoon.h" />
     <ClInclude Include="FindNewOperation.h" />
+    <ClInclude Include="FindNumber.h" />
     <ClInclude Include="FindPath_Study.h" />
+    <ClInclude Include="FindPresure.h" />
     <ClInclude Include="FindSameSuffixArray.h" />
     <ClInclude Include="FIndStr.h" />
     <ClInclude Include="FunnyOcello.h" />
