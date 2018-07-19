@@ -183,6 +183,7 @@
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="Chicken.h" />
     <ClInclude Include="CircularQueue.h" />
+    <ClInclude Include="CIrcularSpace.h" />
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CLOCKSYNC.h" />
     <ClInclude Include="CodeTheif.h" />
@@ -205,6 +206,7 @@
     <ClInclude Include="FANMEETING.h" />
     <ClInclude Include="FENCE.h" />
     <ClInclude Include="FillingMoon.h" />
+    <ClInclude Include="FinalSurvivor.h" />
     <ClInclude Include="FindNewOperation.h" />
     <ClInclude Include="FindNumber.h" />
     <ClInclude Include="FindPath_Study.h" />

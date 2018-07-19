@@ -1,7 +1,7 @@
-#include"OldCalculator.h"
+#include"FinalSurvivor.h"
 
 int main()
 {
-	OldCalculator();
+	FinalSurvivor();
 	return 0;
 }
