@@ -58,13 +58,15 @@ struct TRIE {
 	}
 
 	void insert(TNODE *n, const char* str, int idx, int depth) {
+		//단어의 끝
 		if (*str == 0) {
-			n->end = idx;
-			cnts[idx][depth] = ++(n->num);
+			n->end = idx; // 해당 단어의 끝이 있다
+			cnts[idx][depth] = ++(n->num); //해당 문자열이 트라이의 몇번 째 방문자인지 삽입
 			
 			return;
 		}
 
+		// 없는 트라이면 새로 할당
 		if (n->nodes[conv[*str]] == 0) {
 			n->nodes[conv[*str]] = al.alloc();
 		}
@@ -75,20 +77,22 @@ struct TRIE {
 	}
 
 	int allFind(TNODE* n, const char* str, int depth) {
+		//단어의 끝
 		if (*str == 0) {
-			idx = n->end;
-			int ret = idx == -1 ? n->num : cnts[idx][depth];
+			idx = n->end; //단어가 사전에 존재하면 해당 인덱스가 저장된다. 존재하지 않는다면 -1
+			int ret = idx == -1 ? n->num : cnts[idx][depth]; // 존재하지 않으면, 처음부터 끝까지 모든 단어를 보면된다.
 			res = ret * (depth+1);
 
-			return ret;
+			return ret; //처리된 문자열 개수이다.
 		}
 
 		int sum = 0;
-		sum = n->nodes[conv[*str]] ? allFind(n->nodes[conv[*str]], str + 1, depth + 1) : 0;
-		int ret = idx == -1 ? n->num : cnts[idx][depth];
+		sum = n->nodes[conv[*str]] ? allFind(n->nodes[conv[*str]], str + 1, depth + 1) : 0; // 이미 처리된 단어 수를 반환받는다.
+		int ret = idx == -1 ? n->num : cnts[idx][depth]; 									// 만약, 사전에 존재하지 않으면 처음부터 끝까지 모든 단어를 보고, 아니라면
+																							// 해당 인덱스까지 몇 개의 단어가 존재하는지만 보면 된다.
 
-		res += (ret - sum)*(depth+1);
-		return ret;
+		res += (ret - sum)*(depth+1); // 아직 처리 안된 단어들은 현재 처리할 수 있는 단어 - 이미 처리한 단어 수이다.
+		return ret; //처리한 단어를 반환한다.
 	}
 	void clear() {
 		for (int i = 0; i < 26; i++) {
