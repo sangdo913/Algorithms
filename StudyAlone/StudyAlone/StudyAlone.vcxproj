@@ -302,6 +302,7 @@
     <ClInclude Include="Quicksort.h" />
     <ClInclude Include="RamCess.h" />
     <ClInclude Include="ReconstructStr.h" />
+    <ClInclude Include="relaxingPage.h" />
     <ClInclude Include="Resign.h" />
     <ClInclude Include="RESTORE.h" />
     <ClInclude Include="RichProject.h" />

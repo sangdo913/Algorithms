@@ -1,7 +1,7 @@
-#include"FinalSurvivor.h"
+#include"relaxingPage.h"
 
 int main()
 {
-	FinalSurvivor();
+	relaxingPage();
 	return 0;
 }
