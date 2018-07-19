@@ -1,8 +1,6 @@
 #pragma once
 #include<cstdio>
 #include<cstring>
-#include<set>
-#include<stack>
 using namespace std;
 
 int items[2000], temp[2000];

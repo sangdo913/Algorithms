@@ -1,7 +1,7 @@
-#include"7Month7Day.h"
+#include"hodongFindStr.h"
 
 int main()
 {
-	SevenMonth7Day();
+	hodongFindStr();
 	return 0;
 }
