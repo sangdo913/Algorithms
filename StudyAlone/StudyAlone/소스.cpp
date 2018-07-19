@@ -1,7 +1,7 @@
-#include"FindPresure.h"
+#include"OldCalculator.h"
 
 int main()
 {
-	FindPresure();
+	OldCalculator();
 	return 0;
 }

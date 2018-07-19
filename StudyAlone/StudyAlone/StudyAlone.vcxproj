@@ -195,6 +195,7 @@
     <ClInclude Include="DBLinkedList.h" />
     <ClInclude Include="DesertCafe.h" />
     <ClInclude Include="DIce.h" />
+    <ClInclude Include="DIGICLOCK.h" />
     <ClInclude Include="DonateAngel.h" />
     <ClInclude Include="DongCheol.h" />
     <ClInclude Include="DoubleScale.h" />
@@ -254,6 +255,7 @@
     <ClInclude Include="LikeRussiaFlag.h" />
     <ClInclude Include="LineDivide.h" />
     <ClInclude Include="LIS.h" />
+    <ClInclude Include="makeBiggestNum.h" />
     <ClInclude Include="MakeBiggestNumber1.h" />
     <ClInclude Include="MakeBridge.h" />
     <ClInclude Include="Make_Password.h" />
@@ -277,6 +279,7 @@
     <ClInclude Include="NUMBERGAME.h" />
     <ClInclude Include="Number_BASEBALL.h" />
     <ClInclude Include="OCR.h" />
+    <ClInclude Include="OldCalculator.h" />
     <ClInclude Include="OrthorpeStraightGame.h" />
     <ClInclude Include="PACKING.h" />
     <ClInclude Include="PaintBlackAndWhite.h" />
