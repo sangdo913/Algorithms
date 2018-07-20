@@ -98,8 +98,8 @@ struct List {
 };
 
 int len;
-int p[200000];
-int conv[256] = { 0 };
+int p[200000]; // -는 사이즈의 크기! +는 부모!
+int conv[256] = { 0 }; 
 
 struct Hash {
 	const int size = 100000;
@@ -191,14 +191,16 @@ int BackJoon4195() {
 	while (t--) {
 		scanf("%d\n", &m);
 		hash.clear();
-		for (int i = 0; i < 2*m; i++) p[i] = -1;
+		for (int i = 0; i < 2*m; i++) p[i] = -1; // 초기화
 		len = 0;
 
 		while (m--) {
 			scanf("%s %s\n", in[0], in[1]);
+			//해쉬를 통해 인덱스를 받는다.
 			int i1 = hash.find(in[0]);
 			int i2 = hash.find(in[1]);
 
+			//disjoint 한다! 그리고 해당 크기를 반환받는다.
 			int res = join(i1, i2);
 			printf("%d\n", res);
 		}
