@@ -6,7 +6,7 @@ struct _COD
 	int x;
 	int y;
 };
-unsigned int _arr[500][500];
+long long _arr[500][500];
 _COD _arr2[50001];
 int Find_New_Operation()
 {

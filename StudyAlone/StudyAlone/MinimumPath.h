@@ -18,7 +18,7 @@ int CalDistance(Client c1, Client c2)
 	return abs(c1.x - c2.x) + abs(c1.y - c2.y);
 }
 
-void InitVec(const vector<Client> info, vector<vector<int> > &init, queue<pair<int, unsigned int> >&q)
+void InitVec(const vector<Client> info, vector<vector<int> > &init, queue<pair<int, long long> >&q)
 {
 	int size = info.size();
 	Client company = info[0];
@@ -76,7 +76,7 @@ void MinimumPath()
 			cin >> clients[i].x >> clients[i].y;
 		}
 
-		queue<pair<int, unsigned int> > store;
+		queue<pair<int, long long> > store;
 		InitVec(clients, flag[INFO],store);
 		
 		for (int i = 2; i < num_of_client + 2; i++)

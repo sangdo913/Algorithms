@@ -7,7 +7,7 @@
 using namespace std;
 struct SecureFilm_Info
 {
-	typedef unsigned int ui;
+	typedef long long ui;
 	int d, w, k;
 	bool map[25][25];
 	bool storeMap[25][25];

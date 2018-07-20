@@ -5,7 +5,7 @@ using namespace std;
 
 struct YeongSoo_Tree
 {
-	typedef unsigned int Data;
+	typedef long long Data;
 	int size,max_size;
 	Data* datas;
 	long long * sums;
@@ -282,7 +282,7 @@ int YeongJoon_Get_Number()
 	int store,prev_Store;
 	long long store_Long;
 	cin >> T;
-	unsigned int max_Num = 0;
+	long long max_Num = 0;
 	for (int tc = 1; tc <= T; tc++)
 	{
 		cin >> N;

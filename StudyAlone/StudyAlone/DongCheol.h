@@ -11,7 +11,7 @@ inline double DongCheol_MAX(double x1, double x2)
 	return x1 > x2 ? x1 : x2;
 }
 
-double DongCheol_GetMax(int length, int length_max, unsigned int visit,int x)
+double DongCheol_GetMax(int length, int length_max, long long visit,int x)
 {
 	double &result = DongCheol_visit[x][visit];
 	if (result != 0) return result;

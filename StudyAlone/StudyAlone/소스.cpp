@@ -1,7 +1,7 @@
-#include"BackJoon4195(2).h"
+#include"BackJoon1654.h"
 
 int main()
 {
-	BackJoon4195();
+	LanCut();
 	return 0;
 }
