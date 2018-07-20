@@ -584,6 +584,15 @@
     <ClInclude Include="relaxingPage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CallCenter.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BackJoon1654.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BackJoon4195.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

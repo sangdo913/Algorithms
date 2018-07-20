@@ -1,8 +1,9 @@
 ﻿  소스.cpp
-e:\college\algorithms\studyalone\studyalone\relaxingpage.h(6): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\college\algorithms\studyalone\studyalone\backjoon4195(2).h(9): warning C4091: 'typedef ': 변수를 선언하지 않으면 'R' 왼쪽은 무시됩니다.
+e:\college\algorithms\studyalone\studyalone\backjoon4195(2).h(194): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
-e:\college\algorithms\studyalone\studyalone\relaxingpage.h(10): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\college\algorithms\studyalone\studyalone\backjoon4195(2).h(197): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
-e:\college\algorithms\studyalone\studyalone\relaxingpage.h(15): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\college\algorithms\studyalone\studyalone\backjoon4195(2).h(203): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

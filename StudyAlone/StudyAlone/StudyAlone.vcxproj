@@ -165,6 +165,8 @@
     <ClInclude Include="AllSum.h" />
     <ClInclude Include="ASYMTILING.h" />
     <ClInclude Include="BackJoon.h" />
+    <ClInclude Include="BackJoon1654.h" />
+    <ClInclude Include="BackJoon4195.h" />
     <ClInclude Include="BalabongStory.h" />
     <ClInclude Include="Balelino.h" />
     <ClInclude Include="BC.h" />
@@ -179,6 +181,7 @@
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
+    <ClInclude Include="CallCenter.h" />
     <ClInclude Include="CARD1.h" />
     <ClInclude Include="chessTeam.h" />
     <ClInclude Include="Chicken.h" />

@@ -63,7 +63,6 @@ int turnOff(int depth) {
 	return ret;
 }
 
-
 int DIGICLOCK() {
 	int t;
 	scanf("%d\n", &t);

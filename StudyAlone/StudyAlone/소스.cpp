@@ -1,7 +1,7 @@
-#include"relaxingPage.h"
+#include"BackJoon4195(2).h"
 
 int main()
 {
-	relaxingPage();
+	BackJoon4195();
 	return 0;
 }
