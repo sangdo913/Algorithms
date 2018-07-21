@@ -166,6 +166,7 @@
     <ClInclude Include="ASYMTILING.h" />
     <ClInclude Include="BackJoon.h" />
     <ClInclude Include="BackJoon1654.h" />
+    <ClInclude Include="BACKJOON2470.h" />
     <ClInclude Include="BackJoon4195.h" />
     <ClInclude Include="BalabongStory.h" />
     <ClInclude Include="Balelino.h" />

@@ -98,7 +98,6 @@ struct List {
 };
 
 int len;
-int p[200000]; // -는 사이즈의 크기! +는 부모!
 int conv[256] = { 0 }; 
 
 struct Hash {
@@ -152,6 +151,9 @@ void swap(int& i1, int &i2) {
 	i1 = i2;
 	i2 = temp;
 }
+
+
+int p[200000]; // -는 사이즈의 크기! +는 부모!
 
 int getParent(int i) {
 	if (p[i] < 0) return i;
