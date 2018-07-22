@@ -1,7 +1,7 @@
-#include"BACKJOON2470.h"
+#include"BOJ1493.h"
 
 int main()
 {
-	BACKJOON2470();
+	BOJ1493();
 	return 0;
 }

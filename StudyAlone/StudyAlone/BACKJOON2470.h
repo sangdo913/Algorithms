@@ -60,6 +60,8 @@ int BACKJOON2470() {
 
 		i1 = idx - 1;
 		i2 = idx;
+
+		//인덱스가 같은 경우 조절
 		while (i1 == i) i1--;
 		while (i2 == i) i2++;
 
