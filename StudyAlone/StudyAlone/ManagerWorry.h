@@ -4,6 +4,7 @@
 const int MOD = 1000000007;
 
 
+
 int ManagerWorry(){
     int t;
     scanf("%d\n", &t);

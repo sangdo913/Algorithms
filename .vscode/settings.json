@@ -1,5 +1,5 @@
 { 
-    "powermode.enabled": true,
+    "powermode.enabled": false,
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
