@@ -224,6 +224,7 @@
     <ClInclude Include="GetMinAvg.h" />
     <ClInclude Include="GlobalPelindrome.h" />
     <ClInclude Include="GNS.h" />
+    <ClInclude Include="GoodPerformanceProject.h" />
     <ClInclude Include="Grading.h" />
     <ClInclude Include="Hacking.h" />
     <ClInclude Include="HackingBFS.h" />
@@ -236,6 +237,7 @@
     <ClInclude Include="HyeonHo_Password.h" />
     <ClInclude Include="InSuBirthDayParty.h" />
     <ClInclude Include="InSu_Birthday_Party.h" />
+    <ClInclude Include="IU4Eco.h" />
     <ClInclude Include="JagwanBigSale.h" />
     <ClInclude Include="JangHoon.h" />
     <ClInclude Include="JaYeong2.h" />
@@ -268,6 +270,7 @@
     <ClInclude Include="Make_Password.h" />
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="ManagerThinking.h" />
+    <ClInclude Include="ManagerWorry.h" />
     <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />

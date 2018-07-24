@@ -1,7 +1,9 @@
-#include"BOJ1493.h"
-
+#include"GoodPerformanceProject.h"
+#include<cstdio>
 int main()
 {
-	BOJ1493();
+	//printf("%d\n", solution(2147483647));
+	GoodPerformanceProject();
 	return 0;
 }
+//2147483647

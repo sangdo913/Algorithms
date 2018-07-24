@@ -22,18 +22,10 @@ struct b {
 
 int main()
 {
-	b b;
-	
-	A *t = &b.getA(0);
-	t->a = 10;
-	t->b = 20;
-
-	t = &b.getA(2);
-	t->a = -50;
-	t->b = 250;
-
-	printf("t1 a : %d t1 b : %d\n", b.getA(0).a, b.getA(0).b);
-	printf("t2 a : %d t2 b : %d\n", b.getA(2).a, b.getA(2).b);
-
+	long long n = 1;
+	int i = 0;
+	for (i = 0; n < 2100000000; n *= 3, i++) {
+		printf("%d : %lld\n", i, n);
+	}
 	return 0;
 }
