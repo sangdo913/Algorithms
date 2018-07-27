@@ -1,9 +1,9 @@
-#include"GoodPerformanceProject.h"
+#include"NumOfConnectedComponent.h"
 #include<cstdio>
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	GoodPerformanceProject();
+	NumOfConnectedComponent();
 	return 0;
 }
 //2147483647

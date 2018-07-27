@@ -1,6 +1,6 @@
 ﻿  소스.cpp
-e:\college\algorithms\studyalone\studyalone\goodperformanceproject.h(8): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\college\algorithms\studyalone\studyalone\numofconnectedcomponent.h(31): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
-e:\college\algorithms\studyalone\studyalone\goodperformanceproject.h(11): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\college\algorithms\studyalone\studyalone\numofconnectedcomponent.h(35): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

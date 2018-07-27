@@ -288,6 +288,7 @@
     <ClInclude Include="NUMB3RS.h" />
     <ClInclude Include="NUMBERGAME.h" />
     <ClInclude Include="Number_BASEBALL.h" />
+    <ClInclude Include="NumOfConnectedComponent.h" />
     <ClInclude Include="OCR.h" />
     <ClInclude Include="OldCalculator.h" />
     <ClInclude Include="OrthorpeStraightGame.h" />
@@ -335,6 +336,7 @@
     <ClInclude Include="Tetromino.h" />
     <ClInclude Include="TICTACTOE.h" />
     <ClInclude Include="ToOne.h" />
+    <ClInclude Include="ToweringMountain.h" />
     <ClInclude Include="TRIANGLEPATH.h" />
     <ClInclude Include="TRIPATHCNT.h" />
     <ClInclude Include="Union.h" />
