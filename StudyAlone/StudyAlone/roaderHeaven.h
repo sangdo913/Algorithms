@@ -45,6 +45,7 @@ int solution(int m, int n, vector<vector<int> > city_map) {
 
         if(now.x == n - 1 && now.y == m - 1) {
             answer = map[now.y][now.x].nums[0] + map[now.y][now.x].nums[1];
+            answer %= MOD;
             break;
             }
 

@@ -16,7 +16,7 @@ int main()
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include "roaderHeaven.h"
+#include "HighEcoIU.h"
 #include<vector>
 
 using namespace std;
@@ -24,15 +24,13 @@ using namespace std;
 int main()
 {
 	//freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
-
-	vector<vector<int> > b;
-	for(int i = 0; i < 3; i++){
-		b.resize(3);
-		for(int j = 0; j < 3; j++){
-			b[i].push_back(0);
-		}
+	//int a = solution(2147483647);
+	//printf("%d\n", a);
+	long long a;
+	for(a = 1; a < 2147483647LL; a*=3){
+		printf("%lld\n", a);
 	}
-	int a = solution(3,3, b);
+	printf("%lld\n", a);
 
 	return 0;
 }
