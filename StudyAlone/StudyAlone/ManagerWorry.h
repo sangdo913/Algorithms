@@ -9,6 +9,8 @@ info rate[201];
 info temp[201];
 int index[2][10000];
 
+long long permu[101];
+
 void mergeSort(int le, int m, int ri) {
 	int l = le, k = le, r = m + 1;
 
@@ -36,7 +38,7 @@ void merge(int l, int r) {
 }
 
 const int MOD = 1000000007;
-int pro[2][101];
+long long pro[101][101][101];
 int size[2];
 
 void swap(int &i1, int &i2, int *index) {
@@ -73,7 +75,7 @@ void p(int* idx, int depth, int right) {
 			w += index[0][i] > index[1][i];
 			printf("%c ", index[0][i] > index[1][i] ? 'W' : 'L');
 		}
-		pro[0][w]++;
+		//pro[0][w]++;
 		printf("\n");
 	}
 
@@ -85,10 +87,14 @@ void p(int* idx, int depth, int right) {
 }
 
 
-
 int ManagerWorry(){
     int t;
     scanf("%d\n", &t);
+	permu[0] = 1;
+	for (int i = 1; i <= 100; i++) {
+		permu[i] = permu[i - 1] * i;
+		permu[i] %= MOD;
+	}
 
     for(int tc = 1; tc <= t; tc++){
 		int n;
@@ -108,17 +114,64 @@ int ManagerWorry(){
 		merge(1, 2*n );
 		memset(pro, 0, sizeof(pro));
 		size[0] = size[1] = 0;
+		int ex = 0;
 
-		size[rate[1].team]++;
-		pro[0][rate[1].team] = 1;
+		int cidx = 0, pt = 0;
 
+		pro[0][0][0] = 1;
 		memset(pro, 0, sizeof(pro));
 		int cnt = 1;
-		p(index[1],0, n);
+		//p(index[1],0, n);
 
-		//for (int i = 2; i <= 2 * n; i++) {
-		//	info score = rate[i];
-		//	size[score.team]++;
+		for (int i = 1; i <= 2 * n; i++) {
+			size[rate[i].team]++;
+
+			if (rate[i].team == pt) {
+				ex++;
+
+				for (int idx = 0; idx <= cidx; idx++) {
+					for (int j = 0; j < ex; j++) {
+						pro[i][idx][j] = pro[i - ex][idx][j] * permu[ex];
+						pro[i][idx][j] %= MOD;
+					}
+				}
+
+				if (pt == 0) {
+					for (int j = 1; j <= size[pt]; j++) {
+						for (int k = 1; k <= ex; k++) {
+							pro[i][j][k] = pro[i - 1][j-1][k-1]*(ex - k) + pro[i-1][j-1][k-1] * (size[pt] - ex + j - ex + k);
+
+						}
+					}
+				}
+				else {
+
+				}
+			}
+		}
+
+
+		//for (int i = 1; i <= 2 * n; i++) {
+		//	while (rate[i].team == pt) {
+		//		size[pt]++;
+		//		i++;
+		//	}
+
+		//	if (size[pt] > sizeMax) {
+		//		for (int j = sizeMax + 1; j <= size[pt]; j++) {
+		//			if (pt == 0) {
+
+		//			}
+		//		}
+		//		sizeMax = size[pt];
+		//	}
+
+
+		//	i--;
+		//	pt = rate[i].team;
+		//	
+		//	if (size[pt] <= sizeMax) continue;
+
 		//	if (size[0] > size[1] && score.team == 0) {
 		//		pro[cnt % 2][0] = pro[cnt%2^1][0];
 
@@ -149,7 +202,7 @@ int ManagerWorry(){
 		//		}
 		//}
 
-		
+		//
 
 		printf("#%d ", tc);
 		for (int i = 0; i <= n; i++) {
