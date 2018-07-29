@@ -1,23 +1,14 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include "roaderHeaven.h"
+#include "DesertCafe2.h"
 #include<vector>
 
 using namespace std;
 
 int main()
 {
-	//freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
-	vector<int> a;
-	a.push_back(0);
-	a.push_back(0);
-	a.push_back(0);
-	vector<vector<int> > b;
-	b.push_back(a);
-	b.push_back(a);
-	b.push_back(a);
-	int a = solution(3,3, b);
-
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
+	DesertCafe2();
 	return 0;
 }
