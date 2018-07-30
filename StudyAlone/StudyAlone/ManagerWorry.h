@@ -139,13 +139,47 @@ int ManagerWorry(){
 				if (pt == 0) {
 					for (int j = 1; j <= size[pt]; j++) {
 						for (int k = 1; k <= ex; k++) {
-							pro[i][j][k] = pro[i - 1][j-1][k-1]*(ex - k) + pro[i-1][j-1][k-1] * (size[pt] - ex + j - ex + k);
+							//패 승 초 // 승 초 형식
+							//k 전, 앞 초과 - k + 1, j 그대로 -> k-1 or size[pt] - ex
+							//k 전, 앞 승리 - k + 1, j 그대로 -> j- k or 0
+							
+							//k 전, 앞 패배 - k + 1, j + 1 -> size[pt] - ex -k -j + 2 or 0 
 
+							//뒤 초과 - k 그대로, j 그대로 -> ex - k
+							//뒤 승   - k 그대로, j 그대로 -> k or j
+
+							int idx1 = 0, idx2 = 0, idx3 = 1;
+							idx1 += k - 1 > size[pt] - ex ? size[pt] - ex : k - 1;
+							idx1 += j - k > 0 ? j - k : 0;
+							idx2 += size[pt] - ex - k - j + 2 > 0 ? size[pt] - ex - k - j + 2 : 0;
+							idx3 += k > j ? j : k;
+							idx3 += ex - k;
+							pro[i][j][k] = pro[i - 1][j][k - 1] * (idx1)+pro[i - 1][j - 1][k] * (idx2)+pro[i - 1][j][k] * idx3;
 						}
 					}
 				}
 				else {
+					for (int j = 1; j <= size[pt]; j++) {
+						for (int k = 1; k <= ex; k++) {
+							//패 승 초 // 승 초 형식
+							//k 전, 앞 초과 - k + 1, j 그대로 -> k-1 or size[pt] - ex
+							//k 전, 앞 패배 - k + 1, j 그대로 -> size[pt] - ex -k -j + 2 or 0 
 
+							//k 전, 앞 승리 - k + 1, j - 1 -> j-k or 0
+
+							//뒤 초과 - k 그대로, j 그대로 -> ex - k
+
+							//뒤 승   - k 그대로, j 그대로 -> k or j
+
+							int idx1 = 0, idx2 = 0, idx3 = 1;
+							idx1 += k - 1 > size[pt] - ex ? size[pt] - ex : k - 1;
+							idx1 += j - k > 0 ? j - k : 0;
+							idx2 += size[pt] - ex - k - j + 2 > 0 ? size[pt] - ex - k - j + 2 : 0;
+							idx3 += k > j ? j : k;
+							idx3 += ex - k;
+							pro[i][j][k] = pro[i - 1][j][k - 1] * (idx1)+pro[i - 1][j - 1][k] * (idx2)+pro[i - 1][j][k] * idx3;
+						}
+					}
 				}
 			}
 		}
