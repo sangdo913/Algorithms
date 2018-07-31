@@ -180,6 +180,7 @@
     <ClInclude Include="BlockMeSang.h" />
     <ClInclude Include="BoemJoon.h" />
     <ClInclude Include="BOJ10828.h" />
+    <ClInclude Include="BOJ11266.h" />
     <ClInclude Include="BOJ1493.h" />
     <ClInclude Include="BOJ3020.h" />
     <ClInclude Include="BongEoBBangh.h" />
