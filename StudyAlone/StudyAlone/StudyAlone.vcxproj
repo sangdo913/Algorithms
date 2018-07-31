@@ -318,6 +318,7 @@
     <ClInclude Include="Resign.h" />
     <ClInclude Include="RESTORE.h" />
     <ClInclude Include="RichProject.h" />
+    <ClInclude Include="BOJ3176.h" />
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />

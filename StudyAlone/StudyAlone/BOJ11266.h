@@ -59,7 +59,7 @@ int BOJ11266() {
 	for (int i = 1; i <= n; i++) {
 		if (res[i]) {
 			reses[resNum++] = i;
-		}
+		} 
 	}
 	printf("%d\n", resNum);
 	for (int i = 0; i < resNum; i++) {
