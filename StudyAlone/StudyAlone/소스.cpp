@@ -1,9 +1,9 @@
-#include"BOJ3955.h"
+#include"BOJ2960.h"
 #include<cstdio>
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	BOJ3955();
+	BOJ2960();
 	return 0;
 }
 //2147483647
