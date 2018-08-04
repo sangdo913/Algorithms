@@ -6,9 +6,9 @@ struct JongMinHambergerClass
 {
 	double culSumFi[1000005];
 	double culSumFiplus1[1000005];
-	double relativeLength(int index1, int index2)
+	double relativeLength(int ind1, int ind2)
 	{
-		return 1.0*(culSumFiplus1[index1] - culSumFiplus1[index2]) / (culSumFi[index2] - culSumFi[index1]);
+		return 1.0*(culSumFiplus1[ind1] - culSumFiplus1[ind2]) / (culSumFi[ind2] - culSumFi[ind1]);
 	}
 	void add(double d1, double d2)
 	{
@@ -64,7 +64,7 @@ int JongMinHamberger()
 			JongMin.add(JongMin_culPeople[cnt], -JongMin_culPeople[cnt - 1]);
 		}
 		
-		int index = 0; 
+		int ind = 0; 
 		
 		long long endTime = 0;
 		

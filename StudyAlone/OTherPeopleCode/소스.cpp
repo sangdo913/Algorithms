@@ -1,252 +1,246 @@
-﻿//  4740_밍이의 블록게임
-//  Created by yeram Kim on 2018. 7. 27..
+﻿#include<cstdio>
+#include<cstring>
+struct info {
+	int rate, team;
+};
+info rate[201];
+info temp[201];
+int index[2][10000];
 
-#include <iostream>
-#include <queue>
-#include <tuple>
-#include <vector>
+long long permu[101];
+long long all[101];
+void mergeSort(int le, int m, int ri) {
+	int l = le, k = le, r = m + 1;
 
-using namespace std;
+	while (l <= m && r <= ri) {
+		temp[k++] = rate[l].rate < rate[r].rate ? rate[l++] : rate[r++];
+	}
+	while (l <= m) temp[k++] = rate[l++];
+	while (r <= ri) temp[k++] = rate[r++];
 
-int N, M;
-char map[35][35];
+	int len[2] = { 0, 0 };
+	for (int i = le; i <= ri; i++) {
 
-int dx[] = { 0,0,-1,1 };
-int dy[] = { -1,1,0,0 };
+		rate[i] = temp[i];
+		index[temp[i].team][len[temp[i].team]++] = temp[i].rate;
+	}
+}
 
-void print_map() {
-	int i, j;
-	for (i = 1; i <= N; i++) {
-		for (j = 1; j <= M; j++)
-			printf("%c", map[i][j]);
+void merge(int l, int r) {
+	if (l < r) {
+		int m = (l + r) / 2;
+		merge(l, m);
+		merge(m + 1, r);
+		mergeSort(l, m, r);
+	}
+}
+
+const int MOD = 1000000007;
+long long pro[101][101][101];
+int size[2];
+
+void swap(int &i1, int &i2, int *index) {
+	int temp = index[i1];
+	index[i1] = index[i2];
+	index[i2] = temp;
+}
+
+
+void RR(int st, int dt, int *idx) {
+	int temp = idx[dt];
+	for (int i = dt; i >st; i--) {
+		idx[i] = idx[i - 1];
+	}
+	idx[st] = temp;
+}
+
+void LR(int st, int dt, int *idx) {
+	int temp = idx[st];
+	for (int i = st; i < dt; i++) {
+		idx[i] = idx[i + 1];
+	}
+	idx[dt] = temp;
+}
+
+void p(int* idx, int depth, int right) {
+	if (depth == right) {
+		for (int i = 0; i < right; i++) {
+			printf("%d ", idx[i]);
+		}
+		int w = 0;
+
+		for (int i = 0; i < right; i++) {
+			w += index[0][i] > index[1][i];
+			printf("%c ", index[0][i] > index[1][i] ? 'W' : 'L');
+		}
+		all[w]++;
 		printf("\n");
 	}
 
-	printf("\n");
-}
-
-bool in_range(int x, int y) {
-	if (x >= 1 && x <= N && y >= 1 && y <= M)
-		return true;
-	else return false;
-}
-
-void falling() {
-	int i, j;
-	for (i = 1; i <= M; i++) {
-		queue<char> q;
-		for (j = N; j >= 1; j--) {
-			if (map[j][i] != '#')
-				q.push(map[j][i]);
-		}
-
-		int k = N;
-		while (!q.empty()) {
-			char c = q.front();
-			q.pop();
-			map[k][i] = c;
-			k--;
-		}
-
-		k++;
-
-		k--;
-		while (k >= 1) {
-			map[k][i] = '#';
-			k--;
-		}
-
-
+	for (int i = depth; i < right; i++) {
+		RR(depth, i, idx);
+		p(idx, depth + 1, right);
+		LR(depth, i, idx);
 	}
 }
 
-void up(char s[31]) {
-	int i, j;
 
-	for (i = 1; i <= M; i++) {
-		if (map[1][i] != '#') {
-			return;
-		}
+int main() {
+	int t;
+	scanf("%d\n", &t);
+	permu[0] = 1;
+	for (int i = 1; i <= 100; i++) {
+		permu[i] = permu[i - 1] * i;
+		permu[i] %= MOD;
 	}
 
-	for (i = 1; i<N; i++) {
-		for (j = 1; j <= M; j++) {
-			map[i][j] = map[i + 1][j];
+	for (int tc = 1; tc <= t; tc++) {
+		int n;
+		scanf("%d\n", &n);
+		int t;
+		for (int i = 1; i <= n; i++) {
+			scanf("%d\n", &t);
+			rate[i].rate = t;
+			rate[i].team = 0;
 		}
-	}
+		for (int i = n + 1; i <= 2 * n; i++) {
+			scanf("%d\n", &t);
+			rate[i].rate = t;
+			rate[i].team = 1;
+		}
 
-	for (j = 1; j <= M; j++)
-		map[N][j] = s[j - 1];
+		merge(1, 2 * n);
+		memset(pro, 0, sizeof(pro));
+		size[0] = size[1] = 0;
+		int ex = 0;
 
-	falling();
+		int cidx = 0, pt = 0;
 
-}
+		pro[0][0][0] = 1;
+		memset(pro, 0, sizeof(pro));
+		int cnt = 1;
+		p(index[1],0, n);
 
-void down() {
-	int max = 0;
-	vector<pair<int, int>> v;
-	int i, j, k;
-	bool visit[35][35] = { { false } };
+		for (int i = 1; i <= 2 * n; i++) {
+			size[rate[i].team]++;
 
-	for (i = 1; i <= N; i++) {
-		for (j = 1; j <= M; j++) {
-			if (map[i][j] != '#') {
-				char c = map[i][j];
-				int n = 1;
-				queue<pair<int, int>> q;
-				q.push({ i,j });
+			if (rate[i].team == pt) {
+				ex++;
 
-				while (!q.empty()) {
-					int x = q.front().first;
-					int y = q.front().second;
-					q.pop();
-					for (k = 0; k<4; k++) {
-						int n_x = x + dx[k];
-						int n_y = y + dy[k];
-						if (in_range(n_x, n_y) && map[n_x][n_y] == c && !visit[n_x][n_y]) {
-							q.push({ n_x,n_y });
-							visit[n_x][n_y] = true;
-							n++;
-						}
+				for (int idx = 0; idx <= cidx; idx++) {
+					for (int j = 0; j < ex; j++) {
+						pro[i][idx][j] = pro[i - ex][idx][j] * permu[ex];
+						pro[i][idx][j] %= MOD;
 					}
 				}
 
-				if (n>max) {
-					max = n;
-					v.clear();
-					v.push_back({ i,j });
+				if (pt == 0) {
+					for (int j = 1; j <= size[pt]; j++) {
+						for (int k = 1; k <= ex; k++) {
+							//패 승 초 // 승 초 형식
+							//k 전, 앞 초과 - k + 1, j 그대로 -> k-1 or size[pt] - ex
+							//k 전, 앞 승리 - k + 1, j 그대로 -> j- k or 0
+
+							//k 전, 앞 패배 - k + 1, j + 1 -> size[pt] - ex -k -j + 2 or 0 
+
+							//뒤 초과 - k 그대로, j 그대로 -> ex - k
+							//뒤 승   - k 그대로, j 그대로 -> k or j
+
+							int idx1 = 0, idx2 = 0, idx3 = 1;
+							idx1 += k - 1 > size[pt] - ex ? size[pt] - ex : k - 1;
+							idx1 += j - k > 0 ? j - k : 0;
+							idx2 += size[pt] - ex - k - j + 2 > 0 ? size[pt] - ex - k - j + 2 : 0;
+							idx3 += k > j ? j : k;
+							idx3 += ex - k;
+							pro[i][j][k] = pro[i - 1][j][k - 1] * (idx1)+pro[i - 1][j - 1][k] * (idx2)+pro[i - 1][j][k] * idx3;
+						}
+					}
 				}
-				else if (n == max) {
-					v.push_back({ i,j });
+				else {
+					for (int j = 1; j <= size[pt]; j++) {
+						for (int k = 1; k <= ex; k++) {
+							//패 승 초 // 승 초 형식
+							//k 전, 앞 초과 - k + 1, j 그대로 -> k-1 or size[pt] - ex
+							//k 전, 앞 패배 - k + 1, j 그대로 -> size[pt] - ex -k -j + 2 or 0 
+
+							//k 전, 앞 승리 - k + 1, j - 1 -> j-k or 0
+
+							//뒤 초과 - k 그대로, j 그대로 -> ex - k
+
+							//뒤 승   - k 그대로, j 그대로 -> k or j
+
+							int idx1 = 0, idx2 = 0, idx3 = 1;
+							idx1 += k - 1 > size[pt] - ex ? size[pt] - ex : k - 1;
+							idx1 += j - k > 0 ? j - k : 0;
+							idx2 += size[pt] - ex - k - j + 2 > 0 ? size[pt] - ex - k - j + 2 : 0;
+							idx3 += k > j ? j : k;
+							idx3 += ex - k;
+							pro[i][j][k] = pro[i - 1][j][k - 1] * (idx1)+pro[i - 1][j - 1][k] * (idx2)+pro[i - 1][j][k] * idx3;
+						}
+					}
 				}
 			}
 		}
+
+
+		//for (int i = 1; i <= 2 * n; i++) {
+		//	while (rate[i].team == pt) {
+		//		size[pt]++;
+		//		i++;
+		//	}
+
+		//	if (size[pt] > sizeMax) {
+		//		for (int j = sizeMax + 1; j <= size[pt]; j++) {
+		//			if (pt == 0) {
+
+		//			}
+		//		}
+		//		sizeMax = size[pt];
+		//	}
+
+
+		//	i--;
+		//	pt = rate[i].team;
+		//	
+		//	if (size[pt] <= sizeMax) continue;
+
+		//	if (size[0] > size[1] && score.team == 0) {
+		//		pro[cnt % 2][0] = pro[cnt%2^1][0];
+
+		//		for (int j = 1; j <= size[1]; j++) {
+		//			//이전꺼 그대로 냅두면 그대로!
+		//			//이전꺼에서 승리한 거랑 바꾸면 승리 그대로!
+		//			//이전꺼에서 패배한 거랑 바꾸면 승리 + 1!
+		//			pro[cnt % 2][j] = pro[(cnt % 2) ^ 1][j] * (j + 1) + pro[cnt%2^1][j-1] * (size[0] - j + 1);
+		//		}
+		//		cnt++;
+		//	}
+		//	else if(size[0] < size[1] && score.team == 1){
+		//		pro[cnt % 2][0] = pro[cnt % 2 - 1][0] * size[1];
+		//		for (int j = 0; j <= size[0]; j++) { 
+		//			//이전꺼에서 승리한 것이랑 바꾸면 승리 -1!
+		//			//이전꺼에서 패배한 것이랑 바꾸면 그대로!
+		//			//이전꺼에서 그대로 냅두면 그대로!
+		//			pro[cnt % 2][j] = pro[(cnt % 2) ^ 1][j]*(size[1] - j) + pro[cnt%2^1][j+1]*(j+1);
+		//		}
+
+		//		cnt++;
+		//	}
+		//	else if(score.team == 0){
+		//			for (int i = 1; i < size[0]; i++) {
+		//				pro[cnt % 2][i] = pro[cnt % 2][i - 1];
+		//			}
+		//			pro[cnt % 2][0] = 0;
+		//		}
+		//}
+
+		//
+
+		printf("#%d ", tc);
+		for (int i = 0; i <= n; i++) {
+			printf("%lld ", all[i]);
+		}
+		printf("\n");
 	}
-
-	for (i = 0; i<v.size(); i++) {
-		int x = v.at(i).first;
-		int y = v.at(i).second;
-		char c = map[x][y];
-		map[x][y] = '#';
-		queue<pair<int, int>> q;
-		q.push({ x,y });
-
-		while (!q.empty()) {
-			x = q.front().first;
-			y = q.front().second;
-			q.pop();
-			for (k = 0; k<4; k++) {
-				int n_x = x + dx[k];
-				int n_y = y + dy[k];
-
-				if (in_range(n_x, n_y) && map[n_x][n_y] == c) {
-					map[n_x][n_y] = '#';
-					q.push({ n_x,n_y });
-				}
-
-			}
-		}
-	}
-
-	falling();
-
-}
-
-void left() {
-	int i, j;
-	for (i = 1; i <= N; i++) {
-		queue<char> q;
-		for (j = 1; j <= M; j++) {
-			if (map[i][j] != '#')
-				q.push(map[i][j]);
-		}
-
-		int k = 1;
-		while (!q.empty()) {
-			map[i][k] = q.front();
-			q.pop();
-			k++;
-		}
-
-		while (k <= M) {
-			map[i][k] = '#';
-			k++;
-		}
-	}
-}
-
-void right() {
-	int i, j;
-	for (i = 1; i <= N; i++) {
-		queue<char> q;
-		for (j = M; j >= 1; j--) {
-			if (map[i][j] != '#')
-				q.push(map[i][j]);
-		}
-
-		int k = M;
-		while (!q.empty()) {
-			map[i][k] = q.front();
-			q.pop();
-			k--;
-		}
-
-		while (k >= 1) {
-			map[i][k] = '#';
-			k--;
-		}
-	}
-}
-
-int main(int argc, const char * argv[]) {
-
-	int T;
-	scanf("%d", &T);
-
-	for (int test_case = 1; test_case <= T; test_case++) {
-		int Q;
-		scanf("%d %d %d", &N, &M, &Q);
-
-		int i, j;
-		for (i = 1; i <= N; i++) {
-			for (j = 1; j <= M; j++) {
-				if (j == 1)
-					scanf(" %c", &map[i][j]);
-				else scanf("%c", &map[i][j]);
-
-			}
-		}
-
-		//    print_map();
-
-		for (i = 1; i <= Q; i++) {
-			char q;
-			scanf(" %c", &q);
-			if (q == 'U') {
-				char s[31];
-				scanf("%s", s);
-				up(s);
-				//        print_map();
-			}
-			else if (q == 'D') {
-				down();
-				//         print_map();
-			}
-			else if (q == 'L') {
-				left();
-				//         print_map();
-			}
-			else if (q == 'R') {
-				right();
-				//        print_map();
-			}
-
-		}
-
-		printf("#%d\n", test_case);
-		print_map();
-
-	}
-
 	return 0;
 }

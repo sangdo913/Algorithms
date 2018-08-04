@@ -11,9 +11,9 @@ using namespace std;
 int SCALE_sinker[9];
 int KNAP_memoi[9][1 << 18];
 
-int GoDoubleScale(int left, int right, int count, int size,int visit,int index)
+int GoDoubleScale(int left, int right, int count, int size,int visit,int ind)
 {
-	int &result= KNAP_memoi[index][visit];
+	int &result= KNAP_memoi[ind][visit];
 
 	//conditions to return
 	if (result != -1) return result;		// 1. if there is memoi, then return

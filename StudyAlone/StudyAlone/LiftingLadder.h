@@ -52,7 +52,7 @@ struct Lifting_Info
 		return i1 > i2 ? i1 : i2;
 	}
 
-	int change(int index, int cnt, int changed)
+	int change(int ind, int cnt, int changed)
 	{
 		int res = -1;
 
@@ -65,20 +65,20 @@ struct Lifting_Info
 			else return - 1;
 		}
 
-		if (index == liftCnt) return -1;
+		if (ind == liftCnt) return -1;
 
-		int r = canBuild[index].r, c = canBuild[index].c;
+		int r = canBuild[ind].r, c = canBuild[ind].c;
 
 		if (!lift[r][c - 1] && !lift[r][c] && !lift[r][c + 1])
 		{
 			lift[r][c] = true;
-			res = change(index + 1, cnt, changed + 1);
+			res = change(ind + 1, cnt, changed + 1);
 			lift[r][c] = false;
 		}
 
 		if (res != -1) return res;
 
-		res = change(index + 1, cnt, changed);
+		res = change(ind + 1, cnt, changed);
 
 		return res;
 	}

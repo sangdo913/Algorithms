@@ -86,23 +86,23 @@ bool JongMin_BLOCK::operator()(int i, int j)
 
 void JongMin_Check(int size)
 {
-	int x1, x2, y1, y2, index;
+	int x1, x2, y1, y2, ind;
 	for (int i = 1; i <= size; i++)
 	{
 		int j = 1;
 		for (; j <= size; j++)
 		{
-			index = (i - 1)*(size - 1) + j - 1;
+			ind = (i - 1)*(size - 1) + j - 1;
 			x1 = j; y1 = i; x2 = j + 1; y2 = i; // °¡·Î
 			if (JongMin_MAP[y2][x2] >= 0)
 			{
-				JongMin_blocks[index] = JongMin_BLOCK(x1, x2, y1, y2, JongMin_MAP[y1][x1] + JongMin_MAP[y2][x2]);
+				JongMin_blocks[ind] = JongMin_BLOCK(x1, x2, y1, y2, JongMin_MAP[y1][x1] + JongMin_MAP[y2][x2]);
 			}
-			index = (size - 1)*(size)+(i - 1)*(size)+j - 1;
+			ind = (size - 1)*(size)+(i - 1)*(size)+j - 1;
 			x2 = j; y2 = i + 1; // ¼¼·Î
 			if (JongMin_MAP[y2][x2] >= 0)
 			{
-				JongMin_blocks[index] = JongMin_BLOCK(x1, x2, y1, y2, JongMin_MAP[y1][x1] + JongMin_MAP[y2][x2]);
+				JongMin_blocks[ind] = JongMin_BLOCK(x1, x2, y1, y2, JongMin_MAP[y1][x1] + JongMin_MAP[y2][x2]);
 			}
 		}
 	}
@@ -190,16 +190,16 @@ int JongMin_GetMax(int n, int r, int length, bool flag[25], int size)
 	return result;
 }
 
-//index 1 : ÂïÈù ¾Ö index2 ÂïÀ» ¾Ö
-int JongMin_GetMAX(int K, int depth, int size, int value, int index1, int index2, int ARRsize)
+//ind 1 : ÂïÈù ¾Ö ind2 ÂïÀ» ¾Ö
+int JongMin_GetMAX(int K, int depth, int size, int value, int ind1, int ind2, int ARRsize)
 {
-	if (index2 == ARRsize) return 0;
+	if (ind2 == ARRsize) return 0;
 	if (K == depth) return value;
 	int max = 0;
 
 	typedef JongMin_BLOCK b;
-	b b2 = JongMin_maxblocks[index2];
-	b b1 = JongMin_maxblocks[index1];
+	b b2 = JongMin_maxblocks[ind2];
+	b b1 = JongMin_maxblocks[ind1];
 	int x21 = b2.x1, x22 = b2.x2, y21 = b2.y1, y22 = b2.y2;
 	int x11 = b1.x1, x12 = b1.x2, y11 = b1.y1, y12 = b1.y2, value1 = b1.value;
 	int value2 = b2.value;
@@ -212,7 +212,7 @@ int JongMin_GetMAX(int K, int depth, int size, int value, int index1, int index2
 		if (DOMI_CompCOD(x11, y11, x21, y21) || DOMI_CompCOD(x11, y11, x22, y22) || DOMI_CompCOD(x12, y12, x22, y22) || DOMI_CompCOD(x12, y12, x21, y21))
 		{
 
-			max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value, index1, index2 + 1, ARRsize));
+			max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value, ind1, ind2 + 1, ARRsize));
 
 
 			JngMin_Check[y11][x11] = false;
@@ -220,7 +220,7 @@ int JongMin_GetMAX(int K, int depth, int size, int value, int index1, int index2
 
 			JngMin_Check[y22][x22] = true;
 			JngMin_Check[y21][x21] = true;
-			max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value + b2.value - b1.value, index2, index2 + 1, ARRsize));
+			max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value + b2.value - b1.value, ind2, ind2 + 1, ARRsize));
 			JngMin_Check[y22][x22] = false;
 			JngMin_Check[y21][x21] = false;
 		}
@@ -229,14 +229,14 @@ int JongMin_GetMAX(int K, int depth, int size, int value, int index1, int index2
 		{
 			JngMin_Check[y21][x21] = true;
 			JngMin_Check[y22][x22] = true;
-			max = JongMin_MAX(max, JongMin_GetMAX(K, depth + 1, size, value + b2.value, index2, index2 + 1, ARRsize));
+			max = JongMin_MAX(max, JongMin_GetMAX(K, depth + 1, size, value + b2.value, ind2, ind2 + 1, ARRsize));
 			JngMin_Check[y21][x21] = false;
 			JngMin_Check[y22][x22] = false;
 		}
 	}
 	else
 	{
-		max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value, index1, index2 + 1, ARRsize));
+		max = JongMin_MAX(max, JongMin_GetMAX(K, depth, size, value, ind1, ind2 + 1, ARRsize));
 	}
 
 	return max;

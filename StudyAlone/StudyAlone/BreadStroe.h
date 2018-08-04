@@ -49,9 +49,9 @@ struct BreadStore_Vector
 
 		values[size++] = value;
 	}
-	T& operator[](int index)
+	T& operator[](int ind)
 	{
-		return values[index];
+		return values[ind];
 	}
 };
 struct BreadStore_Cod

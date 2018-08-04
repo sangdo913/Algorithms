@@ -66,16 +66,16 @@ struct DICE_DICE
 		now.x += DICE_dx[dir];
 		now.y += DICE_dy[dir];
 		int	temp = numbers[UNDS[DICE_UP]];
-		int index = 0;
+		int ind = 0;
 		int rotate = dir == DICE_N || dir == DICE_E ? -1 : 1;
 		int* rotateArr = dir == DICE_N || dir == DICE_S ? UNDS : URDW;
 
 		for (int i = 0; i < 3; i++)
 		{
-			numbers[rotateArr[index]] = numbers[rotateArr[(index + 4 + rotate) % 4]];
-			index = (index + 4 + rotate) % 4;
+			numbers[rotateArr[ind]] = numbers[rotateArr[(ind + 4 + rotate) % 4]];
+			ind = (ind + 4 + rotate) % 4;
 		}
-		numbers[rotateArr[index]] = temp;
+		numbers[rotateArr[ind]] = temp;
 
 		SetNumber();
 		return true;

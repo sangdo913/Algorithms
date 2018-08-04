@@ -16,7 +16,7 @@ struct Position
 	int y;
 };
 
-bool ValidIndex(int x,int y, int M, int N)
+bool Validind(int x,int y, int M, int N)
 {
 	return !(x < 0 || x >= M || y < 0 || y>=N);
 }
@@ -66,7 +66,7 @@ void MinCut()
 				f[{2 * (i*M + j), 2 * (i*M + j) + 1}] = 0;
 				adj[2 * (i*M + j)].push_back(2 * (i*M + j)+1);
 				adj[2 * (i*M + j)+1].push_back(2 * (i*M + j));
-				if (ValidIndex(j,i,M,N) && _map[i][j - 1] == '.')
+				if (Validind(j,i,M,N) && _map[i][j - 1] == '.')
 				{
 					c[{2 * (i*M + j - 1) + 1, 2 * (i*M + j)}] = 10;
 					c[{2 * (i*M + j) + 1, 2 * (i*M + j - 1)}] = 10;
@@ -80,7 +80,7 @@ void MinCut()
 					adj[2 * (i*M + j - 1) ].push_back(2 * (i*M + j)+1);
 					adj[2 * (i*M + j) ].push_back(2 * (i*M + j - 1)+1);
 				}
-				if (ValidIndex(j,i,M,N) && _map[i-1][j] == '.')
+				if (Validind(j,i,M,N) && _map[i-1][j] == '.')
 				{
 					c[{2 * (i*M + j - M) + 1, 2 * (i*M + j)}] = 10;
 					c[{2 * (i*M + j) + 1, 2 * (i*M + j - M)}] = 10;
@@ -110,7 +110,7 @@ void MinCut()
 		int st = s.x + s.y*M;
 		int dt = st + dp[i];
 
-		if (ValidIndex(s.x+dx[i],s.y+dy[i],M,N)&& _map[dt/M][dt%M] !='#')
+		if (Validind(s.x+dx[i],s.y+dy[i],M,N)&& _map[dt/M][dt%M] !='#')
 		{
 			c[{st * 2 + 1, dt * 2}] = 10;
 			f[{st * 2 + 1, dt * 2}] = 0;
@@ -119,7 +119,7 @@ void MinCut()
 
 		dt = t.x + t.y*M;
 		st = dt + dp[i];
-		if (ValidIndex(t.x+dx[i],t.y+dy[i], M,N) && _map[st / M][st%M] != '#')
+		if (Validind(t.x+dx[i],t.y+dy[i], M,N) && _map[st / M][st%M] != '#')
 		{
 			c[{st * 2 + 1, dt * 2}] = 10;
 			f[{st * 2 + 1, dt * 2}] = 0;

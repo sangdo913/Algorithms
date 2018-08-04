@@ -632,6 +632,9 @@
     <ClInclude Include="BOJ2960.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="SWExpert5162.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

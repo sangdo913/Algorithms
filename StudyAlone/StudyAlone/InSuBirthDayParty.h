@@ -81,11 +81,11 @@ bool _InSu_Heap::Push(Data data)
 {
 	if (size == max_size)
 	{
-		int max_index = max_size;
+		int max_ind = max_size;
 		max_size = max_size<< 1;
 		Data* new_datas = new Data[max_size + 1];
 		Data* r_data = datas;
-		for (int i = 1; i <= max_index; i++)
+		for (int i = 1; i <= max_ind; i++)
 		{
 			new_datas[i] = datas[i];
 		}
@@ -96,14 +96,14 @@ bool _InSu_Heap::Push(Data data)
 	}
 	size++;
 
-	int index = size, p_index = GetParent(index);
-	while (p_index && func(data, datas[p_index]))
+	int ind = size, p_ind = GetParent(ind);
+	while (p_ind && func(data, datas[p_ind]))
 	{
-		datas[index] = datas[p_index];
-		index = p_index;
-		p_index = GetParent(index);
+		datas[ind] = datas[p_ind];
+		ind = p_ind;
+		p_ind = GetParent(ind);
 	}
-	datas[index] = data;
+	datas[ind] = data;
 	return true;
 }
 
@@ -111,15 +111,15 @@ bool _InSu_Heap::Pop(Data &data)
 {
 	if (IsEmpty()) return false;
 	data = datas[1];
-	int index = 1, last = size--;
-	int child_index = GetChild(index);
-	while (child_index && func(datas[child_index], datas[last]))
+	int ind = 1, last = size--;
+	int child_ind = GetChild(ind);
+	while (child_ind && func(datas[child_ind], datas[last]))
 	{
-		datas[index] = datas[child_index];
-		index = child_index;
-		child_index = GetChild(index);
+		datas[ind] = datas[child_ind];
+		ind = child_ind;
+		child_ind = GetChild(ind);
 	}
-	datas[index] = datas[last];
+	datas[ind] = datas[last];
 }
 
 struct InSu_List

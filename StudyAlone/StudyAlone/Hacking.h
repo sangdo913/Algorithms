@@ -114,9 +114,9 @@ struct Hacking_Vector
 	T * values;
 	int size;
 	int maxSize;
-	T& operator [](int index)
+	T& operator [](int ind)
 	{
-		return values[index];
+		return values[ind];
 	}
 	Hacking_Vector<T>()
 	{
@@ -187,7 +187,7 @@ Hacking_Stack<int> Hacking_stack;
 bool Hacking_SSCFinished[10001] = { false };
 int Hacking_dist[10001] = { -1 };
 int Hacking_outDegree[100001] = { 0 };
-int Hacking_SCCIndex[10001]; 
+int Hacking_SCCind[10001]; 
 int Hacking_hack[10001];
 Hacking_Vector<int> Hacking_SCCAdj[10001];
 int Hacking_MakeSSC(int nowNum, int dist)
@@ -218,7 +218,7 @@ int Hacking_MakeSSC(int nowNum, int dist)
 			SSC.push_back(SSCNode);
 			Hacking_SSCFinished[SSCNode] = true;
 			
-			Hacking_SCCIndex[SSCNode] = Hacking_SCC.size;
+			Hacking_SCCind[SSCNode] = Hacking_SCC.size;
 			if (SSCNode == nowNum) break;
 		}
 		Hacking_SCC.push_back(SSC);
@@ -267,7 +267,7 @@ int Hacking()
 			adjSize = Hacking_adj[node].size;
 			for (int adjI = 0; adjI < adjSize; adjI++)
 			{
-				next = Hacking_SCCIndex[Hacking_adj[node][adjI]];
+				next = Hacking_SCCind[Hacking_adj[node][adjI]];
 				if (visit[next]) continue;
 				if (next == i) continue;
 				visit[next] = true;
@@ -304,7 +304,7 @@ int Hacking()
 	}
 	for (int i = 1; i <= N; i++)
 	{
-		if (Hacking_hack[Hacking_SCCIndex[i]] == max)
+		if (Hacking_hack[Hacking_SCCind[i]] == max)
 		{
 			cout << i << ' ';
 		}

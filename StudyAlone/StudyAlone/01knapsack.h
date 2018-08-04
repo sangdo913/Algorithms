@@ -32,7 +32,7 @@ void kanpsack() {
 		}
 		memset(knap_dp, 0, sizeof(knap_dp));
 		int result = 0;
-		// i : the index of things, j : Weight
+		// i : the ind of things, j : Weight
 		for (int i = 1; i <= N; i++)
 		{
 			for (int w = 0; w <= K; w++)

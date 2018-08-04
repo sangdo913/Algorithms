@@ -81,9 +81,9 @@ struct HackingBFS_Vector
 	}
 
 
-	T& operator[](int index)
+	T& operator[](int ind)
 	{
-		return values[index];
+		return values[ind];
 	}
 };
 

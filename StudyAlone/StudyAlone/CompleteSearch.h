@@ -165,7 +165,7 @@ double BinarySearch(const vector<int> left[2], const vector<int> right[2])
 	return pos_X;
 }
 
-double getEPoint(const vector<int> infos[2], int index)
+double getEPoint(const vector<int> infos[2], int ind)
 {
 	const int COD = 0;
 	const int WEIGHT = 1;
@@ -176,7 +176,7 @@ double getEPoint(const vector<int> infos[2], int index)
 	for (int i = 0; i < 2; i++)
 	{
 		int j = 0;
-		for (; j <= index; j++)
+		for (; j <= ind; j++)
 		{
 			left[i].push_back(infos[i][j]);
 		}

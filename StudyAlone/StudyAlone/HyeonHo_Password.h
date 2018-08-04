@@ -8,8 +8,8 @@ unsigned long long HyeonHo_memoi[1<<15][101];
 int HyeonHo_nums[15];
 int HyeonHo_sizeOfNum[15];
 int HyeonHo_storeNums[15];
-int HyeonHo_index[15];
-int HyeonHo_maxIndex;
+int HyeonHo_ind[15];
+int HyeonHo_maxind;
 
  int HyeonHo_GetRemainder(char* str, int size, int K)
 {
@@ -53,33 +53,33 @@ int HyeonHo_maxIndex;
 	//	HyeonHo_memoi[i][HyeonHo_nums[cnt]] = 1;
 	//}
 
-	for (int i = 0; i < 15; i++) HyeonHo_index[i] = i;
+	for (int i = 0; i < 15; i++) HyeonHo_ind[i] = i;
 }
-inline void HyeonHo_swap(int index1, int index2)
+inline void HyeonHo_swap(int ind1, int ind2)
 {
 	int temp, temp2;
-	temp = HyeonHo_nums[index1];
-	temp2 = HyeonHo_index[index1];
+	temp = HyeonHo_nums[ind1];
+	temp2 = HyeonHo_ind[ind1];
 
-	HyeonHo_index[index1] = HyeonHo_index[index2];
-	HyeonHo_index[index2] = temp2;
+	HyeonHo_ind[ind1] = HyeonHo_ind[ind2];
+	HyeonHo_ind[ind2] = temp2;
 
-	HyeonHo_nums[index1] = HyeonHo_nums[index2];
-	HyeonHo_nums[index2] = temp;
+	HyeonHo_nums[ind1] = HyeonHo_nums[ind2];
+	HyeonHo_nums[ind2] = temp;
 
 }
 
 inline int HyeonHo_GetDigitByVisit(int visit)
 {
-	int index = 0;
+	int ind = 0;
 	int ret = 0;
 	while (visit)
 	{
 		if (visit & 1)
 		{
-			ret +=HyeonHo_sizeOfNum[index];
+			ret +=HyeonHo_sizeOfNum[ind];
 		}
-		index++;
+		ind++;
 		visit >>= 1;
 	}
 	return ret;
@@ -106,8 +106,8 @@ void HyeonHo_GetPassword(int n, int r, int visit,int K, int prevRemainder)
 	int tempRemainder;
 	int nowVisit;
 	int digit;
-	int path = HyeonHo_maxIndex - visit;
-	int indexNum;
+	int path = HyeonHo_maxind - visit;
+	int indNum;
 	int nextPath;
 
 	if (n == r - 1)
@@ -119,16 +119,16 @@ void HyeonHo_GetPassword(int n, int r, int visit,int K, int prevRemainder)
 		return ;
 	}
 
-	for (int index1 = n; index1 < r; index1++)
+	for (int ind1 = n; ind1 < r; ind1++)
 	{
-			indexNum = HyeonHo_index[index1];
+			indNum = HyeonHo_ind[ind1];
 	
-			HyeonHo_swap(index1, n);
+			HyeonHo_swap(ind1, n);
 
-			nowVisit = visit | (1 << indexNum);
-			nextPath = HyeonHo_maxIndex - nowVisit;
+			nowVisit = visit | (1 << indNum);
+			nextPath = HyeonHo_maxind - nowVisit;
 
-			digit = HyeonHo_sizeOfNum[HyeonHo_index[n]];
+			digit = HyeonHo_sizeOfNum[HyeonHo_ind[n]];
 
 			tempRemainder = prevRemainder;
 			tempRemainder *= HyeonHo_GetExp(digit,K);
@@ -149,7 +149,7 @@ void HyeonHo_GetPassword(int n, int r, int visit,int K, int prevRemainder)
 				HyeonHo_memoi[path][tempRemainder] += HyeonHo_memoi[nextPath][k];
 			}
 
-			HyeonHo_swap(index1, n);
+			HyeonHo_swap(ind1, n);
 	}
 
 	HyeonHo_memoi[path][100] = 1;
@@ -188,8 +188,8 @@ int HyeonHo_Pasword()
 		int numOfBit = 2;
 		//init;
 		scanf("%d", &N);
-		HyeonHo_maxIndex = 1<<N;
-		HyeonHo_maxIndex--;
+		HyeonHo_maxind = 1<<N;
+		HyeonHo_maxind--;
 		for (int i = 0; i < N; i++)
 		{
 			scanf("%s",HyeonHo_initNums[i]);

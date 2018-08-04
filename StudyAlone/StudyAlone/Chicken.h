@@ -26,7 +26,7 @@ struct ChickenInfo
 
 	int getDistance(int num, int select)
 	{
-		int index = 0;
+		int ind = 0;
 		int dist = 99999;
 
 		while (select)
@@ -34,11 +34,11 @@ struct ChickenInfo
 			if (select & 1)
 			{
 				int tempDistance;
-				tempDistance = abs(people[num].r - company[index].r) + abs(people[num].c - company[index].c);
+				tempDistance = abs(people[num].r - company[ind].r) + abs(people[num].c - company[ind].c);
 				dist = min(tempDistance, dist);
 			}
 			select >>= 1;
-			index++;
+			ind++;
 		}
 
 		return dist;

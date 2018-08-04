@@ -23,19 +23,19 @@ struct FindSTR_Info
 
 	void makeKMP()
 	{
-		int index = 0;
+		int ind = 0;
 		kmp[0] = -1;
 		int len = p.length();
 
 		for (int i = 1; i < len; i++)
 		{
-			kmp[i] = index;
-			while (index != -1 && p[index] != p[i])
+			kmp[i] = ind;
+			while (ind != -1 && p[ind] != p[i])
 			{
-				index = kmp[index];
+				ind = kmp[ind];
 			}
 
-			index++;
+			ind++;
 		}
 
 		int same1 = 1, same2 = 1;

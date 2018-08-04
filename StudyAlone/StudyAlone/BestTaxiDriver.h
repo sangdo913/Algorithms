@@ -313,14 +313,14 @@ void Taxi_Heap::push(Data data)
 		datas = newData;
 	}
 	size++;
-	int index = size,parent = getParent(index);
+	int ind = size,parent = getParent(ind);
 	while (parent && data.time < datas[parent].time)
 	{
-		datas[index] = datas[parent];
-		index = parent;
-		parent = getParent(index);
+		datas[ind] = datas[parent];
+		ind = parent;
+		parent = getParent(ind);
 	}
-	datas[index] = data;
+	datas[ind] = data;
 }
 
 bool Taxi_Heap::pop(Data& data)
@@ -330,14 +330,14 @@ bool Taxi_Heap::pop(Data& data)
 	Data store;
 	store = datas[size];
 	size--;
-	int index = 1, child = getChild(index);
+	int ind = 1, child = getChild(ind);
 	while (child && store.time > datas[child].time)
 	{
-		datas[index] = datas[child];
-		index = child;
-		child = getChild(index);
+		datas[ind] = datas[child];
+		ind = child;
+		child = getChild(ind);
 	}
-	datas[index] = store;
+	datas[ind] = store;
 	return true;
 }
 

@@ -29,16 +29,16 @@ void HongJoon()
 		// lower is A
 		memset(dp, 0, sizeof(dp));
 		long long result1 = -1, result2 = -1;
-		int index = 1;
+		int ind = 1;
 		dp[0][0] = 1;
 		dp[0][1] = 0;
 		dp[1][0] = 0;
 		dp[1][1] = 1;
 		while (B !=1)
 		{
-			index++;
-			dp[index][0] = dp[index - 2][0] - dp[index - 1][0] * (B / A);
-			dp[index][1] = dp[index - 2][1] - dp[index - 1][1] * (B / A);
+			ind++;
+			dp[ind][0] = dp[ind - 2][0] - dp[ind - 1][0] * (B / A);
+			dp[ind][1] = dp[ind - 2][1] - dp[ind - 1][1] * (B / A);
 
 			int store = A;
 			A = B%A;
@@ -47,11 +47,11 @@ void HongJoon()
 
 		if (!is_change)
 		{
-			int temp = dp[index - 1][0];
-			dp[index - 1][0] = dp[index - 1][1];
-			dp[index - 1][1] = temp;
+			int temp = dp[ind - 1][0];
+			dp[ind - 1][0] = dp[ind - 1][1];
+			dp[ind - 1][1] = temp;
 		}
-		cout << "#" << t << " " << dp[index-1][0] << " " << dp[index-1][1] << "\n";
+		cout << "#" << t << " " << dp[ind-1][0] << " " << dp[ind-1][1] << "\n";
 	}
 
 }

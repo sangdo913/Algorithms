@@ -7,14 +7,14 @@ int contries[10001];
 void LineDivide()
 {
 	int T, N, M;
-	int min_value, sum,value,index;
+	int min_value, sum,value,ind;
 	std::ios::sync_with_stdio(false);
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++)
 	{
 		cin >> N >> M;
 		char where;
-		index = value = min_value = 0;
+		ind = value = min_value = 0;
 		for (int i = 0; i <= N; i++) contries[i] = 0;
 
 		for (int cnt = 0; cnt < M; cnt++)
@@ -32,11 +32,11 @@ void LineDivide()
 			value += contries[i];
 			if (min_value > value)
 			{
-				index = i;
+				ind = i;
 				min_value = value;
 			}
 		}
 
-		cout << '#' << tc << ' ' << index << ' ' << index + 1 << endl;
+		cout << '#' << tc << ' ' << ind << ' ' << ind + 1 << endl;
 	}
 }

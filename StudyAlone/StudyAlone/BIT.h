@@ -7,22 +7,22 @@ void Init(int*part_sum,int size)
 {
 	for (int i = 1; i <= size; i++) part_sum[i] = 0;
 }
-void PartSumUpdate(int *part_sum, int index, int value, int size)
+void PartSumUpdate(int *part_sum, int ind, int value, int size)
 {
-	while (index <= size)
+	while (ind <= size)
 	{
-		part_sum[index] += value;
-		index += index & -index;
+		part_sum[ind] += value;
+		ind += ind & -ind;
 	}
 }
 
-int PartSum(int*part_sum, int index)
+int PartSum(int*part_sum, int ind)
 {
 	int result = 0;
-	while (index)
+	while (ind)
 	{
-		result += part_sum[index];
-		index -= index&-index;
+		result += part_sum[ind];
+		ind -= ind&-ind;
 	}
 	return result;
 }

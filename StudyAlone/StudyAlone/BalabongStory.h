@@ -38,13 +38,13 @@ long long Balabong_max(long long l1, long long l2)
 	return l1 < l2 ? l2 : l1;
 }
 
-long long Balabong_MakeMaxDistance(int roadNum,int index, int now,long long prevMax)
+long long Balabong_MakeMaxDistance(int roadNum,int ind, int now,long long prevMax)
 {
 	int prev;
-	long long length = prevMax + Balabong_roadMax[index];
-	Balabong_roadValue[roadNum] = Balabong_max(Balabong_roadMax[index], prevMax);
+	long long length = prevMax + Balabong_roadMax[ind];
+	Balabong_roadValue[roadNum] = Balabong_max(Balabong_roadMax[ind], prevMax);
 	long long dist, reverseDist;
-	prev = Balabong_prev[index];
+	prev = Balabong_prev[ind];
 	while (prev != -1)
 	{
 		dist = Balabong_max(Balabong_roadMax[prev], length - Balabong_roadMax[prev]);

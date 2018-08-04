@@ -146,15 +146,15 @@ struct City_Heap
 City_Heap::Data City_Heap::pop()
 {
 	Data rValue = datas[1];
-	int index = 1;
+	int ind = 1;
 	int child = getChild(1);
 	while (child && func(datas[child], datas[size]))
 	{
-		datas[index]= datas[child];
-		index = child;
-		child = getChild(index);
+		datas[ind]= datas[child];
+		ind = child;
+		child = getChild(ind);
 	}
-	datas[index] = datas[size];
+	datas[ind] = datas[size];
 	size--;
 	return rValue;
 }
@@ -174,14 +174,14 @@ void City_Heap::insert(Data value)
 	}
 
 	size++;
-	int index = size,parent = getParent(index);
+	int ind = size,parent = getParent(ind);
 	while (parent && func(value, datas[parent]))
 	{
-		datas[index] = datas[parent];
-		index = parent;
-		parent = getParent(index);
+		datas[ind] = datas[parent];
+		ind = parent;
+		parent = getParent(ind);
 	}
-	datas[index] = value;
+	datas[ind] = value;
 }
 int City_Heap::getRight(int node)
 {
@@ -272,7 +272,7 @@ City_List City_lists[1000001];
 
 long long distances[100001];
 bool isConnected[100001];
-int orderedIndex[100001];
+int orderedind[100001];
 
 bool order(int i1, int i2)
 {
@@ -297,7 +297,7 @@ long long City_GetMinCost(long long total,int N, long long C)
 	{
 		distances[i] = INT64_MAX;
 		isConnected[i] = false;
-		orderedIndex[i] = i;
+		orderedind[i] = i;
 	}
 	isConnected[1] = true;
 	distances[1] = 0;
@@ -351,36 +351,36 @@ long long City_GetMinCost(long long total,int N, long long C)
 		cnt++;
 	}
 
-	//City_QuickSort(orderedIndex, 2, N,order);
+	//City_QuickSort(orderedind, 2, N,order);
 
 	for (int i = 1; i <= N; i++)
 	{
 		isConnected[i] = false;
 	}
 	isConnected[1] = true;
-	sort(orderedIndex + 2, orderedIndex + N + 1, Order());
+	sort(orderedind + 2, orderedind + N + 1, Order());
 	long long minCost = total;
 	long long JiHaDoCost;
-	int selectedIndex;
+	int selectedind;
 	long long nowCost;
 	int maxCnt = 1;
 	int nowCnt = 0;
 	for (int i = 2; i <= N; i++)
 	{
-		selectedIndex = orderedIndex[i];
-		JiHaDoCost = C*distances[selectedIndex];
+		selectedind = orderedind[i];
+		JiHaDoCost = C*distances[selectedind];
 		if (JiHaDoCost >= minCost) return minCost;
 
-		City_lists[selectedIndex].first();
+		City_lists[selectedind].first();
 
-		while ((e = City_lists[selectedIndex].next()).from)
+		while ((e = City_lists[selectedind].next()).from)
 		{
 			if (isConnected[e.to])
 			{
 				total -= e.distance;
 			}
 		}
-		isConnected[selectedIndex] = true;
+		isConnected[selectedind] = true;
 		nowCost = total + JiHaDoCost;
 		minCost = minCost > nowCost ? nowCost : minCost;
 	}

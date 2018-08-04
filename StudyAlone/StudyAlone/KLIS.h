@@ -64,7 +64,7 @@ INFO getLIS(int idx)
 
 int temp[500];
 
-//정렬, lis에는 인덱스가 들어있으므로, arr[index]를 기준으로 정렬해야 한다!
+//정렬, lis에는 인덱스가 들어있으므로, arr[ind]를 기준으로 정렬해야 한다!
 void merge(int *a, int left, int m, int right)
 {
 	int l = left, r = m + 1, k = left;

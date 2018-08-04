@@ -132,11 +132,11 @@ int Prize_Get_Int_Size(int num)
 	}
 	return size;
 }
-void Prize_Swap(char* str, int index1, int index2)
+void Prize_Swap(char* str, int ind1, int ind2)
 {
-	char temp = str[index1];
-	str[index1] = str[index2];
-	str[index2] = temp;
+	char temp = str[ind1];
+	str[ind1] = str[ind2];
+	str[ind2] = temp;
 }
 bool Prize_memoi[11][1000000];
 void Prize_Get_Max_Prize(int num, int count, int size,int max_Count) 
