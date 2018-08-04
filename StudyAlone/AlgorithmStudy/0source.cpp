@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include "DesertCafe2.h"
+#include "GetHoney.h"
 #include<vector>
 
 using namespace std;
 
 int main()
 {
-	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
-	DesertCafe2();
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
+	GetHoney();
 	return 0;
 }
