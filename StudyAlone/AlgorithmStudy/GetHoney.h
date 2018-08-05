@@ -11,15 +11,18 @@ int price(int x, int y, int visit){
             cmp += map[y][x+idx];
             ret += map[y][x+idx]*map[y][x+idx];
         }
+        
         idx++;
         visit >>= 1;
     }
 
     return cmp <= c ? ret : 0;
 }
+
 int MAX(int i1, int i2){
     return i1 > i2 ? i1 : i2;
 }
+
 int getMax(int p1x, int p1y, int p2x, int p2y){
     int bit = 1;
     int p1 = 0, p2 = 0;
