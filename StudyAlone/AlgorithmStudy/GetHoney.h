@@ -12,10 +12,12 @@ int getMaxHoney(int x1, int y1, int x2, int y2){
         val[0] = 0;
         val[1] = 0;
         while(tb){
-            cmp[0] += map[y1][x1 + idx];
-            cmp[1] += map[y2][x2 + idx];
-            val[0] += map[y1][x1 + idx]*map[y1][x1+idx];
-            val[1] += map[y2][x2 + idx]* map[y2][x2 + idx];
+            if(tb & 1){
+                cmp[0] += map[y1][x1 + idx];
+                cmp[1] += map[y2][x2 + idx];
+                val[0] += map[y1][x1 + idx] * map[y1][x1 + idx];
+                val[1] += map[y2][x2 + idx] * map[y2][x2 + idx];
+            }
             idx++;
             tb >>= 1;
         }
