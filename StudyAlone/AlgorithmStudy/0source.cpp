@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include "SecureFilm.h"
+#include "getHoney.h"
 #include<vector>
 
 using namespace std;
@@ -9,6 +9,6 @@ using namespace std;
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
-	SecureFilm();
+	getHoney();
 	return 0;
 }
