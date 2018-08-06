@@ -187,6 +187,7 @@
     <ClInclude Include="BOJ1493.h" />
     <ClInclude Include="BOJ3020.h" />
     <ClInclude Include="BOJ3955.h" />
+    <ClInclude Include="BOJ6439.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
