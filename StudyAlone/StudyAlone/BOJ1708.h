@@ -43,20 +43,16 @@ int BOJ1708() {
 	scanf("%d\n", &n);
 	
 	long long min[2];
+	int imin = 0;
+
+	min[0] = 1LL << 60;
+	min[1] = 1LL << 60;
 
 	for (int i = 0; i < n; i++) {
 		scanf("%lld %lld\n", &p[i][0], &p[i][1]);
-		 
-	}
 
-	for (int i = 0; i < n; i++) idxes[i] = i;
-	min[0] = p[0][0];
-	min[1] = p[0][1];
-	int imin = 0;
-
-	for (int i = 1; i < n; i++) {
 		if (min[1] == p[i][1]) {
-			if (min[0] < p[i][0]) {
+			if (min[0] > p[i][0]) {
 				min[0] = p[i][0];
 				imin = i;
 			}
@@ -66,6 +62,8 @@ int BOJ1708() {
 			min[0] = p[i][0];
 			imin = i;
 		}
+
+		idxes[i] = i;
 	}
 
 	int temp = imin;
