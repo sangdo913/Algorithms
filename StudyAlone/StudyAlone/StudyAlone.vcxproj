@@ -161,6 +161,8 @@
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
+    <ClInclude Include="BOJ2162.h" />
+    <ClInclude Include="BOJ2166.h" />
     <ClInclude Include="BOJ2960.h" />
     <ClInclude Include="7Month7Day.h" />
     <ClInclude Include="AllSum.h" />
