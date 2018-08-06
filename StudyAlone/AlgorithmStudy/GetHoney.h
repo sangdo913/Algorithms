@@ -1,62 +1,58 @@
 #include<cstdio>
 
-int map[10][10];
-int n,m,c, max;
+int map[10][10],n, m,  c;
 
-int price(int x, int y, int visit){
-    int idx = 0, ret = 0, cmp = 0;
-    
-    while(visit){
-        if(visit & 1){
-            cmp += map[y][x+idx];
-            ret += map[y][x+idx]*map[y][x+idx];
-        }
-        idx++;
-        visit >>= 1;
-    }
-
-    return cmp <= c ? ret : 0;
-}
-int MAX(int i1, int i2){
-    return i1 > i2 ? i1 : i2;
-}
-int getMax(int p1x, int p1y, int p2x, int p2y){
-    int bit = 1;
-    int p1 = 0, p2 = 0;
+int getMaxHoney(int x1, int y1, int x2, int y2){
+    int maxes[2] = {0,0}, cmp[2] = {0,0}, val[2] = {0,0};
     for(int bit = 1; bit < (1 << m); bit++){
-        int tp = price(p1x,p1y, bit);
-        int tp2 = price(p2x, p2y, bit);
-        p1 = MAX(p1, tp);
-        p2 = MAX(p2, tp2);
+        int idx = 0;
+        int tb = bit;
+        cmp[0] = 0;
+        cmp[1] = 0;
+        val[0] = 0;
+        val[1] = 0;
+        while(tb){
+            if(tb & 1){
+                cmp[0] += map[y1][x1 + idx];
+                cmp[1] += map[y2][x2 + idx];
+                val[0] += map[y1][x1 + idx] * map[y1][x1 + idx];
+                val[1] += map[y2][x2 + idx] * map[y2][x2 + idx];
+            }
+            idx++;
+            tb >>= 1;
+        }
+        if(cmp[0] <= c){
+            maxes[0] = val[0] > maxes[0] ? val[0] : maxes[0];
+        }
+        if(cmp[1] <= c){
+            maxes[1] = val[1] > maxes[1] ? val[1] : maxes[1];
+        }
     }
-    return p1 + p2;
+    return maxes[0] + maxes[1];
 }
 
-int GetHoney(){
+
+int getHoney(){
     int t;
     scanf("%d\n", &t);
-
+    int ret = 0;
     for(int tc = 1; tc <= t; tc++){
         scanf("%d %d %d\n", &n, &m, &c);
+        ret = 0;
         for(int i = 0; i < n; i++){
-            for(int j = 0 ; j < n ; j++){
-                scanf("%d \n", &map[i][j]);
-            }
+            for(int j = 0; j < n; j++) scanf("%d \n", &map[i][j]);
         }
-
-        int res = 0;
-        for(int i = 0 ; i < n; i++){
+        for(int i = 0; i < n; i++){
             for(int j = 0; j + m <= n; j++){
                 for(int i2 = i; i2 < n; i2++){
                     int j2 = i2 == i ? j + m : 0;
                     for(; j2 + m <= n; j2++){
-                        res = MAX(res, getMax(j,i,j2,i2)); 
+                        int temp = getMaxHoney(j,i,j2,i2);
+                        ret = ret > temp ? ret : temp;
                     }
                 }
             }
         }
-        printf("#%d %d\n", tc, res);
+        printf("#%d %d\n", tc, ret);
     }
-
-    return 0;
 }
