@@ -202,6 +202,7 @@
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
+    <ClInclude Include="BOJ1708.h" />
     <ClInclude Include="Cooker.h" />
     <ClInclude Include="Counsler.h" />
     <ClInclude Include="Dalant.h" />
