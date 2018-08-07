@@ -199,6 +199,8 @@
     <ClInclude Include="CIrcularSpace.h" />
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CLOCKSYNC.h" />
+    <ClInclude Include="CodeBattle080701.h" />
+    <ClInclude Include="CodeBattle080702.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
