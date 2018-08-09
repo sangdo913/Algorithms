@@ -23,22 +23,10 @@ long long get(int to) {
 int CodeBattle080702() {
 	int t;
 	scanf("%d\n", &t);
-	update(1, 1);
-	for (int i = 2; i <= Size; i++) {
-		long long nums = 1;
-		int j = 2;
-		for (; j*j < i; j++) {
-			if (i%j == 0) {
-				if (j & 1) nums += j;
-
-				if ((i / j) & 1) {
-					nums += i / j;
-				}
-			}
+	for (int i = 1; i <= Size; i+=2) {
+		for (int j = 1; j <= Size / i; j++) {
+			update(i*j, i);
 		}
-		nums += i & 1 ? i : 0;
-		nums += j * j == i && j & 1 ? j : 0;
-		update(i, nums);
 	}
 	for (int tc = 1; tc <= t; tc++) {
 		int from, to;

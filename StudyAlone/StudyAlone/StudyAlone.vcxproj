@@ -201,6 +201,8 @@
     <ClInclude Include="CLOCKSYNC.h" />
     <ClInclude Include="CodeBattle080701.h" />
     <ClInclude Include="CodeBattle080702.h" />
+    <ClInclude Include="CodeBattle080703.h" />
+    <ClInclude Include="CodeForce502A.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="ContryTest.h" />
@@ -340,6 +342,7 @@
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SupervisorCCTV.h" />
     <ClInclude Include="SUSHI.h" />
+    <ClInclude Include="SWEA5170.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="SWExpert5162.h" />
