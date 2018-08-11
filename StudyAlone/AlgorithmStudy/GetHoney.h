@@ -24,15 +24,16 @@ int getMaxHoney(int x1, int y1, int x2, int y2){
         if(cmp[0] <= c){
             maxes[0] = val[0] > maxes[0] ? val[0] : maxes[0];
         }
+
         if(cmp[1] <= c){
-            maxes[1] = val[1] > maxes[1] ? val[1] : maxes[1];
+        maxes[1] = val[1] > maxes[1] ? val[1] : maxes[1];
         }
     }
     return maxes[0] + maxes[1];
-}
+    }
 
 
-int getHoney(){
+    int getHoney(){
     int t;
     scanf("%d\n", &t);
     int ret = 0;
