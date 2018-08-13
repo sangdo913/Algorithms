@@ -205,6 +205,7 @@
     <ClInclude Include="CodeForce502A.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
+    <ClInclude Include="BOJ14925.h" />
     <ClInclude Include="ContryTest.h" />
     <ClInclude Include="BOJ1708.h" />
     <ClInclude Include="Cooker.h" />
