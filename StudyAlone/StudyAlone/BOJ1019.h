@@ -1,3 +1,4 @@
+//https://www.acmicpc.net/problem/1019
 #pragma once
 #include<cstdio>
 
@@ -31,11 +32,11 @@ int BOJ1019() {
 	int digit = getDigit(n);
 	long long p = pow(digit);
 
-	for (int i = 1; i < digit; i++) {
-		cnt[0] -= (digit - i)*(pow(i)-pow(i-1));
+	for (int i = 0; i < digit; i++) {
+		cnt[0] -= (digit - i)*(pow(i+1)-pow(i));
 	}
 
-	cnt[0] -= p + digit - 1;
+	cnt[0] -= digit;
 
 	for (int i = digit; i > 0; i--) {
 		int fr = n / p;
