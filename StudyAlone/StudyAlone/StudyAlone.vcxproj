@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
+    <ClInclude Include="BOJ1019.h" />
     <ClInclude Include="BOJ2162.h" />
     <ClInclude Include="BOJ2166.h" />
     <ClInclude Include="BOJ2960.h" />
@@ -202,6 +203,8 @@
     <ClInclude Include="CodeBattle080701.h" />
     <ClInclude Include="CodeBattle080702.h" />
     <ClInclude Include="CodeBattle080703.h" />
+    <ClInclude Include="CodeBattle081401.h" />
+    <ClInclude Include="CodeBattle081402.h" />
     <ClInclude Include="CodeForce502A.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
