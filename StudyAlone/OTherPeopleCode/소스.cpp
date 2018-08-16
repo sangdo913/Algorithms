@@ -1,81 +1,105 @@
-﻿//#include <iostream>
-#include <stdio.h>
-#include <string.h>
-#define MX 10010
-#define ABS(X) ((X) > 0 ? (X) : -(X))
-#define MIN(X, Y) ((X) > (Y) ? (Y) : (X))
-#define INF 987654321
-//using namespace std;
+﻿#include < stdio.h >
+#include < stdlib.h >
+#define _CRT_SECURE_NO_WARNINGS
 
-char A[MX];
-int dp[MX][7], visit[MX];
-int C;
+int c1, c2, c3, c4, a;
+int x, y, z;
+char q;
 
-int check(int st, int ed)
-{
-	int flag = 0;
-	for (int i = st; i < ed; i++)
-	{
-		if (A[i] != A[st]) { flag = 1; break; }
-	}
-	if (!flag) return 1;
-	flag = 0;
-	int d = A[st + 1] - A[st];
-	
-	flag = ABS(d) != 1;
+struct node {
+	struct node* next;
+	int data;
+};
 
-	if (!flag) {
-		for (int i = st + 1; i < ed; i++)
-		{
-			if (A[i] - A[i - 1] != d) { flag = 1; break; }
-		}
-	}
-
-	if (!flag) return 2;
-	flag = 0;
-	for (int i = st + 2; i < ed; i++)
-	{
-		if (A[i] != A[i - 2]) { flag = 1; break; }
-	}
-	if (!flag) return 4;
-	flag = 0;
-	for (int i = st; i < ed - 1; i++)
-	{
-		if (A[st + 1] - A[st] != A[i + 1] - A[i]) { flag = 1; break; }
-	}
-	if (!flag) return 5;
-	return 10;
+void add(struct node *target, int data) {
+	struct node *new_Node = (struct node *)malloc(sizeof(struct node));
+	new_Node->data = data;
+	new_Node->next = target->next;
+	target->next = new_Node;
 }
 
-int solve()
-{
-	visit[0] = 0;
-	for (int i = 3; i <= strlen(A); i++)
-	{
-		for (int j = 3; j <= 5; j++)
-		{
-			if (i - j < 0) continue;
-			visit[i] = MIN(visit[i], (visit[i - j] + dp[i - j][j]));
-		}
-	}
-	return visit[strlen(A)];
+void del(struct node *target) {
+	struct node *del_node;
+	del_node = target->next;
+	target->next = del_node->next;
+	free(del_node);
 }
 
-int main(void)
-{
-	scanf("%d", &C);
-	while (C--)
-	{
-		scanf("%s", A);
-		for (int i = 0; i <= strlen(A); i++)
-			visit[i] = 987654321;
+int main() {
+	int i, j, k, l;
+	struct node *head = (struct node*)malloc(sizeof(struct node));
+	struct node *temp = (struct node*)malloc(sizeof(struct node));
 
-		for (int i = 0; i < strlen(A); i++)
-			for (int j = 3; j <= 5; j++)
-				if (i + j <= strlen(A))
-					dp[i][j] = check(i, i + j);
+	for (i = 0; i < 10; i++) {
 
-		printf("%d\n", solve());
+		scanf("%d", &c1);
+		head->next = NULL;
+		temp = head;
+		printf("%d\n", c1);
+		for (j = 0; j < c1; j++) {
+			scanf(" %d", &a);
+			add(temp, a);
+			temp = temp->next;
+			printf("%d\n", j);
+		}
+		printf("\n\n\n\n");
+		temp = head;
+		scanf("%d", &c2);
+
+		for (j = 0; j < c2; j++) {
+			scanf(" \n%c", &q);
+			if (q == 'I') {
+				scanf("%d%d", &x, &y);
+
+				for (k = 0; k < y; k++) {
+					scanf("%d", &c3);
+					if (k == 0) {
+
+						for (l = 0; l < x; l++) {
+							temp = temp->next;
+						}
+					}
+					add(temp, c3);
+					temp = temp->next;
+				}
+			}
+
+			else if (q == 'D') {
+				scanf("%d%d", &x, &y);
+				for (l = 0; l < x; l++) {
+					temp = temp->next;
+				}
+				for (l = 0; l < y; l++) {
+					del(temp);
+				}
+
+			}
+
+			else if (q == 'A') {
+				scanf("%d", &x);
+				printf("121212121212\n\n\n");
+				while (temp->next != NULL) {
+					temp = temp->next;
+				}
+				for (l = 0; l < x; l++) {
+					scanf("%d", &c4);
+					add(temp, c4);
+					temp = temp->next;
+				}
+
+			}
+			temp = head;
+		}
+
+		temp = head->next;
+		printf("#%d ", i + 1);
+		for (j = 0; j < 10; j++) {
+			printf("%d ", temp->data);
+			temp = temp->next;
+		}
+		printf("\n");
 	}
+	free(head);
+	free(temp);
 	return 0;
 }
