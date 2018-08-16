@@ -1,4 +1,5 @@
 //https://www.acmicpc.net/problem/14925
+//목장 건설하기
 #pragma once
 #include<cstdio>
 int map[1001][1001];

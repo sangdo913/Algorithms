@@ -162,6 +162,9 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="BOJ1019.h" />
+    <ClInclude Include="BOJ13901.h" />
+    <ClInclude Include="BOJ14226.h" />
+    <ClInclude Include="BOJ14923.h" />
     <ClInclude Include="BOJ2162.h" />
     <ClInclude Include="BOJ2166.h" />
     <ClInclude Include="BOJ2960.h" />
