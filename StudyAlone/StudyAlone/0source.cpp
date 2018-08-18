@@ -23,7 +23,7 @@ using namespace std;
 
 int main()
 {
-	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/00Text.txt", "r", stdin);
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/0Text.txt", "r", stdin);
 	//int a = solution(2147483647);
 	//printf("%d\n", a);
 	TalJuBeom();

@@ -60,16 +60,16 @@
             "name": "Launch - 0source",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source",
-            "args": []
+            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source"
+           // "args": ["--args \"${fileDirname}/0Text.txt\""]
         },
 
          {
             "name": "Launch",
             "type": "lldb",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": []
+            "program": "${fileDirname}/${fileBasenameNoExtension}"
+            //"args": ["gdb --args ${fileDirname}/0Text.txt"]
         },
 
         {

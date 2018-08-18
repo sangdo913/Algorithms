@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	//freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
 	//Hike();
 	
 	List li;
