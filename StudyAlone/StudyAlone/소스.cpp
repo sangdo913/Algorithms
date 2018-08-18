@@ -1,9 +1,9 @@
-#include"SWEA5170.h"
+#include"BOJ1219.h"
 #include<cstdio>
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	SWEA5170();
+	BOJ1219();
 	return 0;
 }
 //2147483647
