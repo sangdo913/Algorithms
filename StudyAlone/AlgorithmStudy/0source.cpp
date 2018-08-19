@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include "homeBang.h"
+#include "Cooker.h"
 #include<vector>
 
 using namespace std;
-
 int main()
 {
-	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/Text.txt", "r", stdin);
-	homeBang();
+	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
+	Cooker();
 	return 0;
 }

@@ -94,18 +94,18 @@
         // 바이너리 실행
         {
             "label": "execute",
-            "command": "",
+            "command": "${fileDirname}/${fileBasenameNoExtension}",// < \"${fileDirname}/0Text.txt\"",
             "group": "test",
             "args": [
-               "${fileDirname}/${fileBasenameNoExtension}"
+               
             ]
         }, // 바이너리 실행
         {
             "label": "execute 0 source",
-            "command": "",
+            "command": 
+               "${workspaceRoot}/StudyAlone/StudyAlone/0source",// < \"${fileDirname}/0Text.txt\"" ,
             "group": "test",
             "args": [
-               "${workspaceRoot}/StudyAlone/StudyAlone/0source"
             ]
         }
     ]
