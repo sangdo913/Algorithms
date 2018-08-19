@@ -213,6 +213,11 @@
     <ClInclude Include="Codeforce0818B.h" />
     <ClInclude Include="Codeforce0818C.h" />
     <ClInclude Include="Codeforce0818D.h" />
+    <ClInclude Include="Codeforce0819A.h" />
+    <ClInclude Include="Codeforce0819B.h" />
+    <ClInclude Include="Codeforce0819C.h" />
+    <ClInclude Include="Codeforce0819D.h" />
+    <ClInclude Include="Codeforce0819E.h" />
     <ClInclude Include="CodeForce502A.h" />
     <ClInclude Include="Codeforce50401.h" />
     <ClInclude Include="CodeTheif.h" />
@@ -384,7 +389,6 @@
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="00Text.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
