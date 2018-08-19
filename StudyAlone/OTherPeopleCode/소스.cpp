@@ -1,105 +1,58 @@
-﻿#include < stdio.h >
-#include < stdlib.h >
+﻿#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #define _CRT_SECURE_NO_WARNINGS
 
-int c1, c2, c3, c4, a;
-int x, y, z;
-char q;
+float arr[1001];
+int num, top;
 
-struct node {
-	struct node* next;
-	int data;
-};
-
-void add(struct node *target, int data) {
-	struct node *new_Node = (struct node *)malloc(sizeof(struct node));
-	new_Node->data = data;
-	new_Node->next = target->next;
-	target->next = new_Node;
-}
-
-void del(struct node *target) {
-	struct node *del_node;
-	del_node = target->next;
-	target->next = del_node->next;
-	free(del_node);
+float post(float arr[], int index, int n) {
+		if (arr[index] == '+') {
+			return (post(arr, 2 * index, n) + post(arr, 2 * index + 1, n));
+		}
+		else if (arr[index] == '-') {
+			return (post(arr, 2 * index, n) - post(arr, 2 * index + 1, n));
+		}
+		else if (arr[index] == '*') {
+			return (post(arr, 2 * index, n) * post(arr, 2 * index + 1, n));
+		}
+		else if (arr[index] == '/') {
+			return (post(arr, 2 * index, n) / post(arr, 2 * index + 1, n));
+		}
+		else return arr[index];
 }
 
 int main() {
-	int i, j, k, l;
-	struct node *head = (struct node*)malloc(sizeof(struct node));
-	struct node *temp = (struct node*)malloc(sizeof(struct node));
+	int i, j, k;
+	int index, left, right;
 
-	for (i = 0; i < 10; i++) {
-
-		scanf("%d", &c1);
-		head->next = NULL;
-		temp = head;
-		printf("%d\n", c1);
-		for (j = 0; j < c1; j++) {
-			scanf(" %d", &a);
-			add(temp, a);
-			temp = temp->next;
-			printf("%d\n", j);
-		}
-		printf("\n\n\n\n");
-		temp = head;
-		scanf("%d", &c2);
-
-		for (j = 0; j < c2; j++) {
-			scanf(" \n%c", &q);
-			if (q == 'I') {
-				scanf("%d%d", &x, &y);
-
-				for (k = 0; k < y; k++) {
-					scanf("%d", &c3);
-					if (k == 0) {
-
-						for (l = 0; l < x; l++) {
-							temp = temp->next;
-						}
-					}
-					add(temp, c3);
-					temp = temp->next;
-				}
+	for (i = 1; i <= 1; i++) {
+		scanf("%d", &num);
+		top = -1;
+		for (j = 1; j <= num; j++) {
+			float sum;
+			char ch[20];
+			scanf("%d", &index);
+			scanf("%s", &ch[0]);
+			if (ch[0] == '+' || ch[0] == '-' || ch[0] == '*' || ch[0] == '/') {
+				scanf("%d %d", &left, &right);
+				arr[index] = ch[0];
 			}
+			else {
+				sum = 0;
 
-			else if (q == 'D') {
-				scanf("%d%d", &x, &y);
-				for (l = 0; l < x; l++) {
-					temp = temp->next;
+				for (k = 0; ch[k]; k++) {
+					sum += (ch[k] - '0');
+					sum *= 10;
 				}
-				for (l = 0; l < y; l++) {
-					del(temp);
-				}
-
+				sum /= 10;
+				arr[index] = sum;
 			}
-
-			else if (q == 'A') {
-				scanf("%d", &x);
-				printf("121212121212\n\n\n");
-				while (temp->next != NULL) {
-					temp = temp->next;
-				}
-				for (l = 0; l < x; l++) {
-					scanf("%d", &c4);
-					add(temp, c4);
-					temp = temp->next;
-				}
-
-			}
-			temp = head;
 		}
-
-		temp = head->next;
-		printf("#%d ", i + 1);
-		for (j = 0; j < 10; j++) {
-			printf("%d ", temp->data);
-			temp = temp->next;
-		}
-		printf("\n");
+		//for (j = 1; j <= num; j++) printf("%.f ", arr[j]);
+		printf("#%d %.f\n", i, post(arr, 1, num));
+		
 	}
-	free(head);
-	free(temp);
+
 	return 0;
 }
