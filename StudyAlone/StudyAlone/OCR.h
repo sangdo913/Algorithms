@@ -6,10 +6,10 @@ char str[501][11], qStr[100][11];
 
 int sIdx[501], temp[501], qIdx[101], m, n, q;
 
-double T[501][501];
-double M[501][501];
+long long double T[501][501];
+long long double M[501][501];
 
-double cache[501][101];
+long long double cache[501][101];
 int choice[501][101], res[100], rLen;
 
 void mergeSort(int left, int m, int right)
@@ -74,22 +74,22 @@ int find(const char* s)
 	return -1;
 }
 
-double ocr(int prev, int now)
+long long double ocr(int prev, int now)
 {
 	if (now > n)
 	{
 		return 1.0;
 	}
 
-	double &ret = cache[prev][now];
+	long long double &ret = cache[prev][now];
 	
 	if (ret > -0.5) return ret;
 	ret = 0;
-	double temp1, tP;
+	long long double temp1, tP;
 
 	for (int i = 1; i <= m; i++)
 	{
-		double p = M[i][qIdx[now]];
+		long long double p = M[i][qIdx[now]];
 		temp1 = T[prev][i];
 		tP = p * temp1 * ocr(i, now + 1);
 		if (ret < tP)

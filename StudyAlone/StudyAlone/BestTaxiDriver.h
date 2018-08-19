@@ -114,8 +114,8 @@ Taxi_List::Taxi_List()
 
 struct Taxi_HeapData
 {
-	double time;
-	double speed;
+	long long double time;
+	long long double speed;
 	int node;
 	int *path;
 	int size;
@@ -143,7 +143,7 @@ struct Taxi_HeapData
 		if (path == NULL) new int[150];
 		data.path = NULL;
 	}
-	Taxi_HeapData(double time, int speed, int node) : time(time), speed(speed), node(node)
+	Taxi_HeapData(long long double time, int speed, int node) : time(time), speed(speed), node(node)
 	{
 		path = new int[150];
 		size = 0;
@@ -353,8 +353,8 @@ Taxi_Heap::~Taxi_Heap()
 }
 struct Taxi_Edge
 {
-	double length;
-	double speedLimit;
+	long long double length;
+	long long double speedLimit;
 	Taxi_Edge()
 	{
 		length = 10000000000;
@@ -365,7 +365,7 @@ struct Taxi_Edge
 Taxi_Edge Taxi_edges[150][150];
 int Taxi_path[150];
 int Taxi_resultSize;
-double Taxi_time[150];
+long long double Taxi_time[150];
 Taxi_List Taxi_adj[150];
 
 void Taxi_GetMininuPathBFS(int N, int D)
@@ -383,7 +383,7 @@ void Taxi_GetMininuPathBFS(int N, int D)
 	adjNode next;
 	Taxi_Path path;
 
-	double maxSpeed[150][150] = { 0 };
+	long long double maxSpeed[150][150] = { 0 };
 
 
 	nextNode.node = 0;

@@ -209,7 +209,12 @@
     <ClInclude Include="CodeBattle080703.h" />
     <ClInclude Include="CodeBattle081401.h" />
     <ClInclude Include="CodeBattle081402.h" />
+    <ClInclude Include="Codeforce0818A.h" />
+    <ClInclude Include="Codeforce0818B.h" />
+    <ClInclude Include="Codeforce0818C.h" />
+    <ClInclude Include="Codeforce0818D.h" />
     <ClInclude Include="CodeForce502A.h" />
+    <ClInclude Include="Codeforce50401.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="BOJ14925.h" />

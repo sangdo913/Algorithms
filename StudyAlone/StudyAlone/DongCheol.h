@@ -3,17 +3,17 @@
 
 using namespace std;
 
-double DongCheol_ARR[16][16];
-double DongCheol_visit[16][1<<16];
+long long double DongCheol_ARR[16][16];
+long long double DongCheol_visit[16][1<<16];
 
-inline double DongCheol_MAX(double x1, double x2)
+inline long long double DongCheol_MAX(long long double x1, long long double x2)
 {
 	return x1 > x2 ? x1 : x2;
 }
 
-double DongCheol_GetMax(int length, int length_max, long long visit,int x)
+long long double DongCheol_GetMax(int length, int length_max, long long visit,int x)
 {
-	double &result = DongCheol_visit[x][visit];
+	long long double &result = DongCheol_visit[x][visit];
 	if (result != 0) return result;
 	visit |= 1 << x;
 	if (visit == (1<<length_max) -1) return DongCheol_ARR[length][x];
@@ -31,7 +31,7 @@ void DongCheol()
 {
 	std::ios::sync_with_stdio(false);
 	int T,N;
-	double in;
+	long long double in;
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++)
 	{
@@ -50,7 +50,7 @@ void DongCheol()
 				DongCheol_ARR[row][col] /= 100.0;
 			}
 		}
-		double result = 0;
+		long long double result = 0;
 		for (int i = 0; i!=N;i++)
 			result = DongCheol_MAX(result,DongCheol_GetMax(0, N, 0, i));
 

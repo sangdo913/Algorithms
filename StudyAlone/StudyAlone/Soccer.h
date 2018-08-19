@@ -7,8 +7,8 @@ void Soccer()
 {
 	enum Team { A = 0, B = 1, size };
 	//team, time, goal
-	double posibility[2][30][31];
-	double possible[2];
+	long long double posibility[2][30][31];
+	long long double possible[2];
 	const int notPrime[21] = { 0,1,4,6,8,9,10,12,14,15,16,18,20,21,22,24,25,26,27,28,30 };
 
 	int T;
@@ -40,7 +40,7 @@ void Soccer()
 					if (goal > 0)posibility[team][time][goal] += posibility[team][time - 1][goal - 1] * possible[team];
 				}
 			}
-		double result = 0;
+		long long double result = 0;
 		for (int i = 0; i < 21; i++)
 		{
 			for (int j = 0; j < 21; j++)

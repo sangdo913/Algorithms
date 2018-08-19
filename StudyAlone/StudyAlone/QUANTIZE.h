@@ -55,7 +55,7 @@ void mergeSort(int left, int right)
 
 int sMin(int left, int right)
 {
-	int m = (int)((double(pSum[right] - pSum[left - 1])) / (right - left + 1) + 0.5);
+	int m = (int)((long long double(pSum[right] - pSum[left - 1])) / (right - left + 1) + 0.5);
 
 	return p2Sum[right] - p2Sum[left - 1] - 2 * (pSum[right] - pSum[left - 1]) * m + m * m * (right - left + 1);
 }

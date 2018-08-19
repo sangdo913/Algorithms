@@ -2,11 +2,11 @@
 #include<cstdio>
 #include<cstring>
 
-double p[50][50] = { 0 };
+long long double p[50][50] = { 0 };
 int len[50], num[10],n, maxLen;
-double res[50];
-double W[200][200], tw[200][200]; //W : 슬라이딩 윈도우
-double cw[200][200];
+long long double res[50];
+long long double W[200][200], tw[200][200]; //W : 슬라이딩 윈도우
+long long double cw[200][200];
 
 void initW() {
 	memset(W, 0, sizeof(W));
@@ -23,8 +23,8 @@ void initW() {
 	}
 }
 
-void mul(double W1[200][200], double W2[200][200]) {
-	double result[200][200] = { 0 };
+void mul(long long double W1[200][200], long long double W2[200][200]) {
+	long long double result[200][200] = { 0 };
 	
 	for (int i = 0, imax = maxLen * n; i < imax; i++) {
 		for (int j = 0, jm = maxLen * n; j < jm; j++) {

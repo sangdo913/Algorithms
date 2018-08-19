@@ -4,19 +4,19 @@
 
 int adj[50][50]; int n, p;
 int deg[50];
-double adj2[50][50];
-double memoi[101][50];
+long long double adj2[50][50];
+long long double memoi[101][50];
 
-double dp[101][50];
+long long double dp[101][50];
 
-double probability(int days, int from)
+long long double probability(int days, int from)
 {
 	if (days == 0)
 	{
 		return from == p ? 1.0 : 0.0;
 	}
 
-	double& ret = memoi[days][from];
+	long long double& ret = memoi[days][from];
 
 	if (ret > -0.5) return ret;
 	
@@ -58,7 +58,7 @@ int NUMB3RS()
 		{
 			for (int j = 0; j < n; j++)
 			{
-				adj2[i][j] = (double)adj[i][j] / deg[i];
+				adj2[i][j] = (long long double)adj[i][j] / deg[i];
 			}
 		}
 /*

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include<cstdio>
 #include<string>
 #include<string.h>
@@ -9,13 +9,14 @@ char str[2][300000];
 int n, m;
 
 bool find(int p) {
-	int pos = m - (n - p - 1);
-	if (pos < p) return false;
-	return (strcmp(str[0] + p + 1, str[1] + pos) == 0);
+	for (int i = p; i < m; i++) {
+		if (strcmp(str[0] + p+1, str[1] + i) == 0) return true;
+	}
+	return false;
 }
 
-int main() {
-
+int Codeforce50401() {
+	
 	scanf("%d %d\n", &n, &m);
 	scanf("%s\n%s\n", str[0], str[1]);
 	bool res = true;
@@ -35,7 +36,7 @@ int main() {
 		}
 		i++;
 	}
-
+	
 	if (res) { printf("YES\n"); }
 	else { printf("NO\n"); }
 

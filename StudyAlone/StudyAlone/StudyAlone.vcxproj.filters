@@ -686,6 +686,21 @@
     <ClInclude Include="BOJ1219.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Codeforce50401.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0818A.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0818B.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0818C.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0818D.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

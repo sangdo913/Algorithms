@@ -117,12 +117,12 @@ void Print(const vector<int>& vec)
 	cout << endl;
 }
 
-double getForce(const double x1, const double x2, const double m)
+long long double getForce(const long long double x1, const long long double x2, const long long double m)
 {
-	return (double)m / (double)(x1 - x2)/(double)(x1 - x2);
+	return (long long double)m / (long long double)(x1 - x2)/(long long double)(x1 - x2);
 }
 
-double BinarySearch(const vector<int> left[2], const vector<int> right[2])
+long long double BinarySearch(const vector<int> left[2], const vector<int> right[2])
 {
 	bool isBig;
 	bool isEnd = false;
@@ -130,10 +130,10 @@ double BinarySearch(const vector<int> left[2], const vector<int> right[2])
 	const int COD = 0;
 	const int WEIGHT = 1;
 
-	double minX = *(left[COD].rbegin());
-	double maxX = *(right[COD].begin());
-	double pos_X;
-	double left_F = 0, right_F = 0;
+	long long double minX = *(left[COD].rbegin());
+	long long double maxX = *(right[COD].begin());
+	long long double pos_X;
+	long long double left_F = 0, right_F = 0;
 	int left_size = left[COD].size();
 	int right_size = right[COD].size();
 
@@ -142,12 +142,12 @@ double BinarySearch(const vector<int> left[2], const vector<int> right[2])
 		pos_X = (minX + maxX) / 2.0f;
 		for (int i = 0; i < left_size; i++)
 		{
-			left_F += getForce(pos_X,(double)left[COD][i],(double)left[WEIGHT][i]);
+			left_F += getForce(pos_X,(long long double)left[COD][i],(long long double)left[WEIGHT][i]);
 		}
 
 		for (int i = 0; i < right_size; i++)
 		{
-			right_F += getForce(pos_X, (double)right[COD][i], (double)right[WEIGHT][i]);
+			right_F += getForce(pos_X, (long long double)right[COD][i], (long long double)right[WEIGHT][i]);
 		}
 
 		if (left_F == right_F || maxX-minX < 0.00000000001) break;
@@ -165,11 +165,11 @@ double BinarySearch(const vector<int> left[2], const vector<int> right[2])
 	return pos_X;
 }
 
-double getEPoint(const vector<int> infos[2], int ind)
+long long double getEPoint(const vector<int> infos[2], int ind)
 {
 	const int COD = 0;
 	const int WEIGHT = 1;
-	double result = 0;
+	long long double result = 0;
 
 	vector<int> left[2];
 	vector<int> right[2];
@@ -231,7 +231,7 @@ void CompleteSearch2()
 			Stars[WEIGHT].push_back(wei);
 		}
 		cod = Stars[COD].size();
-		vector<double> result;
+		vector<long long double> result;
 		for (int i = 0; i < cod-1; i++)
 		{
 			result.push_back(getEPoint(Stars, i));

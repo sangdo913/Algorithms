@@ -11,7 +11,7 @@ using namespace std;
 int SCALE_sinker[9];
 int KNAP_memoi[9][1 << 18];
 
-int GoDoubleScale(int left, int right, int count, int size,int visit,int ind)
+int Golong long doubleScale(int left, int right, int count, int size,int visit,int ind)
 {
 	int &result= KNAP_memoi[ind][visit];
 
@@ -35,17 +35,17 @@ int GoDoubleScale(int left, int right, int count, int size,int visit,int ind)
 		if (((visit >> (i + size)) & 1) || ((visit >> (i)) & 1)) continue;						//visit check ( left 9 bits are left, right 9 bits are right
 
 		next = (visit |= (1 << (i + size)));													//visit	 left
-		result += GoDoubleScale(left + SCALE_sinker[i], right, count + 1, size, next, i);
+		result += Golong long doubleScale(left + SCALE_sinker[i], right, count + 1, size, next, i);
 		visit &= ~(1 << (i + size));															//off visit
 
 		next = (visit |= (1 << (i)));															// visit right
-		result += GoDoubleScale(left, right + SCALE_sinker[i], count + 1, size, next, i);
+		result += Golong long doubleScale(left, right + SCALE_sinker[i], count + 1, size, next, i);
 		(visit &= ~(1 << (i)));																	// off visit
 	}
 	return ++result;																			// because initial result is zero.
 }
 
-void DoubleScale()
+void long long doubleScale()
 {
 	int T, N;
 	cin >> T;
@@ -59,7 +59,7 @@ void DoubleScale()
 		{
 			cin >> SCALE_sinker[i];
 		}
-		int result = GoDoubleScale(0,0,0,N,0,0);
+		int result = Golong long doubleScale(0,0,0,N,0,0);
 		cout << '#' << tc << ' ' << result << endl;
 	}
 }

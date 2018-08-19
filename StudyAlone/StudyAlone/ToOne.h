@@ -10,9 +10,9 @@ typedef struct ToOneCOD
 	long long y;
 };
 
-double ToOne_GetValue(double E, ToOneCOD c1, ToOneCOD c2)
+long long double ToOne_GetValue(long long double E, ToOneCOD c1, ToOneCOD c2)
 {
-	double result = E*((c1.x - c2.x)*(c1.x - c2.x) + (c1.y - c2.y)*(c1.y - c2.y));
+	long long double result = E*((c1.x - c2.x)*(c1.x - c2.x) + (c1.y - c2.y)*(c1.y - c2.y));
 	return result;
 }
 
@@ -23,7 +23,7 @@ void ToOne()
 	bool is_visit[1000];
 	ios::ios_base::sync_with_stdio(false);
 	int T,N;
-	double E;
+	long long double E;
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++)
 	{
@@ -54,7 +54,7 @@ void ToOne()
 			pq.enque(edges[cnt]);
 		}
 		cnt = 0;
-		double result = 0;
+		long long double result = 0;
 
 		ToOneEdge edge;  pq.deque(edge);
 

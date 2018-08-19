@@ -4,13 +4,13 @@ using namespace std;
 
 struct JongMinHambergerClass
 {
-	double culSumFi[1000005];
-	double culSumFiplus1[1000005];
-	double relativeLength(int ind1, int ind2)
+	long long double culSumFi[1000005];
+	long long double culSumFiplus1[1000005];
+	long long double relativeLength(int ind1, int ind2)
 	{
 		return 1.0*(culSumFiplus1[ind1] - culSumFiplus1[ind2]) / (culSumFi[ind2] - culSumFi[ind1]);
 	}
-	void add(double d1, double d2)
+	void add(long long double d1, long long double d2)
 	{
 		culSumFi[size] = d1;
 		culSumFiplus1[size] = d2;
@@ -24,7 +24,7 @@ struct JongMinHambergerClass
 	}
 
 	//parametric search
-	double findStart(double std)
+	long long double findStart(long long double std)
 	{
 		int l = 0, r = size - 1;
 		int m ;
@@ -39,9 +39,9 @@ struct JongMinHambergerClass
 	int size;
 }JongMin;
 
-double JongMin_people[100005];
-double JongMin_difficulty[100005];
-double JongMin_culPeople[100005];
+long long double JongMin_people[100005];
+long long double JongMin_difficulty[100005];
+long long double JongMin_culPeople[100005];
 
 int JongMinHamberger()
 {
@@ -70,7 +70,7 @@ int JongMinHamberger()
 		
 		for (int i = 0; i < M - 1;  i++)
 		{
-			double ratio = JongMin_difficulty[i] / JongMin_difficulty[i + 1];
+			long long double ratio = JongMin_difficulty[i] / JongMin_difficulty[i + 1];
 			endTime += (long long)(JongMin.findStart(ratio)*(JongMin_difficulty[i+1])+1e-2);
 		}
 		endTime += (long long)(JongMin_difficulty[M - 1] * JongMin_culPeople[N]);

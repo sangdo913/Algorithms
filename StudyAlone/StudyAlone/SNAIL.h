@@ -2,14 +2,14 @@
 #include<cstdio>
 #include<cstring>
 
-double memoi[1001][1001];
+long long double memoi[1001][1001];
 
 int n, m;
 
-double climb(int days, int h)
+long long double climb(int days, int h)
 {
 
-	double& ret = memoi[days][h];
+	long long double& ret = memoi[days][h];
 
 	if (h >= n)
 	{
@@ -44,7 +44,7 @@ int SNAIL()
 			}
 		}
 
-		double res = climb(0, 0);
+		long long double res = climb(0, 0);
 
 		printf("%.10lf\n", res);
 	}

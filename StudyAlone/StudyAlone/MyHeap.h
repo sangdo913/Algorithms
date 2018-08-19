@@ -7,7 +7,7 @@ typedef struct ToOneEdge
 {
 	long long from;
 	long long to;
-	double value;
+	long long double value;
 } HData;
 
 typedef struct _MyHeap
