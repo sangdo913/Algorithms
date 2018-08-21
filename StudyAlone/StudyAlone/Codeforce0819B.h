@@ -1,8 +1,11 @@
+// https://codeforces.com/contest/1025/problem/B
+//Weakened Common Divisor
 #pragma once
 #include<cstdio>
-long long pa[2],n;
 
-int GCD(long long a, long long b) {
+long long pa[150000][2],n;
+
+long long GCD(long long a, long long b) {
 	if(a < b){
 		long long temp = a;
 		a = b;
@@ -19,51 +22,33 @@ int GCD(long long a, long long b) {
 
 int Codeforce0819B() {
 	scanf("%d\n", &n);
-	scanf("%d %d\n", &pa[0], &pa[1]);
+	scanf("%lld %lld\n", &pa[0][0], &pa[0][1]);
 
+	long long lcm;
+
+	long long gcd = GCD(pa[0][0], pa[0][1]);
+	lcm = pa[0][0] * pa[0][1] / gcd;
+
+	for (int i = 1; i < n; i++) {
+		scanf("%lld %lld\n", &pa[i][0], &pa[i][1]);
+
+		long long gcds[2] = { GCD(pa[i][0], lcm), GCD(pa[i][1], lcm) };
+		gcd = GCD(gcds[0], gcds[1]);
+
+		lcm = gcds[0]*gcds[1]/gcd;
+		if (lcm == 1) {
+			printf("-1\n");
+			return 0;
+		}
+	}
 	for (int i = 0; i < n; i++) {
-		scanf("%d %d\n", &pa[i][0], &pa[i][1]);
-	}
-
-	if (canConstruct(pa[0][0])) {
-		printf("%d\n", pa[0][0]);
-		return 0;
-	}
-	else if (canConstruct(pa[0][1])){
-		printf("%d\n", pa[0][1]);
-		return 0;
-	}
-
-	if (pa[0][0] < pa[0][1]) {
-		int temp = pa[0][0];
-		pa[0][0] = pa[0][1];
-		pa[0][1] = temp;
-	}
-
-	for (int i = 2; i*i <= pa[0][0]; i++) {
-		if (pa[0][0] % i == 0) {
-
-			if (canConstruct(i)) {
-				printf("%d\n", i);
-				return 0;
-			}
-			if (canConstruct(pa[0][0] / i)) {
-				printf("%d\n", pa[0][0] / i);
-				return 0;
-			}
+		long long temp = GCD(lcm, pa[i][0]);
+		if (temp == 1) {
+			temp = GCD(lcm, pa[i][1]);
 		}
 
-		if (pa[0][1] % i == 0 ) {
-			if(canConstruct(i)){
-				printf("%d\n", i);
-				return 0;
-			}
-			if (pa[0][1] / i != 1 && canConstruct(pa[0][1] / i)) {
-				printf("%d\n", pa[0][1] / i);
-				return 0;
-			}
-		}
+		lcm = temp;
 	}
-	printf("-1\n");
+	printf("%lld\n", lcm);
 	return 0;
 }

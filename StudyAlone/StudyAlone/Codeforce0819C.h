@@ -1,49 +1,40 @@
+//https://codeforces.com/contest/1025/problem/C
+//Plasticine zebra
 #pragma once
 #include<cstdio>
 #include<cstring>
 int len;
-char str[100001];
-int max = 0;
-int MAX(int i1, int i2) { return i1 > i2 ? i1 : i2; }
-int check() {
-	int res = 1, temp = 1;
-	char prev = str[0];
-	for (int i = 1; i < len; i++) {
-		if (str[i] != prev) {
-			temp++;
-			prev = str[i];
-		}
-		else {
-			res = MAX(res, temp);
-			temp = 1;
-			prev = str[i];
-		}
-	}
-	return res;
-}
-
-void swap(char &i1, char &i2) {
-	char temp = i1;
-	i1 = i2;
-	i2 = temp;
-}
-
-void reverse(int p) {
-	for (int i = 0; i < p / 2; i++) {
-		swap(str[i], str[p - i]);
-	}
-	for (int i = p + 1; i < (len - p - 1)/2 + p + 1; i++) {
-		swap(str[i], str[len - 1 - i + p + 1]);
-	}
-}
-
-int cut() {
-
-}
+char str[2][200001];
 
 int Codeforce0819C() {
-	for(int i = 0 ; i)
-	scanf("%s\n", str);
-	len = strlen(str);
+	scanf("%s\n", str[0]);
+	len = strlen(str[0]);
+
+	for (int i = 0; i < len; i++) {
+		str[1][i] = str[0][len - 1 - i];
+		str[0][len + i] = str[0][i];
+		str[1][len + i] = str[1][i];
+	}
+
+	char st[2] = { str[0][0], str[1][0] };
+	int cnt[2] = { 1,1 };
+	int res[2] = { 1,1 };
+	for (int i = 1; i < 2 * len; i++) {
+		if (st[0] != str[0][i]) {
+			cnt[0]++;
+			res[0] = res[0] < cnt[0] ? cnt[0] : res[0];
+		}
+		else { cnt[0] = 1; }
+		st[0] = str[0][i];
+		if (st[1] != str[1][i]) {
+			cnt[1]++;
+			res[1] = res[1] < cnt[1] ? cnt[1] : res[1];
+		}
+		else { cnt[1] = 1; }
+		st[1] = str[1][i];
+	}
+	res[0] = res[0] > len ? len : res[0];
+	res[1] = res[1] > len ? len : res[1];
+	printf("%d\n", res[0] < res[1] ? res[1] : res[0]);
 	return 0;	
 }
