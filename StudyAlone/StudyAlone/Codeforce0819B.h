@@ -1,20 +1,26 @@
 #pragma once
 #include<cstdio>
-int pa[150000][2],n;
+long long pa[2],n;
 
-bool canConstruct(int num) {
-	bool res = true;
-	for (int i = 1; i < n; i++) {
-		if (pa[i][0] % num == 0 || pa[i][1] % num == 0) continue;
-		else {
-			return false;
-		}
+int GCD(long long a, long long b) {
+	if(a < b){
+		long long temp = a;
+		a = b;
+		b = temp;
 	}
-	return true;
+
+	while (b) {
+		long long r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
 }
 
 int Codeforce0819B() {
 	scanf("%d\n", &n);
+	scanf("%d %d\n", &pa[0], &pa[1]);
+
 	for (int i = 0; i < n; i++) {
 		scanf("%d %d\n", &pa[i][0], &pa[i][1]);
 	}

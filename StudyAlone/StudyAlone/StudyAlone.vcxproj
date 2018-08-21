@@ -163,6 +163,7 @@
     <ClInclude Include="2048.h" />
     <ClInclude Include="BOJ1019.h" />
     <ClInclude Include="BOJ1219.h" />
+    <ClInclude Include="BOJ1389.h" />
     <ClInclude Include="BOJ13901.h" />
     <ClInclude Include="BOJ14226.h" />
     <ClInclude Include="BOJ14923.h" />
@@ -209,6 +210,8 @@
     <ClInclude Include="CodeBattle080703.h" />
     <ClInclude Include="CodeBattle081401.h" />
     <ClInclude Include="CodeBattle081402.h" />
+    <ClInclude Include="CodeBattle311.h" />
+    <ClInclude Include="CodeBattle312.h" />
     <ClInclude Include="Codeforce0818A.h" />
     <ClInclude Include="Codeforce0818B.h" />
     <ClInclude Include="Codeforce0818C.h" />
@@ -220,6 +223,8 @@
     <ClInclude Include="Codeforce0819E.h" />
     <ClInclude Include="CodeForce502A.h" />
     <ClInclude Include="Codeforce50401.h" />
+    <ClInclude Include="Codeforce504C.h" />
+    <ClInclude Include="Codeforce504D.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="BOJ14925.h" />
@@ -364,6 +369,7 @@
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="SWExpert5162.h" />
+    <ClInclude Include="SWEA4335.h" />
     <ClInclude Include="TenesPrime.h" />
     <ClInclude Include="TermProject.h" />
     <ClInclude Include="TestSupervisor.h" />

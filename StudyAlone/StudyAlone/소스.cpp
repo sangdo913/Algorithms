@@ -1,9 +1,9 @@
-#include"Codeforce0819B.h"
+#include"CodeBattle312.h"
 #include<cstdio>
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	Codeforce0819B();
+	CodeBattle312();
 	return 0;
 }
 //2147483647

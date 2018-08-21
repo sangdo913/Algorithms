@@ -1,102 +1,37 @@
-<<<<<<< HEAD
-﻿#pragma once
 #include<cstdio>
-#include<string>
-#include<string.h>
+#include<cstring>
+int map[502][502];
+int isArrive[502][502];
+int dr[4] = { -1,1,0,0 };
+int dc[4] = { 0,0,-1,1 };
+int n,m;
 
-using namespace std;
+int getNum(int r, int c) {
+	if (r == n && c == m) {
+		return 1;
+	}
+	int &ret = isArrive[r][c];
+	if (ret != -1) return ret;
+	ret = 0;
 
-char str[2][300000];
-int n, m;
-
-bool find(int p) {
-	int pos = m - (n - p - 1);
-	if (pos < p) return false;
-	return (strcmp(str[0] + p + 1, str[1] + pos) == 0);
+	for (int d = 0; d < 4; d++) {
+		int nr = r + dr[d];
+		int nc = c + dc[d];
+		if (map[nr][nc] == -1) continue;
+		if (map[r][c] > map[nr][nc]) {
+			ret += getNum(nr, nc);
+		}
+	}
+	return ret;
 }
-
 int main() {
-
 	scanf("%d %d\n", &n, &m);
-	scanf("%s\n%s\n", str[0], str[1]);
-	bool res = true;
-	int i = 0;
-	while (true) {
-		if (str[0][i] == '*') {
-			res = find(i);
-			break;
-		}
-
-		else if (str[0][i] != str[1][i]) {
-			res = false;
-			break;
-		}
-		else if (str[0][i] == 0 && str[1][i] == 0) {
-			res = true; break;
-		}
-		i++;
+	memset(map, -1, sizeof(map));
+	memset(isArrive, -1, sizeof(isArrive));
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) scanf("%d \n", &map[i][j]);
 	}
-
-	if (res) { printf("YES\n"); }
-	else { printf("NO\n"); }
-
-=======
-﻿#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#define _CRT_SECURE_NO_WARNINGS
-
-float arr[1001];
-int num, top;
-
-float post(float arr[], int index, int n) {
-		if (arr[index] == '+') {
-			return (post(arr, 2 * index, n) + post(arr, 2 * index + 1, n));
-		}
-		else if (arr[index] == '-') {
-			return (post(arr, 2 * index, n) - post(arr, 2 * index + 1, n));
-		}
-		else if (arr[index] == '*') {
-			return (post(arr, 2 * index, n) * post(arr, 2 * index + 1, n));
-		}
-		else if (arr[index] == '/') {
-			return (post(arr, 2 * index, n) / post(arr, 2 * index + 1, n));
-		}
-		else return arr[index];
-}
-
-int main() {
-	int i, j, k;
-	int index, left, right;
-
-	for (i = 1; i <= 1; i++) {
-		scanf("%d", &num);
-		top = -1;
-		for (j = 1; j <= num; j++) {
-			float sum;
-			char ch[20];
-			scanf("%d", &index);
-			scanf("%s", &ch[0]);
-			if (ch[0] == '+' || ch[0] == '-' || ch[0] == '*' || ch[0] == '/') {
-				scanf("%d %d", &left, &right);
-				arr[index] = ch[0];
-			}
-			else {
-				sum = 0;
-
-				for (k = 0; ch[k]; k++) {
-					sum += (ch[k] - '0');
-					sum *= 10;
-				}
-				sum /= 10;
-				arr[index] = sum;
-			}
-		}
-		//for (j = 1; j <= num; j++) printf("%.f ", arr[j]);
-		printf("#%d %.f\n", i, post(arr, 1, num));
-		
-	}
-
->>>>>>> d5028c8e05cf64d849338a8c5008d412372ae8a8
+	int res = getNum(1, 1);
+	printf("%d\n", res);
 	return 0;
 }

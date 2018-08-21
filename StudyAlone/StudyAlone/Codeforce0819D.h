@@ -41,7 +41,6 @@ int Codeforce0819D() {
 			if (gcd(arr[i], arr[j]) != 1) {
 				if (i < j && check[j][0]) {
 					isOKay = true; 
-					check[i]
 					break;
 				}
 				else if (i > j && check[j][1]) {
