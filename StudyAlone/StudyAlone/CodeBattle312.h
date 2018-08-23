@@ -25,19 +25,12 @@ int CodeBattle312() {
 		int idx = 1;
 		while (idx != n) {
 			if (height >= h) {
-				int now = que[f];
-				if (height - infos[now][0] >= h - 1) {
-					height -= infos[now][0];
-					rcnt -= infos[now][1];
-					f++;
-				}
-				else {
-					infos[now][0] -= height - h + 1;
-					height = h - 1;
-				}
+				int now = que[f++];
+				height -= infos[now][0];
+				rcnt -= infos[now][1];
 			}
 
-			if (height < h) {
+			while(idx != n && height < h) {
 				que[r++] = idx;
 				height += infos[idx][0];
 				rcnt += infos[idx][1];
@@ -49,10 +42,8 @@ int CodeBattle312() {
 				infos[que[r - 1]][1] = 1;
 				rcnt = 1;
 			}
-
-			height -= infos[que[f]][0] - 1;
-			infos[que[f]][0] = 1;
 		}
+
 		while (r - f != 1) {
 			int now = que[f++];
 			if (infos[now][1]) {
