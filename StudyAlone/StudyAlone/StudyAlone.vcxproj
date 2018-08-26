@@ -227,6 +227,9 @@
     <ClInclude Include="Codeforce50401.h" />
     <ClInclude Include="Codeforce504C.h" />
     <ClInclude Include="Codeforce504D.h" />
+    <ClInclude Include="Codeforce506A.h" />
+    <ClInclude Include="Codeforce506B.h" />
+    <ClInclude Include="Codeforce506C.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="BOJ14925.h" />
@@ -368,6 +371,7 @@
     <ClInclude Include="SupervisorCCTV.h" />
     <ClInclude Include="SUSHI.h" />
     <ClInclude Include="SWEA5170.h" />
+    <ClInclude Include="SWEA5360.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="SWExpert5162.h" />
@@ -394,6 +398,7 @@
     <ClInclude Include="TILING2.h" />
     <ClInclude Include="ZIMBABWE.h" />
     <ClInclude Include="SujinPelindrome.h" />
+    <ClInclude Include="Codeforce506D.h" />
     <ClInclude Include="홍준님 햄버거 코드.h" />
   </ItemGroup>
   <ItemGroup>
