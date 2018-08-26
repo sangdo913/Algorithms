@@ -1,3 +1,5 @@
+//https://www.acmicpc.net/problem/5213/
+// °úÁ¦¸Ç
 #include<cstdio>
 #include<cstring>
 char map[12][7];
