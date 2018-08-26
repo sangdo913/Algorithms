@@ -16,7 +16,7 @@ void down(){
         for(int i = 0; i < 12 ; i++){
            if(map[i][j] != '.'){
                st[top++] = map[i][j];
-                map[i][j] = '.';
+               map[i][j] = '.';
            } 
         }
         int i = 11;
@@ -37,8 +37,9 @@ bool bbang(int r, int c){
 
     que[re][0] = r;
     que[re++][1] = c;
-    int cnt = 1;
+    
     visit[r][c] = true;
+    
     top = 0;
     st2[top][0] = r;
     st2[top++][1] = c;
@@ -53,9 +54,10 @@ bool bbang(int r, int c){
             if(map[next[0]][next[1]] != flag) continue;
             if(visit[next[0]][next[1]]) continue;
             visit[next[0]][next[1]] = true;
-            cnt++;
+
             que[re][0] = next[0];
             que[re++][1] = next[1];
+
             st2[top][0] = next[0];
             st2[top++][1] = next[1];
         }
