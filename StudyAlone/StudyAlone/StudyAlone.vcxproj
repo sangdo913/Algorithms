@@ -230,6 +230,9 @@
     <ClInclude Include="Codeforce506A.h" />
     <ClInclude Include="Codeforce506B.h" />
     <ClInclude Include="Codeforce506C.h" />
+    <ClInclude Include="CodeforceAIM5A.h" />
+    <ClInclude Include="CodeforceAIM5B.h" />
+    <ClInclude Include="CodeforceAIMC.h" />
     <ClInclude Include="CodeTheif.h" />
     <ClInclude Include="CompleteSearch.h" />
     <ClInclude Include="BOJ14925.h" />

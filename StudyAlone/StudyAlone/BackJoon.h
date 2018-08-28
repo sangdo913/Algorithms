@@ -13,8 +13,6 @@ struct COD
 
 long long check[300][300];
 
-
-
 int DFS(int n, int k)
 {
 	int ret = 0;

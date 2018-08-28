@@ -1,152 +1,80 @@
-#include<iostream>
-#include<limits>
-#include<queue>
-using namespace std;
-// 두 개의 벡터를 이어붙이는 곳
-void mergef(vector <pair<int, int>>(&v1), vector <pair<int, int>> v2) {
-	for (int i = 0, imax = v2.size(); i < imax; i++) {
-		v1.push_back(v2[i]);
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+enum TYPE{USER, AUTO};
+
+void selectNum(int mode, int B[3]) {
+	if (mode == USER) {
+		scanf("%d %d %d", &B[0], &B[1], &B[2]);
+	}
+	else {
+		do {
+			B[0] = rand() % 10;
+			B[1] = rand() % 10;
+			B[2] = rand() % 10;
+			if ((B[0] != B[1]))
+				if ((B[1] != B[2]))
+					if ((B[0] != B[2]))
+					{
+						break;
+					}
+		} while (1); //서로다른 숫자를 뽑기위해 계속 실행하기위해 do while 무한반복문을 하였다.
 	}
 }
-class Client {
-public:
-	int a, b;
-	int pos = 0;
-};
-int main(int argc, char** argv)
+
+
+int main()
 {
-	int test_case;
-	int T;
-	//freopen("input.txt", "r", stdin);
-	cin >> T;
-	for (test_case = 1; test_case <= T; ++test_case)
-	{
-		// Init.
-		int Answer = -1;
-		int N, M, K, A, B;
-		cin >> N >> M >> K >> A >> B;
-		queue <int> wq[3];
-		int* a = new int[N + 1];
-		int* b = new int[M + 1];
-		int* t = new int[K + 1];
-		Client* cli = new Client[K + 1];
-		for (int i = 1; i <= N; i++) {
-			cin >> a[i];
-		}
-		for (int i = 1; i <= M; i++) {
-			cin >> b[i];
-		}
-		for (int i = 1; i <= K; i++) {
-			cin >> t[i];
-		}
-		int window[10][2] = { { 0 } };
-		int imax, i, iter, nCli;
-
-		vector <pair <int, int>> v[5];
-		int simult = 0;
-		while (v[4].size() < K) {
-			for (int k = 1; k <= K; k++) {
-				if (!t[k]) {
-					switch (cli[k].pos) {
-					case 0:
-						v[0].push_back(make_pair(k, k)); cli[k].pos++;
-						break;
-					case 2:
-						v[2].push_back(make_pair(cli[k].a, k));
-						cli[k].pos++;
-						window[cli[k].a][0] = 0; // evacuate the window
-						break;
-					case 4:
-						v[4].push_back(make_pair(k, k));
-						cli[k].pos++;
-						window[cli[k].b][1] = 0;// evacuate the window
-						break;
-					default:
-						break;
-					}
+	int A[3];
+	int B[3];
+	int i = 1;
+	int j, k;
+	int strike;
+	int ball;
+	do {
+		srand(time(NULL));
+		A[0] = rand() % 10;
+		A[1] = rand() % 10;
+		A[2] = rand() % 10;
+		if ((A[0] != A[1]))
+			if ((A[1] != A[2]))
+				if ((A[0] != A[2]))
+				{
+					printf("Start Game\n");
+					break;
 				}
-				else {
-					t[k]--;
-				}
-			}
+	} while (1); //서로다른 숫자를 뽑기위해 계속 실행하기위해 do while 무한반복문을 하였다.
+	do {
+		printf("3개의 숫자 선택 :");
 
-			mergef(v[1], v[0]);
-			v[0].clear();
-			//// v[2] 창구번호순 정렬
+		selectNum(USER, B); // USER : 사용자 입력, AUTO : 랜덤 넣기
+		
+		if ((A[0] == B[0]) && (A[1] == B[1]) && (A[2] == B[2]))  // 모두 같으면 게임끝
+		{
+			printf("game over \n");
+			break;
+		}
+		else                  //그렇지 않으면 반복문 실행
+		{
+			strike = 0;
+			ball = 0;   // 변수 초기화 한 이유는 사용자가 게임도중에 시도한 횟수에따라 계속 증가를 막기위한 이유다.
+			for (j = 0; j<3; j++)
 			{
-				pair<int, int> tmppair;
-				for (int j = 0, jmax = v[2].size() - 2; j <= jmax; j++) {
-					for (int i = 1, imax = v[2].size() - j; i < imax; i++) {
-						if (v[2][i].first < v[2][i - 1].first) {
-							tmppair = v[2][i - 1];
-							v[2][i - 1] = v[2][i];
-							v[2][i] = tmppair;
-						}
+				for (k = 0; k<3; k++)
+				{
+					if (A[j] == B[k])     // 처음에는 변수를 배열로 하지 않았는데 a,b,c,d,e,f 로 하면 조건이 너무 길어져서 일단 임의의 숫자랑 사용자가 선택한 숫자가 같은 조건을 만들었다.
+					{
+						if (j == k) //배열의 값도 같고 배열 숫서도 같으면 strike를 1추가 그렇지 않으면 ball추가
+							strike++;
+						else
+							ball++;
 					}
 				}
+			}
 
-				for (int i = 0; i < v[2].size(); i++) {
-					for (int j = 0; j < i; j++) {
-						if (v[2][i].first < v[2][j].first) {
-							tmppair = v[2][j];
-							v[2][j] = v[2][i];
-							v[2][i] = tmppair;
-						}
-					}
-				}
-			}
-			///
-			mergef(v[3], v[2]);
-			v[2].clear();
-			iter = v[3].size();
-			while (iter) {
-				for (int i = 1; i <= M; i++) {
-					if (!window[i][1]) {
-						nCli = v[3].front().second;
-						window[i][1] = nCli;
-						t[nCli] = b[i] - 1;
-						cli[nCli].b = i;
-						cli[nCli].pos = 4;
-						v[3].erase(v[3].begin());
-						break;
-					}
-				}
-				iter--;
-			}
-			iter = v[1].size();
-			while (iter) {
-				for (int i = 1; i <= N; i++) {
-					if (!window[i][0]) {
-						nCli = v[1].front().second;
-						window[i][0] = nCli;
-						t[nCli] = a[i] - 1;
-						cli[nCli].a = i;
-						cli[nCli].pos = 2;
-						v[1].erase(v[1].begin());
-						break;
-					}
-				}
-				iter--;
-			}
+			printf("%d번쨰 도전결과 : %d strike, %d ball !!\n\n", i, strike, ball);
 		}
-
-		bool first = true;
-		for (int k = 1; k <= K; k++) {
-			if (cli[k].a == A && cli[k].b == B) {
-				if (first) {
-					Answer++; // to get rid of -1
-					first = false;
-				}
-				Answer += k;
-			}
-		}
-
-		cout << "#" << test_case << " " << Answer << endl;
-		delete[] a;
-		delete[] b;
-		delete[] t;
-		delete[] cli;
-	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+		i++;
+	} while (1);
 }
-
