@@ -162,14 +162,17 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="BOJ1019.h" />
+    <ClInclude Include="BOJ1208.h" />
     <ClInclude Include="BOJ1219.h" />
     <ClInclude Include="BOJ1389.h" />
     <ClInclude Include="BOJ13901.h" />
+    <ClInclude Include="BOJ1405.h" />
     <ClInclude Include="BOJ14226.h" />
     <ClInclude Include="BOJ14923.h" />
     <ClInclude Include="BOJ2102.h" />
     <ClInclude Include="BOJ2162.h" />
     <ClInclude Include="BOJ2166.h" />
+    <ClInclude Include="BOJ2206.h" />
     <ClInclude Include="BOJ2960.h" />
     <ClInclude Include="7Month7Day.h" />
     <ClInclude Include="AllSum.h" />
@@ -196,6 +199,7 @@
     <ClInclude Include="BOJ3649.h" />
     <ClInclude Include="BOJ3955.h" />
     <ClInclude Include="BOJ6439.h" />
+    <ClInclude Include="BOJ6603.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
