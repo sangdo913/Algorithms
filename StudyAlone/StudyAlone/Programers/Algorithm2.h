@@ -35,6 +35,19 @@ int solution(int no, vector<int> works)
     sort(works.begin(), works.end(), greater<int>());
     int answer = 0;
     int h = bs(no,works);
+
+    //높이가 최개 1천이기 떄문에 그냥 1부터 풀어도 된다.
+
+    /* 
+    int h = 1000;// = bs(no,works);
+    
+    for(int i = 1000; i >=0; i--){
+        if(canConstruct(no,works, i)){
+            h = i;
+        }
+        else break;
+    }
+    */
     
     //만들 수 있는 높이에서 work 들의 길이가 몇이 되고, no는 얼마나 남는지 계산
     for(int i = 0; i < works.size(); i++){
