@@ -28,5 +28,17 @@
     <ClInclude Include="CodeforceAIMC.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Codeforce0902A.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0902B.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0902C.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce0902D.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

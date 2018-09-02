@@ -1,10 +1,10 @@
 #include<cstdio>
 #include<string>
 #include<iostream>
-#include"CodeforceAIMC.h"
+#include"Codeforce0902D.h"
 using namespace std;
 
 int main() {
-	CodeforceAIMC();
+	Codeforce0902D();
 	return 0;
 }

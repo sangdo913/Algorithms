@@ -1,31 +1,78 @@
-#include<cstdio>
+ï»¿#include<vector>
+#include<iostream>
+#include<algorithm>
+#include<functional>
+#include<queue>
+using namespace std;
 
-int N, L, max, scr[21], k[21]; // Àç·á°¹¼ö, Á¦ÇÑ Ä®·Î¸®, Á¡¼ö ÃÖ´ñ°ª, Àç·áº° Á¡¼ö, Àç·áº° Ä®·Î¸®
-void paohu(int n, int score, int kcal) // Àç·á¹øÈ£, Á¡¼öÃÑÇÕ, Ä®·Î¸®ÃÑÇÕ
-{
-	int i;
-	if (kcal > L)return; // Ä®·Î¸®ÃÑÇÕ > Á¦ÇÑ Ä®·Î¸®
-	if (n >= N) // ¸ğµçÁ¾·ùÀÇ Àç·á Å½»ö
-	{
-		max = max > score ? max : score; // Á¡¼ö ÃÖ´ñ°ª, Á¡¼öÃÑÇÕ ºñ±³
-		return;
+//ì¡°ê±´ (ëª¨ë“  worksì˜ ë†’ì´ë¥¼ hë¡œ ë§Œë“¤ ìˆ˜ ìˆëŠ”ê°€?)
+bool canConstruct(int no, vector<int>& works, int h) {
+	for (int i = 0; i < works.size(); i++) {
+		int minus = works[i] < h ? 0 : works[i] - h;
+		no -= minus;
 	}
-	for (i = n + 1; i <= N; i++) // Àç·á Áßº¹ ¾ÈµÇ°Ô i = n+1
-	{
-		paohu(i, score + scr[i], kcal + k[i]);
-	}
+	return no >= 0;
 }
-int main()
-{
-	int T, l, i;
-	scanf("%d", &T); // Å×½ºÆ® ÄÉÀÌ½º
-	for (l = 1; l <= T; l++)
-	{
-		max = 0;
-		scanf("%d%d", &N, &L);
-		for (i = 1; i <= N; i++)
-			scanf("%d%d", &scr[i], &k[i]);
-		paohu(0, 0, 0);
-		printf("#%d %d\n", l, max);
+
+//íŒŒë¼ë©”íŠ¸ë¦­ ì„œì¹˜(ë§Œë“¤ ìˆ˜ ìˆëŠ” ë†’ì´ë“¤ ì¤‘ì— ìµœê³ ì )
+int bs(int no, vector<int>& works) {
+	int l = 0, r = 1000;
+
+	while (l <= r) {
+		int m = (l + r) / 2;
+		if (!canConstruct(no, works, m)) {
+			l = m + 1;
+		}
+		else {
+			r = m - 1;
+		}
 	}
+	//lì´ ë§Œë“¤ ìˆ˜ ìˆëŠ” ì ë“¤ì˜ ìµœê³  ë†’ì´ì´ë‹¤.
+	return l;
+}
+
+int solution(int no, vector<int> works)
+{
+	sort(works.begin(), works.end(), greater<int>());
+	int answer = 0;
+	int h = bs(no, works);
+
+	//ë†’ì´ê°€ ìµœê°œ 1ì²œì´ê¸° Â‹Âšë¬¸ì— ê·¸ëƒ¥ 1ë¶€í„° í’€ì–´ë„ ëœë‹¤.
+
+	/*
+	int h = 1000;// = bs(no,works);
+
+	for(int i = 1000; i >=0; i--){
+	if(canConstruct(no,works, i)){
+	h = i;
+	}
+	else break;
+	}
+	*/
+
+	priority_queue<int> pq;
+	//ë§Œë“¤ ìˆ˜ ìˆëŠ” ë†’ì´ì—ì„œ work ë“¤ì˜ ê¸¸ì´ê°€ ëª‡ì´ ë˜ê³ , noëŠ” ì–¼ë§ˆë‚˜ ë‚¨ëŠ”ì§€ ê³„ì‚°
+	for (int i = 0; i < works.size(); i++) {
+		int minus = works[i] < h ? 0 : works[i] - h;
+		works[i] = h < works[i] ? h : works[i];
+		pq.push(works[i]);
+		no -= minus;
+	}
+
+	//ë‚¨ì€ ê²ƒì´ ë§ìœ¼ë©´ pqì—ì„œ ë†’ì€ ê²ƒ ë¶€í„° ì œê±°
+	while (no) {
+		int now = pq.top();
+		pq.pop();
+		now--;
+		no--;
+		pq.push(now);
+	}
+	
+	//ì´ì œ ë‚¨ì€ workë“¤ì˜ ì œê³±ì„ ë”í•´ì£¼ë©´ ë
+	while (pq.size()) {
+		answer += pq.top()*pq.top();
+		pq.pop();
+	}
+
+	return answer;
 }
