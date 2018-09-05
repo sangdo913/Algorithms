@@ -40,5 +40,14 @@
     <ClInclude Include="Codeforce0902D.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Codeforces507A.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce507B.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforce507C.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

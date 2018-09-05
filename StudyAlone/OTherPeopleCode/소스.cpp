@@ -1,78 +1,109 @@
-﻿#include<vector>
-#include<iostream>
+﻿#pragma once
+#include<cstdio>
+#include<cstring>
 #include<algorithm>
-#include<functional>
-#include<queue>
-using namespace std;
 
-//조건 (모든 works의 높이를 h로 만들 수 있는가?)
-bool canConstruct(int no, vector<int>& works, int h) {
-	for (int i = 0; i < works.size(); i++) {
-		int minus = works[i] < h ? 0 : works[i] - h;
-		no -= minus;
-	}
-	return no >= 0;
+int n, m, map[12][12] = { 0 };
+bool visit[12][12];
+int que[100000][2], f, r;
+enum DIR { DOWN = 0, UP = 1, RIGHT = 2, LEFT = 3 };
+int dx[4] = { 0,1,0,-1 };
+int dy[4] = { -1,0,1,0 };
+
+int min(int i1, int i2) {
+	return i1 < i2 ? i1 : i2;
 }
 
-//파라메트릭 서치(만들 수 있는 높이들 중에 최고점)
-int bs(int no, vector<int>& works) {
-	int l = 0, r = 1000;
 
-	while (l <= r) {
-		int m = (l + r) / 2;
-		if (!canConstruct(no, works, m)) {
-			l = m + 1;
-		}
-		else {
-			r = m - 1;
-		}
+bool isCross(int r, int c) {
+	bool ch[3] = { false };
+
+	for (int d = 0; d < 4; d++) {
+		ch[d & 2] |= map[r + dy[d]][c + dx[d]] != 1 && map[r + dy[d]][c + dx[d]] != -1;
 	}
-	//l이 만들 수 있는 점들의 최고 높이이다.
-	return l;
+
+	return ch[0] && ch[2];
 }
 
-int solution(int no, vector<int> works)
-{
-	sort(works.begin(), works.end(), greater<int>());
-	int answer = 0;
-	int h = bs(no, works);
+int getTime() {
+	f = r = 0;
+	int time = 1;
+	bool can = false;
 
-	//높이가 최개 1천이기 문에 그냥 1부터 풀어도 된다.
+	que[r][0] = que[r][1] = 1;
+	r++;
+	visit[1][1] = true;
 
-	/*
-	int h = 1000;// = bs(no,works);
+	int cnt = 1;
 
-	for(int i = 1000; i >=0; i--){
-	if(canConstruct(no,works, i)){
-	h = i;
+	while (f != r) {
+		int x = que[f][0];
+		int y = que[f++][1];
+
+		//도착
+		if (y == n && x == n) {
+			can = true;
+			break;
+		}
+
+		cnt--;
+
+		for (int d = 0; d < 4; d++) {
+			int nx = x + dx[d];
+			int ny = y + dy[d];
+
+			if (visit[ny][nx]) continue; // 이미 갔던곳
+			if (map[ny][nx] == 0) continue; //  막힌곳
+			if (map[ny][nx] == -1) continue; // 맵 밖
+
+			if (time % map[ny][nx] == 0) {
+				que[r][0] = nx;
+				que[r++][1] = ny;
+				visit[ny][nx] = true;
+			}
+			else {
+				que[r][0] = x;
+				que[r++][1] = y;
+			}
+		}
+
+		if (cnt == 0) {
+			time++;
+			cnt = r - f;
+		}
 	}
-	else break;
-	}
-	*/
 
-	priority_queue<int> pq;
-	//만들 수 있는 높이에서 work 들의 길이가 몇이 되고, no는 얼마나 남는지 계산
-	for (int i = 0; i < works.size(); i++) {
-		int minus = works[i] < h ? 0 : works[i] - h;
-		works[i] = h < works[i] ? h : works[i];
-		pq.push(works[i]);
-		no -= minus;
-	}
+	return can ? --time : 987654321;
+}
 
-	//남은 것이 많으면 pq에서 높은 것 부터 제거
-	while (no) {
-		int now = pq.top();
-		pq.pop();
-		now--;
-		no--;
-		pq.push(now);
-	}
-	
-	//이제 남은 work들의 제곱을 더해주면 끝
-	while (pq.size()) {
-		answer += pq.top()*pq.top();
-		pq.pop();
+
+int main() {
+
+	scanf("%d %d\n", &n, &m);
+	memset(map, -1, sizeof(map));
+
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= n; j++) {
+			scanf("%d\n", &map[i][j]);
+		}
 	}
 
-	return answer;
+	int res = getTime();
+
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= n; j++) {
+			if (isCross(i, j)) continue; //교차로인 경우
+
+			if (map[i][j] == 0 && m) {
+
+				memset(visit, false, sizeof(visit));
+				map[i][j] = m;
+				res = min(res, getTime());
+				map[i][j] = 0;
+			}
+		}
+	}
+
+	printf("%d\n", res);
+	return 0;
 }

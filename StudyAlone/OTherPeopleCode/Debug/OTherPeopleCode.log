@@ -1,5 +1,6 @@
 ﻿  소스.cpp
-e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(10): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(55): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-MSVCRTD.lib(exe_main.obj) : error LNK2019: _main 외부 기호(참조 위치: "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 함수)에서 확인하지 못했습니다.
-E:\college\Algorithms\StudyAlone\Debug\OTherPeopleCode.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(82): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(87): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+  OTherPeopleCode.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\OTherPeopleCode.exe
