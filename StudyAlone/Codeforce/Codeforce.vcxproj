@@ -128,9 +128,9 @@
     <ClInclude Include="Codeforce0902B.h" />
     <ClInclude Include="Codeforce0902C.h" />
     <ClInclude Include="Codeforce0902D.h" />
-    <ClInclude Include="Codeforce507B.h" />
-    <ClInclude Include="Codeforce507C.h" />
-    <ClInclude Include="Codeforce508A.h" />
+    <ClInclude Include="Codeforces507B.h" />
+    <ClInclude Include="Codeforces507C.h" />
+    <ClInclude Include="Codeforces508A.h" />
     <ClInclude Include="Codeforces508D.h" />
     <ClInclude Include="CodeforceAIMC.h" />
     <ClInclude Include="Codeforces507A.h" />
