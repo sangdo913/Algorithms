@@ -2,94 +2,119 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
-int T, D, W, K;
-int ans;
-int map[13][20];
-int original[13][20];
-bool check[13];
-int cnt;
-bool isCheck(int x)
+int map[11][11];
+int check[11][11];
+int N, M, ans, T;
+int dx[] = { 1,0,-1,0 };
+int dy[] = { 0,1,0,-1 };
+int noX;
+int noY;
+bool use;
+void getCross()
 {
-	int acnt = 0, bcnt = 0;
-	bool flag = false;
-	for (int i = 0; i <= D - K; i++)
+	int cnt = 0;
+	for (int i = 0; i < N; i++)
 	{
-		if (map[i][x] == map[i + 1][x])
+		for (int j = 0; j < N; j++)
 		{
-			for (int m = i; m < i + K; m++)
+			if (map[i][j] == 1) continue;
+			//해당 좌표에서 4면을 확인 
+			cnt = 0;
+			for (int k = 0; k < 4; k++)
 			{
-				if (map[i][x] == map[m][x])
-				{
-					acnt++;
-				}
+				int ny = i + dy[k];
+				int nx = j + dx[k];
+				if (ny<0 && ny>N - 1 && nx<0 && nx>N - 1) continue;
+				if (map[ny][nx] != 1) cnt++;
+			}
+			if (cnt >= 3)
+			{
+				noX = j;
+				noY = i;
+				return;
 			}
 		}
-		if (acnt >= K) return true;
-		else  acnt = 0;
 	}
-	return false;
 }
-void Swap(int row, int num)
+bool isSafe(int y, int x)
 {
-	if (num == -1 || row<0) return;
-	for (int i = 0; i < W; i++)
-		map[row][i] = num;
+	return (y >= 0 && y <= N - 1 && x >= 0 && x <= N - 1);
 }
-void recur(int row)
+//y,x좌표,시간
+void dfs(int y, int x, int time)
 {
-	for (int i = 0; i < W; i++)
-		map[row][i] = original[row][i];
-}
-bool totalCheck()
-{
-	bool flag = false;
-	for (int i = 0; i < W; i++)
+	if (!isSafe(y, x)) return;
+	if (y == noY && x == noX) return;
+	if (check[y][x] <= time) return;
+	check[y][x] = time;
+	//printf("y=%d x=%d time=%d\n",y,x,time);
+	if (y == N - 1 && x == N - 1)
 	{
-		flag = isCheck(i);
-		if (flag == false) break;
-	}
-	return flag;
-}
-void dfs(int idx, int cnt, int num)
-{
-
-	if (idx > D) return;
-	if (cnt > ans) return;
-	if (totalCheck())
-	{
-		ans = min(ans, cnt);
+		ans = min(ans, time);
 		return;
 	}
-	for (int i = -1; i <= 1; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		cnt = (i == -1) ? cnt : cnt + 1;
-		if (idx >= 0) Swap(idx, num);
-		dfs(idx + 1, cnt, i);
-		if (idx >= 0)recur(idx);
+		int nx = x + dx[i];
+		int ny = y + dy[i];
+		if (!isSafe(ny, nx)) continue;
+		//if (check[ny][nx]) continue;
+		if (map[ny][nx] == 0) continue;
+		if (map[ny][nx] == 1)
+		{
+			dfs(ny, nx, time + 1);
+		}
+		else if (map[ny][nx] > 1)
+		{
+			int wait = map[ny][nx];
+			dfs(ny, nx, time + wait - (time%wait));
+		}
+		//check[ny][nx] = false;
 	}
-
+	return;
+}
+void init()
+{
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++) check[i][j] = false;
+	}
 }
 int main()
 {
-	vector<int> vec;
-	
-	freopen("input.txt", "r", stdin);
+	ios::sync_with_stdio(false);
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++)
 	{
-		cin >> D >> W >> K;
+		cin >> N >> M;
 		int tmp = 0;
-		for (int i = 0; i < D; i++)
+		for (int i = 0; i < N; i++)
 		{
-			for (int j = 0; j < W; j++)
+			for (int j = 0; j < N; j++)
 			{
 				cin >> tmp;
 				map[i][j] = tmp;
-				original[i][j] = tmp;
+				check[i][j] = false;
 			}
 		}
-		ans = K;
-			dfs(-1, 0, 0);
+
+		getCross();
+		ans = 1e9;
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = 0; j < N; j++)
+			{
+				if (map[i][j] != 0) continue;
+				if (map[i][j] == 0)
+					map[i][j] = M;
+
+				init();
+				memset(check, 0x3f, sizeof(check));
+				dfs(0, 0, 0);
+				map[i][j] = 0;
+			}
+
+		}
 		cout << "#" << tc << " " << ans << "\n";
 	}
 }
