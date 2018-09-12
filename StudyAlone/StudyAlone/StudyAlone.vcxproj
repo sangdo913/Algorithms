@@ -368,6 +368,10 @@
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />
+    <ClInclude Include="SeoulDiv2A.h" />
+    <ClInclude Include="SeoulDiv2B.h" />
+    <ClInclude Include="SeoulDiv2C.h" />
+    <ClInclude Include="SeoulDiv2E.h" />
     <ClInclude Include="SevenShuffle.h" />
     <ClInclude Include="SNAIL.h" />
     <ClInclude Include="Snake.h" />
