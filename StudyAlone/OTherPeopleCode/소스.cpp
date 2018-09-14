@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include<string>
 using namespace std;
 
 int v[100001];
@@ -22,7 +22,8 @@ int solution(int n) {
 
 int main() {
 	int n;
-
+	string a;
+	a += '1';
 	//scanf("%d", &n);
 
 	for (int i = 0; i <= 100000; i++) {

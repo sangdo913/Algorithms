@@ -174,6 +174,7 @@
     <ClInclude Include="BOJ2162.h" />
     <ClInclude Include="BOJ2166.h" />
     <ClInclude Include="BOJ2206.h" />
+    <ClInclude Include="BOJ2292.h" />
     <ClInclude Include="BOJ2960.h" />
     <ClInclude Include="7Month7Day.h" />
     <ClInclude Include="AllSum.h" />
