@@ -1,10 +1,10 @@
 #include<cstdio>
 #include<string>
 #include<iostream>
-#include"EduCodeforce50B.h"
+#include"C509.h"
 using namespace std;
 
 int main() {
-	EduCodeforce50B();
+	C509();
 	return 0;
 }

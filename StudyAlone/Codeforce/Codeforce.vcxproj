@@ -124,6 +124,9 @@
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="A509.h" />
+    <ClInclude Include="B509.h" />
+    <ClInclude Include="C509.h" />
     <ClInclude Include="EduCodeforce50A.h" />
     <ClInclude Include="EduCodeforce50B.h" />
     <ClInclude Include="Codeforce0902A.h" />

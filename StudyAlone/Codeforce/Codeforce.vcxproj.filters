@@ -28,6 +28,9 @@
     <Filter Include="헤더 파일\EduCodeforces50">
       <UniqueIdentifier>{b3b13b83-2712-4a83-a92d-e63ad61cf449}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Codeforces509">
+      <UniqueIdentifier>{d7ac4421-ad4a-4949-af23-58d296fbe6ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -87,6 +90,15 @@
     </ClInclude>
     <ClInclude Include="EduCodeforce50D.h">
       <Filter>헤더 파일\EduCodeforces50</Filter>
+    </ClInclude>
+    <ClInclude Include="A509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
+    </ClInclude>
+    <ClInclude Include="B509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
+    </ClInclude>
+    <ClInclude Include="C509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

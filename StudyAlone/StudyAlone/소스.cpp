@@ -1,10 +1,10 @@
-#include"BOJ9376.h"
+#include"BOJNeblCupA.h"
 #include<cstdio>
 
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	BOJ9376();
+	BOJNeblCupA();
 	return 0;
 }
 //2147483647
