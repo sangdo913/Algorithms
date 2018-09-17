@@ -809,6 +809,24 @@
     <ClInclude Include="BOJNeblCupA.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="BOJ5622.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2789.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5623.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ16162.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5525.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ8911.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
