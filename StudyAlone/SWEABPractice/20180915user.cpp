@@ -71,7 +71,16 @@ struct List {
 };
 
 struct Hash {
-	List hash[320001];
+	List hash[2000000];
+	int hkey(int data[8]) {
+		int key = 0;
+		for (int i = 0; i < 7; i++) {
+			key *= 512;
+			key += data[i] - data[i + 1] + 256;
+			key %= 2000000;
+		}
+		return key;
+	}
 	
 	void insert(int data, int id, int pos) {
 		data += 16000;

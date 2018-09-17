@@ -19,6 +19,7 @@
 
 using namespace std;
 
+const int flag = 32000 / 300;
 
 
 typedef struct Song {
@@ -35,7 +36,7 @@ struct NODE {
 	NODE() {
 		next = 0;
 	}
-}nodes[2100000];
+}nodes[4100000];
 Song my[10001];
 
 struct Myal {
@@ -83,6 +84,8 @@ struct List {
 	}
 };
 
+int keys[200];
+
 bool check(int id, int pos, int data[8]) {
 	int *comp = my[id].data + pos;
 
@@ -96,22 +99,47 @@ bool check(int id, int pos, int data[8]) {
 }
 
 struct Hash {
-	List hash[32001];
 
-	void insert(int data, int id, int pos) {
-		data += 16000;
-		hash[data].insert(id, pos);
+	List hash[2000000];
+	int hkey(int data[8]) {
+		long long key = 0;
+		for (int i = 0; i < 7; i++) {
+			key *= flag;
+			key += (data[i] - data[i + 1])/300 + flag;
+			key %= 2000000;
+		}
+		return (int)key;
+	}
+
+	void insert(int data[200],int len, int id) {
+		int kcnt = 0;
+		for (int i = 0; i <= len - 8; i++) {
+			int key = hkey(data+i);
+			keys[kcnt++] = key;
+			//data += 16000;
+			hash[key].insert(id, i);
+		}
 	}
 
 	void init() {
-		for (int i = 0; i < 32001; i++) {
+		for (int i = 0; i < 2000000; i++) {
 			hash[i].init();
 		}
 	}
 
 	int find(int data[8]) {
+		int key = hkey(data);
+		printf("Find : %d\n", key);
+		hash[key].setcursor();
+		NODE* n;
+		while ((n = hash[key].next())) {
+			int id = n->id;
+			int pos = n->pos;
 
-		for (int i = -127; i <= 128; i++)
+			bool res = check(id, pos, data);
+			if (res) return id;
+		}
+		/*for (int i = -127; i <= 128; i++)
 		{
 			int key = data[0] + i + 16000;
 			if (key < 0) continue;
@@ -127,7 +155,7 @@ struct Hash {
 				bool res = check(id, pos, data);
 				if (res) return id;
 			}
-		}
+		}*/
 		return -1;
 	}
 }HA;
@@ -141,10 +169,12 @@ void init(int N) {
 
 void make_date_set(Song song) {
 	my[song.id] = song;
-	for (int i = 0; i <= song.leng - 8; i++)
-	{
-		HA.insert(song.data[i],song.id, i);
-	}
+	//for (int i = 0; i <= song.leng - 8; i++)
+	//{
+	//	HA.insert(song.data[i],song.id, i);
+	//}
+		HA.insert(song.data,song.leng,song.id);
+	
 }
 
 // song의 일부의 data[8]개가 들어왔을때 song의 id반환 (8개가 일치시 id는 유일함을 보장)
@@ -158,6 +188,7 @@ unordered_set<long long> mp;
 #include<time.h>
 int main() {
 	int T = 100, LEN = 200, QUERY = 1000;
+	int N = 1;
 	int seed = time(0);
 		long long mval = 0;
 		const long long MOD = 10987654321;
@@ -172,7 +203,6 @@ int main() {
 
 		srand(seed);
 		register int i, j;
-		int N = 10000;
 		init(N);
 
 
@@ -232,7 +262,26 @@ int main() {
 				part[j] = songs[n].data[(f + j)] + noise;
 			}
 
-			if (find_song(part) == songs[n].id)
+			printf("first : %d\n", HA.hkey(part));
+
+			for (int i = 0; i < 7; i++) {
+				int diff = (part[i] - part[i + 1]) + 255;
+				diff /= 512;
+				printf("%d ", diff);
+			}
+			printf("\n");
+
+			printf("find1 : %d\n", keys[f]);
+			Song & a = songs[n];
+			for (int i = 0; i < 7; i++) {
+				int diff = a.data[i + f] - a.data[i + f + 1] + 255 + 127;
+				diff /= 512;
+				printf("%d ", diff);
+			}
+			printf("\n");
+			int fid = find_song(part);
+
+			if (fid == songs[n].id)
 				solved++;
 
 		}
