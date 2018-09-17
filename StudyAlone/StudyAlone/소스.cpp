@@ -1,10 +1,10 @@
-#include"7Month7Day.h"
+#include"BOJNeblCupA.h"
 #include<cstdio>
 
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	SevenMonth7Day();
+	BOJNeblCupA();
 	return 0;
 }
 //2147483647

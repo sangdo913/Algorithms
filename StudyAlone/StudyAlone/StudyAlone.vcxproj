@@ -174,6 +174,7 @@
     <ClInclude Include="BOJ2162.h" />
     <ClInclude Include="BOJ2166.h" />
     <ClInclude Include="BOJ2206.h" />
+    <ClInclude Include="BOJ2292.h" />
     <ClInclude Include="BOJ2960.h" />
     <ClInclude Include="7Month7Day.h" />
     <ClInclude Include="AllSum.h" />
@@ -201,6 +202,9 @@
     <ClInclude Include="BOJ3955.h" />
     <ClInclude Include="BOJ6439.h" />
     <ClInclude Include="BOJ6603.h" />
+    <ClInclude Include="BOJ5465.h" />
+    <ClInclude Include="BOJ9376.h" />
+    <ClInclude Include="BOJNeblCupA.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
@@ -368,6 +372,10 @@
     <ClInclude Include="SandTop.h" />
     <ClInclude Include="SecureFilm.h" />
     <ClInclude Include="SeoJoon.h" />
+    <ClInclude Include="SeoulDiv2A.h" />
+    <ClInclude Include="SeoulDiv2B.h" />
+    <ClInclude Include="SeoulDiv2C.h" />
+    <ClInclude Include="SeoulDiv2E.h" />
     <ClInclude Include="SevenShuffle.h" />
     <ClInclude Include="SNAIL.h" />
     <ClInclude Include="Snake.h" />

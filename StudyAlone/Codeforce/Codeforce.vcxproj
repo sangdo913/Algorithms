@@ -124,14 +124,25 @@
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="A509.h" />
+    <ClInclude Include="B509.h" />
+    <ClInclude Include="C509.h" />
+    <ClInclude Include="EduCodeforce50A.h" />
+    <ClInclude Include="EduCodeforce50B.h" />
     <ClInclude Include="Codeforce0902A.h" />
     <ClInclude Include="Codeforce0902B.h" />
     <ClInclude Include="Codeforce0902C.h" />
     <ClInclude Include="Codeforce0902D.h" />
-    <ClInclude Include="Codeforce507B.h" />
-    <ClInclude Include="Codeforce507C.h" />
+    <ClInclude Include="Codeforces507B.h" />
+    <ClInclude Include="Codeforces507C.h" />
+    <ClInclude Include="Codeforces508A.h" />
+    <ClInclude Include="Codeforces508D.h" />
     <ClInclude Include="CodeforceAIMC.h" />
     <ClInclude Include="Codeforces507A.h" />
+    <ClInclude Include="Codeforces508B.h" />
+    <ClInclude Include="Codeforces508C.h" />
+    <ClInclude Include="EduCodeforce50C.h" />
+    <ClInclude Include="EduCodeforce50D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

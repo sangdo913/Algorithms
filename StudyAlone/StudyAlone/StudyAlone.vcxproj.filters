@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\BOJ">
+      <UniqueIdentifier>{f6ebf078-0560-475a-8c70-c984598a0329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\SWEA">
+      <UniqueIdentifier>{ff7c6929-1601-4fee-bb71-24ffa30703ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -596,9 +602,6 @@
     <ClInclude Include="BACKJOON2470.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BOJ1493.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="IU4Eco.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -614,37 +617,7 @@
     <ClInclude Include="NumOfConnectedComponent.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BOJ10828.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ3020.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ11266.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ3176.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ3955.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ2960.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="SWExpert5162.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ2166.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ2162.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ6439.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ1708.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CodeBattle080701.h">
@@ -662,28 +635,10 @@
     <ClInclude Include="SWEA5170.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BOJ14925.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="CodeBattle081401.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CodeBattle081402.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ1019.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ13901.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ14226.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ14923.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ1219.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Codeforce50401.h">
@@ -725,19 +680,10 @@
     <ClInclude Include="Codeforce504D.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BOJ1389.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="CodeBattle311.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CodeBattle312.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ3649.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BOJ2102.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SWEA5360.h">
@@ -764,19 +710,103 @@
     <ClInclude Include="CodeforceAIMC.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="BOJ1019.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
     <ClInclude Include="BOJ1208.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ1219.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ1389.h">
+      <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
     <ClInclude Include="BOJ1405.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ1493.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ1708.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2102.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2162.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2166.h">
+      <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
     <ClInclude Include="BOJ2206.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2960.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3020.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3176.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3649.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3955.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ6439.h">
+      <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
     <ClInclude Include="BOJ6603.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ10828.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ11266.h">
+      <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
     <ClInclude Include="BOJ12782.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ13901.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ14226.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ14923.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ14925.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SeoulDiv2A.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SeoulDiv2B.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SeoulDiv2C.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SeoulDiv2E.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5465.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2292.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ9376.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJNeblCupA.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

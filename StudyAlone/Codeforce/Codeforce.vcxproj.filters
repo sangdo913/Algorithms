@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\Codeforces508">
+      <UniqueIdentifier>{3735fe69-a2d8-449a-8ac0-6b6cf6278d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Codeforces507">
+      <UniqueIdentifier>{12661f39-63b3-4509-b178-dd94200f3c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Codeforces0902">
+      <UniqueIdentifier>{96580a55-9d8e-4a81-ab33-e310491b66a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\CodeforcesAIMC">
+      <UniqueIdentifier>{80690c02-f4ac-4a3e-a106-400646110383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\EduCodeforces50">
+      <UniqueIdentifier>{b3b13b83-2712-4a83-a92d-e63ad61cf449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Codeforces509">
+      <UniqueIdentifier>{d7ac4421-ad4a-4949-af23-58d296fbe6ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -25,29 +43,62 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CodeforceAIMC.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Codeforces507A.h">
+      <Filter>헤더 파일\Codeforces507</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces507C.h">
+      <Filter>헤더 파일\Codeforces507</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces507B.h">
+      <Filter>헤더 파일\Codeforces507</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces508A.h">
+      <Filter>헤더 파일\Codeforces508</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces508B.h">
+      <Filter>헤더 파일\Codeforces508</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces508C.h">
+      <Filter>헤더 파일\Codeforces508</Filter>
+    </ClInclude>
+    <ClInclude Include="Codeforces508D.h">
+      <Filter>헤더 파일\Codeforces508</Filter>
     </ClInclude>
     <ClInclude Include="Codeforce0902A.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Codeforces0902</Filter>
     </ClInclude>
     <ClInclude Include="Codeforce0902B.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Codeforces0902</Filter>
     </ClInclude>
     <ClInclude Include="Codeforce0902C.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Codeforces0902</Filter>
     </ClInclude>
     <ClInclude Include="Codeforce0902D.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Codeforces0902</Filter>
     </ClInclude>
-    <ClInclude Include="Codeforces507A.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="CodeforceAIMC.h">
+      <Filter>헤더 파일\CodeforcesAIMC</Filter>
     </ClInclude>
-    <ClInclude Include="Codeforce507B.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="EduCodeforce50A.h">
+      <Filter>헤더 파일\EduCodeforces50</Filter>
     </ClInclude>
-    <ClInclude Include="Codeforce507C.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="EduCodeforce50B.h">
+      <Filter>헤더 파일\EduCodeforces50</Filter>
+    </ClInclude>
+    <ClInclude Include="EduCodeforce50C.h">
+      <Filter>헤더 파일\EduCodeforces50</Filter>
+    </ClInclude>
+    <ClInclude Include="EduCodeforce50D.h">
+      <Filter>헤더 파일\EduCodeforces50</Filter>
+    </ClInclude>
+    <ClInclude Include="A509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
+    </ClInclude>
+    <ClInclude Include="B509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
+    </ClInclude>
+    <ClInclude Include="C509.h">
+      <Filter>헤더 파일\Codeforces509</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
