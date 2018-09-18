@@ -46,5 +46,8 @@
     <ClInclude Include="C352.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="C353.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

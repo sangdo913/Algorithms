@@ -1,8 +1,8 @@
 #include<cstdio>
-#include"C352.h"
+#include"C353.h"
 
 int main() {
-	C352();
+	C353();
 
 	return 0;
 }
