@@ -40,5 +40,11 @@
     <ClInclude Include="Battle342.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="C351.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="C352.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

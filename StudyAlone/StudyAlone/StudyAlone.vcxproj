@@ -170,6 +170,7 @@
     <ClInclude Include="BOJ1405.h" />
     <ClInclude Include="BOJ14226.h" />
     <ClInclude Include="BOJ14923.h" />
+    <ClInclude Include="BOJ15949.h" />
     <ClInclude Include="BOJ16162.h" />
     <ClInclude Include="BOJ2102.h" />
     <ClInclude Include="BOJ2162.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="BOJ3649.h" />
     <ClInclude Include="BOJ3955.h" />
     <ClInclude Include="BOJ5525.h" />
+    <ClInclude Include="BOJ5528.h" />
     <ClInclude Include="BOJ5622.h" />
     <ClInclude Include="BOJ5623.h" />
     <ClInclude Include="BOJ6439.h" />

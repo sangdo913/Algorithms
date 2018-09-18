@@ -129,6 +129,8 @@
     <ClInclude Include="Battle342.h" />
     <ClInclude Include="C321.h" />
     <ClInclude Include="C322.h" />
+    <ClInclude Include="C351.h" />
+    <ClInclude Include="C352.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
