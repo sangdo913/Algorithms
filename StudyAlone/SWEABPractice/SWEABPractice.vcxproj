@@ -128,9 +128,6 @@
   <ItemGroup>
     <Text Include="Text.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="20180915user.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
