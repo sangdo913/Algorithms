@@ -395,6 +395,7 @@
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SupervisorCCTV.h" />
     <ClInclude Include="SUSHI.h" />
+    <ClInclude Include="SWEA3814.h" />
     <ClInclude Include="SWEA5170.h" />
     <ClInclude Include="SWEA5360.h" />
     <ClInclude Include="SWExpert1_1.h" />
