@@ -1,10 +1,10 @@
-#include"SWEA3814.h"
+#include"SWEA3813.h"
 #include<cstdio>
 
 int main()
 {
 	//printf("%d\n", solution(2147483647));
-	SWEA3814();
+	SWEA3813();
 	
 
 	return 0;

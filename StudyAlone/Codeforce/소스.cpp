@@ -3,10 +3,10 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include"C51C.h"
+#include"C511C.h"
 using namespace std;
 
 int main() {
-	C51C();
+	C511C();
 	return 0;
 }
