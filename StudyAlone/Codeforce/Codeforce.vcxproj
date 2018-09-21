@@ -127,6 +127,10 @@
     <ClInclude Include="A509.h" />
     <ClInclude Include="B509.h" />
     <ClInclude Include="C509.h" />
+    <ClInclude Include="C51A.h" />
+    <ClInclude Include="C51B.h" />
+    <ClInclude Include="C51C.h" />
+    <ClInclude Include="C51D.h" />
     <ClInclude Include="EduCodeforce50A.h" />
     <ClInclude Include="EduCodeforce50B.h" />
     <ClInclude Include="Codeforce0902A.h" />
