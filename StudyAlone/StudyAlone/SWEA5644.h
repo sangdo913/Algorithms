@@ -9,7 +9,6 @@ using namespace std;
 
 vector<int> map[12][12];
 
-bool bcin[9];
 int dr[5] = { 0,-1,0,1,0 };
 int dc[5] = { 0,0,1,0,-1 };
 
@@ -19,20 +18,18 @@ int m, a;
 
 struct pos {
 	int r, c;
-}p[2];
+} p[2];
 
-struct BC {
-	int charge;
-	pos p;
-}bcs[9];
+int bcs[9];
 
 pos que[200];
 
 struct COMP {
 	bool operator()(int i, int j) {
-		return bcs[i].charge > bcs[j].charge;
+		return bcs[i] > bcs[j];
 	}
 };
+
 void bfs(pos p, int idx, int c) {
 	bool visit[12][12] = {};
 
@@ -45,7 +42,6 @@ void bfs(pos p, int idx, int c) {
 	f = r = 0;
 
 	que[r++] = p;
-	
 
 	while (cnt < c) {
 		int cnt2 = r - f;
@@ -70,7 +66,6 @@ void bfs(pos p, int idx, int c) {
 }
 
 int getValue() {
-	bool ch[8] = {};
 	vector<int>& v1 = map[p[0].r][p[0].c];
 	vector<int>& v2 = map[p[1].r][p[1].c];
 
@@ -78,7 +73,7 @@ int getValue() {
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j < 2; j++) {
 			if (v1[i] == v2[j]) continue;
-			int sum = bcs[v1[i]].charge + bcs[v2[j]].charge;
+			int sum = bcs[v1[i]] + bcs[v2[j]];
 			res = res < sum ? sum : res;
 		}
 	}
@@ -120,17 +115,14 @@ int SWEA5644() {
 		for (int i = 0; i < a; i++) {
 			int r, c, range, ch;
 			cin >> c >> r >>  range >> ch;
-			bcs[idx].p.r = r;
-			bcs[idx].p.c = c;
-			bcs[idx].charge = ch;
+			bcs[idx] = ch;
 			
-			bfs(bcs[idx].p, idx, range);
+			bfs({ r,c }, idx, range);
 			idx++;
 		}
 		
 		for (int i = 1; i <= 10; i++) {
-			for (int j = 1; j <= 10; j++)
-			{
+			for (int j = 1; j <= 10; j++) {
 				sort(map[i][j].begin(), map[i][j].end(), COMP());
 			}
 		}
@@ -138,6 +130,7 @@ int SWEA5644() {
 		int res = 0;
 		for (int i = 0; i <= m; i++) {
 			res += getValue();
+
 			p[0].r += dr[info[0][i]];
 			p[0].c += dc[info[0][i]];
 
