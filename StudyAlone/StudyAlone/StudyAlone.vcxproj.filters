@@ -19,6 +19,9 @@
     <Filter Include="헤더 파일\SWEA">
       <UniqueIdentifier>{ff7c6929-1601-4fee-bb71-24ffa30703ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\CodeMonster">
+      <UniqueIdentifier>{d1589215-0171-402b-bae5-fe66d217819f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -841,6 +844,9 @@
     </ClInclude>
     <ClInclude Include="SWEA3813.h">
       <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="cm1.h">
+      <Filter>헤더 파일\CodeMonster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

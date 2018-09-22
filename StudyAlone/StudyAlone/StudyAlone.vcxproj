@@ -225,6 +225,7 @@
     <ClInclude Include="CIrcularSpace.h" />
     <ClInclude Include="City_Maintenance.h" />
     <ClInclude Include="CLOCKSYNC.h" />
+    <ClInclude Include="cm1.h" />
     <ClInclude Include="CodeBattle080701.h" />
     <ClInclude Include="CodeBattle080702.h" />
     <ClInclude Include="CodeBattle080703.h" />

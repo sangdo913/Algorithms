@@ -77,6 +77,7 @@ int C511C() {
 	}
 
 	for (int i = 0; i < n; i++) {
+		if (arr[i] == 1) continue;
 		int j;
 		for ( j = 0; j < pcnt-1 && pr[j]*pr[j] < arr[i]; j++) {
 			if (arr[i] % pr[j] == 0) {
@@ -91,7 +92,7 @@ int C511C() {
 			max = MAX(nums[pr[j]], max);
 		}
 
-		if (arr[i] != 1 && find(pr, pr + pcnt, arr[i]) != pr+pcnt) {
+		if (find(pr, pr + pcnt, arr[i]) != pr+pcnt) {
 			nums[arr[i]]++;
 			max = MAX(nums[arr[i]], max);
 		}

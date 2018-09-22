@@ -6,43 +6,29 @@
 
 using namespace std;
 
-int arr[200001], n, k;
+int arr[200001], n, k, sum;
 int blocks[200000];
-
+int temp[200000];
 bool parametric(int w) {
 	int cnt = 0;
-	priority_queue<int> pq;
-	priority_queue<int> pq2;
-
+	int idx = 0;
+	int bsum = 0;
+	int j = 0;
 	for (int i = 0; i <= n; i++) {
 		if (arr[i] <= w) {
 			cnt++;
 		}
+
 		else {
-			pq.push(cnt);
+			while (j < k && blocks[j] <= cnt) {
+				cnt -= blocks[j];
+				j++;
+			}
 			cnt = 0;
 		}
 	}
 
-	for (int i = 0; i < k; i++) {
-		if (pq.empty()) return false;
-
-		int now = pq.top();
-		pq.pop();
-
-		if (now < blocks[i]) return false;
-
-		now -= blocks[i];
-		//while (i < k && blocks[i] <= now) {
-		//	now -= blocks[i];
-		//	i++;
-		//}
-
-		//i--;
-
-		if (now) pq.push(now);
-	}
-	return true;
+	return j == k;
 }
 
 int bs() {
@@ -62,7 +48,6 @@ int bs() {
 }
 
 int SWEA3813() {
-
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
@@ -73,11 +58,11 @@ int SWEA3813() {
 
 	for (int tc = 1; tc <= t; tc++) {
 		cin >> n >> k;
+		sum = 0;
 		for (int i = 0; i < n; i++) cin >> arr[i];
-		for (int i = 0; i < k; i++) cin >> blocks[i];
+		for (int i = 0; i < k; i++) cin >> blocks[i], sum +=blocks[i];
 
 		arr[n] = 0x3f3f3f3f;
-		sort(blocks, blocks + k, greater<int>());
 
 		int res = bs();
 		cout << '#' << tc << ' ' << res << '\n';
