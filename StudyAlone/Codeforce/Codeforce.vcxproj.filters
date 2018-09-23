@@ -37,6 +37,9 @@
     <Filter Include="헤더 파일\Codeforces511">
       <UniqueIdentifier>{ed2754d7-eab7-48bb-98d6-c3e430a37f81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\codeforces512">
+      <UniqueIdentifier>{a88d9a1a-6614-42bd-9efe-edc5fb166fcd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -126,6 +129,18 @@
     </ClInclude>
     <ClInclude Include="C511C.h">
       <Filter>헤더 파일\Codeforces511</Filter>
+    </ClInclude>
+    <ClInclude Include="C512A.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512B.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512C.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512D.h">
+      <Filter>헤더 파일\codeforces512</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
