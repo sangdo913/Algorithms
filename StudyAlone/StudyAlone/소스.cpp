@@ -1,4 +1,4 @@
-#include"SWEA3950.h"
+#include"SWEA3951.h"
 #include<cstdio>
 #include<vector>
 
@@ -17,7 +17,7 @@ int main()
 	//auto res = solution(vec);
 	//
 
-	SWEA3950();
+	SWEA3951();
 
 	return 0;
 	

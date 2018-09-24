@@ -1,159 +1,107 @@
-﻿#include<iostream>
-#include<queue>
-#include<algorithm>
-#define dbg cout << "Debugging\n"; 
-#define N 101
-using namespace std;
-char a[N][N]; int n, m;  bool vist[N][N]; int x, y;
-int dx[] = { -1,0,1,0 }, dy[] = { 0,1,0,-1 };
-int Up, Down, Left, Right;   int U_l, U_r, D_l, D_r, L_l, L_r, R_l, R_r;
-vector<char> ans;    int dp, cc = -1;
-void clear() {
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < m; j++)
-			vist[i][j] = 0;
-}
-bool Simul() {   // dp -> cc 탐색 
-	if (dp == 0) {         // 위
-		if (cc == -1) {   // 위에서 왼쪽을 바라볼 경우 
-			int nx = Up + dx[dp]; int ny = U_l + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-		else if (cc == 1) {  // 위에서 오른쪽을 바라볼 경우
-			int nx = Up + dx[dp]; int ny = U_r + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-	}
-	else if (dp == 1) {    // 오른쪽
-		if (cc == -1) {  // 오른쪽에서 왼쪽을 바라볼 경우
-			int nx = R_l + dx[dp]; int ny = Right + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-		else if (cc == 1) {  // 오른쪽에서 오른쪽을 바라볼경우
-			int nx = R_r + dx[dp]; int ny = Right + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-	}
-	else if (dp == 2) {    // 아래쪽
-		if (cc == -1) {   // 아래쪽에서 왼쪽을 바라볼경우
-			int nx = Down + dx[dp]; int ny = D_l + dy[dp];   // dp방향만큼 전진했을때 다음블록이 접해진다면
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false; // 아닐경우 바로 false리턴 
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-		else if (cc == 1) {
-			int nx = Down + dx[dp]; int ny = D_r + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-	}
-	else if (dp == 3) {     // 왼쪽 
-		if (cc == -1) {
-			int nx = L_l + dx[dp]; int ny = Left + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-		else if (cc == 1) {
-			int nx = L_r + dx[dp]; int ny = Left + dy[dp];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
-			if (a[nx][ny] == 'X') return false;
-			x = nx; y = ny;
-		}
-	}
-	return true;
-}
-void Calc(int x, int y) {
+﻿#include< iostream >
+#include< cstdio >
+#include< vector >
+#include< cstring >
+#include< queue >
+#include< algorithm >
+#define R 1005
 
-	if (Up > x)
-		Up = x, U_l = y, U_r = y;
-	else if (Up == x)
-		U_l = min(U_l, y), U_r = max(U_r, y);
-	if (Down < x)
-		Down = x, D_l = y, D_r = y;
-	else if (Down == x)
-		D_l = max(D_l, y), D_r = min(D_r, y);
-	if (Right < y)
-		Right = y, R_r = x, R_l = x;
-	else if (Right == y)
-		R_r = max(R_r, x), R_l = min(R_l, x);
-	if (Left > y)
-		Left = y, L_l = x, L_r = x;
-	else if (Left == y)
-		L_l = max(L_l, x), L_r = min(L_r, x);
-}
-bool bfs(int x, int y, char pivot) {
-	queue<pair<int, int>> q;
-	if (!vist[x][y])
-		q.push({ x, y });
-	Up = x, Down = x, Left = y, Right = y;
-	U_l = y, U_r = y; D_l = y, D_r = y;
-	L_l = x, L_r = x; R_l = x, R_r = x;
-	bool res = false;
-	while (!q.empty()) {
-		res = true;
-		int x1 = q.front().first; int y1 = q.front().second;
-		q.pop();
-		Calc(x1, y1);
-		vist[x1][y1] = true;
-		for (int i = 0; i < 4; i++) {
-			int xx = x1 + dx[i]; int yy = y1 + dy[i];
-			if (xx < 0 || xx >= n || yy < 0 || yy >= m) continue;
-			if (a[xx][yy] == pivot && !vist[xx][yy]) {
-				vist[xx][yy] = true;
-				q.push({ xx, yy });
+using namespace std;
+typedef pair< int, int > pi;
+
+int test, n, ans, dist[R];
+bool chk[R][R], visit[R];
+vector< int > adj[R], v;
+
+int dfs(int pos, int cnt) { //2사이클 이하 값을 찾음.
+	if (visit[pos]) {
+		return cnt;
+	}
+
+	int mx = 0;
+	visit[pos] = true;
+	int a, b;
+	a = b = 0;
+	for (auto next : adj[pos]) {
+		if (cnt == 0) {
+			int t = dfs(next, cnt + 1);
+			if (a > b) {
+				b = max(b, t);
+			}
+			else {
+				a = max(a, t);
 			}
 		}
+		else mx = max(mx, dfs(next, cnt + 1));
 	}
-	return res;
+
+	if (cnt == 0) {
+		if (a >0 && b >0) mx = a + b - 1;
+		else mx = a + b;
+	}
+	return mx == 0 ? cnt + 1 : mx;
+}
+
+int dfs2(int pos, int cnt) { // 3사이클이상 값을 찾음.
+	if (visit[pos]) {
+		return cnt - dist[pos];
+	}
+
+	int mx = 0;
+	visit[pos] = true;
+	dist[pos] = cnt;
+	for (auto next : adj[pos]) {
+		mx = max(mx, dfs2(next, cnt + 1));
+	}
+
+	if (mx <= 0) {
+		visit[pos] = false;
+		dist[pos] = 0;
+		return 0;
+	}
+	return mx;
+
 }
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL), cout.tie(NULL);
-	cin >> n >> m;
-	dp = 1;
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < m; j++)
-			cin >> a[i][j];
-	bool res = true;
-	while (res) {
-		/*if (a[x][y] == 'Z') {
-		cout << Up << ' ' << Down << '\n';
-		cout << U_l << ' ' << U_r << ' ' << D_l << ' ' << D_r << '\n';
-		}*/
-		res = false;
-		if (bfs(x, y, a[x][y])) {
-			clear();
-			ans.push_back(a[x][y]);
-			for (int i = 0; i < 4; i++) {  // dp설정
-				for (int j = 0; j < 2; j++) {   // cc설정
-					if (Simul()) {  // 다음블록이 탐색되는지를 결정
-						res = true;
-						break;
-					}
-					else {
-						if (!j)	cc *= -1;
-						else break;
-					}
-				}
-				if (res)  // 다음블록 설정이 완료됨
-					break;
-				else {   // 다음블록 설정이 완료되지 않음 
-					dp += 1; dp %= 4;  // 시계방향 이동
-				}
-			}
+
+	scanf("%d", &test);
+
+	for (int tc = 1; tc <= test; tc++) {
+		scanf("%d", &n);
+
+		memset(dist, 0, sizeof(dist));
+		memset(chk, false, sizeof(chk));
+		for (int i = 1; i <= n; i++) {
+			int a;
+			scanf("%d", &a);
+			adj[a].push_back(i);
+			chk[a][i] = true;
+			if (chk[i][a]) v.push_back(i);
 		}
+
+		for (int j = 1; j <= n; j++) visit[j] = false;
+		int ans = 0;
+
+		while (!v.empty()) {
+			int s = v.back();
+			v.pop_back();
+			if (visit[s]) continue;
+			ans += dfs(s, 0);
+		}
+
+		int cnt = 0;
+		for (int i = 1; i <= n; i++) {
+			if (visit[i]) continue;
+			int c = dfs2(i, 0);
+			cnt = max(cnt, c);
+		}
+
+		ans = max(ans, cnt);
+		printf("#%d %d\n", tc, ans);
+
+		for (int i = 1; i <= n; i++) adj[i].clear();
 	}
-	for (int i = 0; i < ans.size(); i++)
-		cout << ans[i];
+
+
 	return 0;
 }
