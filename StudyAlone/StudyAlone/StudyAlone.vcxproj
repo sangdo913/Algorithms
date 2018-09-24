@@ -211,6 +211,7 @@
     <ClInclude Include="BOJ6439.h" />
     <ClInclude Include="BOJ6603.h" />
     <ClInclude Include="BOJ5465.h" />
+    <ClInclude Include="BOJ8895.h" />
     <ClInclude Include="BOJ8911.h" />
     <ClInclude Include="BOJ9376.h" />
     <ClInclude Include="BOJNeblCupA.h" />
@@ -405,6 +406,8 @@
     <ClInclude Include="SWEA3950.h" />
     <ClInclude Include="SWEA3951.h" />
     <ClInclude Include="SWEA3952.h" />
+    <ClInclude Include="SWEA3954.h" />
+    <ClInclude Include="SWEA3993.h" />
     <ClInclude Include="SWEA5170.h" />
     <ClInclude Include="SWEA5360.h" />
     <ClInclude Include="SWEA5644.h" />
