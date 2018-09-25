@@ -1,2 +1,3 @@
 ﻿  소스.cpp
+e:\college\algorithms\studyalone\studyalone\swea3996.h(20): warning C4101: 'prev' :참조되지 않은 지역 변수입니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

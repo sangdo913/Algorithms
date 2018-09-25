@@ -881,6 +881,9 @@
     <ClInclude Include="BOJ8895.h">
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
+    <ClInclude Include="SWEA3996.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
