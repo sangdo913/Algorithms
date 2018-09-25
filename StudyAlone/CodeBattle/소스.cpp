@@ -1,8 +1,8 @@
 #include<cstdio>
-#include"Battle342.h"
+#include"C353.h"
 
 int main() {
-	Battle342();
+	C353();
 
 	return 0;
 }

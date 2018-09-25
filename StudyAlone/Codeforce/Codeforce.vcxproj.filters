@@ -31,6 +31,15 @@
     <Filter Include="헤더 파일\Codeforces509">
       <UniqueIdentifier>{d7ac4421-ad4a-4949-af23-58d296fbe6ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\EduCodeforce51">
+      <UniqueIdentifier>{95350138-db6b-4a23-a368-4566671acfea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Codeforces511">
+      <UniqueIdentifier>{ed2754d7-eab7-48bb-98d6-c3e430a37f81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\codeforces512">
+      <UniqueIdentifier>{a88d9a1a-6614-42bd-9efe-edc5fb166fcd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -99,6 +108,39 @@
     </ClInclude>
     <ClInclude Include="C509.h">
       <Filter>헤더 파일\Codeforces509</Filter>
+    </ClInclude>
+    <ClInclude Include="C51A.h">
+      <Filter>헤더 파일\EduCodeforce51</Filter>
+    </ClInclude>
+    <ClInclude Include="C51B.h">
+      <Filter>헤더 파일\EduCodeforce51</Filter>
+    </ClInclude>
+    <ClInclude Include="C51C.h">
+      <Filter>헤더 파일\EduCodeforce51</Filter>
+    </ClInclude>
+    <ClInclude Include="C51D.h">
+      <Filter>헤더 파일\EduCodeforce51</Filter>
+    </ClInclude>
+    <ClInclude Include="C511A.h">
+      <Filter>헤더 파일\Codeforces511</Filter>
+    </ClInclude>
+    <ClInclude Include="C511B.h">
+      <Filter>헤더 파일\Codeforces511</Filter>
+    </ClInclude>
+    <ClInclude Include="C511C.h">
+      <Filter>헤더 파일\Codeforces511</Filter>
+    </ClInclude>
+    <ClInclude Include="C512A.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512B.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512C.h">
+      <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="C512D.h">
+      <Filter>헤더 파일\codeforces512</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

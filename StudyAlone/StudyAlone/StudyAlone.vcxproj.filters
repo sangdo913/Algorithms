@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="헤더 파일">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -18,6 +14,13 @@
     </Filter>
     <Filter Include="헤더 파일\SWEA">
       <UniqueIdentifier>{ff7c6929-1601-4fee-bb71-24ffa30703ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\CodeMonster">
+      <UniqueIdentifier>{d1589215-0171-402b-bae5-fe66d217819f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -808,6 +811,78 @@
     </ClInclude>
     <ClInclude Include="BOJNeblCupA.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5622.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2789.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5623.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ16162.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5525.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ8911.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ15949.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5528.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2939.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3814.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3813.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="cm1.h">
+      <Filter>헤더 파일\CodeMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3816.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3819.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA5644.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3820.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3947.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3950.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3951.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3952.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3954.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3993.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ8895.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA3996.h">
+      <Filter>헤더 파일\SWEA</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

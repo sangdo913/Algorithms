@@ -16,12 +16,21 @@
 5. 노이즈 범위까지 포함하는 8개의 input에 대응하는 노래의 id는 유일함이 보장된다.
 6. 입력되는 data는 연속적이다.
 **/
+﻿//POLE
+#pragma once
+#include<iostream>
+#include<cstring>
 
 using namespace std;
 
 const int flag = 32000 / 300;
 
+int n, l, r;
+long long f[21];
+long long comb[21][21];
+long long memoi[21][21];
 
+<<<<<<< HEAD
 typedef struct Song {
 	int id;
 	int leng;
@@ -71,6 +80,11 @@ struct List {
 
 	void setcursor() {
 		cursor = head;
+=======
+long long cal(int n, int bn) {
+	if (bn == 1) {
+		return f[n - 1];
+>>>>>>> 6e920eec33c4d8c8a3be2e2191decd30510047b0
 	}
 
 	NODE* next() {

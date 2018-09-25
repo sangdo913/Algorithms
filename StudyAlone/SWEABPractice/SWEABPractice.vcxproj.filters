@@ -27,9 +27,4 @@
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="20180915user.cpp">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

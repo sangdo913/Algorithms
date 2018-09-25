@@ -1,197 +1,160 @@
-﻿//  해시_노래
-//
-//  Created by yeram Kim on 2018. 9. 15..
-
-#include <iostream>
-#include <stdlib.h>
-#include<unordered_set>
-/**
-문제 개요 :
-노래들은 각각의 최대 int 형 data 200개를 가지고있다.
-노이즈가 낀 노래의 일부 신호8개를 인풋으로 받아 노래의 id를 찾는다.
-1. 노래는 최대 10000개가 들어온다.
-2. 노래의 최대 data는 200개이다.
-3. 각 노래의 data신호의 범위는 -16000~16000이다.
-4. find_song의 input 인 8개의 arr에 끼는 노이즈의 범위는 -128~127이다.
-5. 노이즈 범위까지 포함하는 8개의 input에 대응하는 노래의 id는 유일함이 보장된다.
-6. 입력되는 data는 연속적이다.
-**/
-
+﻿#include<iostream>
+#include<queue>
+#include<algorithm>
+#define dbg cout << "Debugging\n"; 
+#define N 101
 using namespace std;
-
-struct NODE {
-	int id;
-	int pos;
-	NODE *next;
-
-	NODE() {
-		next = 0;
-	}
-}nodes[2100000];
-
-
-struct Myal {
-	int idx;
-
-	NODE* alloc() {
-		return &nodes[idx++];
-	}
-	void init() {
-		idx = 0;
-	}
-}al;
-
-struct List {
-	NODE *head, *cursor;
-
-	void insert(int id, int pos) {
-		NODE *nn = al.alloc();
-		nn->id = id;
-		nn->pos = pos;
-		nn->next = head->next;
-		head->next = nn;
-	}
-
-	void init() {
-		head = al.alloc();
-	}
-
-	void setcursor() {
-		cursor = head;
-	}
-	
-	NODE* next() {
-		if (cursor->next) {
-			return cursor->next;
-		}
-		else {
-			return 0;
-		}
-	}
-};
-
-struct Hash {
-	List hash[2000000];
-	int hkey(int data[8]) {
-		int key = 0;
-		for (int i = 0; i < 7; i++) {
-			key *= 512;
-			key += data[i] - data[i + 1] + 256;
-			key %= 2000000;
-		}
-		return key;
-	}
-	
-	void insert(int data, int id, int pos) {
-		data += 16000;
-
-		for (int i = data - 128; i < data + 128; i++) {
-			if (i < 0) continue;
-			hash[data].insert(id, pos);
-		}
-	}
-
-	void init() {
-		for (int i = 0; i < 32001; i++) {
-			hash->init();
-		}
-	}
-
-	bool find(int data[8]) {
-
-	}
-};
-
-
-
-
-typedef struct Song {
-	int id;
-	int leng;
-	int data[200];       // 범위 : -16000~16000
-};
-
-// N : Song의 개수: 최대 10000개
-
-void init(int N) {
-
+char a[N][N]; int n, m;  bool vist[N][N]; int x, y;
+int dx[] = { -1,0,1,0 }, dy[] = { 0,1,0,-1 };
+int Up, Down, Left, Right;   int U_l, U_r, D_l, D_r, L_l, L_r, R_l, R_r;
+vector<char> ans;    int dp, cc = -1;
+void clear() {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			vist[i][j] = 0;
 }
-
-void make_date_set(Song song) {
-
+bool Simul() {   // dp -> cc 탐색 
+	if (dp == 0) {         // 위
+		if (cc == -1) {   // 위에서 왼쪽을 바라볼 경우 
+			int nx = Up + dx[dp]; int ny = U_l + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+		else if (cc == 1) {  // 위에서 오른쪽을 바라볼 경우
+			int nx = Up + dx[dp]; int ny = U_r + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+	}
+	else if (dp == 1) {    // 오른쪽
+		if (cc == -1) {  // 오른쪽에서 왼쪽을 바라볼 경우
+			int nx = R_l + dx[dp]; int ny = Right + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+		else if (cc == 1) {  // 오른쪽에서 오른쪽을 바라볼경우
+			int nx = R_r + dx[dp]; int ny = Right + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+	}
+	else if (dp == 2) {    // 아래쪽
+		if (cc == -1) {   // 아래쪽에서 왼쪽을 바라볼경우
+			int nx = Down + dx[dp]; int ny = D_l + dy[dp];   // dp방향만큼 전진했을때 다음블록이 접해진다면
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false; // 아닐경우 바로 false리턴 
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+		else if (cc == 1) {
+			int nx = Down + dx[dp]; int ny = D_r + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+	}
+	else if (dp == 3) {     // 왼쪽 
+		if (cc == -1) {
+			int nx = L_l + dx[dp]; int ny = Left + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+		else if (cc == 1) {
+			int nx = L_r + dx[dp]; int ny = Left + dy[dp];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) return false;
+			if (a[nx][ny] == 'X') return false;
+			x = nx; y = ny;
+		}
+	}
+	return true;
 }
+void Calc(int x, int y) {
 
-// song의 일부의 data[8]개가 들어왔을때 song의 id반환 (8개가 일치시 id는 유일함을 보장)
-// 단 들어오는 data[8]은 noise값 -128~127값이 더해져서 들어온다.
-int find_song(int data[8]) {
-
-
-	return 0;
+	if (Up > x)
+		Up = x, U_l = y, U_r = y;
+	else if (Up == x)
+		U_l = min(U_l, y), U_r = max(U_r, y);
+	if (Down < x)
+		Down = x, D_l = y, D_r = y;
+	else if (Down == x)
+		D_l = max(D_l, y), D_r = min(D_r, y);
+	if (Right < y)
+		Right = y, R_r = x, R_l = x;
+	else if (Right == y)
+		R_r = max(R_r, x), R_l = min(R_l, x);
+	if (Left > y)
+		Left = y, L_l = x, L_r = x;
+	else if (Left == y)
+		L_l = max(L_l, x), L_r = min(L_r, x);
 }
-unordered_set<long long> mp;
-
+bool bfs(int x, int y, char pivot) {
+	queue<pair<int, int>> q;
+	if (!vist[x][y])
+		q.push({ x, y });
+	Up = x, Down = x, Left = y, Right = y;
+	U_l = y, U_r = y; D_l = y, D_r = y;
+	L_l = x, L_r = x; R_l = x, R_l = x;
+	bool res = false;
+	while (!q.empty()) {
+		res = true;
+		int x1 = q.front().first; int y1 = q.front().second;
+		q.pop();
+		Calc(x1, y1);
+		vist[x1][y1] = true;
+		for (int i = 0; i < 4; i++) {
+			int xx = x1 + dx[i]; int yy = y1 + dy[i];
+			if (xx < 0 || xx >= n || yy < 0 || yy >= m) continue;
+			if (a[xx][yy] == pivot && !vist[xx][yy]) {
+				vist[xx][yy] = true;
+				q.push({ xx, yy });
+			}
+		}
+	}
+	return res;
+}
 int main() {
-
-	register int i, j;
-	Song songs[10000];
-	int N = 10000;
-
-	init(N);
-
-	for (i = 0; i<10000; i++) {
-		songs[i].id = i + 1;
-		songs[i].leng = 200;
-		bool complete = false;
-
-		while (!complete) {
-			complete = true;
-			for (j = 0; j<200; j++) {
-				songs[i].data[j] = rand() % 32001 - 16000;
-			}
-			long long h[192];
-			int idx = 0;
-			for (int l = 0; l <= 200 - 8; l++) {
-				long long value = 0;
-				for (int k = 0; k < 8; k++) {
-					value += (songs[i].data[l + k] + 16000) * 32000;
-					value %= 0x3fffffffffffffff;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL), cout.tie(NULL);
+	cin >> n >> m;
+	dp = 1;
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			cin >> a[i][j];
+	bool res = true;
+	while (res) {
+		/*if (a[x][y] == 'Z') {
+		cout << Up << ' ' << Down << '\n';
+		cout << U_l << ' ' << U_r << ' ' << D_l << ' ' << D_r << '\n';
+		}*/
+		res = false;
+		clear();
+		if (bfs(x, y, a[x][y])) {
+			ans.push_back(a[x][y]);
+			for (int i = 0; i < 4; i++) {  // dp설정
+				for (int j = 0; j < 2; j++) {   // cc설정
+					if (Simul()) {  // 다음블록이 탐색되는지를 결정
+						res = true;
+						break;
+					}
+					else {
+						if (!j)	cc *= -1;
+						else break;
+					}
 				}
-				h[idx++] = value;
-			}
-			for (int i = 0; i <= 192; i++) {
-				if (mp.find(h[i]) != mp.end()) {
-					complete = false;
+				if (res)  // 다음블록 설정이 완료됨
 					break;
-				}
-			}
-			if (complete) {
-				for (int i = 0; i <= 192; i++) {
-					mp.insert(h[i]);
+				else {   // 다음블록 설정이 완료되지 않음 
+					dp += 1; dp %= 4;  // 시계방향 이동
 				}
 			}
 		}
-		make_date_set(songs[i]);
+		if (!res) break;
 	}
-
-	int query_count = 1000;
-	int solved = 0;
-	for (i = 0; i<query_count; i++) {
-		int n = rand() % 10000;
-		int f = rand() % 200;
-		int part[8];
-		for (j = 0; j<8; j++) {
-			int noise;
-			noise = rand() % 256 - 128;
-			part[j] = songs[n].data[(f + j)%200] + noise;
-		}
-
-		if (find_song(part) == n)
-			solved++;
-
-	}
-	if (query_count == solved)
-		printf("RIGHT");
-	else printf("WRONG");
-
+	for (int i = 0; i < ans.size(); i++)
+		cout << ans[i];
 	return 0;
 }
