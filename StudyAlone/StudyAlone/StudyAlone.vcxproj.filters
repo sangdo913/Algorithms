@@ -884,6 +884,12 @@
     <ClInclude Include="SWEA3996.h">
       <Filter>헤더 파일\SWEA</Filter>
     </ClInclude>
+    <ClInclude Include="SWEA5656.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
+    <ClInclude Include="SWEA5648.h">
+      <Filter>헤더 파일\SWEA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

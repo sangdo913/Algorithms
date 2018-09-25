@@ -1,104 +1,90 @@
+//https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRFInKex8DFAUo
+//SWEA 5648 ¿øÀÚ ¼Ò¸ê ½Ã¹Ä·¹ÀÌ¼Ç
 #include<iostream>
 #include<queue>
 #include<cstring>
-const int QS = 6000000;
+
 using namespace std;
 
 int n;
-int info[4001][4001];
-int map[2001][2001];
-int que[QS];
+int info[5011][5011];
+int que[10000000];
 int que2[2000];
-struct atom{
-    int r,c,d,e;
-} atoms[1001];
 
-int dr[4] = {1,-1,0,0};
-int dc[4] = {0,0,-1,1};
+struct atom {
+	int r, c, d, e;
+} atoms[1011];
 
-int SWEA5648(){
-    int t;
-    cin >> t;
-    for(int tc = 1; tc <= t; tc++){
-        cin >> n;
-    //    queue<int> que;
-        
-   //     while(que.size()) que.pop();
+bool collision[1001];
 
-       // int c = 0;
-/*
-        for(int i =1; i <= 1000; i++){
-            atoms[i].r = 0;
-            atoms[i].c = c++;
-            atoms[i].d = 0;
-            atoms[i].e = 1;
-            que.push(i);
-            
-        }
-        */
+int dr[4] = { 1,-1,0,0 };
+int dc[4] = { 0,0,-1,1 };
 
-int f,r;
-f = r = 0;
+int SWEA5648() {
+	int t;
+	cin >> t;
 
-            memset(info, 0, sizeof(info));
-        for(int i = 1; i <= n; i++){
-            cin >>atoms[i].c >>  atoms[i].r >> atoms[i].d >> atoms[i].e;
-            atoms[i].c = atoms[i].c*2 + 2000;
-            atoms[i].r = atoms[i].r*2 + 2000;
+	for (int tc = 1; tc <= t; tc++) {
 
-            que[r++] = i;
-            //que.push(i);
-        }
+		cin >> n;
 
-        int res = 0;
+		int f, r;
 
-        while(f!=r){
-            int cnt = r-f;
+		f = r = 0;
+		     
+		for (int i = 1; i <= n; i++) {
+			cin >> atoms[i].c >> atoms[i].r >> atoms[i].d >> atoms[i].e;
 
-            int f2 , r2;
-            f2 = r2 = 0;
-            
-            while(cnt--)
-            {
-                //int i = que.front();
-                int i = que[f++];
-                //que.pop();
+			atoms[i].c = atoms[i].c * 2 + 2000;
+			atoms[i].r = atoms[i].r * 2 + 2000;
 
-                //info[atoms[i].r][atoms[i].c] = 0;
+			que[r++] = i;
+			collision[i] = false;
+		}
 
-                if(atoms[i].e == 0) continue;
+		int res = 0;
 
-                int &d = atoms[i].d;
+		while (f != r) {
+			int cnt = r - f;
 
-                atoms[i].r += dr[d];
-                atoms[i].c += dc[d];
+			int f2, r2;
+			f2 = r2 = 0;
 
-                if(atoms[i].r < 0 || atoms[i].r > 4000 || atoms[i].c < 0 || atoms[i].c> 4000){
-                    atoms[i].e = 0;
-                    continue;
-                }
-                
-                if(info[atoms[i].r][atoms[i].c]){
-                    int boom = info[atoms[i].r][atoms[i].c];
-                    res += atoms[boom].e + atoms[i].e;
-                    atoms[boom].e = 0;
-                    atoms[i].e = 0;
-                }
+			while (cnt--) {
+				int i = que[f++];
+				atom &at = atoms[i];
 
-                else{
-                    info[atoms[i].r][atoms[i].c] = i;
-                    que[r++] = i;
-                    que2[r2++] = i;
-                }
-            }
-            
-            while(r2!=f2){
-                int now = que2[f2++];
-                info[atoms[now].r][atoms[now].c] = 0;
-            }
-        }
-        //printf("#%d %d\n", tc, res);
-        cout << '#' << tc << ' ' << res << '\n';
-    }
-    return 0;
+				if (collision[i]) continue;
+
+				int &d = at.d;
+
+				at.r += dr[d];
+				at.c += dc[d];
+
+				if(at.r < 0 || at.r > 4000 || at.c < 0 || at.c > 4000){
+					at.e = 0;
+					continue;
+				}
+
+				if (info[at.r][at.c]) {
+					int boom = info[at.r][at.c];
+					collision[boom] = true;
+				}
+
+				else {
+					info[at.r][at.c] = i;
+					que[r++] = i;
+					que2[r2++] = i;
+				}
+			}
+
+			while (r2 != f2) {
+				int now = que2[f2++];
+				info[atoms[now].r][atoms[now].c] = 0;
+			}
+		}
+		for (int i = 1; i <= n; i++) res += atoms[i].e;
+		cout << '#' << tc << ' ' << res << '\n';
+	}
+	return 0;
 }
