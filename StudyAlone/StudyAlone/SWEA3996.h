@@ -23,12 +23,13 @@ int check() {
 
 	cnt = 0;
 	for (int i = 1; i <= 14; i++) {
+
 		if (nums[i]) {
 			scnt++;
 			if (scnt == 5) serial = true;
 		}
 		else {
-			scnt = 0;
+			scnt = 1;
 		}
 
 		cnt = cnt < nums[i] ? nums[i] : cnt;
@@ -44,14 +45,16 @@ int check() {
 		ccnt = 0;
 		same |= card[group[i]][0] >= 5;
 
-		for (int j = 1; j <= gcnt[group[i]]; j++) {
-			cards[ccnt++] = card[group[i]][j];
-		}
-
 		if (same) {
+			for (int j = 1; j <= gcnt[group[i]]; j++) {
+				cards[ccnt++] = card[group[i]][j];
+			}
+
 			sort(cards, cards + ccnt);
+
 			int cnt2 = 1;
 			int p = cards[0];
+
 			for (int i = 1; i < ccnt; i++) {
 				if (++p == cards[i]) {
 					cnt2++;
@@ -71,7 +74,7 @@ int check() {
 
 
 
-	if (royal && same) res = 8;
+	if (royal ) res = 8;
 	else if (cnt >= 4) res = 7;
 	else if (pair >= 2 && cnt >= 3) res = 6;
 	else if (same) res = 5;
