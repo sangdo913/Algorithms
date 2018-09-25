@@ -36,7 +36,7 @@ struct NODE {
 	NODE() {
 		next = 0;
 	}
-}nodes[4100000];
+}nodes[10000000];
 Song my[10001];
 
 struct Myal {
@@ -104,8 +104,9 @@ struct Hash {
 	int hkey(int data[8]) {
 		long long key = 0;
 		for (int i = 0; i < 7; i++) {
-			key *= flag;
-			key += (data[i] - data[i + 1])/300 + flag;
+			key *= 512;
+			key += (data[i] - data[i + 1] + 255)/512;
+			key+= 512;
 			key %= 2000000;
 		}
 		return (int)key;
@@ -187,7 +188,7 @@ unordered_set<long long> mp;
 
 #include<time.h>
 int main() {
-	int T = 100, LEN = 200, QUERY = 1000;
+	int T = 100, LEN = 200, QUERY = 10;
 	int N = 1;
 	int seed = time(0);
 		long long mval = 0;
@@ -202,7 +203,7 @@ int main() {
 		seed %= 0x3f3f3f3f;
 
 		srand(seed);
-		register int i, j;
+		 int i, j;
 		init(N);
 
 
@@ -274,11 +275,11 @@ int main() {
 			printf("find1 : %d\n", keys[f]);
 			Song & a = songs[n];
 			for (int i = 0; i < 7; i++) {
-				int diff = a.data[i + f] - a.data[i + f + 1] + 255 + 127;
+				int diff = a.data[i + f] - a.data[i + f + 1] + 255;
 				diff /= 512;
 				printf("%d ", diff);
 			}
-			printf("\n");
+			printf("\n\n");
 			int fid = find_song(part);
 
 			if (fid == songs[n].id)
