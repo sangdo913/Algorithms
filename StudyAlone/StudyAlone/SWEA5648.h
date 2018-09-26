@@ -7,9 +7,9 @@
 using namespace std;
 
 int n;
-int info[5011][5011];
-int que[10000000];
-int que2[2000];
+int info[4001][4001];
+int que[1000];
+int que2[1000];
 
 struct atom {
 	int r, c, d, e;
@@ -45,13 +45,19 @@ int SWEA5648() {
 		int res = 0;
 
 		while (f != r) {
-			int cnt = r - f;
+			int cnt;
+			if (f > r) {
+				cnt = 1000 + r%1000 - f%1000;
+			}
+			else {
+				cnt = r - f;
+			}
 
 			int f2, r2;
 			f2 = r2 = 0;
 
 			while (cnt--) {
-				int i = que[f++];
+				int i = que[f++%1000];
 				atom &at = atoms[i];
 
 				if (collision[i]) continue;
@@ -73,7 +79,7 @@ int SWEA5648() {
 
 				else {
 					info[at.r][at.c] = i;
-					que[r++] = i;
+					que[r++%1000] = i;
 					que2[r2++] = i;
 				}
 			}
