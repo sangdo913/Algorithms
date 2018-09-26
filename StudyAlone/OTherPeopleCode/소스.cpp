@@ -1,89 +1,108 @@
-#include<iostream>
-#include<queue>
+//Poker
+#pragma once
 #include<cstring>
-const int QS = 6000000;
+#include<iostream>
+#include<algorithm>
+
 using namespace std;
 
-int n;
-int info[5011][5011];
-int que[10000000];
-int que2[2000];
-bool collision[1001];
+int nums[15];
+int card[256][15];
+char group[5] = "SDCH";
 
-struct atom {
-	int r, c, d, e;
-} atoms[1011];
+const char res[9][30] = { "Top", "1 Pair", "2 Pair", "Triple", "Straight", "Flush", "Full House", "4 Card", "Straight Flush" };
 
-int dr[4] = { 1,-1,0,0 };
-int dc[4] = { 0,0,-1,1 };
+int check() {
+	int res = 0;
+	int pair = 0;
+	int cnt, scnt = 0;
+	bool same = false;
+	bool serial = false;
+
+	cnt = 0;
+
+	for (int i = 1; i <= 14; i++) {
+
+		if (nums[i]) {
+			scnt++;
+			if (scnt == 5) serial = true;
+		}
+		else {
+			scnt = 0;
+		}
+
+		cnt = cnt < nums[i] ? nums[i] : cnt;
+		if (nums[i] > 1) pair++;
+	}
+
+	bool royal = false;
+
+	for (int i = 0; i < 4; i++) {
+		same |= card[group[i]][0] >= 5;
+
+		if (card[group[i]][0] >= 5) {
+			int cnt2 = 0;
+
+			for (int j = 1; j <= 14; j++) {
+				if (card[group[i]][j]) {
+					cnt2++;
+					if (cnt2 == 5) {
+						royal = true;
+						break;
+					}
+				}
+
+				else {
+					cnt2 = 0;
+				}
+			}
+		}
+	}
+
+	if (royal) res = 8;
+	else if (cnt >= 4) res = 7;
+	else if (pair >= 2 && cnt >= 3) res = 6;
+	else if (same) res = 5;
+	else if (serial) res = 4;
+	else if (cnt >= 3) res = 3;
+	else if (pair >= 2) res = 2;
+	else if (pair >= 1) res = 1;
+
+	return res;
+}
+
+#include<stdlib.h>
+#include<math.h>
+#include<time.h>
 
 int main() {
 	int t;
 	cin >> t;
+	srand(time(0));
 
-	for (int tc = 1; tc <= t; tc++) {
-		cin >> n;
+	for (int tc = 1; tc <= 10; tc++) {
+		memset(nums, 0, sizeof(nums));
+		memset(card, 0, sizeof(card));
 
-		int f, r;
+		char c; int i;
 
-		f = r = 0;
+		for (int j = 0; j < 7; j++) {
+			//cin >> c >> i;
+			c = rand() % 4;
+			i = rand() % 13 + 1;
+			cout << j  << "th card : " << group[c] << ' ' << i << endl;
+			card[group[c]][0]++;
+			card[group[c]][i] = 1;
 
-		for (int i = 1; i <= n; i++) {
-			cin >> atoms[i].c >> atoms[i].r >> atoms[i].d >> atoms[i].e;
-
-			atoms[i].c = atoms[i].c * 2 + 2000;
-			atoms[i].r = atoms[i].r * 2 + 2000;
-
-			que[r++] = i;
-			collision[i] = false;
-		}
-
-		int res = 0;
-
-		while (f != r) {
-			int cnt = r - f;
-
-			int f2, r2;
-			f2 = r2 = 0;
-
-			while (cnt--) {
-				int i = que[f++];
-
-				if (collision[i]) continue;
-
-				int &d = atoms[i].d;
-
-				atoms[i].r += dr[d];
-				atoms[i].c += dc[d];
-
-				if (atoms[i].r < 0 || atoms[i].r > 4000 || atoms[i].c < 0 || atoms[i].c > 4000) {
-					atoms[i].e = 0;
-					continue;
-				}
-
-				if (info[atoms[i].r][atoms[i].c]) {
-					int boom = info[atoms[i].r][atoms[i].c];
-
-					res += atoms[boom].e + atoms[i].e;
-					collision[boom] = true;
-
-					atoms[boom].e = 0;
-					atoms[i].e = 0;
-				}
-
-				else{
-					info[atoms[i].r][atoms[i].c] = i;
-					que[r++] = i;
-					que2[r2++] = i;
-				}
+			if (i == 1) {
+				nums[14]++;
+				card[group[c]][14] = 1;
 			}
 
-			while (r2 != f2) {
-				int now = que2[f2++];
-				info[atoms[now].r][atoms[now].c] = 0;
-			}
+			nums[i]++;
 		}
-		cout << '#' << tc << ' ' << res << '\n';
+
+		cout << '#' << tc << ' ' << res[check()] << '\n';
 	}
 	return 0;
 }

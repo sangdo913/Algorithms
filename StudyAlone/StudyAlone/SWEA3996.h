@@ -1,3 +1,4 @@
+//SWEA 3996
 //Poker
 #pragma once
 #include<cstring>
@@ -6,73 +7,61 @@
 
 using namespace std;
 
-int nums[15];
-int card[256][20];
+int nums[14];
+int card[256][14];
 char group[5] = "SDCH";
-int gcnt[256];
-int conv[20];
-
 
 const char res[9][30] = { "Top", "1 Pair", "2 Pair", "Triple", "Straight", "Flush", "Full House", "4 Card", "Straight Flush" };
+
 int check() {
 	int res = 0;
 	int pair = 0;
-	int prev, cnt, scnt = 0;
+	int cnt, scnt = 0;
 	bool same = false;
 	bool serial = false;
 
 	cnt = 0;
-	for (int i = 1; i <= 14; i++) {
 
-		if (nums[i]) {
+	for (int i = 0; i <= 20; i++) {
+
+		if (nums[i%13+1]) {
 			scnt++;
 			if (scnt == 5) serial = true;
 		}
 		else {
-			scnt = 1;
+			scnt = 0;
 		}
 
-		cnt = cnt < nums[i] ? nums[i] : cnt;
-		if (nums[i] > 1) pair++;
-
+		cnt = cnt < nums[i%13+1] ? nums[i%13+1] : cnt;
 	}
-	int cards[14];
 
-	int ccnt = 0;
+	for (int i = 1; i <= 13; i++) {
+		if (nums[i] > 1) pair++;
+	}
 
 	bool royal = false;
+
 	for (int i = 0; i < 4; i++) {
-		ccnt = 0;
 		same |= card[group[i]][0] >= 5;
 
-		if (same) {
-			for (int j = 1; j <= gcnt[group[i]]; j++) {
-				cards[ccnt++] = card[group[i]][j];
-			}
+		if (card[group[i]][0] >= 5) {
+			int cnt2 = 0;
 
-			sort(cards, cards + ccnt);
-
-			int cnt2 = 1;
-			int p = cards[0];
-
-			for (int i = 1; i < ccnt; i++) {
-				if (++p == cards[i]) {
+			for (int j = 0; j <= 20; j++) {
+				if (card[group[i]][j%13+1]) {
 					cnt2++;
 					if (cnt2 == 5) {
 						royal = true;
 						break;
 					}
 				}
+
 				else {
-					cnt2 = 1;
-					p = cards[i];
+					cnt2 = 0;
 				}
 			}
 		}
-
 	}
-
-
 
 	if (royal ) res = 8;
 	else if (cnt >= 4) res = 7;
@@ -86,11 +75,6 @@ int check() {
 	return res;
 }
 int SWEA3996() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
-
-	conv[1] = 14;
 	int t;
 	cin >> t;
 
@@ -98,7 +82,6 @@ int SWEA3996() {
 	for (int tc = 1; tc <= t; tc++) {
 		memset(nums, 0, sizeof(nums));
 		memset(card, 0, sizeof(card));
-		memset(gcnt, 0, sizeof(gcnt));
 
 		char c; int i;
 
@@ -106,10 +89,8 @@ int SWEA3996() {
 			cin >> c >> i;
 
 			card[c][0]++;
-			card[c][++gcnt[c]] = i;
-			if (i == 1) card[c][++gcnt[c]] = 14;
+			card[c][i] = 1;
 			nums[i]++;
-			nums[conv[i]]++;
 		}
 
 		cout << '#' << tc << ' ' << res[check()] << '\n';
