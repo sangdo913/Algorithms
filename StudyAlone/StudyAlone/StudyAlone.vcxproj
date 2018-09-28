@@ -414,6 +414,8 @@
     <ClInclude Include="SWEA5360.h" />
     <ClInclude Include="SWEA5644.h" />
     <ClInclude Include="SWEA5648.h" />
+    <ClInclude Include="SWEA5650.h" />
+    <ClInclude Include="SWEA5653.h" />
     <ClInclude Include="SWEA5656.h" />
     <ClInclude Include="SWEA5658.h" />
     <ClInclude Include="SWExpert1_1.h" />
