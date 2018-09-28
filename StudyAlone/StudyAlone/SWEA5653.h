@@ -51,7 +51,6 @@ int SWEA5653() {
 		}
 
 		for(int i = 0; i <= k; i++){
-
 			while (pq[i].size()) {
 				CEPO now = pq[i].top();
 				pq[i].pop();
@@ -88,7 +87,6 @@ int SWEA5653() {
 
 					if (ctime <= k) pq[ctime].push(next);
 				}
-
 			}
 		}
 

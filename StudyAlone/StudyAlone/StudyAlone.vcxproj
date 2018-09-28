@@ -162,6 +162,7 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="BOJ1019.h" />
+    <ClInclude Include="BOJ10999.h" />
     <ClInclude Include="BOJ1208.h" />
     <ClInclude Include="BOJ1219.h" />
     <ClInclude Include="BOJ12782.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="BOJ14226.h" />
     <ClInclude Include="BOJ14923.h" />
     <ClInclude Include="BOJ15949.h" />
+    <ClInclude Include="BOJ15967.h" />
     <ClInclude Include="BOJ16162.h" />
     <ClInclude Include="BOJ2102.h" />
     <ClInclude Include="BOJ2162.h" />
