@@ -57,6 +57,7 @@
         "atomic": "cpp",
         "locale": "cpp",
         "ratio": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "list": "cpp"
     }
 }
