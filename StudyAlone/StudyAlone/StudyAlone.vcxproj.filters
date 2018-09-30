@@ -22,6 +22,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\Groom">
+      <UniqueIdentifier>{2335da53-b95f-4b83-b80c-9f23bb3444a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -906,6 +909,21 @@
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
     <ClInclude Include="BOJ15967.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="Line1.h">
+      <Filter>헤더 파일\Groom</Filter>
+    </ClInclude>
+    <ClInclude Include="nhn3.h">
+      <Filter>헤더 파일\Groom</Filter>
+    </ClInclude>
+    <ClInclude Include="nhn2.h">
+      <Filter>헤더 파일\Groom</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3967.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ1799.h">
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
   </ItemGroup>

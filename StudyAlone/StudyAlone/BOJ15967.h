@@ -95,6 +95,7 @@ int BOJ15967() {
 			cin >> l >> r;
 			cout << sum(1, 1, n, l, r) << '\n';
 			break;
+
 		case 2:
 			cin >> l >> r >> v;
 			update(1, 1, n, l, r, v);

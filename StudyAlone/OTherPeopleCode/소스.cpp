@@ -1,74 +1,85 @@
 #include <iostream>
-#include<algorithm>
-#include<queue>
 #include<vector>
-
 using namespace std;
-
-bool map[10][10];
-bool visit[10][10];
-
-int dr[4] = { -1,1,0,0 };
-int dc[4] = { 0,0,-1,1 };
-int N;
-vector<int> vec;
-
-
-int bfs(int r, int c) {
-	queue<pair<int, int> > que;
-
-	visit[r][c] = true;
-
-	que.push({ r,c });
-
-	int res = 0;
-
-	while (que.size()) {
-		auto now = que.front();
-		que.pop();
-		res++;
-
-		for (int d = 0; d < 4; d++) {
-			pair<int, int> next;
-			next.first = now.first + dr[d];
-			next.second = now.second + dc[d];
-
-			if (next.first < 0 || next.first > N - 1 || next.first < 0 || next.second > N - 1) continue;
-			if (visit[next.first][next.second]) continue;
-			visit[next.first][next.second] = true;
-			if (map[next.first][next.second]) {
-				que.push(next);
-			}
-		}
+int c;
+int p;
+vector<int> comm;
+struct CARD {
+	int num;
+	CARD* prev;
+	CARD* next;
+	CARD() {
+		prev = next = 0;
 	}
+};
 
-	return res;
-}
-
+CARD cards[1002];
 int main() {
-	cin >> N;
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			cin >> map[i][j];
-		}
+	cin >> c >> p;
+	for (int i = 0; i < p; i++) {
+		int in; 
+		cin >> in;
+		comm.push_back(in);
 	}
 
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			if (visit[i][j] == false && map[i][j]) {
-				vec.push_back(bfs(i, j));
+	for (int i = 1; i <= c; i++) {
+		cards[i].num = i;
+		cards[i].prev = &cards[i - 1];
+		cards[i].next = &cards[i + 1];
+	}
+
+	cards[1].prev = 0;
+	cards[c].next = 0;
+
+	CARD *first, *last;
+	CARD* part[2];
+	
+
+	first = part[0] = &cards[1];
+	last = part[1] = &cards[c];
+
+
+	for (int i = 0; i < p; i++) {
+		int size = c;
+		int n = comm[i];
+		part[0] = first;
+		part[1] = last;
+
+		while (size > 2 * n) {
+			CARD* temp[4];
+			temp[0] = part[0];
+			temp[3] = part[1];
+
+			temp[1] = temp[0];
+			for (int i = 0; i < n; i++) {
+				temp[1] = temp[1]->next;
 			}
+
+			temp[2] = temp[3];
+			for (int i = 0; i < n; i++) {
+				temp[2] = temp[2]->prev;
+			}
+
+			part[0] = temp[1];
+			part[1] = temp[2];
+			
+			CARD *t[4] = { temp[1]->prev, temp[2]->next};
+
+			temp[0]->prev = temp[2];
+			temp[2]->next = temp[0];
+			t[0]->next = t[1];
+			t[1]->prev = t[0];
+			
+			size -= 2 * n;
+			first = part[0];
+			
 		}
+		CARD* head = first;
+
 	}
-
-	sort(vec.begin(), vec.end());
-
-	cout << vec.size() << '\n';
-
-
-	for (auto it : vec) {
-		cout << it << ' ';
+	for (int i = 0; i < 5; i++) {
+		cout << first->num << '\n';
+		first = first->next;
 	}
-	if(vec.size()) cout << '\n';
 	return 0;
 }

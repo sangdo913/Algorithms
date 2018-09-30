@@ -1,18 +1,17 @@
+//https://www.acmicpc.net/problem/3967
+//BOJ3967 매직스타
+//
 #include<iostream>
 #include<algorithm>
 #include<cstring>
 using namespace std;
 
 int nums[12];
-int line[6][4] = {{0,2,5,7}, {0,3,6,10},{1,2,3,4},{7,8,9,10}, {1,5,8,11},{4,6,9,10}};
+int line[6][4] = {{0,2,5,7}, {0,3,6,10},{1,2,3,4},{7,8,9,10}, {1,5,8,11},{4,6,9,11}};
 bool check[13];
-void first(int i);
-int indexs[6];
-int nnum[6];
-int icnt = 6;
+bool first(int i);
 
 bool findfill=true;
-int fNum = 0;
 
 char map[5][10];
 
@@ -37,13 +36,14 @@ bool isvalid(){
 }
 
 bool dfs(int idx){
-    if(!isvalid()) return false;
     bool findfill = true;
-
     while(findfill){
         findfill = false;
-        first(0);
+        if(!first(0)) return false;
     }
+
+    if(!isvalid()) return false;
+
 
     if(idx == 12){
         return true;
@@ -77,12 +77,11 @@ bool dfs(int idx){
     return false;
 }  
 
-
-void first(int i){
-    if(i == 6) return;
+bool first(int idx){
+    if(idx == 6) return true;
 
     int cnt = 0;
-    int* l = line[i];
+    int* l = line[idx];
     int index0 = -1;
     int sum = 0;
     for(int i = 0; i < 4; i++){
@@ -92,15 +91,14 @@ void first(int i){
     }
 
     if(cnt == 3){
+		if (26 - sum > 12 || 26 - sum < 0) return false;
         findfill = true;
         nums[index0] = 26-sum;
         check[26-sum] = true;
         cnt = 4;
-        fNum++;
     }
 
-    nnum[i] = cnt;
-    first(i+1);
+    return first(idx+1);
 }
 
 
@@ -114,14 +112,11 @@ int BOJ3967(){
         nums[i] = map[cod[0]][cod[1]]- 'A' + 1;
         if(nums[i] <= 12) {
             check[nums[i]] = true;
-            fNum++;
         }
         else{
             nums[i] = 0;
         }
     }
-
-    for(int i = 0; i < 6; i++) indexs[i] = i;
 
     while(findfill) {
         findfill = false;
@@ -134,10 +129,10 @@ int BOJ3967(){
     }
     dfs(i);
     for(int i = 0; i < 12; i++){
-        map[pos[i][0]][pos[i][1]] = nums[i];
+        map[pos[i][0]][pos[i][1]] = nums[i] + 'A'-1;
     }
 
-    for(int i = 0; i < 5; i++) cout << map[i];
+    for(int i = 0; i < 5; i++) cout << map[i] << '\n';
     
     return 0;
 }
