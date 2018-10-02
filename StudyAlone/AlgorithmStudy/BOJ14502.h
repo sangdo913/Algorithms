@@ -14,7 +14,6 @@ int dc[4] = { 0,0,-1,1 };
 int spread() {
 	bool visit[8][8] = {};
 	int que[100][2], s, e;
-	int virus = 0;
 
 	s = e = 0;
 
@@ -28,11 +27,9 @@ int spread() {
 			}
 		}
 	}
-
 	
 	while (s != e) {
 		int now[2] = { que[s][0], que[s++][1] };
-		virus++;
 
 		for (int d = 0; d < 4; d++) {
 			int next[2] = { now[0] + dr[d], now[1] + dc[d] };
