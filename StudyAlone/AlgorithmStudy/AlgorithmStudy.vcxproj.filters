@@ -23,6 +23,9 @@
     <Text Include="Text.txt">
       <Filter>리소스 파일</Filter>
     </Text>
+    <Text Include="Text1.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FindPath.h">
@@ -47,6 +50,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="JocepusProblem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ3190.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ12100.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ14502.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

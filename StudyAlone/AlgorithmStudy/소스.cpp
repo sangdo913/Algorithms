@@ -1,30 +1,13 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"LinkedList.h"
+#include"BOJ14502.h"
 
 using namespace std;
 
 int main()
 {
-	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
-	//Hike();
-	
-	List li;
-	int n;
-	scanf("%d\n", &n);
-
-	while (n--) {
-		int in;
-		scanf("%d \n", &in);
-		li.insert(in);
-	}
-
-	li.setCursor();
-	int in;
-	while ((in = li.next()) != -1) {
-		printf("%d\n", in);
-	}
+	BOJ14502();
 
 	return 0;
 }
