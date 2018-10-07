@@ -1,2 +1,5 @@
 ﻿  소스.cpp
+e:\college\algorithms\studyalone\studyalone\boj12001.h(21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\boj12001.h(61): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\boj12001.h(62): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
