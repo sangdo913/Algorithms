@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 
 using namespace std;
@@ -57,5 +58,42 @@ int SWEA4012(){
         cout << '#' << tc << ' ' << res << '\n';
     }
 
+    return 0;
+}
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int n;
+int info[16][16];
+
+int getZero(int i){
+    int res = 0;
+
+    while(i){
+        res++;
+        i>>=1;
+    }
+
+    return res; 
+}
+
+int SWEA4012(){
+    int t;
+    cin >> t;
+
+    for(int tc = 1; tc <= t; tc++){
+        cin >> n;
+        
+        int cnt = n /2;
+
+        int bit = 1 << cnt;
+
+        while(bit < ( 1 << n)){
+            int temp = (bit+1);
+        }
+    }
     return 0;
 }
