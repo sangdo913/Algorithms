@@ -1,14 +1,12 @@
 #include<cstdio>
 #include<string>
 #include<iostream>
-#include"C509.h"
 #include<vector>
 #include<string>
-#include"C512B.h"
+#include"LyftLevel5C.h"
 using namespace std;
 
 int main() {
-	C509();
-	C512B();
+	LyftLevel5C();
 	return 0;
 }

@@ -40,6 +40,9 @@
     <Filter Include="헤더 파일\codeforces512">
       <UniqueIdentifier>{a88d9a1a-6614-42bd-9efe-edc5fb166fcd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\LyftLevel5">
+      <UniqueIdentifier>{157b6469-2dae-4c06-9d98-cb0662f13824}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -141,6 +144,18 @@
     </ClInclude>
     <ClInclude Include="C512D.h">
       <Filter>헤더 파일\codeforces512</Filter>
+    </ClInclude>
+    <ClInclude Include="LyftLevel5A.h">
+      <Filter>헤더 파일\LyftLevel5</Filter>
+    </ClInclude>
+    <ClInclude Include="LyftLevel5B.h">
+      <Filter>헤더 파일\LyftLevel5</Filter>
+    </ClInclude>
+    <ClInclude Include="LyftLevel5C.h">
+      <Filter>헤더 파일\LyftLevel5</Filter>
+    </ClInclude>
+    <ClInclude Include="LyftLevel5D.h">
+      <Filter>헤더 파일\LyftLevel5</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

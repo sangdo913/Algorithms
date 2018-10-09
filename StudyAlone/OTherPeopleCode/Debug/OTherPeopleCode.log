@@ -1,2 +1,8 @@
 ﻿  소스.cpp
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(48): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(93): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(114): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(157): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(179): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(254): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   OTherPeopleCode.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\OTherPeopleCode.exe

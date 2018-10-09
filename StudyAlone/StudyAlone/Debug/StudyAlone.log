@@ -1,5 +1,50 @@
 ﻿  소스.cpp
-e:\college\algorithms\studyalone\studyalone\boj12001.h(21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\boj12001.h(61): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\boj12001.h(62): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\소스.cpp(51): warning C4244: '인수': '__int64'에서 'const unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+e:\college\algorithms\studyalone\studyalone\소스.cpp(97): warning C4244: '인수': '__int64'에서 'const unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(1062): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(1059): note: 컴파일 중인 함수 템플릿 인스턴스화 'bool std::_Debug_lt_pred<bool(__cdecl *&)(int,int),__int64&,__int64&>(_Pr,_Ty1,_Ty2,std::_Dbfile_t,std::_Dbline_t) noexcept(<expr>)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Pr=bool (__cdecl *&)(int,int),
+              _Ty1=__int64 &,
+              _Ty2=__int64 &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3484): note: 컴파일 중인 함수 템플릿 인스턴스화 'std::pair<_RanIt,_RanIt> std::_Partition_by_median_guess_unchecked<_RanIt,bool(__cdecl *)(int,int)>(_RanIt,_RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _RanIt=__int64 *,
+              _Pr=bool (__cdecl *)(int,int)
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3518): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::_Sort_unchecked<__int64*,bool(__cdecl *)(int,int)>(_RanIt,_RanIt,int,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _RanIt=__int64 *,
+              _Pr=bool (__cdecl *)(int,int)
+          ]
+  e:\college\algorithms\studyalone\studyalone\소스.cpp(95): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::sort<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,bool(__cdecl *)(int,int)>(const _RanIt,const _RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Ty=__int64,
+              _RanIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<__int64>>>,
+              _Pr=bool (__cdecl *)(int,int)
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3391): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3398): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3413): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3433): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(1064): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3390): note: 컴파일 중인 함수 템플릿 인스턴스화 'bool std::_Debug_lt_pred<bool(__cdecl *&)(int,int),__int64&,__int64&>(_Pr,_Ty1,_Ty2,std::_Dbfile_t,std::_Dbline_t) noexcept(false)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Pr=bool (__cdecl *&)(int,int),
+              _Ty1=__int64 &,
+              _Ty2=__int64 &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\algorithm(3484): note: 컴파일 중인 함수 템플릿 인스턴스화 'std::pair<_RanIt,_RanIt> std::_Partition_by_median_guess_unchecked<_RanIt,bool(__cdecl *)(int,int)>(_RanIt,_RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _RanIt=__int64 *,
+              _Pr=bool (__cdecl *)(int,int)
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\xutility(1065): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

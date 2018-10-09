@@ -154,6 +154,10 @@
     <ClInclude Include="Codeforces508C.h" />
     <ClInclude Include="EduCodeforce50C.h" />
     <ClInclude Include="EduCodeforce50D.h" />
+    <ClInclude Include="LyftLevel5A.h" />
+    <ClInclude Include="LyftLevel5B.h" />
+    <ClInclude Include="LyftLevel5C.h" />
+    <ClInclude Include="LyftLevel5D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
