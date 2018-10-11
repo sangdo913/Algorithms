@@ -1,73 +1,67 @@
-#include <iostream>
-#include <deque>
-#include <memory.h>
+#include <stdio.h>
 using namespace std;
-
-struct cell { int x, y, s; };
-int t, n, m, k, map[500][500], store[500][500], dx[4] = { -1,1,0,0 }, dy[4] = { 0,0,-1,1 };
-deque<cell> que;
-bool visited[500][500];
-
-bool isAlive(int x, int y) { return (x + y != 0); }
-int spread() {
-	int ret = 0;
-	while (k--) {
-		int size = que.size();
-		while (size--) {
-			int x = que.front().x, y = que.front().y, s = que.front().s;
-			que.pop_front();
-			--map[x][y];
-			//지금 좌표의 x시간과, store에 저장되어있는 x시간이 다른 경우(que에 들어있는 세포의 x시간이 작았던 경우), pop해주기
-			if (store[x][y] != s) continue;
-			//아직 살아있을 수 있는 시간이라면, que에 넣어주기
-			if (isAlive(store[x][y], map[x][y])) {
-				que.push_back({ x,y,s });
-			}
-			if (map[x][y] == -1) {
-				for (int i = 0; i < 4; i++) {
-					int nx = x + dx[i], ny = y + dy[i];
-					//현재 세포의 x시간이 더 크면, 이 값을 넣어주기
-					if (!visited[nx][ny] && store[nx][ny] < s) {
-						store[nx][ny] = s;
-						map[nx][ny] = s;
-						que.push_back({ nx,ny,s });
-					}
-				}
-			}
+int ans = 100;
+int N, M, H;
+void cal2(int arr[11][32], int cnt) {
+	int t;
+	for (int i = 0; i < N - 1; i++) {
+		t = i;
+		for (int j = 0; j < H; j++) {
+			if (arr[j][t] == 1) { t++; }
+			else if (arr[j][t] == 2) { t--; }
 		}
-		//한 시간동안 활동한 후, 세포들 퍼진 정도를 vistied에 넣어주기(다음 시간에는 visited된 곳은 탐색할 필요가 없다)
-		for (int i = 0; i < que.size(); i++) if (!visited[que[i].x][que[i].y]) visited[que[i].x][que[i].y] = true;
+		if (t != i) { return; }
 	}
-
-	//que에 들어있는 값들 중 가장 큰 값을 가지는 세포가 아닌 경우는 빼주기
-	while (!que.empty()) {
-		int x = que.front().x, y = que.front().y, s = que.front().s;
-		if (store[x][y] == s) {
-			++ret; store[x][y] = 999;
-		}
-		que.pop_front();
-	}
-	return ret;
+	if (ans > cnt) { ans = cnt; }
+	return;
 }
-
-int main() {
-	ios_base::sync_with_stdio(false);
-	cin >> t;
-	for (int tc = 1; tc <= t; tc++) {
-		cin >> n >> m >> k;
-		for (int i = 0; i<n; i++)
-			for (int j = 0; j < m; j++) {
-				int x = 250 - n / 2 + i, y = 250 - m / 2 + j;
-				cin >> map[x][y];
-				if (map[x][y]) {
-					store[x][y] = map[x][y];
-					visited[x][y] = true;
-					que.push_back({ x,y ,store[x][y] });
+void go(int arr[11][32], int cnt, int a, int b) {
+	if (cnt == 3) { cal2(arr, cnt); return; }
+	else if (cnt == 1) { cal2(arr, cnt); }
+	else if (cnt == 2) { cal2(arr, cnt); }
+	//int jj = b+1;
+	int j;
+	int c = cnt;
+	for (int i = a; i < H; i++) {
+		for (j = b; j < N - 1; j++) {
+			if (arr[i][j] == 0 && arr[i][j + 1] == 0) {
+				if (cnt < 3) {
+					arr[i][j] = 1;
+					arr[i][j + 1] = 2;
+					go(arr, c + 1, i, j);
+					arr[i][j] = 0;
+					arr[i][j + 1] = 0;
 				}
 			}
-		cout << "#" << tc << " " << spread() << "\n";
-		memset(map, 0, sizeof(map));
-		memset(store, 0, sizeof(store));
-		memset(visited, 0, sizeof(visited));
+		}
+		b = 0;
 	}
+	return;
+}
+int main()
+{
+	int a, b;
+	int arr[11][32];
+	scanf("%d %d %d", &N, &M, &H);
+	for (int i = 0; i <= N; i++) {
+		for (int j = 0; j <= H; j++) {
+			arr[i][j] = 0;
+		}
+	}
+	if (M != 0) {
+		for (int i = 0; i < M; i++) {
+			scanf("%d %d", &a, &b);
+			a -= 1;
+			b -= 1;
+			arr[a][b] = 1;
+			arr[a][b + 1] = 2;
+		}
+	}
+	else { printf("0 \n"); return 0; }
+	cal2(arr, 0);
+	if (ans == 0) { printf("0 \n"); return 0; }
+	go(arr, 0, 0, 0);
+	if (ans > 3) { ans = -1; }
+	printf("%d \n", ans);
+	return 0;
 }
