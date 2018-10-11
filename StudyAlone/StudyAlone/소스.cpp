@@ -1,10 +1,10 @@
 #include<iostream>
 
-#include"BOJ1406.h"
+#include"BOJ10814.h"
 
 using namespace std;
 
 int main() {
-	BOJ1406();
+	BOJ10814();
 	return 0;
 }

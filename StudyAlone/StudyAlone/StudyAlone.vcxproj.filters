@@ -956,6 +956,15 @@
     <ClInclude Include="BOJ1406.h">
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
+    <ClInclude Include="BOJ5052.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ5446.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ10814.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
