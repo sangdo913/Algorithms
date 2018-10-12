@@ -7,6 +7,7 @@ using namespace std;
 
 int arr[1001];
 int n;
+
 void set(int n) {
 	for (int i = 1; i <= n; i++) arr[i] = 0;
 }
