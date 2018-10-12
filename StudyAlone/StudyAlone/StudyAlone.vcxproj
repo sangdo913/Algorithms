@@ -142,15 +142,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BeomJoon.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    <ClCompile Include="0main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="HJ.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="InSu_Heap.cpp" />
     <ClCompile Include="소스.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스1.cpp">
@@ -194,6 +194,7 @@
     <ClInclude Include="BOJ2292.h" />
     <ClInclude Include="BOJ2751.h" />
     <ClInclude Include="BOJ2789.h" />
+    <ClInclude Include="BOJ2866.h" />
     <ClInclude Include="BOJ2939.h" />
     <ClInclude Include="BOJ2960.h" />
     <ClInclude Include="7Month7Day.h" />
