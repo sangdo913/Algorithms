@@ -12,6 +12,7 @@ int dfs(vector<int> vec, int e){
     if(vec.size() == 2){
         return e;
     }
+    
     int res = 0;
 
     for(int i = 1; i < vec.size()-1;i++){
