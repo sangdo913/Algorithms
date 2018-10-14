@@ -1,79 +1,237 @@
-#pragma once
 #include<iostream>
-#include<queue>
-#include<algorithm>
+#include<cstring>
 
 using namespace std;
 
 int n, m;
-int axs, axb, ays, ayb, bxs, bxb, bys, byb;
-pair<int, int> points[4];
-int ABS(int i) { return i > 0 ? i : -i; }
-int MIN(int i1, int i2) {
-	return i1 < i2 ? i1 : i2;
-}
-int MAX(int i1, int i2) {
-	return i1 < i2 ? i2 : i1;
-}
-int distance(pair<int, int> st, pair<int, int> dt) {
-	return ABS(st.first - dt.first) + ABS(st.second - dt.second);
-}
+int map[101][101];
 
-bool cross(int a, int b, int c, int d) {
-	bool res = false;
-	res |= (a == b && c == a) || (a == b && d == a);
-	res |= (c == d && c == a) || (c == d && c == b);
+int dr[4] = { -1,1,0,0 };
+int dc[4] = { 0,0,-1,1 };
 
-	return (a < c && d < b) || (c < a && b < d) || res;
-}
+int A[2][2];
+int B[2][2];
 
-int plDist(int s1, int b1, int s2, int b2, int flag) {
-	int res = 0x3f3f3f3f;
-	if ((s1 < s2 && b2 < b1) || ((s2 == b2) && ((s1 == s2) || (b1 == s2)))) {
-		if (s1 > 0) res = MIN(res, 2 + ABS(s2 - s1) + ABS(b2 - s1));
-		if (b1 < flag) res = MIN(res, 2 + ABS(b1 - b2) + ABS(b1 - s2));
-	}
-	else if ((s2 < s1 &&b1 < b2) || ((s1 == b1) && ((s2 == s1) || (s1 == b2)))) {
-		if (s2 > 0) {
-			res = MIN(res, 2 + ABS(s1 - s2) + ABS(b1 - s2));
+int que[11000][2];
+
+int dist = 0x3f3f3f3f;
+int MIN(int i1, int i2) { return i1 < i2 ? i1 : i2; }
+
+bool visit[101][101] = {};
+void bfs(int r, int c, int der, int dec ,int len1) {
+	visit[r][c] = true;
+	int s = 0, e = 0;
+	
+	que[e][0] = r;
+	que[e++][1] = c;
+	int len = 0;
+	bool find = false;
+
+	while (s != e && !find) {
+		int cnt = e - s;
+		while (cnt-- && !find) {
+			int now[2] = { que[s][0], que[s++][1] };
+
+			if (now[0] == der && now[1] == dec) {
+				find = true;  break;
+			}
+
+			for (int d = 0; d < 4; d++) {
+				int next[2];
+				next[0] = now[0] + dr[d];
+				next[1] = now[1] + dc[d];
+
+				if (next[0] < 0 || next[1] < 0 || next[0] > m || next[1] > n) continue;
+				if (visit[next[0]][next[1]]) continue;
+				visit[next[0]][next[1]] = true;
+
+				que[e][0] = next[0];
+				que[e++][1] = next[1];
+			}
 		}
-		if (b2 < flag) {
-			res = MIN(res, 2 + ABS(b2 - s1) + ABS(b2 - b1));
-		}
+		if (find) break;
+		len++;
 	}
-	return res;
+
+	if (find) {
+		dist = MIN(dist, len1 + len);
+	}
 }
-int main() {
+
+int ABS(int i1) { return i1 > 0 ? i1 : -i1; }
+
+void check(int f[2], int t[2], int f2[2], int t2[2]) {
+	int len = 0;
+	int dr = f[0] > t[0] ? -1 : 1;
+	int dc = f[1] > t[1] ? -1 : 1;
+
+	memset(visit, false, sizeof(visit));
+
+	int now[2] = { f[0], f[1] };
+
+	while (now[0] != t[0]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[0] += dr;
+	}
+	while (now[1] != t[1]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[1] += dc;
+	}
+	visit[now[0]][now[1]] = true;
+
+	if(visit[f2[0]][f2[1]] == 0 && visit[t2[0]][t2[1]] ==0 )bfs(f2[0], f2[1], t2[0], t2[1],len);
+}
+
+void check2(int f[2], int t[2], int f2[2], int t2[2]) {
+	int len = 0;
+	int dr = f[0] > t[0] ? -1 : 1;
+	int dc = f[1] > t[1] ? -1 : 1;
+	dr = f[0] - t[0] ? dr : 0;
+	dc = f[1] - t[1] ? dc : 0;
+
+	memset(visit, false, sizeof(visit));
+
+	int now[2] = { f[0], f[1] };
+
+	visit[now[0]][now[1]] = true;
+	len = 1;
+	now[1] += dc;
+
+	while (now[0] != t[0]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[0] += dr;
+	}
+	while (now[1] != t[1]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[1] += dc;
+	}
+	visit[now[0]][now[1]] = true;
+
+	if (visit[f2[0]][f2[1]] == 0 && visit[t2[0]][t2[1]] == 0)bfs(f2[0], f2[1], t2[0], t2[1], len);
+}
+
+void check3(const int f[2], const int t[2], int f2[2], int t2[2]) {
+
+	memset(visit, false, sizeof(visit));
+
+	int now[2] = { f[0], f[1] };
+	int len = 0;
+	visit[now[0]][now[1]] = true;
+	len = 1;
+	now[1] -= 1;
+	int dr = now[0] > t[0] ? -1 : 1;
+	int dc = now[1] > t[1] ? -1 : 1;
+	dr = now[0] - t[0] ? dr : 0;
+	dc = now[1] - t[1] ? dc : 0;
+
+
+	while (now[0] != t[0]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[0] += dr;
+	}
+	while (now[1] != t[1]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[1] += dc;
+	}
+	visit[now[0]][now[1]] = true;
+
+	if (visit[f2[0]][f2[1]] == 0 && visit[t2[0]][t2[1]] == 0)bfs(f2[0], f2[1], t2[0], t2[1], len);
+}
+void check4(const int f[2], const int t[2], int f2[2], int t2[2]) {
+	memset(visit, false, sizeof(visit));
+
+
+	int len = 0;
+	int now[2] = { f[0], f[1] };
+
+	visit[now[0]][now[1]] = true;
+	len = 1;
+	now[0] -= 1;
+;
+	int dr = now[0] > t[0] ? -1 : 1;
+	int dc = now[1] > t[1] ? -1 : 1;
+	dr = now[0] - t[0] ? dr : 0;
+	dc = now[1] - t[1] ? dc : 0;
+
+	while (now[1] != t[1]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[1] += dc;
+	}
+
+	while (now[0] != t[0]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[0] += dr;
+	}
+	visit[now[0]][now[1]] = true;
+
+	if (visit[f2[0]][f2[1]] == 0 && visit[t2[0]][t2[1]] == 0)bfs(f2[0], f2[1], t2[0], t2[1], len);
+}
+void check5(int f[2], int t[2], int f2[2], int t2[2]) {
+	int len = 0;
+	int dr = f[0] > t[0] ? -1 : 1;
+	int dc = f[1] > t[1] ? -1 : 1;
+	dr = f[0] - t[0] ? dr : 0;
+	dc = f[1] - t[1] ? dc : 0;
+
+	memset(visit, false, sizeof(visit));
+
+	int now[2] = { f[0], f[1] };
+
+	visit[now[0]][now[1]] = true;
+	len = 1;
+	now[0] += dr;
+
+
+	while (now[1] != t[1]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[1] += dc;
+	}
+	while (now[0] != t[0]) {
+		len++;
+		visit[now[0]][now[1]] = true;
+		now[0] += dr;
+	}
+
+	visit[now[0]][now[1]] = true;
+
+	if (visit[f2[0]][f2[1]] == 0 && visit[t2[0]][t2[1]] == 0)bfs(f2[0], f2[1], t2[0], t2[1], len);
+}
+int BOJ5022() {
 	cin >> n >> m;
 
-	for (int i = 0; i < 4; i++) {
-		cin >> points[i].first >> points[i].second;
-	}
+	cin >> A[0][1] >> A[0][0] >> A[1][1] >> A[1][0] >> B[0][1] >> B[0][0] >> B[1][1] >> B[1][0];
+	
+	check(A[0], A[1], B[0], B[1]);
+	check(A[1], A[0], B[0], B[1]);
+	check(B[0], B[1], A[0], A[1]);
+	check(B[1], B[0], A[0], A[1]);
+	check2(A[0], A[1], B[0], B[1]);
+	check2(A[1], A[0], B[0], B[1]);
+	check2(B[0], B[1], A[0], A[1]);
+	check2(B[1], B[0], A[0], A[1]);	
+	
+	check5(A[0], A[1], B[0], B[1]);
+	check5(A[1], A[0], B[0], B[1]);
+	check5(B[0], B[1], A[0], A[1]);
+	check5(B[1], B[0], A[0], A[1]);
+	if (A[0][1] > 0) check3(A[0], A[1], B[0], B[1]);
+	if (A[0][0] > 0) check4(A[0], A[1], B[0], B[1]);
+	
 
-	axs = MIN(points[0].first, points[1].first);
-	axb = points[0].first + points[1].first - axs;
-
-	ays = MIN(points[0].second, points[1].second);
-	ayb = points[0].second + points[1].second - ays;
-
-	bxs = MIN(points[2].first, points[3].first);
-	bxb = points[2].first + points[3].first - bxs;
-
-	bys = MIN(points[2].second, points[3].second);
-	byb = points[2].second + points[3].second - bys;
-
-	int dist[2] = { distance(points[0], points[1]), distance(points[2], points[3]) };
-
-	bool isCross = cross(axs, axb, bxs, bxb) && cross(ays, ayb, bys, byb);
-	if (!isCross) {
-		cout << dist[0] + dist[1];
+	if (dist == 0x3f3f3f3f) {
+		cout << "IMPOSSIBLE\n";
 	}
 	else {
-		int pl = 0x3f3f3f3f;
-		pl = MIN(pl, plDist(axs, axb, bxs, bxb, n));
-		pl = MIN(plDist(ays, ayb, bys, byb, m), pl);
-		if (pl == 0x3f3f3f3f) cout << "IMPOSSIBLE";
-		else cout << dist[0] + dist[1] + pl;
+		cout << dist << '\n';
 	}
 
 	return 0;
