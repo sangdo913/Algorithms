@@ -27,14 +27,16 @@ bool isout(int r, int c){
 
 int bfs(int r1, int c1, int r2, int c2){
     COD now(r1,c1,r2,c2);
-
     visit[r1][c1][r2][c2] = true;
+
     int s, e;
     s = e = 0;
+
     que[e++] = now;
 
     bool find =false;
     int turn = 0;
+    
     while(s!=e){
         int cnt = e-s;
         while(cnt--){
@@ -68,8 +70,11 @@ int bfs(int r1, int c1, int r2, int c2){
                 que[e++] = next;
             }
         }
+
         if(find) return turn;
+
         turn++;
+
         if(turn > 10) return -1;
     }
     return -1;
