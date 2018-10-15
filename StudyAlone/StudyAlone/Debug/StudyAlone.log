@@ -1,2 +1,3 @@
 ﻿  0main.cpp
+e:\college\algorithms\studyalone\studyalone\boj15662.h(7): warning C4091: 'typedef ': 변수를 선언하지 않으면 '' 왼쪽은 무시됩니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

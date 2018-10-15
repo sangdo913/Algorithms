@@ -161,6 +161,9 @@
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="2048.h" />
+    <ClInclude Include="BOJ12886.h" />
+    <ClInclude Include="BOJ15662.h" />
+    <ClInclude Include="BOJ2933.h" />
     <ClInclude Include="BOJ4574.h" />
     <ClInclude Include="BOJ5639.h" />
     <ClInclude Include="BOJ1019.h" />
@@ -477,9 +480,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\SD\Desktop\삭제요망\테스트케이스\ncpc2010ball\ncpc2010\connect\connect.1.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

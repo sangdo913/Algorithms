@@ -989,15 +989,19 @@
     <ClInclude Include="BOJ4574.h">
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
+    <ClInclude Include="BOJ12886.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ15662.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2933.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
       <Filter>리소스 파일</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\SD\Desktop\삭제요망\테스트케이스\ncpc2010ball\ncpc2010\connect\connect.1.in">
-      <Filter>리소스 파일</Filter>
-    </None>
   </ItemGroup>
 </Project>
