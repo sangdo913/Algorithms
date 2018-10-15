@@ -1,5 +1,5 @@
-#include <iostream>
-#include<cstring>
+#include <stdio.h>
+#pragma warning (disable : 4996)
 
 int N, M;
 int map[10 + 1][10 + 1];
@@ -70,7 +70,7 @@ int bfs(void)
 		for (i = 0; i < 4; i++) //일반적인 이동
 		{
 			nx = t.x + dx[i]; ny = t.y + dy[i];
-			if (nx >= 0 && nx < N && ny >= 0 && ny < N)
+			if (nx >= 0 && nx < N && ny >= 0 && ny < N && map[nx][ny] != -1)
 			{
 				if (map[t.x][t.y] > 1 || map[t.x][t.y] == 0) //다리위에 있을 때
 				{
@@ -108,26 +108,75 @@ int bfs(void)
 
 	return 0;
 }
-using namespace std;
+
+void impossible(void)
+{
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
+		{
+			if (map[i][j] == 0)
+			{
+				if (i + 1 < N && j - 1 >= 0 && map[i + 1][j] == 0 && map[i][j - 1] == 0)
+				{
+					enqueue(i, j, 0, 0);
+					continue;
+				}
+				if (j - 1 >= 0 && i - 1 >= 0 && map[i][j - 1] == 0 && map[i - 1][j] == 0)
+				{
+					enqueue(i, j, 0, 0);
+					continue;
+				}
+				if (i - 1 >= 0 && j + 1 < N && map[i - 1][j] == 0 && map[i][j + 1] == 0)
+				{
+					enqueue(i, j, 0, 0);
+					continue;
+				}
+				if (j + 1 < N && i + 1 < N && map[i][j + 1] == 0 && map[i + 1][j] == 0)
+				{
+					enqueue(i, j, 0, 0);
+					continue;
+				}
+			}
+		}
+
+	Queue t;
+
+	while (dequeue(&t))
+	{
+		map[t.x][t.y] = -1;
+	}
+
+	wp = rp = 0;
+}
 
 int main(void)
 {
 	int i, j;
-	int t;
-	cin >> t;
-	scanf("%d %d", &N, &M);
+	int T, t;
+	scanf("%d", &T);
 
-	for (int tc = 1; tc <= t; tc++) {
+	for (t = 1; t <= T; t++)
+	{
+		scanf("%d %d", &N, &M);
 
-	for (i = 0; i < N; i++)
-		for (j = 0; j < N; j++)
-			scanf("%d", &map[i][j]);
-
-	int sol = bfs();
-
-	printf("#%d %d\n", tc, sol);
-}
+		for (i = 0; i < N; i++)
+			for (j = 0; j < N; j++)
+				scanf("%d", &map[i][j]);
 
 
+		impossible();
+
+		int sol = bfs();
+
+		printf("#%d %d\n", t, sol);
+
+		wp = rp = 0;
+
+		for (int i = 0; i < 2; i++)
+			for (int j = 0; j < N; j++)
+				for (int k = 0; k < N; k++)
+					visit[i][j][k] = 0;
+
+	}
 	return 0;
 }

@@ -1022,6 +1022,9 @@
     <ClInclude Include="BOJ3184.h">
       <Filter>헤더 파일\BOJ</Filter>
     </ClInclude>
+    <ClInclude Include="BOJ14442.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

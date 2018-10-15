@@ -1,5 +1,5 @@
 //https://www.acmicpc.net/problem/2210
-//BOJ 2210 숫자판 점프
+//BOJ 2210 숫자판 점프ZZZZZZZZ
 #pragma once
 #include<iostream>
 
