@@ -1,23 +1,50 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-int main() {
-	srand(time(NULL));
+#include <iostream>
+#include <string>
+#include <cstring>
 
-	int a[10];
-	char chk[10] = { 0 };
-	for (int i = 0; i < 10; i++) a[i] = rand(), printf("%d ", a[i]);//scanf("%d", &a[i]);
-	printf("\n");
+using namespace std;
 
-	for (int i = 0; i < 9; i++) {
-		for (int j = i + 1; j < 10; j++) {
-			if (a[i] == a[j]) chk[j] = 1;
+int SIZE;
+bool visit[1000000][11];
+int n, change;
+string ans;
+string S;
+
+void solve(int x, int cnt) {
+	//if (x == SIZE) return;
+	//if (visit[stoi(S)][cnt]) return;
+	//visit[stoi(S)][cnt] = true;
+
+	if (cnt == change) {
+		if (S > ans)
+			ans = S;
+		return;
+	}
+
+	for (int i = 0; i < SIZE; i++) {
+		if (x == i)
+			continue;
+		if (S[x] <= S[i]) {
+			swap(S[x], S[i]);
+			solve(x + 1, cnt + 1);
+			swap(S[x], S[i]);
 		}
 	}
-	for (int i = 0; i < 10; i++) {
-		if (chk[i] == 0) printf("%2d", a[i]);
+
+}
+
+int main() {
+	int t; scanf("%d\n", &t);
+	for (int i = 1; i <= t; i++){
+
+		cin >> S;
+		SIZE = S.size();
+		scanf("%d", &change);
+
+		solve(0, 0);
+
+		cout << ans << endl;
+
 	}
-
-
 	return 0;
 }
