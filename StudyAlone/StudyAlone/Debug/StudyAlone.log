@@ -1,2 +1,3 @@
 ﻿  0main.cpp
+e:\college\algorithms\studyalone\studyalone\boj1600.h(55): warning C4805: '==': 연산에 'int' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
