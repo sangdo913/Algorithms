@@ -16,7 +16,6 @@ int bfs() {
 	que.push(s);
 	pos[s] = 1;
 	order[s] = 0;
-
 	
 	int ti = 0;
 	while (que.size()) {
