@@ -15,7 +15,7 @@ int conv[256];
 unordered_set<pair<int, int> > se;
 
 tuple<int, int, int> getNum(int r, int c) {
-	return {r, c, 3 * ((r - 1) / 3) + (c - 1) / 3};
+	return make_tuple{r, c, 3 * ((r - 1) / 3) + (c - 1) / 3};
 }
 
 
@@ -33,10 +33,12 @@ int BOJ4574() {
 			pair<int, int> block;
 			char pos[3];
 			int n;
+			int nr, nc, ns;
 			cin >> n >> pos;
 			pos[0] = conv[pos[0]];
 			pos[1] -= '0';
 			block.first = n;
+			tie(nr,nc,ns) = getNum(pos[0], pos[1]);
 
 			arr[pos[0]][pos[1]] = n;
 
@@ -45,19 +47,22 @@ int BOJ4574() {
 			pos[1] -= '0';
 			block.first = n;
 
+			tie(nr,nc,ns) = getNum(pos[0], pos[1]);
+
 			arr[pos[0]][pos[1]] = n;
+			
 			if (block.first < block.second) {
 				int temp = block.first;
 				block.first = block.second;
 				block.second = temp;
 			}
 			se.insert(block);
-			check[]
 		}
 
 		for (int i = 1; i <= 9; i++) {
 
 		}
+		break;
 	}
 
 	return 0;
