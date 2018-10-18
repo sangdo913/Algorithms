@@ -11,33 +11,24 @@ int dc[4] = {0,0,-1,1};
 int res = 0x3f3f3f3f;
 int dst;
 int MIN(int i1, int i2){return i1 < i2 ? i1 : i2;}
-bool check[32][32];
-bool visit[4][32][32];
 
-void dfs(int r, int c, int num, int cnt){
+void dfs(int r, int c, int num, int &cnt){
     if(cnt == dst ){
         res = MIN(num , res);
         return; 
     }
-    if(cnt == res) return;
+    if(num == res) return;
 
-    bool tv[32][32];
-    bool tv2[4][32][32];
-    memcpy(tv, check, sizeof(tv));
-    memcpy(tv2, visit, sizeof(tv2));
+    int restore[2] = {r,c};
 
     for(int d = 0; d < 4; d++){
-        if(visit[d][r][c]) continue;
-        visit[d][r][c] = true;
-
-        int ncnt = cnt;
         int now[2] = {r, c};
         int next[2] = {r + dr[d], c + dc[d]};
+
         while(map[next[0]][next[1]] == '.'){
-            if(!check[now[0]][now[1]]){
-                visit[d][now[0]][now[1]] = true;
-                ncnt++;
-                check[now[0]][now[1]] =true;
+            if(map[now[0]][now[1]] == '.'){
+                cnt++;
+                map[now[0]][now[1]] ='*';
             }
 
             now[0] = next[0];
@@ -47,30 +38,29 @@ void dfs(int r, int c, int num, int cnt){
         }
         
         
-        visit[d][now[0]][now[1]] = true;
-        if(!check[now[0]][now[1]]){
-            ncnt++;
-            check[now[0]][now[1]] = true;
+        if(map[now[0]][now[1]] == '.'){
+            cnt++;
+            map[now[0]][now[1]] = '*';
         }
 
-        if(now[0] == r && now[1] == c){
-            visit[d][r][c] = false;
-            memcpy(check,tv,sizeof(tv));
-            memcpy(visit,tv2, sizeof(tv2));
-            continue;
+        if(!(now[0] == r && now[1] == c)){
+            dfs(now[0], now[1], num+1, cnt);
         } 
 
-        if(ncnt == dst){
-            res = MIN(res, num);
-            memcpy(check,tv,sizeof(tv));
-            memcpy(visit,tv2, sizeof(tv2));
-            visit[d][r][c] = false;;
-            return; 
+        while(now[0] != restore[0] || now[1] != restore[1]){
+            if(map[now[0]][now[1]] == '*'){
+                map[now[0]][now[1]] = '.';
+                cnt--;
+            }
+
+            now[0] -= dr[d];
+            now[1] -= dc[d];
         }
-        dfs(now[0], now[1], num+1, ncnt);
-        memcpy(check,tv,sizeof(tv));
-        memcpy(visit,tv2, sizeof(tv2));
-        visit[d][r][c] = false;
+
+        if(map[now[0]][now[1]] == '*'){
+            map[now[0]][now[1]] = '.';
+            cnt--;
+        }
     }
     
 }
@@ -88,17 +78,17 @@ int BOJ9944(){
             }
         }
 
-        
-
         for(int i = 1; i <= n; i++){
             for(int j =1; j <= m; j++){
                 if(map[i][j] == '.')
                 {
-                    dfs(i,j,0,0);
+                    map[i][j] = '*';
+                    int cnt = 1;
+                    dfs(i,j,0,cnt);
                 }
             }
         }
-        cout <<"Case " << t++ << ": "<< res << '\n';
+        cout <<"Case " << t++ << ": "<< (res == 0x3f3f3f3f ? -1 : res) << '\n';
     }
     return 0;
 }
