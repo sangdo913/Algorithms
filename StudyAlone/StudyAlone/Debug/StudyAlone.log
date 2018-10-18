@@ -1,3 +1,3 @@
 ﻿  0main.cpp
-e:\college\algorithms\studyalone\studyalone\boj2251.h(55): warning C4101: 'value' :참조되지 않은 지역 변수입니다.
+e:\college\algorithms\studyalone\studyalone\boj15660.h(114): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
