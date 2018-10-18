@@ -104,7 +104,6 @@ int BOJ15660() {
 
 	sort(bvec.begin(), bvec.end(), cmp());
 	int res = 0;
-	
 
 	int until = MIN(bvec.size(), 150);
 	int idxs[150];
