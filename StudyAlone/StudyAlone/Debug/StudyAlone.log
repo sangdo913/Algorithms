@@ -1,3 +1,2 @@
 ﻿  0main.cpp
-e:\college\algorithms\studyalone\studyalone\boj1629.h(13): warning C4244: 'return': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
