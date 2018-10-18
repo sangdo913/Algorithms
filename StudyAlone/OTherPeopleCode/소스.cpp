@@ -1,109 +1,145 @@
 #include<iostream>
-#include<cstring>
-
+#include<algorithm>
+#include<vector>
+#include<queue>
+#include<limits.h>
 using namespace std;
 
-char map[32][32];
 
-int n, m;
-int dr[4] = { -1,1,0,0 };
-int dc[4] = { 0,0,-1,1 };
-int res = 0x3f3f3f3f;
-int dst;
-int MIN(int i1, int i2) { return i1 < i2 ? i1 : i2; }
-
-void dfs(int r, int c, int num, int &cnt) {
-	if (cnt == dst) {
-		res = MIN(num, res);
-		return;
-	}
-	if (num == res) return;
-
-	int restore[2] = { r,c };
-
-	for (int d = 0; d < 4; d++) {
-		int now[2] = { r, c };
-		int next[2] = { r + dr[d], c + dc[d] };
-
-		while (map[next[0]][next[1]] == '.') {
-			if (map[now[0]][now[1]] == '.') {
-				cnt++;
-				map[now[0]][now[1]] = '*';
+int N, H, W; // 구슬, 행과 열
+int board[16][13];
+bool check[16][13];
+int Answer;
+int ans;
+int xg[13]; // 0이 아닌 x 좌표 저장
+int temp_board[16][13];
+int temp_xg[13];
+void down_block() {
+	queue<int> qt;
+	for (int i = 1; i <= W; i++) {
+		for (int j = H; j >= 1; j--) {
+			if (board[j][i] != 0)
+				qt.push(board[j][i]);
+		}
+		int s = H - qt.size();
+		if (s == H) // q에 아무것도 없으면 초기화
+			xg[i] = 1;
+		for (int j = H; j >= 1; j--) {
+			if (j > s) {
+				board[j][i] = qt.front(); qt.pop();
+				xg[i] = j;
 			}
-
-			now[0] = next[0];
-			now[1] = next[1];
-			next[0] += dr[d];
-			next[1] += dc[d];
-		}
-
-
-		if (map[now[0]][now[1]] == '.') {
-			cnt++;
-			map[now[0]][now[1]] = '*';
-		}
-
-		if (!(now[0] == r && now[1] == c)) {
-			dfs(now[0], now[1], num + 1, cnt);
-		}
-
-		while (now[0] != restore[0] || now[1] != restore[1]) {
-			if (map[now[0]][now[1]] == '*') {
-				map[now[0]][now[1]] = '.';
-				cnt--;
-			}
-
-			now[0] -= dr[d];
-			now[1] -= dc[d];
-		}
-
-		if (map[now[0]][now[1]] == '*') {
-			map[now[0]][now[1]] = '.';
-			cnt--;
+			else
+				board[j][i] = 0;
 		}
 	}
-
 }
+void calc(vector<int> vc) {
+	queue<pair<int, int>> q;
 
-bool complete[32][32];
-
-int main() {
-	int t = 1;
-	while (cin >> n >> m) {
-		res = 0x3f3f3f3f;
-		memset(map, '*', sizeof(map));
-		dst = 0;
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				cin >> map[i][j];
-				complete[i][j] = false;
-				if (map[i][j] == '.') dst++;
+	for (int i = 1; i <= W; i++) { //복사
+		temp_xg[i] = xg[i];
+	}
+	for (int i = 1; i <= H; i++) { //복사
+		for (int j = 1; j <= W; j++) {
+			temp_board[i][j] = board[i][j];
+		}
+	}
+	for (int t = 0; t<vc.size(); t++) {
+		if (xg[vc[t]] == 1 && board[xg[vc[t]]][vc[t]] == 0) {
+			continue;
+		}
+		q.push({ xg[vc[t]],vc[t] });
+		for (int s = 1; s <= H; s++) {
+			for (int k = 1; k <= W; k++) {
+				check[s][k] = false;
 			}
 		}
-
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				if (map[i][j] == '.')
-				{
-					for (int d = 0; d < 4; d++) { 
-						int nr = i, nc = j;
-						while (map[nr][nc] == '.') {
-							nr += dr[d];
-							nc += dc[d];
-						}
-						nr -= dr[d];
-						nc -= dc[d];
-						if (!complete[nr][nc]) {
-							complete[nr][nc] = true;
-							map[nr][nc] = '*';
-							int cnt = 1;
-							dfs(nr, nc, 0, cnt);
-						}
+		check[xg[vc[t]]][vc[t]] = true;
+		while (!q.empty()) {
+			int x = q.front().first;
+			int y = q.front().second;
+			//cout << "x,y : " << x << ", " << y << '\n';
+			q.pop();
+			if (board[x][y] == 1) {
+				board[x][y] = 0;
+			}
+			else {
+				int k = board[x][y];
+				board[x][y] = 0;
+				for (int i = (-k + 1); i < k; i++) {
+					int dx = x + i;
+					if (dx >= 1 && dx <= H && check[dx][y] == false && board[dx][y] != 0) {
+						check[dx][y] = true;
+						q.push({ dx,y });
+					}
+				}
+				for (int i = (-k + 1); i < k; i++) {
+					int dy = y + i;
+					if (dy >= 1 && dy <= W && check[x][dy] == false && board[x][dy] != 0) {
+						check[x][dy] = true;
+						q.push({ x,dy });
 					}
 				}
 			}
 		}
-		cout << "Case " << t++ << ": " << (res == 0x3f3f3f3f ? -1 : res) << '\n';
+		down_block();
+
 	}
-	return 0;
+	for (int i = 1; i <= H; i++) {
+		for (int j = 1; j <= W; j++) {
+			if (board[i][j] != 0)
+				Answer++;
+		}
+	}
+	ans = min(Answer, ans); // 계산값과 현재 ans 중 작은 쪽을 ans에 대입
+	for (int i = 1; i <= H; i++) { // 붙여넣기
+		for (int j = 1; j <= W; j++) {
+			board[i][j] = temp_board[i][j];
+		}
+	}
+	for (int i = 1; i <= W; i++) { // 붙여넣기
+		xg[i] = temp_xg[i];
+	}
+}
+void dfs(int cnt, vector<int> vc) {
+	if (cnt == N) {
+		Answer = 0;
+		calc(vc);
+		return;
+	}
+	else {
+		for (int i = 1; i <= W; i++) {
+			vc.push_back(i);
+			dfs(cnt + 1, vc);
+			vc.pop_back();
+		}
+	}
+}
+int main() {
+	int test_case;
+	cin >> test_case;
+	for (int tc = 1; tc <= test_case; tc++) {
+		cin >> N >> W >> H;
+		for (int i = 1; i <= H; i++) {
+			for (int j = 1; j <= W; j++) {
+				board[i][j] = 0;
+			}
+		}
+		for (int i = 1; i <= W; i++) {
+			xg[i] = 1;
+		}
+		for (int i = 1; i <= H; i++) {
+			for (int j = 1; j <= W; j++) {
+				cin >> board[i][j];
+				if (board[i][j] == 0) {
+					xg[j] = i + 1;
+				}
+			}
+		}
+		ans = INT_MAX;
+		vector<int> k; //빈 벡터 생성
+		dfs(0, k);
+		cout << "#" << tc << " " << ans << '\n';
+	}
 }
