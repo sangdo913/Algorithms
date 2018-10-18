@@ -1,171 +1,109 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-#include <string>
+#include<iostream>
+#include<cstring>
 
 using namespace std;
 
-int a[16][13];
-int a1[16][13];
-int bb, n, m;
+char map[32][32];
 
-int dx[] = { 0,0,-1,1 };
-int dy[] = { 1,-1,0,0 };
+int n, m;
+int dr[4] = { -1,1,0,0 };
+int dc[4] = { 0,0,-1,1 };
+int res = 0x3f3f3f3f;
+int dst;
+int MIN(int i1, int i2) { return i1 < i2 ? i1 : i2; }
 
-typedef struct {
-	int x, y;
-}point;
-queue< point > q;
-
-int ans = 999;
-
-//빈공간이 있을 경우 처리해준다.
-void empty() {
-	// 112001일 경우 , string을 써서 0보다 큰 경우일때만 처리해 1121을 저장해, 원래 map에 저장해준다.
-	for (int j = 0; j < m; j++) {
-		string s = "";
-		for (int i = 0; i < n; i++) {
-			if (a[i][j] > 0) {
-				s += to_string(a[i][j]);
-			}
-			a[i][j] = 0;
-		}
-
-		for (int i = 0; i < s.size(); i++) {
-			a[i][j] = s[i] - '0';
-		}
+void dfs(int r, int c, int num, int &cnt) {
+	if (cnt == dst) {
+		res = MIN(num, res);
+		return;
 	}
-}
+	if (num == res) return;
 
-void checking(int index) {
+	int restore[2] = { r,c };
 
-	//맨처음 폭탄을 투하
-	for (int i = (n - 1); i >= 0; i--) {
-		if (a[i][index] != 0) {
-			int bbang = a[i][index];
-			a[i][index] = 0;
-			int x = i, y = index;
+	for (int d = 0; d < 4; d++) {
+		int now[2] = { r, c };
+		int next[2] = { r + dr[d], c + dc[d] };
 
-			for (int k = 0; k < 4; k++) {
-				int nx = x, ny = y;
-				for (int BB = 1; BB < bbang; BB++) {
-					nx += dx[k];
-					ny += dy[k];
-
-					if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-						if (a[nx][ny] == 1)
-							a[nx][ny] = 0;
-						if (a[nx][ny]>1)
-							q.push({ nx,ny });
-					}
-				}
+		while (map[next[0]][next[1]] == '.') {
+			if (map[now[0]][now[1]] == '.') {
+				cnt++;
+				map[now[0]][now[1]] = '*';
 			}
-			break;
+
+			now[0] = next[0];
+			now[1] = next[1];
+			next[0] += dr[d];
+			next[1] += dc[d];
 		}
-	}
 
-	//처음 폭탄 투하에서 영향 받은 다른 벽돌들도 처리해준다.
-	while (!q.empty()) {
-		int x = q.front().x;
-		int y = q.front().y;
-		int bbang = a[x][y];
-		a[x][y] = 0;
 
-		q.pop();
+		if (map[now[0]][now[1]] == '.') {
+			cnt++;
+			map[now[0]][now[1]] = '*';
+		}
 
-		for (int k = 0; k < 4; k++) {
-			int nx = x, ny = y;
-			for (int BB = 1; BB < bbang; BB++) {
-				nx += dx[k];
-				ny += dy[k];
+		if (!(now[0] == r && now[1] == c)) {
+			dfs(now[0], now[1], num + 1, cnt);
+		}
 
-				if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-
-					if (a[nx][ny] == 1)
-						a[nx][ny] = 0;
-					if (a[nx][ny]>1)
-						q.push({ nx,ny });
-				}
+		while (now[0] != restore[0] || now[1] != restore[1]) {
+			if (map[now[0]][now[1]] == '*') {
+				map[now[0]][now[1]] = '.';
+				cnt--;
 			}
+
+			now[0] -= dr[d];
+			now[1] -= dc[d];
+		}
+
+		if (map[now[0]][now[1]] == '*') {
+			map[now[0]][now[1]] = '.';
+			cnt--;
 		}
 	}
 
-	// 빈공간이 있을 경우 벽돌을 밑으로 보낸다.
-	empty();
 }
 
-
-//벽돌을 떨어뜨릴수 있는 방법
-void go() {
-	int B[4];
-	for (B[0] = 0; B[0]< m; B[0]++)
-		for (B[1] = 0; B[1] < m; B[1]++) {
-			for (B[2] = 0; B[2] < m; B[2]++) {
-				for (B[3] = 0; B[3] < m; B[3]++) {
-					for (int i = 0; i < bb; i++) {
-						checking(B[i]);
-					}
-					int result = 0;
-					for (int i = 0; i < n; i++) {
-						for (int j = 0; j < m; j++) {
-							if (a[i][j] > 0)
-								result += 1;
-							a[i][j] = a1[i][j];
-						}
-					}
-					ans = min(ans, result);
-
-					if (ans == 0) return;
-
-					if (bb < 4) break;
-				}
-				if (bb < 3)break;
-			}
-			if (bb < 2)break;
-		}
-}
-
-
-//초기화 함수
-void init() {
-	for (int i = 0; i<16; i++)
-		for (int j = 0; j < 13; j++) {
-			a[i][j] = 0; a1[i][j] = 0;
-		}
-
-	ans = 999;
-}
+bool complete[32][32];
 
 int main() {
-	int tc = 0; scanf("%d", &tc);
-	for (int t = 1; t <= tc; t++) {
-		cin >> bb >> m >> n;
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < m; j++) {
-				scanf("%d", &a[i][j]);
-				a1[i][j] = a[i][j];
-			}
-
-		//보기 편하게 x축 대칭시킨다
-		int temp = n / 2;
-
-		for (int i = 0; i < temp; i++)
-			for (int j = 0; j < m; j++) {
-				a[i][j] = a[(n - 1) - i][j];
-				a[(n - 1) - i][j] = a1[i][j];
-			}
-
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				a1[i][j] = a[i][j];
+	int t = 1;
+	while (cin >> n >> m) {
+		res = 0x3f3f3f3f;
+		memset(map, '*', sizeof(map));
+		dst = 0;
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				cin >> map[i][j];
+				complete[i][j] = false;
+				if (map[i][j] == '.') dst++;
 			}
 		}
 
-		go();
-		printf("#%d %d\n", t, ans);
-		init();
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				if (map[i][j] == '.')
+				{
+					for (int d = 0; d < 4; d++) { 
+						int nr = i, nc = j;
+						while (map[nr][nc] == '.') {
+							nr += dr[d];
+							nc += dc[d];
+						}
+						nr -= dr[d];
+						nc -= dc[d];
+						if (!complete[nr][nc]) {
+							complete[nr][nc] = true;
+							map[nr][nc] = '*';
+							int cnt = 1;
+							dfs(nr, nc, 0, cnt);
+						}
+					}
+				}
+			}
+		}
+		cout << "Case " << t++ << ": " << (res == 0x3f3f3f3f ? -1 : res) << '\n';
 	}
-
 	return 0;
 }
