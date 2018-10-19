@@ -168,6 +168,7 @@
     <ClInclude Include="BOJ12906.h" />
     <ClInclude Include="BOJ12969.h" />
     <ClInclude Include="BOJ14225.h" />
+    <ClInclude Include="BOJ14238.h" />
     <ClInclude Include="BOJ14395.h" />
     <ClInclude Include="BOJ14442.h" />
     <ClInclude Include="BOJ15660.h" />
@@ -447,6 +448,7 @@
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SupervisorCCTV.h" />
     <ClInclude Include="SUSHI.h" />
+    <ClInclude Include="SWEA3421.h" />
     <ClInclude Include="SWEA3813.h" />
     <ClInclude Include="SWEA3814.h" />
     <ClInclude Include="SWEA3816.h" />

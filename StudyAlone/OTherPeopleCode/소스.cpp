@@ -1,145 +1,145 @@
-#include<iostream>
-#include<algorithm>
-#include<vector>
-#include<queue>
-#include<limits.h>
+#define _CRT_SECURE_NO_WARNINGS
+#include <cstdio>
+#include <vector>
+#include <cstring>
+#define P pair<int, int>
 using namespace std;
 
+int N, M, H;
+int anw = -1;
+int horizon[32][12]; //[i][j] : j번째 세로줄과 j+1번째 세로줄 사이에 있는 i번째 가로줄 유무(없으면 0 있으면 1)
+int cantline[32][12]; // 가로줄을 놓을 수 없는 곳의 좌표(기존에 세로줄이 있거나, 왼쪽과 오른쪽에 있으면 안된다.)
+vector <P> v;//가로줄을 놓을 수 있는 곳의 좌표들
 
-int N, H, W; // 구슬, 행과 열
-int board[16][13];
-bool check[16][13];
-int Answer;
-int ans;
-int xg[13]; // 0이 아닌 x 좌표 저장
-int temp_board[16][13];
-int temp_xg[13];
-void down_block() {
-	queue<int> qt;
-	for (int i = 1; i <= W; i++) {
-		for (int j = H; j >= 1; j--) {
-			if (board[j][i] != 0)
-				qt.push(board[j][i]);
+void check_cantline(int x, int y); //가로줄을 놓을 수 없는 곳에 체크
+void check_vertical();//가로줄을 놓을 수 있는곳의 좌표들을 v에 저장
+bool check_answer();//i번째 줄이 i번째로 떨어지는지 체크(맞으면 1, 틀리면 0)
+void dfs(int idx, int cnt, int n);//가로줄을 n개 추가로 생성해서 정답 체크
+
+
+
+
+int main()
+{
+	scanf("%d %d %d", &N, &M, &H);
+	for (int i = 0; i < M; i++)
+	{
+		int a, b;
+		scanf("%d %d", &a, &b);
+		horizon[a][b] = 1;
+		check_cantline(a, b);
+	}
+
+	//세로줄을 놓을 수 있는 곳의 좌표를 vector에 저장
+	check_vertical();
+	anw = check_answer() ? 0 : -1;
+
+	//세로줄을 놓을 수 있는 곳이 있을때만 탐색
+	if (v.size() != 0)
+	{
+		//세로줄을 0개부터 3개까지 놓는 완전 탐색 진행
+		for (int i = 0; i <= 3; i++)
+		{
+			dfs(0, 0, i);
+			if (anw != -1) break;
 		}
-		int s = H - qt.size();
-		if (s == H) // q에 아무것도 없으면 초기화
-			xg[i] = 1;
-		for (int j = H; j >= 1; j--) {
-			if (j > s) {
-				board[j][i] = qt.front(); qt.pop();
-				xg[i] = j;
-			}
-			else
-				board[j][i] = 0;
+	}
+
+
+	printf("%d\n", anw);
+}
+
+void check_cantline(int x, int y)
+{
+	//왼쪽 체크
+	if (y - 1 > 0) cantline[x][y - 1] = 1;
+	//본인 체크
+	cantline[x][y] = 1;
+	//오른쪽 체크
+	if (y + 1 <= N - 1) cantline[x][y + 1] = 1;
+}
+
+void check_vertical()
+{
+	for (int i = 1; i <= N - 1; i++)
+	{
+		for (int j = 1; j <= H; j++)
+		{
+			if (cantline[j][i] != 1) v.push_back(P(j, i));
 		}
 	}
 }
-void calc(vector<int> vc) {
-	queue<pair<int, int>> q;
 
-	for (int i = 1; i <= W; i++) { //복사
-		temp_xg[i] = xg[i];
-	}
-	for (int i = 1; i <= H; i++) { //복사
-		for (int j = 1; j <= W; j++) {
-			temp_board[i][j] = board[i][j];
-		}
-	}
-	for (int t = 0; t<vc.size(); t++) {
-		if (xg[vc[t]] == 1 && board[xg[vc[t]]][vc[t]] == 0) {
-			continue;
-		}
-		q.push({ xg[vc[t]],vc[t] });
-		for (int s = 1; s <= H; s++) {
-			for (int k = 1; k <= W; k++) {
-				check[s][k] = false;
-			}
-		}
-		check[xg[vc[t]]][vc[t]] = true;
-		while (!q.empty()) {
-			int x = q.front().first;
-			int y = q.front().second;
-			//cout << "x,y : " << x << ", " << y << '\n';
-			q.pop();
-			if (board[x][y] == 1) {
-				board[x][y] = 0;
-			}
-			else {
-				int k = board[x][y];
-				board[x][y] = 0;
-				for (int i = (-k + 1); i < k; i++) {
-					int dx = x + i;
-					if (dx >= 1 && dx <= H && check[dx][y] == false && board[dx][y] != 0) {
-						check[dx][y] = true;
-						q.push({ dx,y });
-					}
-				}
-				for (int i = (-k + 1); i < k; i++) {
-					int dy = y + i;
-					if (dy >= 1 && dy <= W && check[x][dy] == false && board[x][dy] != 0) {
-						check[x][dy] = true;
-						q.push({ x,dy });
-					}
-				}
-			}
-		}
-		down_block();
-
-	}
-	for (int i = 1; i <= H; i++) {
-		for (int j = 1; j <= W; j++) {
-			if (board[i][j] != 0)
-				Answer++;
-		}
-	}
-	ans = min(Answer, ans); // 계산값과 현재 ans 중 작은 쪽을 ans에 대입
-	for (int i = 1; i <= H; i++) { // 붙여넣기
-		for (int j = 1; j <= W; j++) {
-			board[i][j] = temp_board[i][j];
-		}
-	}
-	for (int i = 1; i <= W; i++) { // 붙여넣기
-		xg[i] = temp_xg[i];
-	}
+void change(int &a, int &b) {
+	int temp = a;
+	a = b;
+	b = temp;
 }
-void dfs(int cnt, vector<int> vc) {
-	if (cnt == N) {
-		Answer = 0;
-		calc(vc);
+
+bool check_answer()//i번째 줄이 i번째로 떨어지는지 체크(맞으면 1, 틀리면 0)
+{
+	for (int i = 1; i < N; i++)
+	{
+		int start_n = i;
+		for (int j = 1; j <= H; j++)
+		{
+			if (horizon[j][start_n] == 1) start_n++;
+			else if (start_n - 1 != 0)
+			{
+				if (horizon[j][start_n - 1] == 1) start_n--;
+			}
+		}
+		if (start_n != i) return false;
+	}
+	return true;
+}
+void dfs(int idx, int cnt, int n)
+{
+	if (cnt == n)
+	{
+		if (check_answer())
+		{
+			anw = n;
+		}
 		return;
 	}
-	else {
-		for (int i = 1; i <= W; i++) {
-			vc.push_back(i);
-			dfs(cnt + 1, vc);
-			vc.pop_back();
+	if (idx == v.size())
+	{
+		return;
+	}
+
+	int i = v[idx].first;
+	int j = v[idx].second;
+
+	//가로줄 추가하고 다음 idx
+	if (j == 1)//제일 왼쪽줄이면 오른쪽만 체크
+	{
+		if (horizon[i][j + 1] == 0)
+		{
+			horizon[i][j] = 1;
+			dfs(idx + 1, cnt + 1, n);
+			horizon[i][j] = 0;
 		}
 	}
-}
-int main() {
-	int test_case;
-	cin >> test_case;
-	for (int tc = 1; tc <= test_case; tc++) {
-		cin >> N >> W >> H;
-		for (int i = 1; i <= H; i++) {
-			for (int j = 1; j <= W; j++) {
-				board[i][j] = 0;
-			}
+	else if (j == N - 1)//제일 오른쪽줄이면 왼쪽만 체크
+	{
+		if (horizon[i][j - 1] == 0)
+		{
+			horizon[i][j] = 1;
+			dfs(idx + 1, cnt + 1, n);
+			horizon[i][j] = 0;
 		}
-		for (int i = 1; i <= W; i++) {
-			xg[i] = 1;
-		}
-		for (int i = 1; i <= H; i++) {
-			for (int j = 1; j <= W; j++) {
-				cin >> board[i][j];
-				if (board[i][j] == 0) {
-					xg[j] = i + 1;
-				}
-			}
-		}
-		ans = INT_MAX;
-		vector<int> k; //빈 벡터 생성
-		dfs(0, k);
-		cout << "#" << tc << " " << ans << '\n';
 	}
+	else
+	{
+		if (horizon[i][j + 1] == 0 && horizon[i][j - 1] == 0)//아니면 양쪽 다 체크
+		{
+			horizon[i][j] = 1;
+			dfs(idx + 1, cnt + 1, n);
+			horizon[i][j] = 0;
+		}
+	}
+
+	//가로줄 추가하지 않고 다음 idx
+	dfs(idx + 1, cnt, n);
 }
