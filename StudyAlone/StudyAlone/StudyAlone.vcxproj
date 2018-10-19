@@ -165,6 +165,7 @@
     <ClInclude Include="BOJ12851.h" />
     <ClInclude Include="BOJ12869.h" />
     <ClInclude Include="BOJ12871.h" />
+    <ClInclude Include="BOJ12872.h" />
     <ClInclude Include="BOJ12886.h" />
     <ClInclude Include="BOJ12906.h" />
     <ClInclude Include="BOJ12969.h" />
