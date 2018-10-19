@@ -180,6 +180,7 @@
     <ClInclude Include="BOJ1600.h" />
     <ClInclude Include="BOJ1629.h" />
     <ClInclude Include="BOJ1767.h" />
+    <ClInclude Include="BOJ2008.h" />
     <ClInclude Include="BOJ2151.h" />
     <ClInclude Include="BOJ2210.h" />
     <ClInclude Include="BOJ2251.h" />
