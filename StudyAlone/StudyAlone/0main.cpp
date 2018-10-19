@@ -1,8 +1,8 @@
 #include<iostream>
-#include "BOJ12872.h"
+#include "BOJ1767.h"
 using namespace std;
 
 int main() {
-	BOJ12872();
+	BOJ1767();
 	return 0;
 }

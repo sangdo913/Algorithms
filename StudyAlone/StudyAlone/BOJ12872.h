@@ -10,9 +10,6 @@ using namespace std;
 int dp[101][101][101];
 int n,m,k;
 
-int conv(int block) {
-	return block > m ? m : block;
-}
 int  getall(int len, int block,int diff) {
 	if (len == k) {
 		if (diff == n) return 1;
