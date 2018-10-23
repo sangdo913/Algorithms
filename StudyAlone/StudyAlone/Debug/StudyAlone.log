@@ -1,2 +1,5 @@
 ﻿  0main.cpp
+e:\college\algorithms\studyalone\studyalone\boj16234.h(59): warning C4805: '|=': 연산에 'bool' 형식과 'int' 형식을 함께 사용하는 것은 안전하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\boj16234.h(59): warning C4805: '|': 연산에 'bool' 형식과 'int' 형식을 함께 사용하는 것은 안전하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\boj16234.h(31): warning C4101: 'size' :참조되지 않은 지역 변수입니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
