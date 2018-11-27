@@ -9,8 +9,13 @@
 using namespace std;
 
 long long MAX(long long l1, long long l2) { return l1 < l2 ? l2 : l1; }
+
 int BOJ2217() {
-	vector<long long> vec;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+	vector<int> vec;
 
 	int n;
 	cin >> n;
@@ -27,7 +32,7 @@ int BOJ2217() {
 
 	long long res = 0;
 	for (int i = 0; i < vec.size(); i++) {
-		res = MAX(res, vec[i] * (vec.size() - i));
+		res = MAX(res, 1LL*vec[i] * (vec.size() - i));
 	}
 	cout << res;
 	return 0;

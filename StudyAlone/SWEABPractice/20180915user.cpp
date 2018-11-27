@@ -1,74 +1,116 @@
 ﻿#include <iostream>
-#include <cstring>
-#include <queue>
-#include <algorithm>
-#include <vector>
 using namespace std;
-int a[10][10];
-int d[10][10];
-int p[10][10];
-vector<int> tree[10][10];
-int dx[] = { -1,-1,-1,0,0,1,1,1 };
-int dy[] = { -1,0,1,-1,1,-1,0,1 };
-int main() {
-	int n, m, l;
-	cin >> n >> m >> l;
-	for (int i = 0; i<n; i++) {
-		for (int j = 0; j<n; j++) {
-			cin >> a[i][j];
-			d[i][j] = 5;
-		}
+
+#define qq 100000
+
+class Pair {
+public:
+	int x, y;
+	bool check;
+};
+
+template <typename T>
+class Queue {
+public:
+	int front, rear, size;
+	T arr[qq + 1];
+	Queue() {
+		front = rear = size = 0;
 	}
-	while (m--) {
-		int x, y, age;
-		cin >> x >> y >> age;
-		tree[x - 1][y - 1].push_back(age);
+	void push(T item) {
+		rear++;
+		rear = rear % qq;
+		arr[rear] = item;
+		++size;
 	}
-	while (l--) {
-		memset(p, 0, sizeof(p));
-		for (int i = 0; i<n; i++) {
-			for (int j = 0; j<n; j++) {
-				if (tree[i][j].empty()) continue;
-				vector<int> temp;
-				sort(tree[i][j].begin(), tree[i][j].end());
-				int dead = 0;
-				for (int x : tree[i][j]) {
-					if (x <= d[i][j]) {
-						d[i][j] -= x;
-						temp.push_back(x + 1);
-						if ((x + 1) % 5 == 0) {
-							for (int k = 0; k<8; k++) {
-								int nx = i + dx[k];
-								int ny = j + dy[k];
-								if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-									p[nx][ny] += 1;
-								}
-							}
-						}
+	T pop() {
+		front++;
+		front = front % qq;
+		--size;
+		return arr[front];
+	}
+	T peek() { return arr[front]; }
+	bool empty() { return size == 0; }
+	void clear() { front = rear = size = 0; }
+};
+
+int n, m, time1;
+Queue<Pair> q;
+int map[11][11];
+bool visit[11][11];
+int dx[] = { 1,0,-1,0 }, dy[] = { 0,1,0,-1 };
+
+void bfs() {
+	q.push({ 0,0,0 });
+	visit[0][0] = 1;
+	while (!q.empty()) {
+		int qSize = q.size;
+		++time1;
+
+		while (qSize--) {
+			Pair p = q.pop();
+			if (map[p.x][p.y] == 1) q.push({ p.x, p.y, 0 }); // 절벽만 아니면 가만히 멈춰있는것도 가능
+
+			for (int i = 0; i < 4; i++) {
+				int nx = p.x + dx[i];
+				int ny = p.y + dy[i];
+				if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
+				if (visit[nx][ny]) continue;
+				if (nx == n - 1 && ny == n - 1) {
+					if (!p.check) {
+						return;
 					}
 					else {
-						dead += x / 2;
+						if (map[nx][ny] != 1) continue;
+						else return;
 					}
 				}
-				tree[i][j] = temp;
-				d[i][j] += dead;
-				d[i][j] += a[i][j];
-			}
-		}
-		for (int i = 0; i<n; i++) {
-			for (int j = 0; j<n; j++) {
-				for (int k = 0; k<p[i][j]; k++) {
-					tree[i][j].push_back(1);
+				if (map[nx][ny] == 1) { // 갈수 있는 길
+					visit[nx][ny] = 1;
+					q.push({ nx, ny, 0 });
+				}
+				else if (map[nx][ny] == 0) { // m일때 지나갈수 있음
+					if (!p.check && time1%m == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
+						visit[nx][ny] = 1;
+						q.push({ nx,ny, 1 });
+					}
+				}
+				else { // 해당 시간의 배수일때만 지나갈수 있음
+					if (!p.check && time1%map[nx][ny] == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
+						visit[nx][ny] = 1;
+						q.push({ nx,ny, 1 });
+					}
 				}
 			}
 		}
 	}
-	int ans = 0;
-	for (int i = 0; i<n; i++) {
-		for (int j = 0; j<n; j++) {
-			ans += (int)tree[i][j].size();
+}
+
+void init() {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			visit[i][j] = 0;
 		}
 	}
-	cout << ans << '\n';
-	return 0;
+	q.clear();
+	time1 = 0;
+}
+
+int main() {
+	int tc;
+	cin >> tc;
+
+	for (int t = 1; t <= tc; t++) {
+		cin >> n >> m;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cin >> map[i][j];
+			}
+		}
+
+		init();
+		bfs();
+
+		cout << "#" << t << " " << time1 << endl;
+	}
 }
