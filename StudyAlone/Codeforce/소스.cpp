@@ -3,10 +3,10 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include"LyftLevel5C.h"
+#include"A481.h"
 using namespace std;
 
 int main() {
-	LyftLevel5C();
+	A481();
 	return 0;
 }

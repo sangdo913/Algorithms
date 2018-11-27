@@ -72,6 +72,7 @@ bool ff(FISH &f){
         }
         if(isfind) break;
     }
+    COD a = {1,1};
 }
 
 int BOJ16236(){

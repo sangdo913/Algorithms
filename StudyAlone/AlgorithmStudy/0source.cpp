@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"BOJ16236.h"
+#include"BOJ16236_2.h"
 #include<vector>
 
 using namespace std;
