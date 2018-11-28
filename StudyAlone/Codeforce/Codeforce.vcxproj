@@ -138,6 +138,7 @@
     <ClInclude Include="C51C.h" />
     <ClInclude Include="C51D.h" />
     <ClInclude Include="C512A.h" />
+    <ClInclude Include="E481.h" />
     <ClInclude Include="EduCodeforce50A.h" />
     <ClInclude Include="EduCodeforce50B.h" />
     <ClInclude Include="Codeforce0902A.h" />
@@ -154,6 +155,8 @@
     <ClInclude Include="Codeforces508C.h" />
     <ClInclude Include="EduCodeforce50C.h" />
     <ClInclude Include="EduCodeforce50D.h" />
+    <ClInclude Include="F481.h" />
+    <ClInclude Include="G481.h" />
     <ClInclude Include="LyftLevel5A.h" />
     <ClInclude Include="LyftLevel5B.h" />
     <ClInclude Include="LyftLevel5C.h" />

@@ -3,10 +3,10 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include"A481.h"
+#include"G481.h"
 using namespace std;
 
 int main() {
-	A481();
+	G481();
 	return 0;
 }

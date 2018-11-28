@@ -43,6 +43,12 @@
     <Filter Include="헤더 파일\LyftLevel5">
       <UniqueIdentifier>{157b6469-2dae-4c06-9d98-cb0662f13824}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\virtual">
+      <UniqueIdentifier>{fa073a13-0b91-4de1-9a1f-03b1562b35df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\virtual\Codeforces481">
+      <UniqueIdentifier>{86d51aa9-7359-43f5-9961-b8b20a41680e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -156,6 +162,15 @@
     </ClInclude>
     <ClInclude Include="LyftLevel5D.h">
       <Filter>헤더 파일\LyftLevel5</Filter>
+    </ClInclude>
+    <ClInclude Include="E481.h">
+      <Filter>헤더 파일\virtual\Codeforces481</Filter>
+    </ClInclude>
+    <ClInclude Include="F481.h">
+      <Filter>헤더 파일\virtual\Codeforces481</Filter>
+    </ClInclude>
+    <ClInclude Include="G481.h">
+      <Filter>헤더 파일\virtual\Codeforces481</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
