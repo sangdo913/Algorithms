@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"BOJ14888.h"
+#include"BOJ14889.h"
 #include<vector>
 
 using namespace std;
