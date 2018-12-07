@@ -1,0 +1,18 @@
+#include<iostream>
+
+using namespace std;
+extern int getdiskSize();
+extern int readDisk(int* buf, int addr, int size);
+extern int move(int from, int to, int size);
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+struct Heap{
+
+};
+
+void defragment()
+{
+    cout << "FWE\n";
+}
