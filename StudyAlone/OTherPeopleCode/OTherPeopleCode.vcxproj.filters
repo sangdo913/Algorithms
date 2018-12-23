@@ -32,9 +32,21 @@
     <ClCompile Include="Codeforce054C.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="oper.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SWEABPractice\20180915user.cpp">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="a.hpp">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="b.hpp">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SDS21.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

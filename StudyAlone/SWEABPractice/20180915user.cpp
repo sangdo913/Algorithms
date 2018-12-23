@@ -1,116 +1,76 @@
-﻿#include <iostream>
+﻿//https://www.acmicpc.net/problem/12100
+// BOJ 12100 2048(easy)
+#pragma once
+#include<iostream>
+#include<cstring>
+
 using namespace std;
 
-#define qq 100000
+int map[20][20], n;
+int dm[4] = { 1,-1,1,-1 };
+int start[4] = { 0,1,0,1 };
+int MAX(int i1, int i2) { return i1 < i2 ? i2 : i1; }
 
-class Pair {
-public:
-	int x, y;
-	bool check;
-};
+void move(int d) {
+	int que[20], s = 0, e = 0;
+	int res = 0;
 
-template <typename T>
-class Queue {
-public:
-	int front, rear, size;
-	T arr[qq + 1];
-	Queue() {
-		front = rear = size = 0;
-	}
-	void push(T item) {
-		rear++;
-		rear = rear % qq;
-		arr[rear] = item;
-		++size;
-	}
-	T pop() {
-		front++;
-		front = front % qq;
-		--size;
-		return arr[front];
-	}
-	T peek() { return arr[front]; }
-	bool empty() { return size == 0; }
-	void clear() { front = rear = size = 0; }
-};
-
-int n, m, time1;
-Queue<Pair> q;
-int map[11][11];
-bool visit[11][11];
-int dx[] = { 1,0,-1,0 }, dy[] = { 0,1,0,-1 };
-
-void bfs() {
-	q.push({ 0,0,0 });
-	visit[0][0] = 1;
-	while (!q.empty()) {
-		int qSize = q.size;
-		++time1;
-
-		while (qSize--) {
-			Pair p = q.pop();
-			if (map[p.x][p.y] == 1) q.push({ p.x, p.y, 0 }); // 절벽만 아니면 가만히 멈춰있는것도 가능
-
-			for (int i = 0; i < 4; i++) {
-				int nx = p.x + dx[i];
-				int ny = p.y + dy[i];
-				if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
-				if (visit[nx][ny]) continue;
-				if (nx == n - 1 && ny == n - 1) {
-					if (!p.check) {
-						return;
-					}
-					else {
-						if (map[nx][ny] != 1) continue;
-						else return;
-					}
+	for (int j = 0; j < n; j++) {
+		s = e = 0;
+		bool canpl = false;
+		int r = start[d] * (n - 1);
+		while (r >= 0 && r < n) {
+			int &nblock = d & 2 ? map[j][r] : map[r][j];
+			if (nblock) {
+				if (canpl && que[e - 1] == nblock) {
+					canpl = false;
+					que[e - 1] <<= 1;
+					nblock = 0;
 				}
-				if (map[nx][ny] == 1) { // 갈수 있는 길
-					visit[nx][ny] = 1;
-					q.push({ nx, ny, 0 });
-				}
-				else if (map[nx][ny] == 0) { // m일때 지나갈수 있음
-					if (!p.check && time1%m == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
-						visit[nx][ny] = 1;
-						q.push({ nx,ny, 1 });
-					}
-				}
-				else { // 해당 시간의 배수일때만 지나갈수 있음
-					if (!p.check && time1%map[nx][ny] == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
-						visit[nx][ny] = 1;
-						q.push({ nx,ny, 1 });
-					}
+
+				else {
+					canpl = true;
+					que[e++] = nblock;
+					nblock = 0;
 				}
 			}
+			r += dm[d];
 		}
 	}
 }
 
-void init() {
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			visit[i][j] = 0;
-		}
+int dfs(int depth, int dir) {
+	if (depth == 5) {
+		int max = 0;
+		for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) max = MAX(map[i][j], max);
+
+		return max;
 	}
-	q.clear();
-	time1 = 0;
+
+	int restore[20][20];
+
+	memcpy(restore, map, sizeof(map));
+
+	int num = 0;
+
+	for (int i = 0; i < 4; i++) {
+		move(i);
+		num = MAX(num, dfs(depth + 1, i));
+		memcpy(map, restore, sizeof(map));
+	}
+
+	return num;
 }
 
 int main() {
-	int tc;
-	cin >> tc;
+	cin >> n;
 
-	for (int t = 1; t <= tc; t++) {
-		cin >> n >> m;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				cin >> map[i][j];
-			}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cin >> map[i][j];
 		}
-
-		init();
-		bfs();
-
-		cout << "#" << t << " " << time1 << endl;
 	}
+
+	cout << dfs(0, 0);
+	return 0;
 }

@@ -1,116 +1,79 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<cstring>
+
 using namespace std;
 
-#define qq 100000
+vector<int> info[2];
+vector<bool> check;
+vector<int> sorted[2];
 
-class Pair {
-public:
-	int x, y;
-	bool check;
+struct xcmp {
+	bool operator()(int i1, int i2) {
+		if (info[0][i1] == info[0][i2]) {
+			return info[1][i1] < info[1][i2];
+		}
+
+		return info[0][i1] < info[0][i2];
+	}
 };
 
-template <typename T>
-class Queue {
-public:
-	int front, rear, size;
-	T arr[qq + 1];
-	Queue() {
-		front = rear = size = 0;
+struct ycmp {
+	bool operator()(int i1, int i2) {
+		if (info[1][i1] == info[1][i2]) {
+			return info[0][i1] < info[0][i2];
+		}
+
+		return info[1][i1] > info[1][i2];
 	}
-	void push(T item) {
-		rear++;
-		rear = rear % qq;
-		arr[rear] = item;
-		++size;
-	}
-	T pop() {
-		front++;
-		front = front % qq;
-		--size;
-		return arr[front];
-	}
-	T peek() { return arr[front]; }
-	bool empty() { return size == 0; }
-	void clear() { front = rear = size = 0; }
 };
-
-int n, m, time1;
-Queue<Pair> q;
-int map[11][11];
-bool visit[11][11];
-int dx[] = { 1,0,-1,0 }, dy[] = { 0,1,0,-1 };
-
-void bfs() {
-	q.push({ 0,0,0 });
-	visit[0][0] = 1;
-	while (!q.empty()) {
-		int qSize = q.size;
-		++time1;
-
-		while (qSize--) {
-			Pair p = q.pop();
-			if (map[p.x][p.y] == 1) q.push({ p.x, p.y, 0 }); // 절벽만 아니면 가만히 멈춰있는것도 가능
-
-			for (int i = 0; i < 4; i++) {
-				int nx = p.x + dx[i];
-				int ny = p.y + dy[i];
-				if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
-				if (visit[nx][ny]) continue;
-				if (nx == n - 1 && ny == n - 1) {
-					if (!p.check) {
-						return;
-					}
-					else {
-						if (map[nx][ny] != 1) continue;
-						else return;
-					}
-				}
-				if (map[nx][ny] == 1) { // 갈수 있는 길
-					visit[nx][ny] = 1;
-					q.push({ nx, ny, p.check });
-				}
-				else if (map[nx][ny] == 0) { // m일때 지나갈수 있음
-					if (!p.check && time1%m == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
-						visit[nx][ny] = 1;
-						q.push({ nx,ny, 1 });
-					}
-				}
-				else { // 해당 시간의 배수일때만 지나갈수 있음
-					if (!p.check && time1%map[nx][ny] == 0) { // 이전에 오작교를 안건넜고, 다음 오작교가 열리면
-						visit[nx][ny] = 1;
-						q.push({ nx,ny, 1 });
-					}
-				}
-			}
-		}
-	}
-}
-
-void init() {
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			visit[i][j] = 0;
-		}
-	}
-	q.clear();
-	time1 = 0;
-}
 
 int main() {
-	int tc;
-	cin >> tc;
+	int t;
+	cin >> t;
 
-	for (int t = 1; t <= tc; t++) {
-		cin >> n >> m;
+	for (int tc = 1; tc <= t; tc++) {
+		int n;
+		cin >> n;
+		info[0].clear(); info[1].clear();
+		sorted[0].clear(); sorted[1].clear();
+		check.clear();
+		check.resize(n+1);
+
+
+		info[0].push_back(0); info[1].push_back(0);
+
 		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				cin >> map[i][j];
-			}
+			int x, y;
+			cin >> x >> y;
+			info[0].push_back(x);
+			info[1].push_back(y);
 		}
 
-		init();
-		bfs();
+		for (int i = 1; i <= n; i++) {
+			sorted[0].push_back(i);
+			sorted[1].push_back(i);
+		}
 
-		cout << "#" << t << " " << time1 << endl;
+		sort(sorted[0].begin(), sorted[0].end(), xcmp());
+		sort(sorted[1].begin(), sorted[1].end(), ycmp());
+
+		int yvalue = 0x7fffffff;
+		int xvalue = -1;
+		cout << '#' << tc;
+
+		for (int i = 0; i < sorted[0].size(); i++) {
+			int y = info[1][sorted[0][i]];
+			int x = info[0][sorted[0][i]];
+
+			if (y >= yvalue || xvalue == x) continue;
+			
+			yvalue = y;
+			xvalue = x;
+			cout << ' ' << sorted[0][i];
+		}
+		cout << '\n';
 	}
+	return 0;
 }
