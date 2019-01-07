@@ -1,3 +1,6 @@
+//CPU
+//https://www.acmicpc.net/problem/16506
+
 #include<iostream>
 #include<string>
 #include<map>
@@ -39,9 +42,7 @@ int Do(){
        
        string res;
        
-       bool isC = false;
-       if(comm == "NOT") isC = false;
-       else isC = *comm.rbegin() == 'C';
+       bool isC = *comm.rbegin() == 'C';
 
         res += mp.find(string(comm.begin(), comm.begin() + comm.size() - isC))->second; 
         res += isC + '0';
