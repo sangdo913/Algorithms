@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
-#include"boj10950.h"
+#include"swea6782.h"
 #include<vector>
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/StudyAlone/0Text.txt", "r", stdin);
-	//int a = solution(2147483647);
+	//int a = colution(2147483647);
 	//printf("%d\n", a);
 	Do();
 	
