@@ -5,9 +5,7 @@
 #include<vector>
 
 using namespace std;
-int main()
-
-{
+int main() {
 	freopen("/Users/sangdolee/Desktop/Algorithm/StudyAlone/AlgorithmStudy/0Text.txt", "r", stdin);
 	BOJ16236();
 	return 0;
