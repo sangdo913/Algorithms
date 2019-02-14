@@ -1,4 +1,9 @@
-3 3
-*.*
-.*.
-*.*
+5
+ba
+a
+abab
+a
+aba
+baba
+ab
+aba
