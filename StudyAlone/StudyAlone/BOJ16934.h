@@ -8,16 +8,6 @@ int n;
 map<string, int> id;
 set<string> hs;
 
-string conv(int i){
-    string res;
-    while(i){
-        res.push_back(i%10);
-        i/=10;
-    }
-
-    return string(res.rbegin(), res.rend());
-}
-
 int Do(){
     ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     cin >> n;
