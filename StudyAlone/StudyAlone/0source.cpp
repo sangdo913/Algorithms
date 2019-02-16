@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-#include"BOJ1799_2.h"
+#include"BOJ16934.h"
 
 using namespace std;
 
