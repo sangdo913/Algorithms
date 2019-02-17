@@ -1,8 +1,8 @@
 #include<iostream>
-#include "BOJ2217.h"
+#include "SWEA5949.h"
 using namespace std;
 
 int main() {
-	BOJ2217();
+	Do();
 	return 0;
 }

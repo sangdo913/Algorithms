@@ -1,2 +1,3 @@
 ﻿  Test.cpp
-  SWEABPractice.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\SWEABPractice.exe
+e:\college\algorithms\studyalone\sweabpractice\test.cpp(12): error C3892: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator []': const인 변수에 할당할 수 없습니다.
+  e:\college\algorithms\studyalone\sweabpractice\test.cpp(18): note: 컴파일 중인 함수 템플릿 인스턴스화 'auto main::<lambda_5bd255bbbdfbb8adc755d51276f13d2d>::operator ()<std::string,std::string>(std::string,std::string) const'에 대한 참조를 확인하십시오.
