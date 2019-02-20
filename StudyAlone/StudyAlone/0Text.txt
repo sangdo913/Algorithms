@@ -1,2 +1,5 @@
-abracadabra
-10
+
+3 3
+ABC
+DEF
+GHI
