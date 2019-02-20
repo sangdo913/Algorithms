@@ -1,2 +1,2 @@
-7
-0 3 4 3
+abracadabra
+10
