@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include"BOJ16964.h"
+#include"BOJ1002.h"
 
 using namespace std;
 
