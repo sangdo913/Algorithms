@@ -465,6 +465,7 @@
     <ClInclude Include="SuJung.h" />
     <ClInclude Include="SupervisorCCTV.h" />
     <ClInclude Include="SUSHI.h" />
+    <ClInclude Include="SWEA1244.h" />
     <ClInclude Include="SWEA3421.h" />
     <ClInclude Include="SWEA3813.h" />
     <ClInclude Include="SWEA3814.h" />
@@ -490,6 +491,7 @@
     <ClInclude Include="SWEA5789.h" />
     <ClInclude Include="SWEA5948.h" />
     <ClInclude Include="SWEA5949.h" />
+    <ClInclude Include="SWEA6959.h" />
     <ClInclude Include="SWExpert1_1.h" />
     <ClInclude Include="SWExpert1_2.h" />
     <ClInclude Include="SWExpert5162.h" />

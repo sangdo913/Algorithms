@@ -1,8 +1,8 @@
 #include<iostream>
-#include "BOJ16918.h"
+#include "SWEA1244.h"
 using namespace std;
 
 int main() {
-	Do();
+	ain();
 	return 0;
 }
