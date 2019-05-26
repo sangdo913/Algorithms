@@ -1,3 +1,10 @@
 ﻿  Test.cpp
-e:\college\algorithms\studyalone\sweabpractice\test.cpp(12): error C3892: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator []': const인 변수에 할당할 수 없습니다.
-  e:\college\algorithms\studyalone\sweabpractice\test.cpp(18): note: 컴파일 중인 함수 템플릿 인스턴스화 'auto main::<lambda_5bd255bbbdfbb8adc755d51276f13d2d>::operator ()<std::string,std::string>(std::string,std::string) const'에 대한 참조를 확인하십시오.
+e:\college\algorithms\studyalone\sweabpractice\test.cpp(38): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+e:\college\algorithms\studyalone\sweabpractice\test.cpp(44): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+e:\college\algorithms\studyalone\sweabpractice\test.cpp(45): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+e:\college\algorithms\studyalone\sweabpractice\test.cpp(51): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 'scanf' 선언을 참조하십시오.
+  SWEABPractice.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\SWEABPractice.exe

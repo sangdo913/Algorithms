@@ -87,7 +87,6 @@ int ain() {
 		res = cnt < res ? cnt : res;
 
 		bit = (temp + 1) | (((~temp & -~temp) - 1) >> (getZero(bit) + 1));
-		
 	}
 
 	cout << (res == 0x3f3f3f3f ? -1 :res);

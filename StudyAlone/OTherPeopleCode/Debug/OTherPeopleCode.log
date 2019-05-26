@@ -1,3 +1,4 @@
-﻿  소스.cpp
+﻿  oper.cpp
+  소스.cpp
 e:\college\algorithms\studyalone\otherpeoplecode\소스.cpp(66): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   OTherPeopleCode.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\OTherPeopleCode.exe
