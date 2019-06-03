@@ -1,7 +1,10 @@
-﻿  userSolution.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 중간 디렉터리(Release\)에 다른 프로젝트(20190525B형.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  mysolution.cpp
+  Problem1.cpp
+e:\college\algorithms\studyalone\20190525b형\problem1.cpp(235): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
-  3 of 13 functions (23.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  5 of 13 functions (38.5%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  20190525B형.vcxproj -> E:\college\Algorithms\StudyAlone\Release\20190525B형.exe
+  20190525B형.vcxproj -> E:\college\Algorithms\StudyAlone\Release\FindError.exe
