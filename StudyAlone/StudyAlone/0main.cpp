@@ -1,1 +1,1 @@
-#include "boj17136.h"
+#include "BOJ1764.h"
