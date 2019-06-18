@@ -1,79 +1,161 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<cstring>
+#include <stdio.h>
+#define max_key 500007
+#define max_data 500001
 
-using namespace std;
+typedef struct _hash {
+	char name[21];
+}HASH;
 
-vector<int> info[2];
-vector<bool> check;
-vector<int> sorted[2];
+typedef struct _heap {
+	HASH hData[max_data];
+	int numOfData;
+}Heap;
 
-struct xcmp {
-	bool operator()(int i1, int i2) {
-		if (info[0][i1] == info[0][i2]) {
-			return info[1][i1] < info[1][i2];
-		}
 
-		return info[0][i1] < info[0][i2];
-	}
-};
+HASH hb[max_key];
+Heap h;
 
-struct ycmp {
-	bool operator()(int i1, int i2) {
-		if (info[1][i1] == info[1][i2]) {
-			return info[0][i1] < info[0][i2];
-		}
+// 힙 관련 코드
+int getChildPriority(Heap *h, int idx);
 
-		return info[1][i1] > info[1][i2];
-	}
-};
+// 해싱
+unsigned long Hash(char key[21]);
+void add(char name[21]);
+char *find(char name[21]);
 
+void strCpy(char from[21], char to[21]);
+int strCmp(char str1[21], char str2[21]);
+
+void HInsert(Heap *h, char *str);
+char *HDelete(Heap *h);
 int main() {
-	int t;
-	cin >> t;
+	char buf[21] = { 0, };
+	int N, M;
 
-	for (int tc = 1; tc <= t; tc++) {
-		int n;
-		cin >> n;
-		info[0].clear(); info[1].clear();
-		sorted[0].clear(); sorted[1].clear();
-		check.clear();
-		check.resize(n+1);
+	scanf("%d %d", &N, &M);
+	for (int i = 0; i < N; i++) {
+		scanf("%s", buf);
+		add(buf);
+	}
 
-
-		info[0].push_back(0); info[1].push_back(0);
-
-		for (int i = 0; i < n; i++) {
-			int x, y;
-			cin >> x >> y;
-			info[0].push_back(x);
-			info[1].push_back(y);
-		}
-
-		for (int i = 1; i <= n; i++) {
-			sorted[0].push_back(i);
-			sorted[1].push_back(i);
-		}
-
-		sort(sorted[0].begin(), sorted[0].end(), xcmp());
-		sort(sorted[1].begin(), sorted[1].end(), ycmp());
-
-		int yvalue = 0x7fffffff;
-		int xvalue = -1;
-		cout << '#' << tc;
-
-		for (int i = 0; i < sorted[0].size(); i++) {
-			int y = info[1][sorted[0][i]];
-			int x = info[0][sorted[0][i]];
-
-			if (y >= yvalue || xvalue == x) continue;
-			
-			yvalue = y;
-			xvalue = x;
-			cout << ' ' << sorted[0][i];
-		}
-		cout << '\n';
+	h.numOfData = 0;
+	for (int i = 0; i < M; i++) {
+		scanf("%s", buf);
+		char*ret = find(buf);
+		if (ret == 0)
+			continue;
+		HInsert(&h, ret);
+	}
+	printf("%d\n", h.numOfData);
+	while (h.numOfData > 0) {
+		char *ret = HDelete(&h);
+		//printf("%s\n", ret);
 	}
 	return 0;
+}
+
+// 힙 관련 코드
+void HInsert(Heap *h, char *str) {
+	int idx = h->numOfData + 1;
+
+	while (idx != 0) {
+		int pIdx = idx / 2;
+		if (strCmp(h->hData[pIdx].name, str) > 0) { // 자식이 더 작은경우
+			strCpy(h->hData[pIdx].name, h->hData[idx].name);
+			idx = pIdx;
+		}
+		else
+			break;
+	}
+	strCpy(str, h->hData[idx].name);
+	h->numOfData += 1;
+}
+char* HDelete(Heap *h) {
+	char retData[21];
+	strCpy(h->hData[1].name, retData);
+	HASH lastData = h->hData[h->numOfData];
+
+	int parent = 1;
+	int child = 0;
+
+	while (child = getChildPriority(h, parent)) {
+		if (strCmp(lastData.name, h->hData[child].name) <= 0) { // 자식이 작은경우
+			break;
+		} //position changed
+			strCpy(h->hData[child].name, h->hData[parent].name);
+			parent = child;
+	}
+	h->hData[parent] = lastData;
+	h->numOfData -= 1;
+	printf("%s\n", retData);
+	return retData;
+}
+int getChildPriority(Heap *h, int idx) {
+	if (idx * 2 > h->numOfData) // 인덱스 벗어난 경우
+		return 0;
+	else if (idx * 2 == h->numOfData) // 왼쪽 자식만 있는 경우
+		return idx * 2;
+	else {
+		int LIdx = idx * 2;
+		int RIdx = idx * 2 + 1;
+		int num = strCmp(h->hData[LIdx].name, h->hData[RIdx].name);
+		if (num > 0) {
+			return RIdx;
+		}
+		else {
+			return LIdx;
+		}
+
+	}
+}
+
+unsigned long Hash(char key[21]) {
+	unsigned long hash = 5381;
+
+	int c;
+
+	while (c = *key++) {
+		hash = (((hash << 5) + hash) + c) % max_key;
+	}
+	return hash % max_key;
+}
+void add(char name[21]) {
+
+	unsigned long h = Hash(name);
+	while (hb[h].name[0] != 0) {
+		if (strCmp(name, hb[h].name) == 0)
+			break;
+		h = (h + 1) % max_key;
+	}
+	strCpy(name, hb[h].name);
+}
+char *find(char name[21]) {
+	unsigned long h = Hash(name);
+
+	int c = max_key;
+	while (hb[h].name[0] != 0 && c--) {
+		if (strCmp(hb[h].name, name) == 0) {
+			return hb[h].name;
+		}
+		h = (h + 1) % max_key;
+	}
+	return 0;
+}
+void strCpy(char from[21], char to[21]) {
+	while (*from != '\0') {
+		*to = *from;
+		*to++;
+		*from++;
+	}
+	*to = '\0';
+}
+//changed
+int strCmp(char str1[21], char str2[21]) {
+	int i;
+	for (i = 0; str1[i] != 0; i++) {
+		if (str1[i] != str2[i]) {
+			return str1[i] - str2[i];
+		}
+	}
+	return str1[i] - str2[i];
 }

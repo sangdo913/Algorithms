@@ -1,25 +1,35 @@
 #include<iostream>
+#include<set>
 
 using namespace std;
 
-enum dir {W= 1, N = 2, E= 4, S = 8};
-
 int map[50][50];
-int dr[4] = {-1,1,0,0};
-int dc[4] = {0,0,-1,1};
+int dr[] = {0,-1,0,1};
+int dc[] = {-1,0,1,0};
 int n, m;
-
-int conv[4] = {N, S, W, E};
-
 int visit[50][50];
 int rnum = 1;
 
-int rs[500];
+int rs[2501],que[5000][2] ;
 
 int MAX(int i1, int i2){return i1 > i2 ? i1 : i2;}
+#include<cstdlib>
+#include<ctime>
+void test() {
+	srand(time(0));
+	multiset<int> se;
+
+	int t = 100;
+	while (t--) {
+		se.insert(1);
+	}
+	for (auto i = se.begin(); i != se.end(); ++i) {
+		cout << *i <<' ';
+	}
+}
 
 int bfs(int r, int c){
-    int que[300][2], fr, re;
+    int fr, re;
     fr = re= 0;
 
     que[re][0] = r;
@@ -33,7 +43,7 @@ int bfs(int r, int c){
         res++;
 
         for(int d = 0; d < 4; d++){
-            if(conv[d] & map[now[0]][now[1]]) continue;
+            if((1<<d)& map[now[0]][now[1]]) continue;
             
             int next[2] = {now[0] + dr[d], now[1] + dc[d]};
 
@@ -47,48 +57,47 @@ int bfs(int r, int c){
     return res;
 }
 
-int BOJ2234(){
-    cin >> n >> m;
+int main(){
+    //cin >> n >> m;
 
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n ; j++){
-            cin >> map[i][j];
-        }
-    }
+    //for(int i = 0; i < m; i++){
+    //    for(int j = 0; j < n ; j++){
+    //        cin >> map[i][j];
+    //    }
+    //}
 
-    int res[3] = {};
+    //int res[3] = {};
 
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n ; j++){
-            if(visit[i][j]) continue;
-            
-            res[0]++;
-            rs[rnum] = bfs(i,j);
-            res[1] = MAX(res[1], rs[rnum]);
-            rnum++;
-        }
-    }
+    //for(int i = 0; i < m; i++){
+    //    for(int j = 0; j < n ; j++){
+    //        if(visit[i][j]) continue;
+    //        
+    //        res[0]++;
+    //        rs[rnum] = bfs(i,j);
+    //        res[1] = MAX(res[1], rs[rnum]);
+    //        rnum++;
+    //    }
+    //}
 
-    for(int i =0; i < m; i++){
-        for(int j =0; j < n;j ++){
-            for(int d = 0; d < 4; d++){
-                if(map[i][j] & conv[d]){
-                    int next[2] = {i+dr[d], j + dc[d]};
-                    if(next[0] < 0 || next[1] < 0 || next[0] > n-1 ||next[1] > m-1 ) continue;
-                    int r1 = visit[i][j];
-                    int r2 = visit[next[0]][next[1]];
-                    
-                    if(r1 == r2) continue;
+    //for(int i =0; i < m; i++){
+    //    for(int j =0; j < n;j ++){
+    //        for(int d = 0; d < 4; d++){
+    //            if(map[i][j] & (1<<d)){
+    //                int next[2] = {i+dr[d], j + dc[d]};
+    //                if(next[0] < 0 || next[1] < 0 || next[0] > m-1 ||next[1] > n-1 ) continue;
+    //                int r1 = visit[i][j];
+    //                int r2 = visit[next[0]][next[1]];
+    //                
+    //                if(r1 == r2) continue;
 
-                    if(rs[visit[i][j] == rs[visit[next[0]][next[1]]]]) continue;
+    //                res[2] = MAX(res[2], rs[visit[i][j]] + rs[visit[next[0]][next[1]]]);
+    //            }
+    //        }
+    //    }
+    //}
 
-                    res[2] = MAX(res[2], rs[visit[i][j]] + rs[visit[next[0]][next[1]]]);
-                }
-            }
-        }
-    }
+    //cout << res[0] << '\n' << res[1] << '\n' << res[2] << '\n';
 
-    cout << res[0] << '\n' << res[1] << '\n' << res[2] << '\n';
-
+	test();
     return 0;
 }

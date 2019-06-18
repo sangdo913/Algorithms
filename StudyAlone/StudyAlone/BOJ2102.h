@@ -1,38 +1,47 @@
-//https://www.acmicpc.net/submit/2102/9861136
-// 보석 줍기
-#pragma once
-#include<cstdio>
+#include<iostream>
 
-long long arr[100001];
-long long nums[100001];
-long long temp;
-long long n, m;
+using namespace std;
 
-int BOJ2102() {
-	scanf("%lld %lld\n", &n, &m);
-	long long max = 0;
-	long long res = 0;
-	for (int i = 1; i <= n; i++) {
-		scanf("%lld\n", &nums[i]);
-		arr[i] = arr[i - 1] + nums[i];
+long long input[100001];
+long long sum[100001];
+int n, m;
+long long res;
+#define MAX(x,y) ((x) > (y) ?(x) : (y))
+
+long long getget(int i, int &mm) {
+	if (i == n - m+1) {
+		res = (MAX(res, ((sum[n] - sum[i - 1])/m)));
+		mm = m;
+		return sum[n] - sum[i - 1];
 	}
 	
-	int  cnt = m;
-
-	for (int i = m; i <= n; i++) {
-		long long temp = (arr[i] - arr[i - m]) * 1000 / m;
-		long long nm = (max + nums[i])* 1000 / (cnt+1);
-		if (temp > nm) {
-			max = arr[i] - arr[i - m];
-			cnt = m;
-			res = res < temp ? temp : res;
-		}
-		else {
-			cnt++;
-			max += nums[i];
-			res = res < nm ? nm : res;
-		}
+	int prev;
+	long long s1 = ((sum[i + m - 1] - sum[i - 1])/m);
+	long long temp = getget(i + 1, prev);
+	long long s2 = ((temp + input[i]) / (prev + 1));
+	if (s1 < s2) {
+		res = MAX(s2, res);
+		mm = prev + 1;
+		return temp+input[i];
 	}
-	printf("%lld\n", res);
+	else {
+		res = MAX(s1, res);
+		mm = m;
+		return sum[i + m - 1] - sum[i - 1];
+	}
+}
+
+int main() {
+	cin >> n >> m;
+	
+	for (int i = 1; i <= n; ++i) {
+		cin >> input[i];
+		input[i] *= 1000;
+		sum[i] = sum[i - 1] + input[i];
+	}
+	int prev;
+	getget(1, prev);
+	cout << res;
+
 	return 0;
 }

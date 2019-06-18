@@ -25,6 +25,9 @@
     <Filter Include="헤더 파일\Groom">
       <UniqueIdentifier>{2335da53-b95f-4b83-b80c-9f23bb3444a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\AOJ">
+      <UniqueIdentifier>{84214573-558d-40e4-aa62-c7c259e6f8fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -1159,6 +1162,24 @@
     </ClInclude>
     <ClInclude Include="BOJ17085.h">
       <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ2234.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ10538.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ11657.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ15630.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="MATCHORDER.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="LUNCHBOX.h">
+      <Filter>헤더 파일\AOJ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

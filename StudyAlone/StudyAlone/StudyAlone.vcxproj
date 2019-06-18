@@ -161,8 +161,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
+    <ClInclude Include="BOJ10538.h" />
     <ClInclude Include="2048.h" />
     <ClInclude Include="BOJ10986.h" />
+    <ClInclude Include="BOJ11657.h" />
     <ClInclude Include="BOJ12851.h" />
     <ClInclude Include="BOJ12869.h" />
     <ClInclude Include="BOJ12871.h" />
@@ -179,6 +181,7 @@
     <ClInclude Include="BOJ14395.h" />
     <ClInclude Include="BOJ14442.h" />
     <ClInclude Include="BOJ14891.h" />
+    <ClInclude Include="BOJ15630.h" />
     <ClInclude Include="BOJ15660.h" />
     <ClInclude Include="BOJ15661.h" />
     <ClInclude Include="BOJ15662.h" />
@@ -202,6 +205,7 @@
     <ClInclude Include="BOJ2151.h" />
     <ClInclude Include="BOJ2210.h" />
     <ClInclude Include="BOJ2217.h" />
+    <ClInclude Include="BOJ2234.h" />
     <ClInclude Include="BOJ2251.h" />
     <ClInclude Include="BOJ2422.h" />
     <ClInclude Include="BOJ2618.h" />
@@ -406,6 +410,7 @@
     <ClInclude Include="Line1.h" />
     <ClInclude Include="LineDivide.h" />
     <ClInclude Include="LIS.h" />
+    <ClInclude Include="LUNCHBOX.h" />
     <ClInclude Include="makeBiggestNum.h" />
     <ClInclude Include="MakeBiggestNumber1.h" />
     <ClInclude Include="MakeBridge.h" />
@@ -413,6 +418,7 @@
     <ClInclude Include="ManageClub.h" />
     <ClInclude Include="ManagerThinking.h" />
     <ClInclude Include="ManagerWorry.h" />
+    <ClInclude Include="MATCHORDER.h" />
     <ClInclude Include="Maximum_Prize.h" />
     <ClInclude Include="MaxNumOfDivisor.h" />
     <ClInclude Include="MinCut.h" />
