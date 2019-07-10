@@ -399,6 +399,7 @@
     <ClInclude Include="JUMPGAME.h" />
     <ClInclude Include="JungTriangle.h" />
     <ClInclude Include="Kaing.h" />
+    <ClInclude Include="KAKURO2.h" />
     <ClInclude Include="Kid_Car_Robot.h" />
     <ClInclude Include="KillFly.h" />
     <ClInclude Include="King%27s_Position.h" />
