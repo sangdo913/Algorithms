@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include"ARCTIC.h"
+//#include"ARCTIC.h"
+#include"TICTACTOE.h"
 
 using namespace std;
 

@@ -76,6 +76,12 @@
             "name": "(gdb) Launch 0source in window", "type": "cppdbg", "request": "launch", // // 이 밑 부분 파일경로, 파일명을 맞게 고쳐야합니다! 
             "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe", "args": [], "stopAtEntry": false, "cwd": "${workspaceFolder}", "environment": [], "externalConsole": true, "MIMode": "gdb", 
             // // MinGW 경로가 같은지 확인 ! 
+            "miDebuggerPath": "C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/gdb.exe", "setupCommands": [ { "description": "Enable pretty-printing for gdb", "text": "-enable-pretty-printing", "ignoreFailures": true } ] },
+            
+        { 
+            "name": "(gdb) Launch in window", "type": "cppdbg", "request": "launch", // // 이 밑 부분 파일경로, 파일명을 맞게 고쳐야합니다! 
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", "args": [], "stopAtEntry": false, "cwd": "${workspaceFolder}", "environment": [], "externalConsole": true, "MIMode": "gdb", 
+            // // MinGW 경로가 같은지 확인 ! 
             "miDebuggerPath": "C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/gdb.exe", "setupCommands": [ { "description": "Enable pretty-printing for gdb", "text": "-enable-pretty-printing", "ignoreFailures": true } ] }
 
 
