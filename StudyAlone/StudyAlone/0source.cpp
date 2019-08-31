@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 //#include"ARCTIC.h"
-#include"TICTACTOE.h"
+#include"BOJ17143.h"
 
 using namespace std;
 

@@ -45,7 +45,6 @@ bool _verify() {
       }
    }
    return true;
-
 }
 
 int main() {
@@ -61,13 +60,12 @@ int main() {
    init_memory(atbl, memory);
    srand(time(0));
    int count = 0;
+   int loop = 0;
 
    int checksum = 399999000;
    while (unit_total != 400000000) {
+      loop++;
       int unit = rand() % 4;
-      if(unit_total > checksum){
-         int debug = 1;
-      }
       char* ptr = alloc_memory(atbl, unit_size[unit]);
 
       if (ptr != NULL) {
@@ -89,16 +87,18 @@ int main() {
          free_memory(atbl, unit_ptr[unit][index]);
          unit_ptr[unit][index] = NULL;
          unit_total -= unit_size[unit];
+         count++;
       }
    }
 
-   int exectime = (clock()-start) / (CLOCKS_PER_SEC/1000);
-   long long SCORE = alloc_total - exectime*10000;
+   long long exectime = ((long long)clock()-start) / (CLOCKS_PER_SEC/1000);
+   long long SCORE = alloc_total - exectime*100000LL;
    if (_verify() == false) 
        SCORE = 0;
 
    printf("%lld\n", SCORE);
    printf("time : %d\n", exectime);
+   printf("loop : %d\ncount : %d\n",loop, count);
    
 
    return 0;

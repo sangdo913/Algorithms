@@ -37,7 +37,7 @@
         //C++ 컴파일
         {
             "label": "save and compile for C++ (0source)",
-            "command": "g++ ${workspaceRoot}/StudyAlone/StudyAlone/0source.cpp -g -o ${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",
+            "command": "g++ -std=c++17 ${workspaceRoot}/StudyAlone/StudyAlone/0source.cpp -g -o ${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
