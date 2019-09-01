@@ -1,5 +1,4 @@
 //https://www.acmicpc.net/problem/11266
-#pragma once
 #include<cstdio>
 #include<cstring>
 #include<vector>
@@ -15,13 +14,14 @@ int getCut(int idx, int p) {
 	int o = order++;
 	int child = 0;
 	visit[idx] = o;
+	int low = o;
 
 	for (int i = 0; i < adj[idx].size(); i++) {
 		int next = adj[idx][i];
 		if (next == p) continue;
 
 		if (visit[next]) {
-			visit[idx] = visit[next] < visit[idx] ? visit[next] : visit[idx];
+			low = low < visit[next] ? low : visit[next];
 		}
 		else {
 			child++;
@@ -29,17 +29,19 @@ int getCut(int idx, int p) {
 			if (p && r >= o) {
 				res[idx] = true;
 			}
-			visit[idx] = r > visit[idx] ? visit[idx] : r;
+			low = r > low ? low : r;
 		}
 	}
 
 	if (!p && child > 1) res[idx] = true;
+	visit[idx] = low < visit[idx] ? low : visit[idx]; 
 
 	return visit[idx];
 }
 
-int BOJ11266() {
+int ain() {
 	int n, m;
+
 	scanf("%d %d\n", &n, &m);
 
 	for (int i = 0; i < m; i++) {

@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 //#include"ARCTIC.h"
-#include"BOJ17143.h"
+#include"BOJ11266.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main()
 	//freopen("C:\\Users\\SD\\Desktop\\Git\\Algorithms\\StudyAlone\\StudyAlone\\0Text.txt", "r", stdin); //window 10
 	freopen("0Text.txt", "r", stdin); 
 
-	Do();
+	ain();
 
 	return 0;
 }
