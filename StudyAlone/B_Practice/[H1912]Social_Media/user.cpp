@@ -85,6 +85,7 @@ void getFeed(int uID, int timestamp, int pIDList[])
     ts = timestamp;
     
     int rlen = 0;
+
     for(int i = timestamp/1000; i>=0 && !(timestamp/1000 - i > 1 && rlen > 10); --i){
         for(int j = 0; j < plen[i]; ++j){
             int pid = allposts[i][j];
