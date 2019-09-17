@@ -160,19 +160,27 @@ static int run(int Ans, int sample1)
 
 	return Ans;
 }
+#include<stdlib.h>
+#include<time.h>
 
 int main()
 {
+
 	setbuf(stdout, NULL);
 	freopen("0Text.txt", "r", stdin);
 
 	int T, Ans, sample_1;
+
 	scanf("%d %d %d", &T, &Ans, &sample_1);
 
+	clock_t st,ed;
+	st = clock();
 	for (int tc = 1; tc <= T; tc++) {
 		printf("#%d %d\n", tc, run(Ans, sample_1));
 		sample_1 = 0;
 	}
+	ed = clock();
+	printf("%lf\n", (double)(ed-st) / CLOCKS_PER_SEC);
 
 	return 0;
 }
