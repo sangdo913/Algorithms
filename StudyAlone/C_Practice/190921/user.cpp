@@ -42,7 +42,7 @@ int getValue(int a[5]){
     }
 }
 
-int test(const char *A[1000000][5], const char *B[1000000][5]){
+int test( char *A[1000000][5],  char *B[1000000][5]){
     for(int i  = '1'; i <= '5'; ++i) conv[i] = i - '1';
 
     plus[0] = 1;
