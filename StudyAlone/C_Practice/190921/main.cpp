@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<ctime>
-//#include"user.cpp"
+#include"user.cpp"
 
 /*
 문제
@@ -47,7 +47,7 @@ A와 B의 승리를 결정지을 수 있는 경우의 수는 몇 개인지 출�
 또한, 최대한 SCORE가 작은 코드를 작성하라.
 */
 
-const char * const card[25]= {
+ char * const card[25]= {
     "11","12","13", "14","15",
     "21","22","23","24","25",
     "31","32","33","34","35",
@@ -55,8 +55,8 @@ const char * const card[25]= {
     "51", "52", "53", "54", "55"
 };
 
-const char * A[1000000][5], *B[1000000][5];
-extern int test(const char *A[1000000][5], const char *B[1000000][5]);
+char * A[1000000][5], *B[1000000][5];
+extern int test( char *A[1000000][5],  char *B[1000000][5]);
 
 int main(){
     srand(5);

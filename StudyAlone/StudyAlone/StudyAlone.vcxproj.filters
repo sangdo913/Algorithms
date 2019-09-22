@@ -28,6 +28,9 @@
     <Filter Include="헤더 파일\AOJ">
       <UniqueIdentifier>{84214573-558d-40e4-aa62-c7c259e6f8fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\ALGOSPOT">
+      <UniqueIdentifier>{18cf3e3e-5871-4b6d-83aa-8581f43fcc9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -1195,6 +1198,9 @@
     </ClInclude>
     <ClInclude Include="KAKURO2.h">
       <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BLOCKGAME2.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
