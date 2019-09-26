@@ -1202,6 +1202,12 @@
     <ClInclude Include="BLOCKGAME2.h">
       <Filter>헤더 파일\ALGOSPOT</Filter>
     </ClInclude>
+    <ClInclude Include="ALLERGY.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\KAKURO2.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

@@ -34,7 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -162,6 +162,8 @@
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="ALERGY.h" />
+    <ClInclude Include="ALLERGY.h" />
+    <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="BLOCKGAME2.h" />
     <ClInclude Include="BOARDCOVER2.h" />
     <ClInclude Include="BOJ10538.h" />
