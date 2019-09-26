@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FindError", "20190525B형\2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C1906", "C1906\C1906.vcxproj", "{0A24E59B-C876-4223-ADAD-38918FA34C9B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BATTLESHIP", "BPractice\BATTLESHIP\BATTLESHIP\BATTLESHIP.vcxproj", "{7C8591A4-CDBE-40E2-864B-509A8149E9D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{0A24E59B-C876-4223-ADAD-38918FA34C9B}.Release|x64.Build.0 = Release|x64
 		{0A24E59B-C876-4223-ADAD-38918FA34C9B}.Release|x86.ActiveCfg = Release|Win32
 		{0A24E59B-C876-4223-ADAD-38918FA34C9B}.Release|x86.Build.0 = Release|Win32
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Debug|x64.ActiveCfg = Debug|x64
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Debug|x64.Build.0 = Debug|x64
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Debug|x86.Build.0 = Debug|Win32
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Release|x64.ActiveCfg = Release|x64
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Release|x64.Build.0 = Release|x64
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Release|x86.ActiveCfg = Release|Win32
+		{7C8591A4-CDBE-40E2-864B-509A8149E9D2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
