@@ -163,6 +163,7 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="ALERGY.h" />
     <ClInclude Include="ALLERGY.h" />
+    <ClInclude Include="AOJ\FENCE.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="BLOCKGAME2.h" />
     <ClInclude Include="BOARDCOVER2.h" />
