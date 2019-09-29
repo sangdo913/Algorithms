@@ -7,6 +7,8 @@ int n,m,k;
 int dr[5] = {0, -1,1,0,0 };
 int dc[5] = {0, 0,0,1,-1 };
 int conv[5] = { 0,2,1,4,3 };
+int mod[5];
+
 struct SHARK {
 	int s,d,z;
 	bool live;
@@ -31,8 +33,22 @@ bool isout(int r, int c) {
 	return r < 0 || c < 0 || r == n || c == m;
 }
 
-int ain() {
+void move(int &r, int &c, int cnt, int &d){
+	while(cnt--){
+		int nr = r + dr[d], nc = c + dc[d];
+		if(isout(nr,nc)){
+			d = conv[d];
+			nr = r + dr[d];
+			nc = c + dc[d];
+		}
+		r = nr, c = nc;
+	}
+}
+
+int Do() {
 	cin >> n >> m >> k;
+	mod[1] = mod[2] = 2*n-2;
+	mod[3] = mod[4] = 2*m-2;
 	
 	for (int i = 1; i <= k; ++i) {
 		int r, c, s, d, z;
@@ -59,24 +75,20 @@ int ain() {
 
 			int sid = arr[king%2][nr][nc];
 			arr[king % 2][nr][nc] = 0;
+			int d = sharks[sid].d;
 
-			if (sharks[sid].live) {
+			if (sharks[sid].live){
 				int mcnt = sharks[sid].s;
-
-				while (mcnt--) {
-					int nnr = nr + dr[sharks[sid].d];
-					int nnc = nc + dc[sharks[sid].d];
-
-					if (isout(nnr, nnc)) {
-						sharks[sid].d = conv[sharks[sid].d];
-						nnr = nr + dr[sharks[sid].d];
-						nnc = nc + dc[sharks[sid].d];
-					}
-					nr = nnr, nc = nnc;
+				if(sharks[sid].s >= mod[d]){
+					move(nr,nc,mod[d], sharks[sid].d);
+					mcnt -= mod[d];
 				}
 
-				
+				mcnt = mcnt%mod[d];
+				move(nr,nc, mcnt, sharks[sid].d);
+
 				int si2 = arr[(king + 1) % 2][nr][nc];
+				
 				if (si2) {
 					if (sharks[sid].z > sharks[si2].z) {
 						sharks[si2].live = false;

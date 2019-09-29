@@ -67,7 +67,7 @@ char winner(int depth, char turn) {
 	return ret;
 }
 
-int TICTACTOE() {
+int Do() {
 	int t;
 	scanf("%d\n", &t);
 	
@@ -78,10 +78,17 @@ int TICTACTOE() {
 
 	loser['o'] = 'x';
 	loser['x'] = 'o';
+	int depth = 0;
 
 	for (int tc = 1; tc <= t; tc++) {
 		for (int i = 0; i < 3; i++) {
 			scanf("%s\n", map[i]);
+		}
+
+		for(int i = 0; i < 3; ++i){
+			for(int j = 0; j <3; ++j){
+				depth += map[i][j] != '.';
+			}
 		}
 
 		int cnt = 0;
@@ -90,7 +97,7 @@ int TICTACTOE() {
 				cnt += map[i][j] == '.';
 			}
 		}
-		char res = winner(0, cnt & 1 ? 'x' : 'o');
+		char res = winner(depth, cnt & 1 ? 'x' : 'o');
 		if (res == 0) printf("TIE\n");
 		else {
 			printf("%c\n", res);

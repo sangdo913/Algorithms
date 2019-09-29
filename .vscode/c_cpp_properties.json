@@ -68,7 +68,8 @@
             "name": "Win32",
             "includePath": [
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "${workspaceRoot}\\StudyAlone\\StudyAlone"
             ],
             "defines": [
                 "_DEBUG",
@@ -79,7 +80,8 @@
             "browse": {
                 "path": [
                     "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
-                    "${workspaceRoot}"
+                    "${workspaceRoot}/*",
+                    "${workspaceRoot}\\StudyAlone\\StudyAlone"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

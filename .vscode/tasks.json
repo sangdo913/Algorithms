@@ -36,8 +36,8 @@
 
         //C++ 컴파일
         {
-            "label": "save and compile for C++ (0/source)",
-            "command": "g++ ${workspaceRoot}/StudyAlone/StudyAlone/0source.cpp -g -o ${workspaceRoot}/StudyAlone/StudyAlone/0source",
+            "label": "save and compile for C++ (0source)",
+            "command": "g++ -std=c++17 ${workspaceRoot}/StudyAlone/StudyAlone/0source.cpp -g -o ${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
@@ -94,7 +94,7 @@
         // 바이너리 실행
         {
             "label": "execute",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",// < \"${fileDirname}/0Text.txt\"",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",// < \"${fileDirname}/0Text.txt\"",
             "group": "test",
             "args": [
                
@@ -104,6 +104,14 @@
             "label": "execute 0 source",
             "command": 
                "${workspaceRoot}/StudyAlone/StudyAlone/0source",// < \"${fileDirname}/0Text.txt\"" ,
+            "group": "test",
+            "args": [
+            ]
+        }, // in window
+        {
+            "label": "execute 0 source in window",
+            "command": 
+               "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",// < \"${fileDirname}/0Text.txt\"" ,
             "group": "test",
             "args": [
             ]
