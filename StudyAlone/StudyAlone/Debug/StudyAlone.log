@@ -1,16 +1,2 @@
 ﻿  0main.cpp
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(43): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(44): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(46): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(47): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(59): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(60): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(61): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(62): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(63): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(80): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(81): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(90): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe
