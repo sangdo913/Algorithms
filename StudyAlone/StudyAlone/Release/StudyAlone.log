@@ -1,8 +1,20 @@
 ﻿  0main.cpp
-e:\college\algorithms\studyalone\studyalone\allergy.h(29): warning C4002: 'mmin' 매크로의 실제 매개 변수가 너무 많습니다.
-e:\college\algorithms\studyalone\studyalone\allergy.h(44): warning C4101: 'num' :참조되지 않은 지역 변수입니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(18): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(43): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(44): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(46): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(47): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(59): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(60): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(61): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(62): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(63): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(78): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(79): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\aoj\fanmeeting.h(88): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   코드를 생성하고 있습니다.
-  1 of 244 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  1 of 204 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
