@@ -48,6 +48,9 @@
     <ClCompile Include="0main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BPractice\Git.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SWExpert1_1.h">
