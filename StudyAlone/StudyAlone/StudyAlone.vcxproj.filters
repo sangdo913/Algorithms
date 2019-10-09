@@ -1223,6 +1223,15 @@
     <ClInclude Include="AOJ\CABADATRIP.h">
       <Filter>헤더 파일\ALGOSPOT</Filter>
     </ClInclude>
+    <ClInclude Include="AOJ\WITHDRAWL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\ROOTS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\LOAN.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
