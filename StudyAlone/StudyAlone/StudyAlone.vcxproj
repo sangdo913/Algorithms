@@ -167,6 +167,7 @@
     <ClInclude Include="AOJ\CABADATRIP.h" />
     <ClInclude Include="AOJ\FANMEETING.h" />
     <ClInclude Include="AOJ\FENCE.h" />
+    <ClInclude Include="AOJ\FOSSIL.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="AOJ\LOAN.h" />
     <ClInclude Include="AOJ\RATIO.h" />
