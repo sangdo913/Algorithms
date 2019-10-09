@@ -169,6 +169,7 @@
     <ClInclude Include="AOJ\FENCE.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="AOJ\LOAN.h" />
+    <ClInclude Include="AOJ\RATIO.h" />
     <ClInclude Include="AOJ\ROOTS.h" />
     <ClInclude Include="AOJ\WITHDRAWL.h" />
     <ClInclude Include="BLOCKGAME2.h" />

@@ -1,1 +1,1 @@
-#include"AOJ/LOAN.h"
+#include"AOJ/RATIO.h"
