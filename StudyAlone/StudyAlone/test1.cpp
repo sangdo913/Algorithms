@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(){
-    queue<int> v;
-    v.push(1);
-    cout << v.front() << endl;
+    int debug = 1;
     return 0;
 }
