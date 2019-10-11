@@ -8,7 +8,7 @@
           //C++ 컴파일
           {
             "label": "save and compile for C++",
-            "command": "g++ -std=c++17 ${file} -g -o ${fileDirname}/${fileBasenameNoExtension}",
+            "command": "g++ -std=c++17 ${file} -g -o ${fileDirname}/${fileBasenameNoExtension}.exe",
             "group": "build",
 
             //컴파일시 에러를 편집기에 반영
