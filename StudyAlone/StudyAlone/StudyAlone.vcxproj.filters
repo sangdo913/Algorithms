@@ -48,6 +48,9 @@
     <ClCompile Include="0main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BPractice\Git.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SWExpert1_1.h">
@@ -1207,6 +1210,36 @@
     </ClInclude>
     <ClInclude Include="AOJ\KAKURO2.h">
       <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FENCE.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FANMEETING.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ\BOJ17498.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\CABADATRIP.h">
+      <Filter>헤더 파일\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\WITHDRAWL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\ROOTS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\LOAN.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\RATIO.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FOSSIL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\GRADUATION.h">
+      <Filter>헤더 파일\AOJ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

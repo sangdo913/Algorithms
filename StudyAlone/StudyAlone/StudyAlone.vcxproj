@@ -145,6 +145,7 @@
     <ClCompile Include="0main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="BPractice\Git.cpp" />
     <ClCompile Include="HJ.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -163,7 +164,16 @@
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="ALERGY.h" />
     <ClInclude Include="ALLERGY.h" />
+    <ClInclude Include="AOJ\CABADATRIP.h" />
+    <ClInclude Include="AOJ\FANMEETING.h" />
+    <ClInclude Include="AOJ\FENCE.h" />
+    <ClInclude Include="AOJ\FOSSIL.h" />
+    <ClInclude Include="AOJ\GRADUATION.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
+    <ClInclude Include="AOJ\LOAN.h" />
+    <ClInclude Include="AOJ\RATIO.h" />
+    <ClInclude Include="AOJ\ROOTS.h" />
+    <ClInclude Include="AOJ\WITHDRAWL.h" />
     <ClInclude Include="BLOCKGAME2.h" />
     <ClInclude Include="BOARDCOVER2.h" />
     <ClInclude Include="BOJ10538.h" />
@@ -301,6 +311,7 @@
     <ClInclude Include="BOJ8911.h" />
     <ClInclude Include="BOJ9376.h" />
     <ClInclude Include="BOJNeblCupA.h" />
+    <ClInclude Include="BOJ\BOJ17498.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
