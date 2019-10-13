@@ -1,3 +1,6 @@
+#define LSIZE 1000000
+#define SIZE 1000
+
 struct NODE{
     int id,price, area;
     NODE *l,*r,*p;
@@ -11,7 +14,7 @@ int nn, mm;
 int pakagesize[11];
 int rsv[1001][11];
 
-NODE head[100001];
+NODE head[LSIZE + 1];
 
 bool cmp(NODE* n1, NODE*n2){
     if(n1->price == n2->price){
@@ -48,14 +51,14 @@ void init(int N, int M)
 {
     mm = M;
     nid = 0;
-    for (int i = 1; i <= N; ++i)
+    for (register int i = 1; i <= N; ++i)
     {
         frd[i][0] = i;
         fsize[i] = 1;
-        for(int j = 1; j <=M;++j) rsv[i][j] = 0;
+        for(register int j = 1; j <=M;++j) rsv[i][j] = 0;
     }
     for(int i = 1; i <=M; ++i)pakage[i].r = pakage[i].l=0 , pakagesize[i] = 0, pakage[i].price = 0x3f3f3f3f;
-    for(int i = 0; i < 100000; ++i) head[i].prev = head[i].next = head+i;
+    for(register int i = 0; i < LSIZE; ++i) head[i].prev = head[i].next = head+i;
 }
 
 void befriend(int uid1, int uid2)
@@ -69,16 +72,16 @@ void add(int pid, int area, int price)
 	NODE& nn = nodes[nid++];
     nn.l = nn.r = 0;
     nn.id = pid, nn.price = price, nn.area = area;
-    nn.next = head+pid/10000;
-    nn.prev = head[pid/10000].prev;
+    nn.next = head+pid/SIZE;
+    nn.prev = head[pid/SIZE].prev;
 
-    head[pid/10000].prev = head[pid/10000].prev->next = &nn;
+    head[pid/SIZE].prev = head[pid/SIZE].prev->next = &nn;
     insert(pakage + area, &nn);
     
-    nn.next = head + pid/10000;
-    nn.prev = head[pid/10000].prev;
+    nn.next = head + pid/SIZE;
+    nn.prev = head[pid/SIZE].prev;
 
-    head[pid/10000].prev = head[pid/10000].prev->next = &nn;
+    head[pid/SIZE].prev = head[pid/SIZE].prev->next = &nn;
     pakagesize[area]++;
 }
 
@@ -120,8 +123,8 @@ void del(NODE *p){
 
 void reserve(int uid, int pid)
 {
-    NODE*cursor=  head[pid/10000].next; 
-    while(cursor != head +pid/10000){
+    NODE*cursor=  head[pid/SIZE].next; 
+    while(cursor != head +pid/SIZE){
         if(cursor->id == pid){
             break;
         }
@@ -135,9 +138,9 @@ void reserve(int uid, int pid)
 int recommend(int uid)
 {
     int most[11] = {-1000,};
-    for(int i = 0; i < fsize[uid]; ++i){
+    for(register int i = 0; i < fsize[uid]; ++i){
         int id = frd[uid][i];
-        for(int j = 1; j <= mm; ++j){
+        for(register int j = 1; j <= mm; ++j){
             most[j] += rsv[id][j];
         }
     }
@@ -145,7 +148,7 @@ int recommend(int uid)
     int idx[11] = {0,1,2,3,4,5,6,7,8,9,10};
     for(int i  =0; i <= mm; ++i){
         int temp = idx[i];
-        int j;
+        register int j;
         for(j = i; j&& most[temp] > most[idx[j-1]]; --j){
             idx[j] = idx[j-1];
         }
