@@ -103,7 +103,7 @@
         {
             "label": "execute 0 source",
             "command": 
-               "${workspaceRoot}/StudyAlone/StudyAlone/0source",// < \"${fileDirname}/0Text.txt\"" ,
+               "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",// < \"${fileDirname}/0Text.txt\"" ,
             "group": "test",
             "args": [
             ]

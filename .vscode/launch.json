@@ -61,7 +61,7 @@
             "name": "Launch - 0source",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source"
+            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe"
            // "args": ["--args \"${fileDirname}/0Text.txt\""]
         },
 
@@ -69,7 +69,7 @@
             "name": "Launch",
             "type": "lldb",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}"
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe"
             //"args": ["gdb --args ${fileDirname}/0Text.txt"]
         },
         { 
