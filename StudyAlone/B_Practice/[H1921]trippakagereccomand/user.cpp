@@ -1,5 +1,5 @@
 struct NODE{
-    int id,price;
+    int id,price, area;
     NODE *l,*r,*p;
     NODE *prev,*next;
 }nodes[40000];
@@ -8,7 +8,6 @@ int nid;
 NODE pakage[11];
 int nn, mm;
 
-int parent[1001];
 int pakagesize[11];
 int rsv[1001][11];
 
@@ -22,10 +21,11 @@ bool cmp(NODE* n1, NODE*n2){
 }
 
 int frd[1001][1000];
+int fsize[1001];
 
 void insert(NODE* p, NODE* nn){
     while(true){
-        if(cmp(p,nn)){
+        if(cmp(nn,p)){
             if(!p->l){
                 nn->p = p;
                 p->l = nn;
@@ -44,52 +44,49 @@ void insert(NODE* p, NODE* nn){
     }
 }
 
-int getP(int a){
-    int pa = parent[a];
-    if(pa > 0 ) parent[a] = getP(pa); 
-    else return a;
-}
-
-void join(int a, int b){
-    int pa = getP(a);
-    int pb = getP(b);
-
-    if(parent[pa] > parent[pb]){
-        pa^=pb^=pa^=pb;
-    }
-    for(int i = 0; i < -parent[pb]; ++i){
-        frd[pa][-(parent[pa]--)] = frd[pb][i];
-    }
-    parent[pb] = pa;
-}
-
 void init(int N, int M)
 {
-    nn = M;
+    mm = M;
     nid = 0;
     for (int i = 1; i <= N; ++i)
     {
-        parent[i] = -1, frd[i][0] = i;
+        frd[i][0] = i;
+        fsize[i] = 1;
         for(int j = 1; j <=M;++j) rsv[i][j] = 0;
     }
-    for(int i = 1; i <=M; ++i)pakagesize[i] = 0, pakage[i].price = 0x3f3f3f3f;
+    for(int i = 1; i <=M; ++i)pakage[i].r = pakage[i].l=0 , pakagesize[i] = 0, pakage[i].price = 0x3f3f3f3f;
     for(int i = 0; i < 100000; ++i) head[i].prev = head[i].next = head+i;
 }
 
 void befriend(int uid1, int uid2)
 {
-    join(uid1,uid2);
+    frd[uid1][fsize[uid1]++] = uid2;
+    frd[uid2][fsize[uid2]++] = uid1;
 }
 
 void add(int pid, int area, int price)
 {
 	NODE& nn = nodes[nid++];
+    nn.l = nn.r = 0;
+    nn.id = pid, nn.price = price, nn.area = area;
+    nn.next = head+pid/10000;
+    nn.prev = head[pid/10000].prev;
+
+    head[pid/10000].prev = head[pid/10000].prev->next = &nn;
     insert(pakage + area, &nn);
     
     nn.next = head + pid/10000;
     nn.prev = head[pid/10000].prev;
 
     head[pid/10000].prev = head[pid/10000].prev->next = &nn;
+    pakagesize[area]++;
+}
+
+NODE* getleast(NODE* p){
+    while(p->l){
+        p = p->l;
+    }
+    return p;
 }
 
 void del(NODE *p){
@@ -98,6 +95,14 @@ void del(NODE *p){
         sel = p->r;
         sel = getleast(sel);
         sel->l = p->l;
+        p->l->p = sel;
+
+        if(p->r != sel){
+            sel->p->l = sel->r;
+            if(sel->r)sel->r->p = sel->p;
+            sel->r = p->r;
+            p->r->p = sel;
+        }
     }
     else if(p->l){
         sel = p->l;
@@ -106,8 +111,11 @@ void del(NODE *p){
         sel = p->r;
     }
 
-    if(p->p->l == p) p->l = sel;
-    else p->r = sel;
+    if(sel) sel->p = p->p;
+    if(p->p->l == p) p->p->l = sel;
+    else p->p->r = sel;
+    p->prev->next = p->next;
+    p->next->prev= p->prev;
 }
 
 void reserve(int uid, int pid)
@@ -120,43 +128,48 @@ void reserve(int uid, int pid)
         cursor = cursor->next;
     }
     del(cursor);
+    rsv[uid][cursor->area]++;
+    pakagesize[cursor->area]--;
 }
 
-NODE* getleast(NODE* p){
-    while(p->l){
-        p = p->l;
-    }
-    return p;
-}
 int recommend(int uid)
 {
-    int most[11] = {0,};
-    for(int i = 0; i < -parent[uid]; ++i){
+    int most[11] = {-1000,};
+    for(int i = 0; i < fsize[uid]; ++i){
         int id = frd[uid][i];
         for(int j = 1; j <= mm; ++j){
             most[j] += rsv[id][j];
         }
     }
 
-    int idx[10] = {1,2,3,4,5,6,7,8,9,10};
-    for(int i  =1; i < mm; ++i){
+    int idx[11] = {0,1,2,3,4,5,6,7,8,9,10};
+    for(int i  =0; i <= mm; ++i){
         int temp = idx[i];
         int j;
-        for(j = i; j&& most[temp] < most[idx[j-1]]; --j){
-            most[idx[j]] = most[idx[j-1]];
+        for(j = i; j&& most[temp] > most[idx[j-1]]; --j){
+            idx[j] = idx[j-1];
         }
         idx[j] = temp;
     }
 
-    int ret, price = 0x3f3f3f3f;
-    int mostmost = 0x3f3f3f3f;
-    for(int i = 0; i < mm; ++i){
-        if(pakagesize[idx[i]] == 0) continue;
-        if(most[idx[i]] > mostmost) return ret;
+    int ret= 0x3f3f3f3f, price = 0x3f3f3f3f;
+    int mostmost = -1;
+    for(int i = 0; i <= mm; ++i){
+        if(most[idx[i]] < mostmost) return ret;
+        if(!pakagesize[idx[i]]) continue;
         mostmost = most[idx[i]];
-        NODE *n = getleast(&pakage[idx[i]]);
+        NODE *n = getleast(pakage[idx[i]].l);
 
-        if(price > n->price) price = n->price;
+        if(price > n->price){
+            ret =n->id;
+            price = n->price;
+        }
+        else if(price == n->price) {
+            if(n->id < ret){
+                ret = n->id;
+                price = n->price;
+            }
+        }
     }
 	return -1;
 }

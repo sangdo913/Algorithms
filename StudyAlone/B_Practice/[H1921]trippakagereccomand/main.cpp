@@ -3,6 +3,7 @@
 #endif
 
 #include <stdio.h>
+#include"user.cpp"
 
 extern void init(int N, int M);
 extern void befriend(int uid1, int uid2);
@@ -36,23 +37,28 @@ static bool run()
 		switch(cmd)
 		{
 		case INIT:
+			//printf("INIT\n");
 			scanf("%d %d", &N, &M);
 			init(N, M);
 			okay = true;
 			break;
 		case BEFRIEND:
+			//printf("BEFRIEND\n");
 			scanf("%d %d", &uid1, &uid2);
 			befriend(uid1, uid2);
 			break;
 		case ADD:
+			//printf("ADD\n");
 			scanf("%d %d %d", &pid, &area, &price);
 			add(pid, area, price);
 			break;
 		case RESERVE:
+			//printf("RESERV\n");
 			scanf("%d %d", &uid, &pid);
 			reserve(uid, pid);
 			break;
 		case RECOMMEND:
+			//printf("RECOMMEND\n");
 			scanf("%d %d", &uid, &ans);
 			ret = recommend(uid);
 			if (ret != ans)
@@ -67,7 +73,7 @@ static bool run()
 int main() {
 	int TC, MARK;
 	
-    //freopen("sample_input.txt", "r", stdin);
+    freopen("0Text.txt", "r", stdin);
 
 	setbuf(stdout, NULL);
     scanf("%d %d", &TC, &MARK);
