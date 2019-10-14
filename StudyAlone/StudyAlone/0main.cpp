@@ -1,4 +1,4 @@
-#include"AOJ/GRADUATION.h"
+#include"AOJ/JOSEPHUS.h"
 
 //TEST
 //#include<iostream>
