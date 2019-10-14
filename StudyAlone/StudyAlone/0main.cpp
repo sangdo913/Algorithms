@@ -1,4 +1,4 @@
-#include"AOJ/JOSEPHUS.h"
+#include"AOJ/BRACKETS2.h"
 
 //TEST
 //#include<iostream>
