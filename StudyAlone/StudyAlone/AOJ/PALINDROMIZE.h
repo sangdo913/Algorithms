@@ -17,9 +17,9 @@ void mkkmp(int len) {
 
 		if (str[i] == str[match]) {
 			match++;
-			if (match == len / 2) match = kmp[match - 1];
 		}
 		kmp[i] = match;
+		if (match == len / 2) match = kmp[match - 1];
 	}
 }
 
@@ -30,19 +30,6 @@ int main() {
 		scanf("%s", s1);
 		int len = 0;
 		while (s1[len]) len++;
-
-		bool pelin = true;
-		for (int i = 0; i < len / 2; ++i) {
-			if (s1[i] != s1[len - 1 - i]) {
-				pelin = false;
-				break;
-			}
-		}
-
-		if (pelin) {
-			printf("%d\n", len);
-			continue;
-		}
 
 		for (int i = len - 1; i>=0; --i) s2[len - i - 1] = s1[i];
 
