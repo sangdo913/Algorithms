@@ -1,3 +1,2 @@
-2
-5265 5000
-3578452 5000000
+ababcabababa
+bcabab

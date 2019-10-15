@@ -1,4 +1,4 @@
-#include"AOJ/ITES.h"
+#include"AOJ/NAMING.h"
 
 //TEST
 //#include<iostream>
