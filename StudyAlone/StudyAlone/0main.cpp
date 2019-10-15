@@ -1,4 +1,4 @@
-#include"AOJ/NAMING.h"
+#include"AOJ/PALINDROMIZE.h"
 
 //TEST
 //#include<iostream>
