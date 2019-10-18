@@ -3,7 +3,7 @@
 #endif
 
 #include <stdio.h>
-#include"user.cpp"
+#include"user2.cpp"
 
 extern void init(int N, int M);
 extern void befriend(int uid1, int uid2);
@@ -70,6 +70,8 @@ static bool run()
 	return okay;
 }
 
+#include<stdlib.h>
+#include<time.h>
 int main() {
 	int TC, MARK;
 	
@@ -77,11 +79,13 @@ int main() {
 
 	setbuf(stdout, NULL);
     scanf("%d %d", &TC, &MARK);
+	clock_t st = clock();
 
     for (int testcase = 1; testcase <= TC; ++testcase) {
 		int score = run() ? MARK : 0;
 		printf("#%d %d\n", testcase, score);
     }
+	printf("time %d\n", clock() - st);
 
     return 0;
 }
