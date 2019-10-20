@@ -1,4 +1,4 @@
-#include"AOJ/PALINDROMIZE.h"
+#include"AOJ/JAEHASAFE.h"
 
 //TEST
 //#include<iostream>

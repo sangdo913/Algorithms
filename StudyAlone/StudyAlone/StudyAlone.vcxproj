@@ -171,6 +171,7 @@
     <ClInclude Include="AOJ\FOSSIL.h" />
     <ClInclude Include="AOJ\GRADUATION.h" />
     <ClInclude Include="AOJ\ITES.h" />
+    <ClInclude Include="AOJ\JAEHASAFE.h" />
     <ClInclude Include="AOJ\JOSEPHUS.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="AOJ\LOAN.h" />
