@@ -39,9 +39,6 @@
     <ClCompile Include="HJ.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="InSu_Heap.cpp">
       <Filter>헤더 파일</Filter>
     </ClCompile>
@@ -50,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="BPractice\Git.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>헤더 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1257,6 +1257,9 @@
       <Filter>헤더 파일\AOJ</Filter>
     </ClInclude>
     <ClInclude Include="AOJ\JAEHASAFE.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\HABIT.h">
       <Filter>헤더 파일\AOJ</Filter>
     </ClInclude>
   </ItemGroup>

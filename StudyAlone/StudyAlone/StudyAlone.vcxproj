@@ -170,6 +170,7 @@
     <ClInclude Include="AOJ\FENCE.h" />
     <ClInclude Include="AOJ\FOSSIL.h" />
     <ClInclude Include="AOJ\GRADUATION.h" />
+    <ClInclude Include="AOJ\HABIT.h" />
     <ClInclude Include="AOJ\ITES.h" />
     <ClInclude Include="AOJ\JAEHASAFE.h" />
     <ClInclude Include="AOJ\JOSEPHUS.h" />
