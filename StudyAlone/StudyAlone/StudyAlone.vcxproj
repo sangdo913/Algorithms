@@ -168,6 +168,7 @@
     <ClInclude Include="AOJ\CABADATRIP.h" />
     <ClInclude Include="AOJ\FANMEETING.h" />
     <ClInclude Include="AOJ\FENCE.h" />
+    <ClInclude Include="AOJ\FORTRESS.h" />
     <ClInclude Include="AOJ\FOSSIL.h" />
     <ClInclude Include="AOJ\GRADUATION.h" />
     <ClInclude Include="AOJ\HABIT.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="AOJ\PALINDROMIZE.h" />
     <ClInclude Include="AOJ\RATIO.h" />
     <ClInclude Include="AOJ\ROOTS.h" />
+    <ClInclude Include="AOJ\TRAVERSAL.h" />
     <ClInclude Include="AOJ\WITHDRAWL.h" />
     <ClInclude Include="BLOCKGAME2.h" />
     <ClInclude Include="BOARDCOVER2.h" />
