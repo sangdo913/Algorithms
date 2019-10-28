@@ -1,4 +1,4 @@
-#include"AOJ/FORTRESS.h"
+#include"AOJ/INSERTION.h"
 
 //TEST
 //#include<iostream>

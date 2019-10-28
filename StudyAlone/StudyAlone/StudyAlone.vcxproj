@@ -172,12 +172,14 @@
     <ClInclude Include="AOJ\FOSSIL.h" />
     <ClInclude Include="AOJ\GRADUATION.h" />
     <ClInclude Include="AOJ\HABIT.h" />
+    <ClInclude Include="AOJ\INSERTION.h" />
     <ClInclude Include="AOJ\ITES.h" />
     <ClInclude Include="AOJ\JAEHASAFE.h" />
     <ClInclude Include="AOJ\JOSEPHUS.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="AOJ\LOAN.h" />
     <ClInclude Include="AOJ\NAMING.h" />
+    <ClInclude Include="AOJ\NERD2.h" />
     <ClInclude Include="AOJ\PALINDROMIZE.h" />
     <ClInclude Include="AOJ\RATIO.h" />
     <ClInclude Include="AOJ\ROOTS.h" />
