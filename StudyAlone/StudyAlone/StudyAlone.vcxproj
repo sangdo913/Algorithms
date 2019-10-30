@@ -166,6 +166,7 @@
     <ClInclude Include="ALLERGY.h" />
     <ClInclude Include="AOJ\BRACKETS2.h" />
     <ClInclude Include="AOJ\CABADATRIP.h" />
+    <ClInclude Include="AOJ\FAMILYTREE.h" />
     <ClInclude Include="AOJ\FANMEETING.h" />
     <ClInclude Include="AOJ\FENCE.h" />
     <ClInclude Include="AOJ\FORTRESS.h" />
