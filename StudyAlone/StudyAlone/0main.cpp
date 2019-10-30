@@ -1,4 +1,4 @@
-#include"AOJ/INSERTION.h"
+#include"AOJ/RUNNINGMEDIAN.h"
 
 //TEST
 //#include<iostream>
