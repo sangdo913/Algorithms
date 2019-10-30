@@ -1,4 +1,4 @@
-#include"AOJ/RUNNINGMEDIAN.h"
+#include"AOJ/MORDOR.h"
 
 //TEST
 //#include<iostream>

@@ -178,6 +178,7 @@
     <ClInclude Include="AOJ\JOSEPHUS.h" />
     <ClInclude Include="AOJ\KAKURO2.h" />
     <ClInclude Include="AOJ\LOAN.h" />
+    <ClInclude Include="AOJ\MORDOR.h" />
     <ClInclude Include="AOJ\NAMING.h" />
     <ClInclude Include="AOJ\NERD2.h" />
     <ClInclude Include="AOJ\PALINDROMIZE.h" />
