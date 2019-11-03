@@ -1,4 +1,4 @@
-#include"AOJ/MEASURETIME.h"
+#include"AOJ/EDITORWARS.h"
 
 //TEST
 //#include<iostream>

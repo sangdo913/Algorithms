@@ -1286,6 +1286,9 @@
     <ClInclude Include="AOJ\MEASURETIME.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="AOJ\EDITORWARS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">
