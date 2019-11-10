@@ -63,12 +63,17 @@ void multiply(char res[LEN_RESULT], char op1[LEN_OPERANDS], char op2[LEN_OPERAND
 		}
 	}
 	for (register int i = 0; i < 52; ++i) {
-		register int j = 0;
 		register int si = i * 5;
-		for (j = 0; j < 5; ++j) {
-			res[si + j] = myitoa[llres[i] %  36];
-			llres[i] /= 36;
-		}
+		res[si] = myitoa[llres[i] %  36];
+		llres[i] /= 36;
+		res[si+1] = myitoa[llres[i] %  36];
+		llres[i] /= 36;
+		res[si+2] = myitoa[llres[i] %  36];
+		llres[i] /= 36;
+		res[si+3] = myitoa[llres[i] %  36];
+		llres[i] /= 36;
+		res[si+4] = myitoa[llres[i] %  36];
+		llres[i] /= 36;
 		llres[i + 1] += llres[i];
 		llres[i] = 0;
 	}

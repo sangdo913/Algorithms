@@ -31,6 +31,9 @@
     <Filter Include="헤더 파일\AOJ\ALGOSPOT">
       <UniqueIdentifier>{18cf3e3e-5871-4b6d-83aa-8581f43fcc9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\SOFTECH">
+      <UniqueIdentifier>{2a0cf898-bc8c-4f0c-803e-e26e4d6c2d1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -1288,6 +1291,9 @@
     </ClInclude>
     <ClInclude Include="AOJ\EDITORWARS.h">
       <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SOFTECH\H1918.h">
+      <Filter>헤더 파일\SOFTECH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-#include"AOJ/EDITORWARS.h"
+#include"SOFTECH/H1918.h"
 
 //TEST
 //#include<iostream>
