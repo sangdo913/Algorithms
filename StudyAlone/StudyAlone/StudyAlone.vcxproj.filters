@@ -34,6 +34,9 @@
     <Filter Include="헤더 파일\SOFTECH">
       <UniqueIdentifier>{2a0cf898-bc8c-4f0c-803e-e26e4d6c2d1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\lettcode">
+      <UniqueIdentifier>{f9659e9c-cae7-4530-9488-e3049763fd28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -1294,6 +1297,9 @@
     </ClInclude>
     <ClInclude Include="SOFTECH\H1918.h">
       <Filter>헤더 파일\SOFTECH</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\DungeonGame.h">
+      <Filter>헤더 파일\lettcode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -438,6 +438,7 @@
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="leetcode\DungeonGame.h" />
     <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LikeRussiaFlag.h" />
     <ClInclude Include="Line1.h" />
