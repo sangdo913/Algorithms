@@ -1,4 +1,4 @@
-#include"leetcode/DungeonGame.h"
+#include"AOJ/SOLONG.h"
 
 //TEST
 //#include<iostream>
