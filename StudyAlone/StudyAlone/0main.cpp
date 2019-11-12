@@ -1,4 +1,4 @@
-#include"AOJ/SOLONG.h"
+#include"leetcode/SplitArrayWithSameAverage.h"
 
 //TEST
 //#include<iostream>
