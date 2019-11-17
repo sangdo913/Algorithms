@@ -1,8 +1,5 @@
 ﻿  0main.cpp
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(14): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(54): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(65): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(69): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
-e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(76): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\maxpointsonaline.h(45): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\maxpointsonaline.h(55): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\maxpointsonaline.h(57): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Debug\StudyAlone.exe

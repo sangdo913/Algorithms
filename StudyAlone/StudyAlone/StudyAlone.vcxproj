@@ -440,6 +440,7 @@
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
     <ClInclude Include="leetcode\DungeonGame.h" />
+    <ClInclude Include="leetcode\MaxPointsOnaLine.h" />
     <ClInclude Include="leetcode\SplitArrayWithSameAverage.h" />
     <ClInclude Include="leetcode\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="LiftingLadder.h" />
