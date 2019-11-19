@@ -1,165 +1,153 @@
+//kinssang 님 코드를 보고 작성했습니다.
 #define USER 1000
-#define MAILSIZE 300
 #define SENDQ 10000
 #define WORDS 10
-
+#define TSIZE 5000000
+#define HASHSIZE 100017
+#define THASH 100017
 #define rint register int
 int mailnum[USER];
 
 struct SUBJECTMAIL {
 	int uid;
 	int mid;
-	SUBJECTMAIL *prev, *next;
-	SUBJECTMAIL *p, *n;
 }snodes[50 * SENDQ];
 
-int sid;
-int query;
-int myn;
-#define HASHSIZE 30017
-#define TSIZE 30017
-long long texts[TSIZE];
-int tsize[TSIZE][USER];
+struct TMAIL {
+	int id;
+	int mid;
+	TMAIL *next;
+}tnodes[10 * SENDQ];
 
+int tc;
 SUBJECTMAIL shash[HASHSIZE];
 int myatoi[128];
 int k;
-SUBJECTMAIL mque[USER];
 
-int tids[HASHSIZE][10];
-int mids[HASHSIZE][10];
-int ntid[HASHSIZE];
-int nrid[HASHSIZE];
+int mQ[USER][SENDQ];
+int mdeleted[50 * SENDQ];
+int from[USER];
+int to[USER];
+long long mids[SENDQ][10];
+int nrid[SENDQ];
+int smcheck[HASHSIZE];
+
+TMAIL thash[THASH];
+TMAIL* tlist[SENDQ];
+long long texts[SENDQ];
+int tcheck[THASH];
+int tid;
+int sid;
+int tsize;
 bool ismade;
+int msize;
+long long idx[WORDS];
+int idxcheck[SENDQ];
+int keys[WORDS];
+int query;
+
 void init(int N, int K)
 {
-	rint cnt;
 	if (!ismade) {
+		rint cnt;
+
 		ismade = true;
 		cnt = 1;
 		for (rint i = 'a'; i <= 'z'; ++i) myatoi[i] = cnt++;
 	}
-	for (rint i = 0; i < myn; ++i) {
-		register SUBJECTMAIL* dn = mque[i].n;
-		while (dn != &mque[i]) {
-			rint mid = dn->mid;
-			for (rint j = 0; j < ntid[mid]; ++j) --tsize[tids[mid][j]][i];
-			dn = dn->n;
-		}
+	for (rint i = 0; i < N; ++i) {
 		mailnum[i] = 0;
+		from[i] = to[i] = 0;
 	}
+	for(rint j = 0 ; j < N;++j)
 
-	myn = N;
+	++tc;
+	tid = tsize = sid = msize = 0;
 	k = K;
-	sid = 0;
-	cnt = N;
-	for (rint i = 0; i < cnt; ++i) {
-		mque[i].p = mque[i].n = mque + i;
-	}
-
-	cnt = TSIZE;
-	for (rint i = 0; i < cnt; ++i) {
-		texts[i] = -1;
-	}
-	cnt = HASHSIZE;
-	for (rint j = 0; j < cnt; ++j)shash[j].prev = shash[j].next = &shash[j], shash[j].mid = -1;
 }
-int sendcheck[TSIZE];
-int idx[WORDS];
-int temp[WORDS];
 
 void sendMail(char subject[], int uID, int cnt, int rIDs[])
 {
 	++query;
-
 	rint len = cnt;
-	register char *s = subject; 
+	register char *s = subject;
 	register long long conv;
 	rint convsub = 0;
 	rint words = 0;
-	rint  tlen = 0;
-	rint key;
+	rint textsize = 0;
 	rint rid;
-	register SUBJECTMAIL *dn;
-	for(rint i = 0; s[i]; i+=(bool)s[i]) {
+	rint klen = 0;
+	for (rint i = 0; s[i]; i += (bool)s[i]) {
 		conv = 0;
 		while (s[i] != ' ' && s[i]) {
 			convsub = ((convsub << 5) + s[i]) % HASHSIZE;
 			conv = (conv <<= 5) + myatoi[s[i++]];
 		}
+		rint key = conv % THASH;
+		while (tcheck[key] == tc && texts[thash[key].id] != conv) { key = ++key % THASH; }
 
-		key = conv % TSIZE;
-		while (texts[key] != -1 && texts[key] != conv) key = (++key) % TSIZE;
-
-		if (sendcheck[key] != query) {
-			sendcheck[key] = query;
-			temp[tlen++] = key;
+		if (tcheck[key] != tc) {
+			thash[key].id = tsize;
+			texts[thash[key].id] = conv;
+			tcheck[key] = tc;
+			tlist[tsize++] = 0;
 		}
-
-		idx[words++] = key;
-		texts[key] = conv;
+		rint id = thash[key].id;
+		if (idxcheck[id] != query) {
+			idxcheck[id] = query;
+			keys[klen++] = id;
+		}
+		
+		idx[words++] = conv;
 	}
+	rint mid;
 
-	while (shash[convsub].mid != -1) {
-		if (nrid[convsub] != words) goto FAIL;
+	while (smcheck[convsub] == tc) {
+		mid = shash[convsub].mid;
+		if (nrid[mid] != words) goto FAIL;
 		for (rint i = 0; i < words; ++i) {
-			if (idx[i] != mids[convsub][i]) {
+			if (idx[i] != mids[mid][i]) {
 				goto FAIL;
 			}
 		}
 		break;
 
-		FAIL:
+	FAIL:
 		convsub = ++convsub % HASHSIZE;
 	}
-	if (shash[convsub].mid == -1) {
-		shash[convsub].mid = convsub;
-		nrid[convsub] = words;
+	if (smcheck[convsub] != tc) {
+		smcheck[convsub] = tc;
+		mid = shash[convsub].mid = msize;
+		nrid[mid] = words;
 		for (rint i = 0; i < words; ++i) {
-			mids[convsub][i] = idx[i];
+			mids[mid][i] = idx[i];
 		}
-		ntid[convsub] = tlen;
-		for (rint i = 0; i < tlen; ++i) {
-			tids[convsub][i] = temp[i];
+		for (rint i = 0; i < klen; ++i) {
+			rint id = keys[i];
+			register TMAIL &nn = tnodes[tid++];
+			nn.id = id;
+			nn.mid = msize;
+			nn.next = tlist[id];
+			tlist[id] = &nn;
 		}
+		++msize;
 	}
-	
 
 	for (rint i = 0; i < len; ++i) {
 		rid = rIDs[i];
-		if (mailnum[rid] == k) {
-			dn = mque[rid].n;
-			rint dmid = dn->mid;
+		while (mdeleted[mQ[rid][from[rid]]] == tc) ++from[rid];
 
-			for (rint j = 0; j < ntid[dmid]; ++j) {
-				--tsize[tids[dmid][j]][rid];
-			}
-			dn->prev->next = dn->next;
-			dn->next->prev = dn->prev;
-			dn->p->n = dn->n;
-			dn->n->p = dn->p;
+		if (mailnum[rid] == k) {
+			rint snid = mQ[rid][from[rid]++];
+			mdeleted[snid] = tc;
 			mailnum[rid]--;
 		}
 
 		mailnum[rid]++;
-		register SUBJECTMAIL &nn = snodes[sid++];
-
+		register SUBJECTMAIL &nn = snodes[sid];
+		mQ[rid][to[rid]++] = sid++;
 		nn.uid = rid;
-		nn.prev = shash[convsub].prev;
-		nn.next = &shash[convsub];
-		nn.mid = convsub;
-
-		shash[convsub].prev->next = &nn;
-		shash[convsub].prev = &nn;
-
-		nn.p = mque[rid].p;
-		nn.n = &mque[rid];
-
-		mque[rid].p->n = &nn;
-		mque[rid].p = &nn;
-		for (rint j = 0; j < tlen; ++j) {
-			++tsize[temp[j]][rid];
-		}
+		nn.mid = mid;
 	}
 }
 
@@ -170,54 +158,44 @@ int getCount(int uID)
 
 int deleteMail(int uID, char subject[])
 {
-	rint cnt = 0, key;
+	rint cnt = 0;
 	register long long conv;
 	register char* c = subject;
 	rint convsub = 0;
-	for(rint i = 0; c[i]; i += (bool)c[i]) {
+	for (rint i = 0; c[i]; i += (bool)c[i]) {
 		conv = 0;
 		while (c[i] != ' ' && c[i]) {
 			convsub = ((convsub << 5) + c[i]) % HASHSIZE;
 			conv = (conv << 5) + myatoi[c[i++]];
 		}
-		key = conv % TSIZE;
-		while (texts[key] != -1 && texts[key] != conv) key = ++key % TSIZE;
-		if (texts[key] == -1) return 0;
-		idx[cnt++] = key;
+		idx[cnt++] = conv;
 	}
-	while (shash[convsub].mid != -1) {
-		if (nrid[convsub] != cnt) goto FAIL2;
+	rint mid;
+	while (smcheck[convsub] == tc) {
+		mid = shash[convsub].mid;
+		if (nrid[mid] != cnt) goto FAIL2;
 		for (rint i = 0; i < cnt; ++i) {
-			if (mids[convsub][i] != idx[i]) goto FAIL2;
+			if (mids[mid][i] != idx[i]) goto FAIL2;
 		}
 		break;
-		FAIL2:
+	FAIL2:
 		convsub = ++convsub%HASHSIZE;
 	}
-	if (shash[convsub].mid == -1) return 0;
+	if (smcheck[convsub] != tc) return 0;
 
 	rint res = 0;
-	register SUBJECTMAIL *cursor = shash[convsub].next;
-	register SUBJECTMAIL *dn;
 
-	while (cursor != &shash[convsub]) {
-		if (cursor->uid == uID) {
-			dn = cursor;
-			cursor = cursor->prev;
+	for (rint i = from[uID]; i < to[uID]; ++i) {
+		rint sid = mQ[uID][i];
+		if (mdeleted[sid] == tc) continue;
+		rint nowMid = snodes[sid].mid;
 
-			dn->prev->next = dn->next;
-			dn->next->prev = dn->prev;
-			dn->p->n = dn->n;
-			dn->n->p = dn->p;
+		if (mid == nowMid) {
+			mdeleted[sid] = tc;
 			++res;
 		}
-
-		cursor = cursor->next;
 	}
 	mailnum[uID] -= res;
-	for (rint i = 0; i < ntid[convsub]; ++i) {
-		tsize[tids[convsub][i]][uID] -= res;
-	}
 	return res;
 }
 
@@ -225,11 +203,22 @@ int searchMail(int uID, char text[])
 {
 	register long long conv = 0;
 	register char * t = text;
-	for(rint i = 0; t[i]; ++i) {
+	for (rint i = 0; t[i]; ++i) {
 		conv = ((conv << 5) + myatoi[t[i]]);
 	}
-	rint key = conv % TSIZE;
-	while (texts[key] != -1 && texts[key] != conv) key = ++key % TSIZE;
-	if (key == -1) return 0;
-	return tsize[key][uID];
+	rint key = conv % THASH;
+	while (tcheck[key] == tc && texts[thash[key].id] != conv) key = ++key % THASH;
+
+	rint res = 0;
+	if (tcheck[key] != tc) return 0;
+	register TMAIL* tm = tlist[thash[key].id];
+	while (tm) {
+		for (rint i = from[uID]; i < to[uID]; ++i) {
+			rint sid = mQ[uID][i];
+			if (mdeleted[sid] == tc) continue;
+			if (snodes[sid].mid == tm->mid) ++res;
+		}
+		tm = tm->next;
+	}
+	return res;
 }
