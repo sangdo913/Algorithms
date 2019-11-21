@@ -439,6 +439,8 @@
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="leetcode\1224MaximumEqualFrequency.h" />
+    <ClInclude Include="leetcode\126WordLadderll.h" />
     <ClInclude Include="leetcode\DungeonGame.h" />
     <ClInclude Include="leetcode\MaxPointsOnaLine.h" />
     <ClInclude Include="leetcode\SplitArrayWithSameAverage.h" />
