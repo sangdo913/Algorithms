@@ -30,6 +30,7 @@ public:
 };
 
 int main() {
+	freopen("0Text.txt", "r", stdin);
 	int n, m;
 	cin >> n >> m;
 	vector<vector<int> > vec;

@@ -91,6 +91,7 @@ public:
 };
 
 int main() {
+	freopen("0Text.txt", "r", stdin);
 	int n;
 	vector<string> vec;
 	string s, e;
@@ -98,6 +99,12 @@ int main() {
 	cin >> n;
 	vec.resize(n);
 	for (int i = 0; i < n; ++i) cin >> vec[i];
-	Solution().findLadders(s,e,vec);
+	auto res = Solution().findLadders(s,e,vec);
+	for(int i = 0; i < res.size(); ++i){
+		for(int j = 0; j < res[i].size(); ++j){
+			cout << res[i][j] << ' ';
+		}
+		cout << endl ;
+	}
 	return 0;
 }
