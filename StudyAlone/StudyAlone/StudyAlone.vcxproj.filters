@@ -28,6 +28,15 @@
     <Filter Include="헤더 파일\AOJ">
       <UniqueIdentifier>{84214573-558d-40e4-aa62-c7c259e6f8fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\AOJ\ALGOSPOT">
+      <UniqueIdentifier>{18cf3e3e-5871-4b6d-83aa-8581f43fcc9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\SOFTECH">
+      <UniqueIdentifier>{2a0cf898-bc8c-4f0c-803e-e26e4d6c2d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\lettcode">
+      <UniqueIdentifier>{f9659e9c-cae7-4530-9488-e3049763fd28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
@@ -36,14 +45,17 @@
     <ClCompile Include="HJ.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="InSu_Heap.cpp">
       <Filter>헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="0main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BPractice\Git.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스1.cpp">
+      <Filter>헤더 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1195,6 +1207,117 @@
     </ClInclude>
     <ClInclude Include="KAKURO2.h">
       <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="BLOCKGAME2.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="ALLERGY.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\KAKURO2.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FENCE.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FANMEETING.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="BOJ\BOJ17498.h">
+      <Filter>헤더 파일\BOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\CABADATRIP.h">
+      <Filter>헤더 파일\AOJ\ALGOSPOT</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\WITHDRAWL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\ROOTS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\LOAN.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\RATIO.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FOSSIL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\GRADUATION.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\JOSEPHUS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\BRACKETS2.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\ITES.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\NAMING.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\PALINDROMIZE.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\JAEHASAFE.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\HABIT.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\TRAVERSAL.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FORTRESS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\NERD2.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\INSERTION.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\RUNNINGMEDIAN.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\MORDOR.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\FAMILYTREE.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\MEASURETIME.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\EDITORWARS.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="SOFTECH\H1918.h">
+      <Filter>헤더 파일\SOFTECH</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\DungeonGame.h">
+      <Filter>헤더 파일\lettcode</Filter>
+    </ClInclude>
+    <ClInclude Include="AOJ\SOLONG.h">
+      <Filter>헤더 파일\AOJ</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\SplitArrayWithSameAverage.h">
+      <Filter>헤더 파일\lettcode</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\SubstringWithConcatenationOfAllWords.h">
+      <Filter>헤더 파일\lettcode</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\MaxPointsOnaLine.h">
+      <Filter>헤더 파일\lettcode</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\1224MaximumEqualFrequency.h">
+      <Filter>헤더 파일\lettcode</Filter>
+    </ClInclude>
+    <ClInclude Include="leetcode\126WordLadderll.h">
+      <Filter>헤더 파일\lettcode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

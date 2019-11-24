@@ -32,7 +32,7 @@
     <ProjectGuid>{45AFA599-14F0-436A-88BC-239321ACEF4E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Edaily</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

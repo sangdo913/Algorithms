@@ -1,7 +1,13 @@
 ﻿  0main.cpp
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(15): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(49): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(50): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(72): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+e:\college\algorithms\studyalone\studyalone\leetcode\substringwithconcatenationofallwords.h(76): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   코드를 생성하고 있습니다.
-  1 of 11 functions ( 9.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  184 of 558 functions (33.0%) were compiled, the rest were copied from previous compilation.
+    154 functions were new in current compilation
+    62 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   StudyAlone.vcxproj -> E:\college\Algorithms\StudyAlone\Release\StudyAlone.exe

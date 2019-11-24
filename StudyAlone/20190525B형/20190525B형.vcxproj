@@ -23,7 +23,7 @@
     <ProjectGuid>{6075174D-5C9C-4B86-9AF3-3DCCA877D4B3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My20190525B형</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectName>FindError</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

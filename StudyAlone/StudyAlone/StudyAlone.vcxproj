@@ -22,19 +22,19 @@
     <ProjectGuid>{6A152889-88E6-459B-A405-7AEE143DB35E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>StudyAlone</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -145,6 +145,7 @@
     <ClCompile Include="0main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="BPractice\Git.cpp" />
     <ClCompile Include="HJ.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -162,6 +163,35 @@
   <ItemGroup>
     <ClInclude Include="01knapsack.h" />
     <ClInclude Include="ALERGY.h" />
+    <ClInclude Include="ALLERGY.h" />
+    <ClInclude Include="AOJ\BRACKETS2.h" />
+    <ClInclude Include="AOJ\CABADATRIP.h" />
+    <ClInclude Include="AOJ\EDITORWARS.h" />
+    <ClInclude Include="AOJ\FAMILYTREE.h" />
+    <ClInclude Include="AOJ\FANMEETING.h" />
+    <ClInclude Include="AOJ\FENCE.h" />
+    <ClInclude Include="AOJ\FORTRESS.h" />
+    <ClInclude Include="AOJ\FOSSIL.h" />
+    <ClInclude Include="AOJ\GRADUATION.h" />
+    <ClInclude Include="AOJ\HABIT.h" />
+    <ClInclude Include="AOJ\INSERTION.h" />
+    <ClInclude Include="AOJ\ITES.h" />
+    <ClInclude Include="AOJ\JAEHASAFE.h" />
+    <ClInclude Include="AOJ\JOSEPHUS.h" />
+    <ClInclude Include="AOJ\KAKURO2.h" />
+    <ClInclude Include="AOJ\LOAN.h" />
+    <ClInclude Include="AOJ\MEASURETIME.h" />
+    <ClInclude Include="AOJ\MORDOR.h" />
+    <ClInclude Include="AOJ\NAMING.h" />
+    <ClInclude Include="AOJ\NERD2.h" />
+    <ClInclude Include="AOJ\PALINDROMIZE.h" />
+    <ClInclude Include="AOJ\RATIO.h" />
+    <ClInclude Include="AOJ\ROOTS.h" />
+    <ClInclude Include="AOJ\RUNNINGMEDIAN.h" />
+    <ClInclude Include="AOJ\SOLONG.h" />
+    <ClInclude Include="AOJ\TRAVERSAL.h" />
+    <ClInclude Include="AOJ\WITHDRAWL.h" />
+    <ClInclude Include="BLOCKGAME2.h" />
     <ClInclude Include="BOARDCOVER2.h" />
     <ClInclude Include="BOJ10538.h" />
     <ClInclude Include="2048.h" />
@@ -298,6 +328,7 @@
     <ClInclude Include="BOJ8911.h" />
     <ClInclude Include="BOJ9376.h" />
     <ClInclude Include="BOJNeblCupA.h" />
+    <ClInclude Include="BOJ\BOJ17498.h" />
     <ClInclude Include="BongEoBBangh.h" />
     <ClInclude Include="BreadStroe.h" />
     <ClInclude Include="BuBoon.h" />
@@ -408,6 +439,12 @@
     <ClInclude Include="Labaratory.h" />
     <ClInclude Include="LCP.h" />
     <ClInclude Include="LCS.h" />
+    <ClInclude Include="leetcode\1224MaximumEqualFrequency.h" />
+    <ClInclude Include="leetcode\126WordLadderll.h" />
+    <ClInclude Include="leetcode\DungeonGame.h" />
+    <ClInclude Include="leetcode\MaxPointsOnaLine.h" />
+    <ClInclude Include="leetcode\SplitArrayWithSameAverage.h" />
+    <ClInclude Include="leetcode\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="LiftingLadder.h" />
     <ClInclude Include="LikeRussiaFlag.h" />
     <ClInclude Include="Line1.h" />
@@ -481,6 +518,7 @@
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Snake2.h" />
     <ClInclude Include="Soccer.h" />
+    <ClInclude Include="SOFTECH\H1918.h" />
     <ClInclude Include="SpaceGod.h" />
     <ClInclude Include="StringType.h" />
     <ClInclude Include="STRJOIN.h" />
