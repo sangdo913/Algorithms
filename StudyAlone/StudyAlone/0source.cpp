@@ -1,4 +1,4 @@
 #include<stdlib.h>
 #include<stdio.h>
 //#include"ARCTIC.h"
-#include"leetcode/validnumber.h"
+#include"leetcode/420StrongPasswordChecker.h"
