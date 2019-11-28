@@ -71,5 +71,6 @@
         "mutex": "cpp",
         "unordered_set": "cpp",
         "xstring": "cpp"
-    }
+    },
+    "python.pythonPath": "venv\\Scripts\\python.exe"
 }

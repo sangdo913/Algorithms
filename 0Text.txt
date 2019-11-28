@@ -1,4 +1,14 @@
-a
-c
+13
+0 hello
+0 goodbye
+0 hello 
+0 hello
 2
-a d
+0 leet
+0 code
+0 leet
+1 hello
+0 leet
+0 code
+0 code
+2
