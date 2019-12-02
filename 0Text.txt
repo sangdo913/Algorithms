@@ -1,14 +1,1 @@
-13
-0 hello
-0 goodbye
-0 hello 
-0 hello
-2
-0 leet
-0 code
-0 leet
-1 hello
-0 leet
-0 code
-0 code
-2
+aaaabbaaabbaaa123456A

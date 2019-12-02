@@ -3,54 +3,55 @@
 #include<vector>
 using namespace std;
 
+vector<int> memoi[21][3][8];
+string s;
+
+int dp(int size, int len, int cont,int check, char before){
+    if(size > 20) return 0x3f3f3f3f;
+    if(len == s.size()){
+        if(size < 6) return 0x3f3f3f3f;
+        if(check != 0b111) return 0x3f3f3f3f;
+        return 0;
+    }
+    int delcont = cont;
+    char delbefore = before;
+    if(before == s[len]) cont++;
+    else cont = 0, before = s[len];
+
+    if(memoi[size][cont][check][len] != -1) return memoi[size][cont][check][len];
+    int &res = memoi[size][cont][check][len];
+    res = 0x3f3f3f3f;
+
+    if(cont != 2){
+        int nextcheck = check;
+        if('a' <= s[len] && s[len] <= 'z') nextcheck |= (1<<2);
+        else if('A' <= s[len] && s[len] <='Z') nextcheck |= (1<<1);
+        else if('0' <= s[len] && s[len] <= '9') nextcheck |= (1<<0);
+        res = dp(size+1, len+1, cont, nextcheck, s[len]);
+    }
+    int temp;
+    for(int i = 0; i < 3; ++i){
+        temp = dp(size+1, len, 0, check | (1 << i), -1) + 1;
+        res = temp < res ? temp : res;
+
+        temp = dp(size+1, len+1, 0, check | (1 <<i ), -1) + 1;
+        res = temp < res ? temp : res;
+
+    }
+    temp = dp(size, len+1, delcont, check, delbefore)+1;
+    res = temp < res ? temp : res;
+    return res;
+}
+
 class Solution {
 public:
-    int strongPasswordChecker(string s) {
-        int cnt[4] ={};
-        for(int i = 0; i < s.size(); ++i){
-            if('a' <= s[i] && s[i]<='z') cnt[0]++;
-            else if('A' <= s[i] && s[i]<='Z') cnt[1]++;
-            else cnt[2]++;
-        }
+    int strongPasswordChecker(string str) {
+        for(int i = 0; i < 21; ++i) for(int j = 0; j < 3; ++j) for(int k = 0; k < 8; ++k) memoi[i][j]
+        [k].clear(), memoi[i][j][k].resize(str.size()+1, -1);
+        s = str;
+        if(!str.size()) return 6;
 
-        int res = 0;
-        int need = 0;
-        int change = 0;
-        int del = 0;
-        int size = s.size();
-        int beforeidx = 0;
-        for(int i = 0; i < 3; ++i) need += !cnt[i];
-        int continuecnt = 0;
-        for(int i = 0; i < s[i]; ++i){
-            if(s[i] == s[beforeidx]){
-                continuecnt++;
-                if(continuecnt == 3){
-                    change++;
-                    if(size < 6) {
-                        ++size;
-                    }
-                    else if(20 < size) --size;
-                    if(need) --need;
-                    before = 0;
-                    continuecnt = 0;
-                }
-            }
-            else{
-                before = s[i];
-                continuecnt = 1;
-            }
-        }
-
-        if(size < 6){
-            res = need < 6-s.size() ? 6-s.size() : need;
-        }
-        else if(size > 20){
-            res = s.size() - 20 + need;
-        }
-        else{
-            res = need;
-        }
-        return res + change;
+        return dp(0,0,0,0,-1);
     }
 };
 
