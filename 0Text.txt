@@ -1,1 +1,14 @@
-aaaabbaaabbaaa123456A
+3
+2 2
+rm 
+dd
+4 4
+a
+b
+c
+d
+100 4
+aa
+ba
+ab
+cd
