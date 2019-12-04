@@ -1,154 +1,85 @@
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
+#include<cstdio>
+#include<iostream>
+#include<fstream>
 
-#include <stdio.h>
+using namespace std;
 
-extern void init(int limit);
-extern void play();
+enum COMM { ADD, DELETE, GET };
 
-static int board[10][10];
+extern void insert(int, int);
+extern void init();
+extern void erase(int from, int to);
+extern int get(int idx);
+extern void allprint();
 
-#define MISS		0
-#define CARRIER		1
-#define BATTLESHIP	2
-#define CRUISER		3
-#define SUBMARINE	4
-#define DESTROYER	5
-
-static int hit;
-static const int len[5] = { 5, 4, 3, 3, 2 };
-
-#define MAX_CALLCOUNT	10000
-
-static int callcount;
-static int limit;
-
-int fire(int r, int c)
-{
-	if (r < 0 || r > 9 || c < 0 || c > 9 || callcount >= MAX_CALLCOUNT)
-	{
-		callcount = MAX_CALLCOUNT;
-		return 0;
-	}
-
-	++callcount;
-
-	int ret = board[r][c];
-
-	if (board[r][c] > 0) --hit;
-	board[r][c] = 0;
-
-	return ret;
-}
-
-static int seed;
-
-static int pseudo_rand()
-{
-	seed = seed * 214013 + 2531011;
-	return (seed >> 16) & 0x7fff;
-}
-
-static bool check(int r, int c, int d, int l)
-{
-	if (d == 1)
-	{
-		for (int m = 0; m < l; ++m)
-			if (board[r][c + m] > 0)
-				return false;
-		return true;
-	}
-	else
-	{
-		for (int m = 0; m < l; ++m)
-			if (board[r + m][c] > 0)
-				return false;
-		return true;
-	}
-}
-
-static void doarrangment()
-{
-	for (int r = 0; r < 10; ++r)
-		for (int c = 0; c < 10; ++c)
-			board[r][c] = 0;
-
-	for (int k = 0; k < 5; ++k)
-	{
-		while (1)
-		{
-			int r, c, d;
-
-			d = pseudo_rand() % 2;
-			if (d == 1)
-			{
-				r = pseudo_rand() % 10;
-				c = pseudo_rand() % (10 - len[k] + 1);
-				if (check(r, c, d, len[k]))
-				{
-					for (int l = 0; l < len[k]; ++l)
-						board[r][c + l] = k + 1;
-					break;
-				}
-			}
-			else
-			{
-				r = pseudo_rand() % (10 - len[k] + 1);
-				c = pseudo_rand() % 10;
-				if (check(r, c, d, len[k]))
-				{
-					for (int l = 0; l < len[k]; ++l)
-						board[r + l][c] = k + 1;
-					break;
-				}
-			}
-		}
-	}
+unsigned long long seed;
+unsigned long long myrand() {
+	return (seed = (214013LL * seed + 2531011LL));
 }
 
 int main()
 {
-	int TC;
+	ofstream my("Text.txt");
+	seed = myrand();
+	int T = 20, score;
+	my << T << endl;
+	for (int tc = 1; tc <= T; ++tc) {
+		int size = 0;
+		score = 100;
+		init();
+		int cnt = 100000;
+		int score = 100;
+		 my << cnt << endl;
+		for (int i = 0; i < cnt; ++i) {
+			int comm, idx, val;
+			int from, to;
+			int res;
+			comm = myrand() % 100;
+			if (comm < 2)
+				comm = DELETE;
+			else if (comm < 8)
+				comm = GET;
+			else
+				comm = ADD;
+			if (size < 10000)
+				comm = ADD;
+			
+			my << comm << ' ';
 
-	setbuf(stdout, NULL);
-	scanf("%d", &TC);
+			switch (comm) {
+			case ADD:
+				if (size)
+					idx = myrand() % size;
+				else
+					idx = 0;
+				val = myrand() % 2000000000;
+				insert(idx, val);
+				my << idx << ' ' << val << endl;
+				size++;
+				break;
 
-	int totalscore = 0, totalcallcount = 0;
-	for (int testcase = 1; testcase <= TC; ++testcase)
-	{
-		int score = 100, callcount4tc = 0;
+			case DELETE:
+				from = myrand() % size;
+				to = 0;
+				if (size / 100)
+					to = myrand() % (size / 100);
+				if (from + to >= size)
+					to = size - 1;
+				else
+					to = from + to;
 
-		scanf("%d %d", &seed, &limit);
-
-		init(limit);
-
-		for (int game = 0; game < 10; ++game)
-		{
-			doarrangment();
-
-			hit = 0;
-			for (int k = 0; k < 5; ++k)
-				hit += len[k];
-
-			callcount = 0;
-			play();
-
-			if (hit != 0)
-				callcount = MAX_CALLCOUNT;
-
-			if (callcount > limit)
-				score = 0;
-
-			callcount4tc += callcount;
+				erase(from, to);
+				my << from << ' ' << to << endl;
+				size -= to - from + 1;
+				break;
+			case GET:
+				idx = myrand() % size;
+				res = get(idx);
+				 my << idx << ' ' << res << endl;
+				break;
+			}
 		}
-
-		printf("#%d %d %d\n", testcase, score, callcount4tc);
-
-		totalscore += score;
-		totalcallcount += callcount4tc;
 	}
-
-	printf("total score = %d, total callcount = %d\n", totalscore / TC, totalcallcount);
+	 printf("total score : %d\n", score);
 	return 0;
 }

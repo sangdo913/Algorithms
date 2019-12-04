@@ -1,90 +1,157 @@
-#define MISS		0
-#define CARRIER		1
-#define BATTLESHIP	2
-#define CRUISER		3
-#define SUBMARINE	4
-#define DESTROYER	5
+#define RANGELIST
 
-extern int fire(int r, int c);
+#if defined(RANGELIST)
+#define MAXSIZE 200000
+#define RANGE 100
+#define rint register int
+struct NODE {
+	int val;
+	NODE *n, *p;
+}nodes[MAXSIZE];
+int nid;
 
-struct COD {
-	int x, y;
-};
+NODE rangelist[MAXSIZE / RANGE + 1];
+int cnt[MAXSIZE / RANGE + 1];
 
-int board[10][10];
-int tc = 0;
-int llen[6];
-int dr[4] = { 0,1,0,-1 };
-int dc[4] = { 1,0,-1,0 };
-int size[6] = { 0,5,4,3,3,2 };
-int complete[6];
+void init() {
+	for (rint i = 0; i < nid; ++i) {
+		nodes[i].p = nodes[i].n = &nodes[i];
+	}
+	for (rint i = 0; i < MAXSIZE / RANGE + 1; ++i) {
+		cnt[i] = 0;
+		rangelist[i].p = rangelist[i].n = rangelist + i;
+	}
+	nid = 0;
+}
 
-bool isout(int i, int j) { return i < 0 || i >= 10 || j < 0 || j >= 10; }
-int priority[10][10];
-
-void check(int rr, int cc, int d, int type) {
-	int check = 0;
-
-	int r = rr, c = cc;
-	for (int i = 0; i < size[type]; ++i, r += dr[d], c += dc[d]) {
-		if (isout(r, c) || (board[r][c] >= tc && board[r][c] != tc + type)) return;
-		check += board[r][c] == tc + type;
+void insert(int idx, int value) {
+	register NODE& nn = nodes[nid++];
+	rint row = 0;
+	rint myidx = 0;
+	while (cnt[row] + myidx < idx) myidx += cnt[row++];
+	rint mycnt = idx - myidx;
+	register NODE* cursor = rangelist[row].n;
+	while (mycnt--) {
+		cursor = cursor->n;
 	}
 
-	int plus = size[type];
-	if (llen[type]) plus += size[type]*1000;
-	if (llen[type] && check != llen[type]) return;
+	nn.val = value;
+	nn.n = cursor;
+	nn.p = cursor->p;
+	cursor->p->n = &nn;
+	cursor->p = &nn;
 
-	r = rr, c = cc;
-	for (int i = 0; i < size[type]; ++i, r += dr[d], c += dc[d]) {
-		priority[r][c] += plus;
+	cnt[row]++;
+	while (cnt[row] > RANGE)
+	{
+		cnt[row]--;
+		register NODE *cn = rangelist[row].p;
+		cn->p->n = cn->n;
+		cn->n->p = cn->p;
+		row++;
+		cnt[row]++;
+		cn->n = rangelist[row].n;
+		cn->p = &rangelist[row];
+		rangelist[row].n->p = cn;
+		rangelist[row].n = cn;
 	}
 }
 
-int cnt = 0;
-
-void init(int limit)
-{
+void erase(int from, int to) {
+	int size = to - from + 1;
+	rint pos = 0;
+	rint nowcnt = 0;
+	while (nowcnt + cnt[pos] <= from) nowcnt += cnt[pos], ++pos;
+	rint col = from - nowcnt;
+	register NODE* cursor = rangelist[pos].n;
+	while (col--) cursor = cursor->n;
+	register NODE* end = &rangelist[pos];
+	rint delnum = 0;
+	while (size != delnum) {
+		if (cursor == end) {
+			++pos;
+			end = &rangelist[pos];
+			cursor = end->n;
+		}
+		delnum++;
+		cursor->n->p = cursor->p;
+		cursor->p->n = cursor->n;
+		cursor = cursor->n;
+		cnt[pos]--;
+	}
 }
 
-void play()
-{
-	cnt = 17;
-	for (int i = 1; i < 6; ++i) llen[i] = 0;
-	tc += 6;
+int get(int idx) {
+	rint pos = 0;
+	rint nowcnt = 0;
+	while (nowcnt + cnt[pos] <= idx) nowcnt += cnt[pos++];
+	register NODE* cursor = rangelist[pos].n;
+	rint col = idx - nowcnt;
+	while (col--) cursor = cursor->n;
+	return cursor->val;
+}
 
-	while (cnt) {
-		int num = 0;
-		int temp = 0;
-		COD ret;
-
-		for (int i = 0; i < 10; ++i) for (int j = 0; j < 10; ++j) priority[i][j] = 0;
-
-		for (int i = 0; i < 10; ++i)for (int j = 0; j < 10; ++j) {
-			for (int type = 1; type < 6; ++type) {
-				if (complete[type] == tc) continue;
-
-				for (int d = 0; d < 4; ++d) {
-					check(i, j, d, type);
-				}
+void allprint() {
+	for (int i = 0; i < MAXSIZE / RANGE + 1; ++i) {
+		if (rangelist[i].n != &rangelist[i]) {
+			register NODE* c = rangelist[i].n;
+			while (c != &rangelist[i]) {
+				// printf("%d ", c->val);
+				c = c->n;
 			}
 		}
-		for (int i = 0; i < 10; ++i) for (int j = 0; j < 10; ++j) {
-			if (board[i][j] >= tc) continue;
-			if (num < priority[i][j]) {
-				ret.x = i, ret.y = j;
-				num = priority[i][j];
-			}
-		}
-
-		int type = fire(ret.x, ret.y);
-
-		if (type) {
-			cnt--;
-			llen[type]++;
-			if (llen[type] == size[type]) complete[type] = tc;
-		}
-
-		board[ret.x][ret.y] = tc + type;
 	}
+	//printf("\n");
 }
+#else
+#define MAXSIZE 100000
+struct NODE {
+	int v;
+	NODE *p, *n;
+} nodes[MAXSIZE];
+
+NODE mylist;
+int nid;
+
+void insert(int idx, int value) {
+	int cnt = idx;
+	NODE* cursor = mylist.n;
+	while (idx--) {
+		cursor = cursor->n;
+	}
+
+	NODE& nn = nodes[nid++];
+	nn.v = value;
+
+	nn.n = cursor;
+	nn.p = cursor->p;
+	cursor->p->n = &nn;
+	cursor->p = &nn;
+}
+
+void init() {
+	mylist.p = mylist.n = &mylist;
+	nid = 0;
+}
+
+void erase(int from, int to) {
+	NODE* f = mylist.n;
+	NODE* t = mylist.n;
+	while (from--) f = f->n;
+	while (to--) t = t->n;
+
+	f->p->n = t->n;
+	t->n->p = f->p;
+}
+
+int get(int idx) {
+	NODE* cursor = mylist.n;
+	while (idx--) cursor = cursor->n;
+	return cursor->v;
+}
+
+void allprint() {
+
+}
+
+#endif
