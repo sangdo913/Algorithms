@@ -38,19 +38,15 @@ void init(int track_size, int head){
 }
 
 void request(int track){
-	query++;
+
+///////////////////////insert////////////////////////
 	NODE* cursor[MAXLEVEL];
-	rint maxlevel = 0;
 	cursor[MAXLEVEL-1] = &level;
+
 	NODE& nn = nodes[nid++];
 	nn.track = track;
 	nn.level = 0;
 	while(nn.level < MAXLEVEL && !(myrand()%4)) nn.level++;
-	cnt[nn.level]++;
-	for(rint i = 0; i <= nn.level; ++i){
-		blocks[9-i][nid-1] = '@';
-	}
-	cursor[0] = &level;
 
 	for(rint i = MAXLEVEL-1; i >= 0; --i){
 		while(cursor[i]->n[i] != &level && cursor[i]->n[i]->track < track){
@@ -64,6 +60,13 @@ void request(int track){
 		cursor[i]->n[i]->p[i] = &nn;
 		cursor[i]->n[i] = &nn;
 	}
+	//////////////////////////////////////////////////
+
+	cnt[nn.level]++;
+
+	for(rint i = 0; i <= nn.level; ++i){
+		blocks[9-i][nid-1] = '@';
+	}
 }
 
 int fcfs(){
@@ -75,12 +78,14 @@ int fcfs(){
 }
 
 int sstf(){
+	/////////////find///////////////////////
 	NODE *cursor = &level;
 	rint nowlevel = MAXLEVEL-1;
 	for(rint nowlevel = MAXLEVEL-1; nowlevel>=0; --nowlevel){
 		while(cursor->n[nowlevel]!= &level&& cursor->n[nowlevel]->track < headcur) cursor= cursor->n[nowlevel];
 		if(cursor->track == headcur) break;
 	}
+	/////////////////////////////////////////
 
 	NODE* r = cursor->n[0];
 	rint ll, rr;
@@ -89,10 +94,13 @@ int sstf(){
 	cursor = ll > rr ? r : cursor;
 	cursor->isdel = tc;
 
+
+///////////////////del////////////////////////////////
 	for(rint i = 0; i <= cursor->level; ++i)
 		cursor->n[i]->p[i] = cursor->p[i],
 		cursor->p[i]->n[i] = cursor->n[i],
 		cursor->isdel = tc;
+		////////////////////////////////////////////////
 
 	return headcur = cursor->track;
 }
@@ -112,6 +120,7 @@ int look(){
 		if(cursor == &level) cursor = cursor->p[0], dir = 0;
 	}
 	cursor->isdel = tc;
+
 	for(rint i = 0; i <= cursor->level; ++i) cursor->n[i]->p[i] = cursor->p[i], cursor->p[i]->n[i] = cursor->n[i];
 
 	return headcur = cursor->track;
