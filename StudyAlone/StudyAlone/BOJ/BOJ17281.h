@@ -6,9 +6,10 @@ int myscore[50][9];
 int order[9];
 int mymax;
 int isin[9] = {};
-int query;
+int query; 
+int rusu[4];
 
-int getscore(int a, int rusu[4]){
+int getscore(int a){
     int ret = a==4;
     a -= a==4;
     int j;
@@ -29,7 +30,6 @@ int getscore(int a, int rusu[4]){
 }
 
 int simulation(){
-    int rusu[4] = {};
     int score = 0;
     int turn = 0;
     for(int i = 0 ; i < n; ++i){
@@ -41,7 +41,7 @@ int simulation(){
             while(isin[order[turn]] == query) turn = ++turn %9;
             int res = myscore[i][order[turn]];
             if(res) {
-                score += getscore(res, rusu);
+                score += getscore(res);
                 rusu[res-1] = order[turn];
                 isin[order[turn]] = res != 4 ? query : 0;
             }
@@ -76,6 +76,7 @@ int getres(int l,int visit){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false), cin.tie(0), cout.tie(0);
     freopen("0Text.txt", "r", stdin);
     cin >> n;
     for(int i = 0; i < n; ++i){
