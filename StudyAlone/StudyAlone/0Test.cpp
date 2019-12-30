@@ -3,20 +3,16 @@
 
 using namespace std;
 
+struct A{
+    public:
+    static const vector<int> CLEAR;
+    vector<int> bb;
+    A():bb(CLEAR){}
+};
+const vector<int> A::CLEAR = vector<int>(10,-1);
+
 int main(){
-   vector<int> a;
-    // vec.push_back(3);
-    // vec.push_back(2);
-
-
-    // for(auto i : vec){
-    //     cout << i << ' ' ;
-    // }
-    a.resize(10);
-    for(int i = 0; i < 10; ++i) a[i] = i;
-    for(int i = 0; i < 10; ++i) cout << a[i] << ' ';
-    cout << endl;
-    cout << 1;
-    cout << endl;
+    A haha;
+    for(int i =0; i < haha.bb.size(); ++i) cout << haha.bb[i];
     return 0;
 }
