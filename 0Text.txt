@@ -1,5 +1,25 @@
-4
-0 0 null 0 0
+1
+2
+a
+av
+3
+3
+ba
+aa
+ab
+5
+gg
+kia
+lotte
+lg
+hanhwa
+6
+dictionary
+english
+is
+ordered
+ordinary
+this
 
 
 
