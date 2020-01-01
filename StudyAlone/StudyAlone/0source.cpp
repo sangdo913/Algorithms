@@ -3,4 +3,4 @@
 //#include"BOJ/BOJ17281.h"
 //#include"ARCTIC.h"
 //#include"leetcode/968BinaryTreeCameras.h"
-#include"AOJ/DICTIONARY.h"
+#include"AOJ/WORDCHAIN.h"

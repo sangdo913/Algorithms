@@ -1,62 +1,40 @@
-1
-2
-a
-av
+4
+4
+dog
+dragon
+need
+god
 3
-3
-ba
 aa
 ab
-5
-gg
-kia
-lotte
-lg
-hanhwa
-6
-dictionary
-english
-is
-ordered
-ordinary
-this
+bb
+2
+aa
+aaaa
+7
+zawe
+az
+za
+zb
+bz
+zz
+ef
+fz
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-0 0 null 0 null 0 null null 0
-6
-10000 9 1
-+>>-[+>-]
-@
-10000 13 1
->>>>>+<-[+<-]
-@
-10 4 1
-+[+]
-@
-10 4 1
--[-]
-@
-155 36 1
-+++++[->++++++++++<]>+[-<+++++>]<+[]
-@
-155 36 1
------[+>----------<]>-[+<----->]<-[]
-@
+ac
+1
+3
+a
+aa
+aaa
+1
+8
+loe
+xox
+eol
+zox
+eoz
+xol
+eou
+zou
