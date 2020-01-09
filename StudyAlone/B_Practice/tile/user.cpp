@@ -57,14 +57,13 @@ int getSimilar(int M, char BB[MAX_N][MAX_N]) {
 	rint ret = 0;
 
 	rint N = get_N();
-	rint rr, cc;
 	rint m = (M + 7) / 8;
 	for (rint i = 0; i <= N-M ; ++i) {
 		for (rint j = 0; j <= N - M; ++j) {
 			rint num = 0;
 			for (rint r = 0; r < m; ++r) {
 				for (rint c = 0; c < m; ++c) {
-				    long long bit = ~(A[i + 8 * r][j + 8 * c] ^ B[r][c]) & MASK[r][c];
+				    register long long bit = ~(A[i + 8 * r][j + 8 * c] ^ B[r][c]) & MASK[r][c];
 					for (rint cnt = 0; cnt < 4; ++cnt) {
 						rint mybit = bit & 0xffff;
 						num += getbit[mybit];
@@ -74,7 +73,6 @@ int getSimilar(int M, char BB[MAX_N][MAX_N]) {
 			}
 			if (ret < num) {
 				ret = num;
-				rr = i, cc = j;
 			}
 		}
 	}
