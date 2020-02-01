@@ -16,6 +16,7 @@ using namespace std;
 #include"user.cpp"
 #define SIZE 1048576
 #define MAX_COUNT 2048
+//haha
 
 extern void test(unsigned int data[SIZE]);
 unsigned int mdata[SIZE];
