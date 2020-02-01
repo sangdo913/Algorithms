@@ -3,16 +3,21 @@
 
 using namespace std;
 
-struct A{
-    public:
-    static const vector<int> CLEAR;
-    vector<int> bb;
-    A():bb(CLEAR){}
-};
-const vector<int> A::CLEAR = vector<int>(10,-1);
+int arr[10000];
 
 int main(){
-    A haha;
-    for(int i =0; i < haha.bb.size(); ++i) cout << haha.bb[i];
+    typedef char(*A[100]);
+    int cnt = 0;
+    for(int i = 0; i < 10000; ++i){
+        arr[i] = cnt++;
+    }
+
+    int (*b)[20][30] = (int(*)[20][30])&arr[1];
+    for(int i = 0; i*30 < 100; i++){
+        for(int j = 0; j < 30; j++){
+            printf("%d ", b[0][i][j]);
+        }
+        printf("\n");
+    }
     return 0;
 }
