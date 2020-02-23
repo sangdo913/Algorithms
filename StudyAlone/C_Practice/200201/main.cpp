@@ -67,13 +67,12 @@ void test_sort(short data[1024])
 	ssort(data, 1024);
 	Score -= clock() - start;
 }
-int TC = 1;
+int TC = 10;
 
 int main()
 {
 	srand(time(0));
 	while(TC--){
-		cout << TC << endl;
 	for (register int i = 0; i < MAX_COUNT; ++i) {
 		num[i] = (rand()*1007) % 65536;
 	}
@@ -110,7 +109,7 @@ int main()
 		}
 	}
 	}
-	std::cout << Score*1000 / CLOCKS_PER_SEC << "\n";
+	std::cout << (long long)Score*1000 / CLOCKS_PER_SEC << "\n";
 
 	return 0;
 }
