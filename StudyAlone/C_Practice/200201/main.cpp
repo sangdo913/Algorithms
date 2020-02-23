@@ -1,6 +1,6 @@
-/*
+﻿/*
 [Score의 출력값이 적을수록 더 높은 점수를 받는다]
-
+​
 main 코드를 분석하여 더 높은 점수를 받도록 solution.cpp에 코딩.
 stack 메모리: 1MB
 main.cpp는 수정할 수 없다.
@@ -12,16 +12,15 @@ solution.cpp에 대한 코드리뷰를 철저하게 진행할 것입니다.
 #include<ctime>
 #include<iostream>
 #include<cstdlib>
-using namespace std;
 #include"user.cpp"
+using namespace std;
 #define SIZE 1048576
 #define MAX_COUNT 2048
-//haha
 
 extern void test(unsigned int data[SIZE]);
 unsigned int mdata[SIZE];
 
-int Score;
+long long Score;
 short buf[1024];
 
 unsigned int bak_data[SIZE];
@@ -71,45 +70,46 @@ int TC = 10;
 
 int main()
 {
+	Score = 0;
 	srand(time(0));
-	while(TC--){
-	for (register int i = 0; i < MAX_COUNT; ++i) {
-		num[i] = (rand()*1007) % 65536;
-	}
-
-	for (register int i = 0; i < SIZE; ++i) {
-		int idx1 = rand() % MAX_COUNT;
-		int idx2 = rand() % MAX_COUNT;
-
-		bak_data[i] = mdata[i] = (num[idx1] << 16) + num[idx2];
-	}
-
-	clock_t start = clock();
-	test(mdata);
-	Score += clock() - start;
-
-	for (register int i = 0; i < SIZE - 1; ++i) {
-		if (mdata[i] < mdata[i + 1]) {
-			Score = 1000000000;
+	while (TC--) {
+		for (register int i = 0; i < MAX_COUNT; ++i) {
+			num[i] = ((long long)rand() * 1007) &0xffff;
 		}
-	}
-	
-	for (register int i = 0; i < 10; ++i) {
-		int idx = rand() % SIZE;
 
-		bool check = false;
-		for (register int j = 0; j < SIZE; ++j) {
-			if (mdata[j] == bak_data[idx]) {
-				check = true;
-				break;
+		for (register int i = 0; i < SIZE; ++i) {
+			int idx1 = rand() % MAX_COUNT;
+			int idx2 = rand() % MAX_COUNT;
+
+			bak_data[i] = mdata[i] = (num[idx1] << 16) + num[idx2];
+		}
+
+		clock_t start = clock();
+		test(mdata);
+		Score += clock() - start;
+
+		for (register int i = 0; i < SIZE - 1; ++i) {
+			if (mdata[i] < mdata[i + 1]) {
+				Score += 10000000;
 			}
 		}
-		if (!check) {
-			Score = 1000000000;
+
+		for (register int i = 0; i < 10; ++i) {
+			int idx = rand() % SIZE;
+
+			bool check = false;
+			for (register int j = 0; j < SIZE; ++j) {
+				if (mdata[j] == bak_data[idx]) {
+					check = true;
+					break;
+				}
+			}
+			if (!check) {
+				Score += 10000000;
+			}
 		}
 	}
-	}
-	std::cout << (long long)Score*1000 / CLOCKS_PER_SEC << "\n";
+	std::cout << (long long)Score * 1000 / CLOCKS_PER_SEC << "\n";
 
 	return 0;
 }
