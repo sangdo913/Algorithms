@@ -74,15 +74,16 @@ int main(){
 
         while(!Q.empty()){
                 int now = Q.front(); Q.pop();
+                int tops[4] = {0};
 
-                BitToState(n, state,num, now);
+                for(int i = n-1; i >= 0; --i){ tops[(now >> (i*2)) & 3] = i+1; }
 
                 for(int i = 0; i < 4; ++i){
-                    if(num[i] == 0) continue;
-                    int top = state[i][num[i]-1];
+                    if(!tops[i]) continue;
+                    int top = tops[i];
                     for(int j = 0; j < 4; ++j){
                         if(i == j) continue;
-                        if(num[j] && state[j][num[j]-1] < top ) continue;
+                        if(tops[j] && tops[i] > tops[j] ) continue;
                         bitstate = now & ~(3 << ((top-1)*2));
                         bitstate |= j <<((top-1)*2);
                         int v;
