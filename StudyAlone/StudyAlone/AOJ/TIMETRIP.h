@@ -60,6 +60,7 @@ void go(int v){
 
 int main(){
     freopen("0Text.txt", "r", stdin);
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int C;
     cin >> C;
     int tc=0;
