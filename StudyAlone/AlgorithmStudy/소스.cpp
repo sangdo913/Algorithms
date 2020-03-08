@@ -2,7 +2,6 @@
 #include<time.h>
 #include<stdlib.h>
 #include<string.h>
-#include"user.cpp"
 
 char alpha[1111];
 char dest[65536];
