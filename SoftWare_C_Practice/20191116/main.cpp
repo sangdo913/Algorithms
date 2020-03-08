@@ -46,6 +46,7 @@ int build(){
 
 int main(){
     clock_t TIME = clock();
+    srand(time(0));
     unsigned int RATE = 0;
     init();
     for(int c = 0; c < 100; ++c){
@@ -60,6 +61,7 @@ int main(){
         
         if(memcmp(dest, paper, len)){
             RATE += 100000;
+            printf("wrong\n");
         }
         else{
             RATE += s;
