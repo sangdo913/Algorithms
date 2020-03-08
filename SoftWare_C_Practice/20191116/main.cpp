@@ -46,9 +46,11 @@ int build(){
 
 int main(){
     clock_t TIME = clock();
+    srand(time(0));
     unsigned int RATE = 0;
     init();
     for(int c = 0; c < 100; ++c){
+        bool isfail = false;
         for(int i = 0; i < 65536; ++i) dest[i] = 0;
         int len = build();
         paper[len] = 0;
@@ -60,10 +62,12 @@ int main(){
         
         if(memcmp(dest, paper, len)){
             RATE += 100000;
+            isfail = true;
         }
         else{
             RATE += s;
         }
+        if(isfail) printf("FAIL\n");
     }
 
     TIME = clock() - TIME;

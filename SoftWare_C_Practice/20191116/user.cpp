@@ -8,6 +8,7 @@ int ll2[1024];
 int idx1[100000];
 int idx2[100000];
 int tl1, tl2;
+char encodetable[1024][8];
 
 int encode(char *paper, char* src, int papern){
     int myhash[HASHSIZE] = {};
@@ -30,6 +31,12 @@ int encode(char *paper, char* src, int papern){
         rint key = s % HASHSIZE;
         while(myhash[key] != -1 && table[myhash[key]] != s) key = (key+1)%HASHSIZE;
         if(myhash[key] == -1) {
+            //debug//
+            for(int j = len;  j ; --j) {
+                encodetable[cnt][len-j] = paper[i-j];
+            }
+            encodetable[cnt][len] = 0;
+            ////////
             myhash[key] = cnt;
             tlen[cnt] = len;
             table[cnt++] = s;
@@ -87,7 +94,8 @@ void decode(char* src, char * dest, int s){
     int alllen = ((int)src[0] << 8) + (unsigned char)src[1];
     long long str;
     int idx;
-    long long table[1024];
+    // long long table[1024];
+    char strtable[1024][8];
     int tlen[1024];
     int bit = 0;
     int len;
@@ -104,18 +112,33 @@ void decode(char* src, char * dest, int s){
         }
         if(!len) break;
         tlen[tsize] = len;
-        len *= 5;
+        //len *= 5;
         str = 0;
-        while(len--){
-           str = (str<<1) + (src[bit/8+2]&1);
-           src[bit++/8+2] >>=1;
+        for(int l = 0;  l < len; ++l){
+            char c=0;
+            int cnt = 5;
+            while(cnt--) {
+                c = (c<<1) + (src[bit/8+2]&1);
+                src[bit++/8+2] >>=1;
+            }
+            strtable[tsize][l] = c + 'a' -1;
         }
-        table[tsize++] = str;
+        ++tsize;
     }
-    for(int i = 0; i < tsize; ++i){
-        t2[i] = table[i];
-        ll2[i] = tlen[i];
-    }
+
+    ////////////DEBUG///////////
+    // for(int i = 0; i < tsize; ++i){
+    //     for(int j = 0; j < tlen[i]; ++j){
+    //         if(encodetable[i][j] != strtable[i][j]){
+    //             int debug = 1;
+    //         }
+    //     }
+    // }
+    ////////////////////////
+    // for(int i = 0; i < tsize; ++i){
+    //     t2[i] = table[i];
+    //     ll2[i] = tlen[i];
+    // }
 
     for(rint i = 0; i < alllen; ++i){
         rb = 10;
@@ -125,16 +148,19 @@ void decode(char* src, char * dest, int s){
             src[bit++/8+2] >>=1;
         }
         idx2[i] = idx;
-        str = table[idx];
         for(int i = 0; i < tlen[idx]; ++i){
-            dest[di + i] = (str & 0x1f) + 'a'-1;
-            str>>=5;
+            dest[di+i] = strtable[idx][i];
         }
-        for(int i = 0; i < tlen[idx]/2; ++i){
-            char t = dest[di+i];
-            dest[di+i] = dest[di+tlen[idx]-1-i];
-            dest[di+tlen[idx]-1-i] = t;
-        }
+        // str = table[idx];
+        // for(int i = 0; i < tlen[idx]; ++i){
+        //     dest[di + i] = (str & 0x1f) + 'a'-1;
+        //     str>>=5;
+        // }
+        // for(int i = 0; i < tlen[idx]/2; ++i){
+        //     char t = dest[di+i];
+        //     dest[di+i] = dest[di+tlen[idx]-1-i];
+        //     dest[di+tlen[idx]-1-i] = t;
+        // }
         dest[di + tlen[idx]] = ' ';
         di += tlen[idx]+1;
     }
