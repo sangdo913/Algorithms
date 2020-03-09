@@ -41,7 +41,7 @@ int build(){
          paper[len +ndic[id]] = ' ';
          len += ndic[id] + 1;
      }
-     return len;
+     return len-1;
 }
 
 int main(){
