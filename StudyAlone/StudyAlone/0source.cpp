@@ -5,4 +5,4 @@
 //#include"leetcode/BOJ3954.h"
 //#include"AOJ/NH.h"
 //#include"leetcode/4medianoftwosortedarrays.h"
-#include"BOJ/BOJ2589.h"
+#include"codeforces/627/F.h"
