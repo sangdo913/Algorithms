@@ -100,6 +100,12 @@
                
             ]
         }, // 바이너리 실행
+        //phton 실행
+        {
+        "label": "python3",
+        "command": "python ${file}",// < \"${fileDirname}/0Text.txt\"",
+        "group": "test",
+        },
         {
             "label": "execute 0 source",
             "command": 
