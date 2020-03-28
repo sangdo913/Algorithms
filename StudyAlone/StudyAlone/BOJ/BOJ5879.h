@@ -4,16 +4,14 @@
 #include<vector>
 #include<set>
 #include<stdio.h>
+#include<stdlib.h>
 #define M 10007
 
 using namespace std;
 
 int n;
-map<long long, vector<int>> f, myback; 
-set<int> se;
-vector<int> vec;
+vector<pair<int,int>> f,myback;
 long long v[1<<20];
-long long diff[1<<20];
 int check[1<<20];
 int arr[20];
 #define ABS(x) ((x) > 0 ? (x) : -(x))
@@ -23,10 +21,12 @@ int main(){
     for(int i = 0; i < 20; ++i){
         bits[(1<<i)%M] = i;
     }
-    freopen("0Text.txt", "r", stdin);
+    // freopen("0Text.txt", "r", stdin);
 
-    cin >> n;
-    for(int i = 0; i < n; ++i) cin >>arr[i];
+    n = 20;
+    for(int i  =0; i < n; ++i) arr[i] = rand()%100;
+    // cin >> 20;
+    // for(int i = 0; i < n; ++i) cin >>arr[i];
     for(int i = 1; i < (1<<n); ++i){
         int b = i;
         long long sum = 0;
@@ -39,37 +39,48 @@ int main(){
         v[i] = sum;
     }
 
-    f[0].push_back(0);
+    f.push_back({0,0});
     int m = (n/2) + (n&1);
     for(int i = 0; i < (1<<m); ++i){
         for(int j = i; j; j = (j-1)&i){
-            f[ABS(v[i^j]-v[j])].push_back(i);
+            f.push_back({ABS(v[i^j]-v[j]), i});
         }
     }
 
     for(int i = 0; i < (1<<(n-m)); ++i){
         int b = i<<m;
         for(int j = b; j ; j = (j-1)&b){
-            myback[ABS(v[b^j]-v[j])].push_back(b);
+            myback.push_back({ABS(v[b^j]-v[j]),b});
         }
     }
     int res = 0;
     check[0] = 1;
-    myback[0].push_back(0);
-    for(auto it : f){
-        int diff = it.first;
-        vector<int> &vec = it.second;
-        vector<int> &vec2 = myback[diff];
-        for(auto it : vec){
-            for(auto it2 : vec2){
-                if(!check[it | it2]){
-                    // cout << (it|it2) << endl;
-                    check[it|it2] = 1;
-                    res++;
+    myback.push_back({0,0});
+    sort(f.begin(),f.end());
+    sort(myback.begin(),myback.end());
+    f.resize(unique(f.begin(),f.end()) - f.begin());
+    myback.resize(unique(myback.begin(),myback.end())-myback.begin());
+    int p=0,q=0,p1,q1;
+    while(p<f.size() || q < myback.size()){
+        if(p < f.size() && f[p].first < myback[q].first) ++p;
+        else if(q < myback.size() && myback[q].first < f[p].first) ++q;
+        else{
+            p1 = p, q1 = q;
+            while(p1 < f.size() && f[p].first == f[p1].first) p1++;
+            while(q1 < myback.size() && myback[q].first == myback[q1].first) q1++;
+            for(int i = p; i < p1; ++i){
+                for(int j = q; j < q1; ++j){
+                    if(!check[f[i].second | myback[j].second]){
+                        res++;
+                        check[f[i].second | myback[j].second] = 1;
+                    }
                 }
             }
+            p = p1;
+            q = q1;
         }
     }
+    cout <<f.size() << ' ' << myback.size() << endl;
 
     cout << res;
     return 0;
