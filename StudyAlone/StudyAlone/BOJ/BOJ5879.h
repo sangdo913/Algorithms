@@ -9,12 +9,14 @@
 using namespace std;
 
 int n;
-map<long long, vector<int>> mp; 
+map<long long, vector<int>> f, myback; 
 set<int> se;
 vector<int> vec;
 long long v[1<<20];
-int check[M];
+long long diff[1<<20];
+int check[1<<20];
 int arr[20];
+#define ABS(x) ((x) > 0 ? (x) : -(x))
 
 int main(){
     int bits[M] = {};
@@ -35,25 +37,37 @@ int main(){
             b -= b&-b;
         }
         v[i] = sum;
-        mp[sum].push_back(i);
-    }
-    for(auto it : mp){
-        auto v = it.second;
-        sort(v.begin(), v.end());
     }
 
+    f[0].push_back(0);
+    int m = (n/2) + (n&1);
+    for(int i = 0; i < (1<<m); ++i){
+        for(int j = i; j; j = (j-1)&i){
+            f[ABS(v[i^j]-v[j])].push_back(i);
+        }
+    }
+
+    for(int i = 0; i < (1<<(n-m)); ++i){
+        int b = i<<m;
+        for(int j = b; j ; j = (j-1)&b){
+            myback[ABS(v[b^j]-v[j])].push_back(b);
+        }
+    }
     int res = 0;
-    for(int i = 1; i < (1<<n); ++i){
-        int b= i;
-        int val = v[i];
-        if(val &1) continue;
-        val >>=1;
-        auto vec = mp[val];
-        int idx = lower_bound(vec.begin(), vec.end(), i) - vec.begin();
-        if(idx){
-            printf("0x : %0x\n", i);
-            cout << val << endl;
-            res++;
+    check[0] = 1;
+    myback[0].push_back(0);
+    for(auto it : f){
+        int diff = it.first;
+        vector<int> &vec = it.second;
+        vector<int> &vec2 = myback[diff];
+        for(auto it : vec){
+            for(auto it2 : vec2){
+                if(!check[it | it2]){
+                    // cout << (it|it2) << endl;
+                    check[it|it2] = 1;
+                    res++;
+                }
+            }
         }
     }
 
