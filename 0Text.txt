@@ -1,7 +1,2 @@
-2
-55
-0 0
-10 10
-10 0
-0 10
-3 3
+computersystem
+sesystuercomplexity
