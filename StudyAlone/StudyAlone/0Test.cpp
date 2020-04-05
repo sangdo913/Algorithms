@@ -1,23 +1,24 @@
 #include<iostream>
-#include<queue>
+#include<string>
 
 using namespace std;
 
-int arr[10000];
-
 int main(){
-    typedef char(*A[100]);
-    int cnt = 0;
-    for(int i = 0; i < 10000; ++i){
-        arr[i] = cnt++;
-    }
-
-    int (*b)[20][30] = (int(*)[20][30])&arr[1];
-    for(int i = 0; i*30 < 100; i++){
-        for(int j = 0; j < 30; j++){
-            printf("%d ", b[0][i][j]);
+    freopen("0Text.txt", "r", stdin);
+    string input;
+    cin >> input;
+    int n;
+    int j = 0;
+    int checknum = 0;
+    int res = 0;
+    for(int i = 0; i < input.size();++i){
+        while(j < input.size() && ((input[j] =='1') || (input[j] == '0' && checknum < n))){
+            ++j;
+            if(input[j] == '0') checknum++;
         }
-        printf("\n");
+        if(res < j - i) res = j-i;
+        if(input[i] == '0') checknum--;
     }
+    cout << res;
     return 0;
 }
