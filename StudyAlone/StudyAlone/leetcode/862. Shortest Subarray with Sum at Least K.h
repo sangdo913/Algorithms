@@ -1,3 +1,7 @@
+/*
+Runtime: 120 ms, faster than 98.23% of C++ online submissions for Shortest Subarray with Sum at Least K.
+Memory Usage: 13.6 MB, less than 100.00% of C++ online submissions for Shortest Subarray with Sum at Least K.
+*/
 #include<vector>
 using namespace std;
 long long sum[50001];
