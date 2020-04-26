@@ -3,6 +3,7 @@
 using namespace std;
 int n;
 int dp[11];
+int muldp[11][11];
 
 int dfs(int i, int j){
     if(j == 3){
