@@ -93,7 +93,7 @@ void solve(int board[5][5], int pattern[3][3], int callCntLimit) {
                 goto END;
             }
             if(correct > maxcorrect) maxcorrect = correct;
-            if(correct < maxcorrect - (depth >= 10)) continue;
+            if(correct < maxcorrect - (depth >= 15)) continue;
 
             for(rint d = 0; d <4; ++d){
                 int nr = r + dr[d];
