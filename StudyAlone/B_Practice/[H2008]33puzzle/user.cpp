@@ -5,125 +5,127 @@
 
 #define ull unsigned long long
 #define rint register int
-#define HSIZE 4000007 
-ull myhash[HSIZE][2];
-int check[HSIZE];
-int tc;
-int track[HSIZE];
-int mymove[HSIZE];
+#define QSIZE 4000000
 
 extern bool swap(int dir);
 int dr[4] = {-1,0,1,0};
 int dc[4] = {0,1,0,-1};
+int dist[5][5];
+int track[5][5];
+int Q[QSIZE][2];
+int mvisit[5][5];
+int query;
+int path[5][5];
+int dest[5][5];
 
-int myfind(ull c1, ull c2){
-    int key = c2%HSIZE;
-    while(check[key] == tc && (myhash[key][0] != c1 || myhash[key][1] != c2)) key = ++key%HSIZE;
-    if(check[key] == tc) return -1;
-    return key;
-}
-#define SWAP(x,y) ((x)^=(y)^=(x)^=(y))
-void myswap(ull b[2], int r, int c, int nr, int nc){
-    int ni = (24-nr*5-nc)*3;
-    int i = (24-r*5-c)*3;
-    ull b1 = (b[ni/63] >> (ni%63)) & 7;
-    ull b2 = (b[i/63]>>(i%63))&7;
-    b[i/63] = (b[i/63] & ~((7LL << (i%63)))) + (b1<<(i%63));
-    b[ni/63] = (b[ni/63] & ~((7LL << (ni%63)))) + (b2<<(ni%63));
-}
-
-int Q[HSIZE];
-int ST[1000];
-void solve(int board[5][5], int pattern[3][3], int callCntLimit) {
-    tc++;
-    register ull c1 = 0, c2 = 0;
-    rint i,j;
-    
-    for(i = 0; i < 5; ++i){
-        for(j = 0; j < 5; ++j){
-            c1 <<=3;
-            c1 += (c2>>60) & 7;
-            c2 <<=3;
-            c2 += board[i][j];
+int getnext(int board[5][5], int d, int r, int c){
+    query++;
+    rint fr,re;
+    fr= re = 0;
+    rint p = 0;
+    Q[re][0] = r;
+    Q[re++][1] = c;
+    dest[r][c] = (r<<10)+c;
+    int nr, nc;
+    while(fr != re){
+        nr = Q[fr][0], nc = Q[fr++][1];
+        if(board[nr][nc] == d) return ((nr << 10) + nc);
+        for(rint d = 0; d < 4; ++d){
+            int nnr = nr + dr[d], nnc = nc + dc[d];
+            if(nnr < 0 || nnr == 5 || nnc < 0 || nnc == 5) continue;
+            if(mvisit[nnr][nnc] == query) continue;
+            if(board[nnr][nnc] == -1) continue;
+            mvisit[nnr][nnc] = query;
+            dest[nnr][nnc] = (nr << 10) + nc;
+            Q[re][0] = nnr, Q[re++][1] = nnc;
         }
     }
-    rint key = c2 %HSIZE;
-    myhash[key][0] = c1;
-    myhash[key][1] = c2;
-    track[key] = -1;
-    check[key] = tc;
-    rint fr = 0, re = 0;
-    Q[re++] = key;
-    rint last = -1;
-    rint maxcorrect = 0;
-    int depth = 1;
+    return -1;
+}
+int ST[QSIZE];
+void myswap(int board[5][5], int d, int r, int c){
+    int nr = r+dr[d], nc = c + dc[d];
+    board[nr][nc] ^=board[r][c] ^=board[nr][nc] ^= board[r][c];
+}
 
-    while(fr!=re){
-        int cnt = re-fr;
-        while(cnt--){
-            int now = Q[fr++];
-            ull b1 = myhash[now][0];
-            ull b2 = myhash[now][1];
-            rint nowp = 0;
-            rint r=0,c=0;
-            ull c1 = b1;
-            ull c2 = b2;
-            rint rr,cc;
-            for(i = 24; i >=4; --i){
-                rr = i/ 5, cc = i%5;
-                board[rr][cc] = c2&7;
-                if(board[rr][cc] == 0) r = i/5, c = i%5;
-                c2>>=3;
-            }
-            while(i>=0){
-                rr = i/5, cc=i%5;
-                board[rr][cc] = c1&7;
-                if(!board[rr][cc]) r = i/5, c = i%5;
-                c1>>=3;
-                i--;
-            }
-            rint correct = 0;
-            for(i = 1; i < 4; ++i) for(j = 1; j < 4; ++j) {
-                if(board[i][j] == pattern[i-1][j-1]) correct++;
-            }
-            if((depth >= 20) && board[2][2] != pattern[1][1]) continue;
+int go(int board[5][5], int r, int c,int dddr, int dddc, int ddr, int ddc,int pr, int pc){
+    for(rint i = 0; i < 5; ++i){
+        for(rint j = 0; j < 5; ++j)
+            dist[i][j] = 0x3f3f3f3f;
+    }
+    track[r][c] = -1;
+    dist[r][c] = 0;
 
-            if(correct == 9) {
-                last = now;
-                goto END;
+    int fr, re, top;
+    int nr, nc;
+    top = fr = re = 0;
+    Q[re][0] = r, Q[re++][1] = c;
+    while(fr != re){
+            nr = Q[fr][0];
+            nc = Q[fr++][1];
+            if(nr == ddr && nc == ddc) break;
+            for(rint d = 0; d < 4; ++d){
+                rint nnr = nr + dr[d], nnc = nc + dc[d];
+                if(nnr < 0 || nnr == 5 || nnc < 0 || nnc == 5 || dist[nnr][nnc] <= dist[nr][nc] + 1) continue;
+                if(board[nnr][nnc] == -1) continue;
+                if(nnr == pr && nnc == pc) continue;
+                if(dddr == nnr && dddc == nnc) continue;
+                dist[nnr][nnc] = dist[nr][nc] + 1;
+                Q[re][0] = nnr, Q[re++][1] = nnc;
+                track[nnr][nnc] = d;
             }
-            if(correct > maxcorrect) maxcorrect = correct;
-            if(correct < maxcorrect - (depth >= 15)) continue;
+    }
+    while(track[nr][nc] != -1){
+        rint d =track[nr][nc];
+        ST[top++] = d;
+        nr+= dr[(d+2)%4];
+        nc += dc[(d+2)%4];
+    }
+    while(top){
+        rint d = ST[--top];
+        myswap(board,d,nr,nc);
+        nr+=dr[d], nc += dc[d];
+        
+        swap(d);
+    }
+    return (nr<<10) + nc;
+}
 
-            for(rint d = 0; d <4; ++d){
-                int nr = r + dr[d];
-                int nc = c + dc[d];
-                if(nr < 0 || nr ==5 || nc < 0 || nc == 5)continue;
-                register ull ch[2] = {b2,b1};
-                myswap(ch,r,c,nr,nc);
-                int ret = myfind(ch[1],ch[0]); 
-                if(ret != -1){
-                    track[ret] = now;
-                    check[ret] = tc;
-                    mymove[ret] = d;
-
-                    myhash[ret][0] =  ch[1]; myhash[ret][1] = ch[0];
-                    Q[re++] = ret;
+int order[9] = {0,1,2,2,1,0,0,1,2}; 
+void solve(int board[5][5], int pattern[3][3], int callCntLimit) {
+    int r, c;
+    for(int i = 0; i < 5; ++i) for(int j = 0; j < 5; ++j){
+            if(!board[i][j]) {
+                r = i, c = j;
+                break;
+            }
+    }
+    for(int i = 0; i < 9; ++i){
+        int ne = getnext(board, pattern[i/3][order[i]],i/3+1, order[i]+1);
+        int ddr = (ne >> 10) & 0xff;
+        int ddc = ne&0xff;
+        int pr,pc;
+        pr = -1, pc = -1;
+        int need = pattern[i/3][order[i]];
+        while(board[i/3+1][order[i]+1] != need){
+            int dddr = dest[ddr][ddc] >> 10;
+            int dddc = dest[ddr][ddc] &0xf;
+            int p = go(board, r,c,ddr,ddc,dddr, dddc,pr,pc);
+            r = (p>>10)&0xff, c = p &0xff;
+            for(int d = 0; d < 4;++d){
+                int nr = r + dr[d], nc = c + dc[d];
+                if(nr < 0 || nr == 5 || nc < 0 || nc == 5) continue;
+                if(board[nr][nc] ==pattern[i/3][order[i]]){
+                    myswap(board, d, r,c);
+                    swap(d);
+                    ddr = r, ddc = c;
+                    r = nr, c = nc;
+                    break;
                 }
             }
+            pr = ddr, pc = ddc;
         }
-        depth++;
-    }
-    END:
-    rint top = 0;
-    while(last != -1){
-        ST[top++] = last;
-        last = track[last];
-    }
-    if(top) --top;
-    while(top){
-        rint a = ST[--top];
-        swap(mymove[a]);
+        board[i/3+1][order[i]+1] = -1;
     }
     return;
 }

@@ -1,6 +1,7 @@
 #ifndef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 #endif
+int tc;
 
 #include<stdio.h>
 #include"user.cpp"
@@ -100,11 +101,10 @@ int main(void) {
 	int T;
 	scanf("%d", &T);
 
-	for (int tc = 1; tc <= T; ++tc) {
-		printf("#%d ", tc);
-		run();
+	for (tc = 1; tc <= T; ++tc) {
+		// printf("#%d ", tc); run();
 
-		// printf("#%d %d\n", tc, run() ? 100 : 0);
+		printf("#%d %d\n", tc, run() ? 100 : 0);
 	}
 	printf("%d\n", total);
 
