@@ -70,7 +70,9 @@
         "map": "cpp",
         "mutex": "cpp",
         "unordered_set": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "memory_resource": "cpp",
+        "optional": "cpp"
     },
     "python.pythonPath": "venv\\Scripts\\python.exe"
 }
