@@ -2,7 +2,8 @@
 
 using namespace std;
 int mymap[4][4];
-//\1/
+//1 2  3 4  5 6  7 8
+//u lu l ld d rd r ru
 int dr[9] = {0,-1,-1,0,1,1,1,0,-1};
 int dc[9] = {0,0,-1,-1,-1,0,1,1,1};
 struct FISH{
@@ -33,11 +34,6 @@ void move_fish(int mymap[4][4]){
         f[fid].x = f[i].x;
         f[fid].y = f[i].y;
         f[i].x = nx; f[i].y = ny;
-        // //debug
-        // for(int i = 0; i < 4; ++i){
-        //     for(int j = 0; j < 4; ++j) cout << mymap[i][j] << ' ';
-        //     cout << endl;
-        // }
     }
 }
 
@@ -62,12 +58,6 @@ int dfs(){
             backup[s.x][s.y] = 17;
             for(int i = 0; i < 4; ++i) for(int j = 0; j < 4; ++j) mymap[i][j] = backup[i][j];
             for(int i = 1; i <= 17; ++i) f[i] = shark_backup[i];
-            // //debug
-            // for(int i = 0; i < 4; ++i){
-            //     for(int j = 0; j < 4; ++j) cout << mymap[i][j] << ' ';
-            //     cout << endl;
-            // }
-            // cout << endl;
             int res = dfs();
             backup[s.x][s.y] = fid;
             shark_backup[fid].dead = 0;
@@ -77,8 +67,7 @@ int dfs(){
 
     return ret;
 }
-//1 2  3 4  5 6  7 8
-//u lu l ld d rd r ru
+
 int main(){
     freopen("0Text.txt", "r", stdin);
     for(int i = 0; i < 4 ;++i) for(int j = 0; j < 4; ++j) {
