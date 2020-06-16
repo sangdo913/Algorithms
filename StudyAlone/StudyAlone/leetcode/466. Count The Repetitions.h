@@ -1,81 +1,88 @@
 #include<iostream>
-#include<string>
 #include<vector>
-
+#include<string>
 using namespace std;
-
-int line[100];
-int idx[100];
-int r1, r2;
-struct RES{
-    int idx,line;
-};
-
-RES getdp(int i, string s, int n1, string s2, int n2){
-    if(line[i] != -1) return {idx[i], line[i]};
-    int m = s2.size();
-    int n = s.size();
-    line[i] = 0;
-    int id1 = i, id2 = 0;
-    int cnt = n2;
-    while(1){
-        if(id1 == n){
-            line[i]++;
-            id1 = 0; 
-            n1--;
-            if(n1 == 0) break;
-        }
-        if(s[id1] == s2[id2]){
-            id2++;
-            if(id2 == m){
-                id2 = 0;
-                cnt--;
-                if(cnt == 0){
-                    idx[i] = ++id1;
-                    return{idx[i], line[i]};
-                }
-            }
-        }
-        id1++;
-    }
-    return {-1,-1};
-}
-bool allsame(string a, string b){
-    int j = 0;
-    if(a.size() % b.size()) return false;
-    if(a.size() < b.size()) return false;
-    for(int i = 0; i < a.size(); ++i, ++j){
-        if(a[i] != b[j%b.size()]) return false;
-    }
-    return true;
-}
+int query;
+int chk[256];
+int cnt[256];
 class Solution {
 public:
-    int getMaxRepetitions(string s1, int n1, string s2, int n2) {
-        if(!n1) return 0;
-        string s;
-        bool ch[256] = {};
-        for(int i = 0; i < s2.size(); ++i) ch[s2[i]] = 1;
-        for(int i = 0; i < s1.size(); ++i) if(ch[s1[i]]) s.push_back(s1[i]);
-        int m = s2.size();
-        int n = s.size();
-        int id1 = 0, id2 = 0;
-        int res = 0;
-        int cnt = n2;
-        int idx = 0;
-        if(s.size() == 0) return 0;
-        if(s.size()*n1 < s2.size()*n2) return 0;
-        if(allsame(s, s2)) return s.size()*n1 / s2.size()/n2;
-        for(int i = 0; i < n; ++i) line[i] = -1; 
+	int getMaxRepetitions(string s1, int n1, string s2, int n2) {
+		string s;
+		int n = s1.size();
+		int m = s2.size();
+		for (int i = 0; i < m; ++i) {
+			chk[s2[i]] = 1;
+			cnt[s2[i]] = 0;
+		}
+		for (int i = 0; i < n; ++i) {
+			if (chk[s1[i]]) {
+				s += s1[i];
+				cnt[s1[i]]++;
+			}
+		}
+		for (int i = 0; i < m; ++i) {
+			if (cnt[s2[i]] == 0) return 0;
+		}
+		n = s.size();
+		int c1 = 0, c2 = 0, prev;
+		int p[100] = {};
+		int lines[100];
+		for (int i = 0; i < n; ++i) p[i] = -1;
+		prev = 0;
+		int line = 0;
+		int aword = 0;
+		int words = 0;
+		c1 = 0;
+		c2 = 0;
+		int aline = 1;
+		int res = 0;
+        //get init
+		while (1) {
+			if (s[c1] == s2[c2]) {
+				if (c2 == m-1) {
+					lines[prev] = line;
+					res++;
+					if (p[prev] != -1) break;
+					p[prev] = c1;
+					prev = (c1 + 1) % n;
+					line = 0;
+				}
+				c2 = ++c2%m;
+			}
+			c1 = ++c1 %n;
+			if (c1 == 0) {
+				if (aline == n1) 
+					return res/n2;
+				aline++, line++;
+			}
+		}
+        c1 = (1+c1)%n;
+		int rep = c1;
+		int rline = 0;
+		int rword = 0;
+        
+        //get repeat size
+		while (1) {
+			rword++;
+			rline += lines[c1];
+			c1 = (1+p[c1])%n;
+			if (rep == c1) break;
+		}
+        n1 -= aline;
+        res = (res + (n1 / rline)* rword);
+        n1 -= n1/rline*rline;
+        rword = 0;
+        
+        //get remain
         while(1){
-            RES nxt = getdp(idx,s,n1, s2,n2);
-            if(nxt.idx == -1) break;
-            if(n1 - nxt.line <= 0) break;
-            idx = nxt.idx;
-            n1 -= nxt.line;
+            n1-= lines[c1];
+            if(n1 < 0) break;
             res++;
-            if(nxt.idx == n) n1--, idx = 0;
+            c1 = (1+p[c1])%n;
         }
-        return res;
-    }
+            
+        res/=n2;
+		return res;
+	}
 };
