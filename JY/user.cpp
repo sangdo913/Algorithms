@@ -14,7 +14,7 @@ struct DATA {
 
 bool chk[400][400];
 
-vector<int> ansmfehd;
+vector<int> ans;
 //L U R D STAY
 char mymove[10] = "LURDS";
 int dx[] = { 0,-1,0,1, 0 }, dy[] = { -1,0,1,0, 0 };
