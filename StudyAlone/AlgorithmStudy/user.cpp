@@ -1,168 +1,539 @@
-#define rint int
-#define HASHSIZE 10007
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
 
-long long t1[1024];
-int ll1[1024];
-long long t2[1024];
-int ll2[1024];
-int idx1[100000];
-int idx2[100000];
-int tl1, tl2;
-char encodetable[1024][8];
+struct DATA {
+	int arr[20][20][5];
+};
 
-int encode(char *paper, char* src, int papern) {
-	int myhash[HASHSIZE] = {};
-	long long table[1024] = {};
-	for (int i = 0; i < HASHSIZE; ++i) myhash[i] = -1;
-	int tlen[1024] = {};
-	int cnt = 0;
-	long long s = 0;
-	int bit = 0;
-	int all = 0;
+int map1[20][20][5];
 
-	for (rint i = 0; i < papern; ++i) {
-		s = 0;
-		int len = 0;
-		while (paper[i] && paper[i] != ' ') {
-			s = (s << 5) + paper[i] - 'a' + 1;
-			++i;
-			++len;
-		}
-		rint key = s % HASHSIZE;
-		while (myhash[key] != -1 && table[myhash[key]] != s) key = (key + 1) % HASHSIZE;
-		if (myhash[key] == -1) {
-			//debug//
-			for (int j = len; j; --j) {
-				encodetable[cnt][len - j] = paper[i - j];
-			}
-			encodetable[cnt][len] = 0;
-			////////
-			myhash[key] = cnt;
-			tlen[cnt] = len;
-			table[cnt++] = s;
-		}
-	}
-	tl1 = cnt;
+int map2[20][20][5]; int map3[20][20][5];
 
-	for (rint i = 0; i < cnt; ++i) {
-		s = table[i];
-		int len = tlen[i];
-		int remain = 3;
-		while (remain--) {
-			src[(bit) / 8 + 2] |= (bool)(len & (1 << remain)) << ((bit) % 8);
-			bit++;
-		}
+int map4[20][20][5]; int map5[20][20][5];
 
-		remain = tlen[i] * 5;
-		while (remain--) {
-			src[bit / 8 + 2] |= (bool)(s&(1LL << remain)) << (bit % 8);
-			bit++;
-		}
+// 0 : Can go      1 : wall     3: mino            [0]-> 5 : goal 
+
+// 0: left      1: up       2: right       3: down        4: stop  
+
+
+vector<DATA> container;
+
+extern int func(DATA* container, pair<int, int> te, pair<int, int> mino, pair<int, int> sz);
+/*location & map & wall make */
+
+void make_map1(int row, int col) {
+	for (int i = 0; i < col; i++) {
+		map1[row - 1][i][3] = true;
+		map1[0][i][1] = true;
 	}
 
-	for (int i = 0; i < cnt; ++i) {
-		t1[i] = table[i];
-		ll1[i] = tlen[i];
+	for (int i = 0; i < row; i++) {
+		map1[i][col - 1][2] = true;
+		map1[i][0][0] = true;
 	}
-	bit += 3;
 
-	for (rint i = 0; i < papern; ++i) {
-		s = 0;
-		while (paper[i] && paper[i] != ' ') {
-			s = (s << 5) + paper[i] - 'a' + 1;
-			++i;
-		}
-		int key = s % HASHSIZE;
-		while (table[myhash[key]] != s) key = (key + 1) % HASHSIZE;
-		int idx = myhash[key];
-		idx1[all] = idx;
-		int remain = 10;
-		while (remain--) {
-			src[bit / 8 + 2] |= (bool)(idx & (1 << remain)) << (bit % 8);
-			bit++;
-		}
+	map1[0][0][3] = true;
+	map1[0][1][3] = true;
+	map1[0][3][2] = true;
+	map1[0][4][0] = true;
+	map1[0][5][2] = true;
+	map1[0][6][0] = true;
+	map1[0][7][3] = true;
 
-		++all;
-	}
-	src[0] = all >> 8;
-	src[1] = all & 0xff;
+	map1[1][0][1] = true;
+	map1[1][1][1] = true;   map1[1][1][2] = true;
+	map1[1][2][0] = true;   map1[1][2][2] = true;   map1[1][2][3] = true;
+	map1[1][3][0] = true;   map1[1][3][2] = true;
+	map1[1][4][0] = true;   map1[1][4][2] = true;
+	map1[1][5][0] = true;   map1[1][5][2] = true;
+	map1[1][6][0] = true;
+	map1[1][7][1] = true;   map1[1][7][2] = true;   map1[1][7][3] = true;
+	map1[1][8][0] = true;
 
-	return bit / 8 + 3;
+	map1[2][0][2] = true;
+	map1[2][1][0] = true;    map1[2][1][3] = true;
+	map1[2][2][1] = true;    map1[2][2][2] = true;
+	map1[2][3][0] = true;
+	map1[2][4][2] = true;    map1[2][4][3] = true;
+	map1[2][5][0] = true;    map1[2][5][3] = true;
+	map1[2][6][2] = true;    map1[2][6][3] = true;
+	map1[2][7][0] = true;    map1[2][7][1] = true;
+
+	map1[3][0][3] = true;
+	map1[3][1][1] = true;    map1[3][1][2] = true;
+	map1[3][2][0] = true;    map1[3][2][2] = true;
+	map1[3][3][0] = true;    map1[3][3][3] = true;
+	map1[3][4][1] = true;    map1[3][4][2] = true;
+	map1[3][5][0] = true;    map1[3][5][1] = true;
+	map1[3][6][1] = true;    map1[3][6][3] = true;
+	map1[3][7][3] = true;
+	map1[3][8][3] = true;
+
+	map1[4][0][1] = true;    map1[4][0][2] = true;
+	map1[4][1][0] = true;    map1[4][1][2] = true;
+	map1[4][2][0] = true;    map1[4][2][3] = true;
+	map1[4][3][1] = true;
+	map1[4][4][2] = true;    map1[4][4][3] = true;
+	map1[4][5][0] = true;    map1[4][5][3] = true;
+	map1[4][6][1] = true;    map1[4][6][3] = true;
+	map1[4][7][1] = true;    map1[4][7][3] = true;
+	map1[4][8][1] = true;
+
+	map1[5][1][2] = true;    map1[5][1][3] = true;
+	map1[5][2][0] = true;    map1[5][2][1] = true;
+	map1[5][3][2] = true;    map1[5][3][3] = true;
+	map1[5][4][0] = true;    map1[5][4][1] = true;
+	map1[5][5][1] = true;
+	map1[5][6][1] = true;    map1[5][6][3] = true;
+	map1[5][7][1] = true;    map1[5][7][3] = true;
+	map1[5][8][3] = true;
+
+	map1[6][0][2] = true;
+	map1[6][1][0] = true;    map1[6][1][1] = true;    map1[6][1][2] = true;
+	map1[6][2][0] = true;
+	map1[6][3][1] = true;    map1[6][3][2] = true;    map1[6][3][3] = true;
+	map1[6][4][0] = true;    map1[6][4][2] = true;
+	map1[6][5][0] = true;    map1[6][5][3] = true;
+	map1[6][6][1] = true;    map1[6][6][3] = true;
+	map1[6][7][1] = true;    map1[6][7][3] = true;
+	map1[6][8][1] = true;
+
+	map1[7][0][2] = true;
+	map1[7][1][0] = true;
+	map1[7][3][1] = true;
+	map1[7][5][1] = true;    map1[7][5][2] = true;
+	map1[7][6][0] = true;    map1[7][6][1] = true;
+	map1[7][7][1] = true;
+
+	map1[7][1][3] = true; // map1 exit
+
+
+	map1[7][1][0] = 5;
+	return;
 }
 
-void decode(char* src, char * dest, int s) {
-	int alllen = ((int)src[0] << 8) + (unsigned char)src[1];
-	long long str;
-	int idx;
-	// long long table[1024];
-	char strtable[1024][8];
-	int tlen[1024];
-	int bit = 0;
-	int len;
-	int rb;
-	int tsize = 0;
-	int di = 0;
-
-	while (1) {
-		len = 0;
-		rb = 3;
-		while (rb--) {
-			len = (len << 1) + (src[bit / 8 + 2] & 1);
-			src[bit++ / 8 + 2] >>= 1;
-		}
-		if (!len) break;
-		tlen[tsize] = len;
-		//len *= 5;
-		str = 0;
-		for (int l = 0; l < len; ++l) {
-			char c = 0;
-			int cnt = 5;
-			while (cnt--) {
-				c = (c << 1) + (src[bit / 8 + 2] & 1);
-				src[bit++ / 8 + 2] >>= 1;
-			}
-			strtable[tsize][l] = c + 'a' - 1;
-		}
-		++tsize;
+void make_map2(int row, int col) {
+	for (int i = 0; i < col; i++) {
+		map2[row - 1][i][3] = true;
+		map2[0][i][1] = true;
 	}
 
-	////////////DEBUG///////////
-	// for(int i = 0; i < tsize; ++i){
-	//     for(int j = 0; j < tlen[i]; ++j){
-	//         if(encodetable[i][j] != strtable[i][j]){
-	//             int debug = 1;
-	//         }
-	//     }
-	// }
-	////////////////////////
-	// for(int i = 0; i < tsize; ++i){
-	//     t2[i] = table[i];
-	//     ll2[i] = tlen[i];
-	// }
-
-	for (rint i = 0; i < alllen; ++i) {
-		rb = 10;
-		idx = 0;
-		while (rb--) {
-			idx = (idx << 1) + (src[bit / 8 + 2] & 1);
-			src[bit++ / 8 + 2] >>= 1;
-		}
-		idx2[i] = idx;
-		for (int i = 0; i < tlen[idx]; ++i) {
-			dest[di + i] = strtable[idx][i];
-		}
-		// str = table[idx];
-		// for(int i = 0; i < tlen[idx]; ++i){
-		//     dest[di + i] = (str & 0x1f) + 'a'-1;
-		//     str>>=5;
-		// }
-		// for(int i = 0; i < tlen[idx]/2; ++i){
-		//     char t = dest[di+i];
-		//     dest[di+i] = dest[di+tlen[idx]-1-i];
-		//     dest[di+tlen[idx]-1-i] = t;
-		// }
-		dest[di + tlen[idx]] = ' ';
-		di += tlen[idx] + 1;
+	for (int i = 0; i < row; i++) {
+		map2[i][col - 1][2] = true;
+		map2[i][0][0] = true;
 	}
-	for (int i = 0; i < s; ++i) src[i] = 0;
+
+	map2[0][0][3] = true;
+	map2[0][1][3] = true;
+	map2[0][5][3] = true;
+
+	map2[1][0][1] = true;
+	map2[1][1][1] = true;
+	map2[1][5][1] = true;
+	map2[2][3][3] = true;
+
+	map2[3][0][2] = true;
+	map2[3][1][0] = true;    map2[3][1][3] = true;
+	map2[3][2][2] = true;
+	map2[3][3][0] = true;    map2[3][3][1] = true;    map2[3][3][2] = true;
+	map2[3][4][0] = true;
+	map2[3][7][2] = true;
+	map2[3][8][0] = true;
+
+	map2[4][0][2] = true;
+	map2[4][1][0] = true;    map2[4][1][1] = true;
+	map2[4][7][2] = true;    map2[4][7][3] = true;
+	map2[4][8][0] = true;
+
+	map2[5][0][2] = true;
+	map2[5][7][1] = true;   map2[5][7][2] = true;
+	map2[5][8][0] = true;
+
+	map2[6][3][3] = true;
+	map2[6][7][2] = true;
+	map2[6][8][0] = true;
+
+	map2[7][3][1] = true;
+
+	map2[0][3][1] = true; // map2 exit
+
+
+	map2[0][3][0] = 5;
+	return;
+}
+
+void make_map3(int row, int col) {
+	for (int i = 0; i < col; i++) {
+		map3[row - 1][i][3] = true;
+		map3[0][i][1] = true;
+	}
+
+	for (int i = 0; i < row; i++) {
+		map3[i][col - 1][2] = true;
+		map3[i][0][0] = true;
+	}
+
+	map3[0][0][2] = true;
+	map3[0][1][0] = true;
+	map3[0][5][3] = true;
+	map3[0][7][3] = true;
+
+	map3[1][5][1] = true;
+	map3[1][6][2] = true;
+	map3[1][7][0] = true;    map3[1][7][1] = true;
+
+	map3[2][4][2] = true;
+	map3[2][5][0] = true;
+
+	map3[3][1][3] = true;
+	map3[3][3][2] = true;
+	map3[3][4][0] = true;
+	map3[3][5][3] = true;
+
+	map3[4][1][1] = true;
+	map3[4][2][2] = true;
+	map3[4][3][0] = true;
+	map3[4][5][1] = true;
+
+	map3[5][0][2] = true;    map3[5][0][3] = true;
+	map3[5][1][0] = true;    map3[5][1][2] = true;
+	map3[5][2][0] = true;
+	map3[5][5][2] = true;
+	map3[5][6][0] = true;    map3[5][6][3] = true;
+
+	map3[6][0][1] = true;    map3[6][0][3] = true;
+	map3[6][1][2] = true;
+	map3[6][2][0] = true;
+	map3[6][3][2] = true;
+	map3[6][4][0] = true;    map3[6][4][3] = true;
+	map3[6][6][1] = true;
+
+	map3[7][0][1] = true;
+	map3[7][4][1] = true;    map3[7][4][2] = true;
+	map3[7][5][0] = true;
+
+	map3[0][0][0] = true; // map3 exit
+
+	map3[0][0][0] = 5;
+	return;
+}
+
+void make_map4(int row, int col) {
+	for (int i = 0; i < col; i++) {
+		map4[row - 1][i][3] = true;
+		map4[0][i][1] = true;
+	}
+
+	for (int i = 0; i < row; i++) {
+		map4[i][col - 1][2] = true;
+		map4[i][0][0] = true;
+	}
+
+	map4[0][0][3] = true;
+	map4[0][1][3] = true;
+	map4[0][4][2] = true;
+	map4[0][5][0] = true;
+	map4[0][6][3] = true;
+	map4[0][8][2] = true;    map4[0][8][3] = true;
+	map4[0][9][0] = true;    map4[0][9][3] = true;
+	map4[0][11][3] = true;
+	map4[0][12][3] = true;
+
+	map4[1][0][1] = true;    map4[1][0][2] = true;
+	map4[1][1][0] = true;    map4[1][1][1] = true;    map4[1][1][2] = true;
+	map4[1][2][0] = true;    map4[1][2][2] = true;
+	map4[1][3][0] = true;    map4[1][3][2] = true;    map4[1][3][3] = true;
+	map4[1][4][0] = true;    map4[1][4][2] = true;
+	map4[1][5][0] = true;    map4[1][5][2] = true;
+	map4[1][6][0] = true;    map4[1][6][1] = true;    map4[1][6][3] = true;
+	map4[1][8][1] = true;    map4[1][8][3] = true;
+	map4[1][9][1] = true;    map4[1][9][3] = true;
+	map4[1][10][2] = true;   map4[1][10][3] = true;
+	map4[1][11][0] = true;   map4[1][11][1] = true;   map4[1][11][3] = true;
+	map4[1][12][1] = true;   map4[1][12][3] = true;
+
+	map4[2][2][3] = true;
+	map4[2][3][1] = true;
+	map4[2][6][1] = true;    map4[2][6][3] = true;
+	map4[2][8][1] = true;
+	map4[2][9][1] = true;
+	map4[2][10][1] = true;   map4[2][10][3] = true;
+	map4[2][11][1] = true;   map4[2][11][3] = true;
+	map4[2][12][1] = true;
+
+	map4[3][0][2] = true;
+	map4[3][1][0] = true;    map4[3][1][2] = true;
+	map4[3][2][0] = true;    map4[3][2][1] = true;    map4[3][2][3] = true;
+	map4[3][3][2] = true;
+	map4[3][4][0] = true;    map4[3][4][2] = true;
+	map4[3][5][0] = true;
+	map4[3][6][1] = true;
+	map4[3][7][2] = true;
+	map4[3][8][0] = true;    map4[3][8][2] = true;
+	map4[3][9][0] = true;    map4[3][9][3] = true;
+	map4[3][10][1] = true;   map4[3][10][3] = true;
+	map4[3][11][1] = true;   map4[3][11][3] = true;
+	map4[3][12][2] = true;
+	map4[3][13][0] = true;
+
+	map4[4][0][2] = true;
+	map4[4][1][0] = true;    map4[4][1][2] = true;
+	map4[4][2][0] = true;    map4[4][2][1] = true;
+	map4[4][3][2] = true;
+	map4[4][4][0] = true;    map4[4][4][2] = true;
+	map4[4][5][0] = true;    map4[4][5][2] = true;
+	map4[4][6][0] = true;    map4[4][6][2] = true;
+	map4[4][7][0] = true;    map4[4][7][2] = true;
+	map4[4][8][0] = true;
+	map4[4][9][1] = true;    map4[4][9][3] = true;
+	map4[4][10][1] = true;   map4[4][10][3] = true;
+	map4[4][11][1] = true;   map4[4][11][2] = true;
+	map4[4][12][0] = true;   map4[4][12][2] = true;
+	map4[4][13][0] = true;
+
+	map4[5][0][2] = true;
+	map4[5][1][0] = true;    map4[5][1][2] = true;
+	map4[5][2][0] = true;    map4[5][2][2] = true;
+	map4[5][3][0] = true;
+	map4[5][4][2] = true;
+	map4[5][5][0] = true;    map4[5][5][2] = true;
+	map4[5][6][0] = true;
+	map4[5][9][1] = true;    map4[5][9][3] = true;
+	map4[5][10][1] = true;   map4[5][10][3] = true;
+	map4[5][11][2] = true;
+	map4[5][12][0] = true;   map4[5][12][2] = true;
+	map4[5][13][0] = true;
+
+	map4[6][0][2] = true;
+	map4[6][1][0] = true;    map4[6][1][2] = true;
+	map4[6][2][0] = true;    map4[6][2][2] = true;
+	map4[6][3][0] = true;    map4[6][3][2] = true;
+	map4[6][4][0] = true;    map4[6][4][2] = true;
+	map4[6][5][0] = true;    map4[6][5][2] = true;
+	map4[6][6][0] = true;    map4[6][6][2] = true;
+	map4[6][7][0] = true;    map4[6][7][2] = true;
+	map4[6][8][0] = true;
+	map4[6][9][1] = true;    map4[6][9][3] = true;
+	map4[6][10][1] = true;   map4[6][10][3] = true;
+	map4[6][11][2] = true;
+	map4[6][12][0] = true;   map4[6][12][2] = true;
+	map4[6][13][0] = true;
+
+	map4[7][0][2] = true;
+	map4[7][1][0] = true;    map4[7][1][2] = true;
+	map4[7][2][0] = true;    map4[7][2][2] = true;
+	map4[7][3][0] = true;    map4[7][3][2] = true;
+	map4[7][4][0] = true;    map4[7][4][2] = true;
+	map4[7][5][0] = true;    map4[7][5][2] = true;
+	map4[7][6][0] = true;    map4[7][6][2] = true;
+	map4[7][7][0] = true;    map4[7][7][2] = true;
+	map4[7][8][0] = true;
+	map4[7][9][1] = true;    map4[7][9][3] = true;
+	map4[7][10][1] = true;   map4[7][10][3] = true;
+	map4[7][11][2] = true;
+	map4[7][12][0] = true;   map4[7][12][2] = true;
+	map4[7][13][0] = true;
+
+	map4[8][9][1] = true;
+	map4[8][10][1] = true;
+
+	map4[1][13][2] = true; // map4 exit
+
+
+	map4[1][14][0] = 5;
+	return;
+}
+
+void make_map5(int row, int col) {
+	for (int i = 0; i < col; i++) {
+		map5[row - 1][i][3] = true;
+		map5[0][i][1] = true;
+	}
+
+	for (int i = 0; i < row; i++) {
+		map5[i][col - 1][2] = true;
+		map5[i][0][0] = true;
+	}
+
+	map5[0][1][2] = true;
+	map5[0][2][0] = true;
+	map5[0][3][3] = true;
+	map5[0][5][3] = true;
+	map5[0][6][3] = true;
+	map5[0][9][2] = true;    map5[0][9][3] = true;
+	map5[0][10][0] = true;
+	map5[0][11][3] = true;
+	map5[0][12][3] = true;
+
+	map5[1][0][2] = true;
+	map5[1][1][0] = true;    map5[1][1][3] = true;
+	map5[1][2][3] = true;
+	map5[1][3][1] = true;    map5[1][3][2] = true;
+	map5[1][4][0] = true;    map5[1][4][2] = true;
+	map5[1][5][0] = true;    map5[1][5][1] = true;
+	map5[1][6][1] = true;    map5[1][6][3] = true;
+	map5[1][7][2] = true;
+	map5[1][8][0] = true;
+	map5[1][9][1] = true;    map5[1][9][2] = true;    map5[1][9][3] = true;
+	map5[1][10][0] = true;   map5[1][10][2] = true;
+	map5[1][11][0] = true;   map5[1][11][1] = true;   map5[1][11][2] = true;
+	map5[1][12][0] = true;   map5[1][12][1] = true;   map5[1][12][2] = true;
+	map5[1][13][0] = true;
+
+	map5[2][1][1] = true;    map5[2][1][2] = true;
+	map5[2][2][0] = true;    map5[2][2][1] = true;
+	map5[2][3][3] = true;
+	map5[2][4][3] = true;
+	map5[2][6][1] = true;    map5[2][6][3] = true;
+	map5[2][8][3] = true;
+	map5[2][9][1] = true;    map5[2][9][2] = true;
+	map5[2][10][0] = true;   map5[2][10][2] = true;
+	map5[2][11][0] = true;
+
+	map5[3][0][2] = true;
+	map5[3][1][0] = true;
+	map5[3][3][1] = true;
+	map5[3][4][1] = true;    map5[3][4][2] = true;
+	map5[3][5][0] = true;    map5[3][5][2] = true;
+	map5[3][6][0] = true;    map5[3][6][1] = true;    map5[3][6][3] = true;
+	map5[3][8][1] = true;    map5[3][8][2] = true;
+	map5[3][9][0] = true;
+	map5[3][10][2] = true;
+	map5[3][11][0] = true;   map5[3][11][2] = true;
+	map5[3][12][0] = true;   map5[3][12][2] = true;
+	map5[3][13][0] = true;
+
+	map5[4][0][2] = true;
+	map5[4][1][0] = true;    map5[4][1][2] = true;
+	map5[4][2][0] = true;    map5[4][2][2] = true;
+	map5[4][3][0] = true;    map5[4][3][2] = true;
+	map5[4][4][0] = true;    map5[4][4][2] = true;
+	map5[4][5][0] = true;
+	map5[4][6][2] = true;
+	map5[4][7][0] = true;    map5[4][7][2] = true;
+	map5[4][8][0] = true;    map5[4][8][2] = true;
+	map5[4][9][0] = true;    map5[4][9][2] = true;
+	map5[4][10][0] = true;   map5[4][10][2] = true;
+	map5[4][11][0] = true;
+	map5[4][12][3] = true;
+	map5[4][13][3] = true;
+
+	map5[5][1][3] = true;
+	map5[5][2][3] = true;
+	map5[5][3][3] = true;
+	map5[5][4][2] = true;
+	map5[5][5][0] = true;    map5[5][5][2] = true;
+	map5[5][6][0] = true;
+	map5[5][7][2] = true;
+	map5[5][8][0] = true;    map5[5][8][2] = true;
+	map5[5][9][0] = true;    map5[5][9][2] = true;
+	map5[5][10][0] = true;   map5[5][10][2] = true;
+	map5[5][11][0] = true;   map5[5][11][2] = true;
+	map5[5][12][0] = true;   map5[5][12][1] = true;   map5[5][12][2] = true;
+	map5[5][13][0] = true;   map5[5][13][1] = true;
+
+	map5[6][0][3] = true;
+	map5[6][1][1] = true;    map5[6][1][3] = true;
+	map5[6][2][1] = true;
+	map5[6][3][1] = true;    map5[6][3][2] = true;
+	map5[6][4][0] = true;    map5[6][4][3] = true;
+	map5[6][5][3] = true;
+	map5[6][6][2] = true;
+	map5[6][7][0] = true;
+	map5[6][8][3] = true;
+	map5[6][9][2] = true;
+	map5[6][10][0] = true;   map5[6][10][3] = true;
+	map5[6][12][2] = true;   map5[6][12][3] = true;
+	map5[6][13][0] = true;
+
+	map5[7][0][1] = true;    map5[7][0][2] = true;
+	map5[7][1][0] = true;    map5[7][1][1] = true;    map5[7][1][2] = true;
+	map5[7][2][0] = true;    map5[7][2][2] = true;
+	map5[7][3][0] = true;    map5[7][3][2] = true;
+	map5[7][4][0] = true;    map5[7][4][1] = true;    map5[7][4][3] = true;
+	map5[7][5][1] = true;    map5[7][5][3] = true;
+	map5[7][6][2] = true;
+	map5[7][7][0] = true;
+	map5[7][8][1] = true;
+	map5[7][9][3] = true;
+	map5[7][10][1] = true;   map5[7][10][3] = true;
+	map5[7][11][3] = true;
+	map5[7][12][1] = true;   map5[7][12][2] = true;
+	map5[7][13][0] = true;
+
+	map5[8][4][1] = true;
+	map5[8][5][1] = true;
+	map5[8][7][2] = true;
+	map5[8][8][0] = true;
+	map5[8][9][1] = true;
+	map5[8][10][1] = true;
+	map5[8][11][1] = true;
+
+	map5[5][13][2] = true; // map5 exit
+
+
+	map5[5][13][0] = 5;
+	return;
+}
+
+vector<pair<int, int>> te;
+vector<pair<int, int>> mino;    // location 
+
+void init() {
+	make_map1(8, 9);
+	make_map2(8, 9);
+	make_map3(8, 8);
+	make_map4(9, 14);
+	make_map5(9, 14);
+}
+
+pair<int, int> size_tt[5];
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0), cout.tie(0);
+
+
+	size_tt[0] = { 8, 9 };  size_tt[1] = { 8, 9 };
+	size_tt[2] = { 8, 8 };
+	size_tt[3] = { 9, 14 };
+	size_tt[4] = { 9, 14 };
+
+	int SCORE = 0;
+	DATA d[5];
+	init();
+
+
+	memcpy(d[0].arr, map1, sizeof(DATA));
+	memcpy(d[1].arr, map2, sizeof(DATA));
+	memcpy(d[2].arr, map3, sizeof(DATA));
+	memcpy(d[3].arr, map4, sizeof(DATA));
+	memcpy(d[4].arr, map5, sizeof(DATA));
+
+	container.push_back(d[0]);
+	container.push_back(d[1]);
+	container.push_back(d[2]);
+	container.push_back(d[3]);
+	container.push_back(d[4]);
+
+
+	te.push_back({ 0,0 });
+	te.push_back({ 0,8 });
+	te.push_back({ 1,1 });
+	te.push_back({ 4,0 });
+	te.push_back({ 5,12 });
+
+
+	mino.push_back({ 2, 2 });  mino.push_back({ 0, 0 });
+	mino.push_back({ 0, 0 });   mino.push_back({ 4, 13 });
+	mino.push_back({ 3, 6 });
+
+	for (register int testCase = 0; testCase < 5; testCase++) {
+		printf("TestCase : %d\n", testCase);
+		SCORE += func(&container[testCase], te[testCase], mino[testCase], size_tt[testCase]);
+	}
+	printf("total Score :  %d   \n", SCORE);
+	return 0;
 }
