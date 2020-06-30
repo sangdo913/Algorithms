@@ -9,29 +9,29 @@ struct PERSON {
 };
 struct GIFT {
 	string name;
-	string person;
+    string person;
 	int num;
 };
 ostream& operator<<(ostream& os, const GIFT& i2) {
-	// gift Ãâ·ÂºÎ
+	// gift ì¶œë ¥ë¶€
 	return os << i2.name;
 }
 void print_gift_info(int i, const GIFT& i2) {
-	// gift Á¤º¸ Ãâ·ÂºÎ
-	cout << i << "¹ø: " << i2 << " (" << i2.num << " ¸í)\n";
+	// gift ì •ë³´ ì¶œë ¥ë¶€
+	cout << i << "ë²ˆ: " << i2 << " (" << i2.num << " ëª…)\n";
 }
 GIFT& set_gift_info(GIFT &g) {
-	//gift ÀÔ·ÂºÎ
+	//gift ìž…ë ¥ë¶€
 	cin >> g.person >> g.name;
-	g.num = 1;
+    g.num = 1;
 	return g;
 }
 ostream& operator<<(ostream& os, const PERSON& i2) {
-	//person Ãâ·ÂºÎ
+	//person ì¶œë ¥ë¶€
 	return cout << i2.name;
 }
 PERSON& set_person_info(PERSON &p) {
-	//person ÀÔ·ÂºÎ
+	//person ìž…ë ¥ë¶€
 	cin >> p.name;
 	return p;
 }
@@ -46,12 +46,12 @@ int main() {
 		GIFT g;
 		gift.push_back(set_gift_info(g));
 	}
-
+	
 	for (int i = 0; i < m; ++i) {
 		PERSON p;
 		people.push_back(set_person_info(p));
 	}
-	int cnt = 10000; // ¼ÅÇÃ ¼ö
+	int cnt = 10000; // ì…”í”Œ ìˆ˜
 	while (cnt--) {
 		int i = rand() % gift.size() % people.size();
 		int j = rand() % people.size();
@@ -59,7 +59,7 @@ int main() {
 	}
 	int i = 0;
 	cnt = 0;
-	cout << "´çÃ·\n";
+	cout << "ë‹¹ì²¨\n";
 	for (; i < gift.size() && cnt < people.size(); ++i) {
 		print_gift_info(i + 1, gift[i]);
 		while (gift[i].num-- && cnt < people.size()) {
@@ -68,7 +68,7 @@ int main() {
 		cout << "\n\n";
 	}
 	if (cnt < people.size()) {
-		cout << "²Î\n";
+		cout << "ê½\n";
 		for (; cnt < people.size(); ++cnt) cout << people[cnt] << ' ';
 		cout << '\n';
 	}
