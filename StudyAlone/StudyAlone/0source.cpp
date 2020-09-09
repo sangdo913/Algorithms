@@ -1,6 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include"BOJ/BOJ19238.h"
+#include"Test.h"
 //#include"ARCTIC.h"
 //#include"leetcode/BOJ3954.h"
 //#include"AOJ/NH.h"
