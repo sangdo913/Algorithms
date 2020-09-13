@@ -7,7 +7,7 @@
 using namespace std;
 
 long long lazy[360001*4];
-long long nodes[3600001*4];
+long long nodes[360001*4];
 
 void setlazy(int id, int s, int e){
     nodes[id] += lazy[id]*(e-s+1);
@@ -17,7 +17,6 @@ void setlazy(int id, int s, int e){
     }
     lazy[id] = 0;
 }
-
 
 void init(int id, int l, int r, int s, int e){
     if(r < s || e < l) return;
