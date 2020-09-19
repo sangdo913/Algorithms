@@ -9,43 +9,30 @@ using namespace std;
 class Solution {
 public:
     string largestMultipleOfThree(vector<int>& digits) {
-        priority_queue<int> pq[3];
+        int cnt[11] = {};
+        int remain[3][6] = {{},{1,4,7,2,5,8},{2,5,8,1,4,7}};
+        
         int allsum = 0;
         for(int i = 0; i < digits.size(); ++i) {
-            int num = digits[i];
-            allsum+=num;
-            pq[num%3].push(-num);
+            allsum += digits[i];
+            cnt[digits[i]]++;
         }
+        int cur = 0;
         int r = allsum%3;
-        string res;
-        switch(r){
-            case 1:
-                if(pq[1].size() > 0) {
-                    pq[1].pop();
-                }
-                else if(pq[2].size() > 1){
-                    pq[2].pop(); pq[2].pop();
-                }
-                else return "";
-                break;
-            case 2:
-                if(pq[2].size() > 0){
-                    pq[2].pop();
-                }
-                else if(pq[1].size() > 1){
-                    pq[1].pop(); pq[1].pop();
-                }
-                break;
+        while(allsum %3) {
+            if(cnt[remain[r][cur]]) {
+                cnt[remain[r][cur]]--;
+                allsum -= remain[r][cur];
+            }
+            else cur++;
         }
-        for(int i = 0; i < 3; ++i) {
-            while(pq[i].size()){
-                res += -pq[i].top() + '0';
-                pq[i].pop();
+        
+        string res;
+        for(int i = 9; i >= 0; --i){
+            while(cnt[i]--){
+                res += i+'0';
             }
         }
-        sort(res.begin(), res.end());
-        reverse(res.begin(), res.end());
-        while(res.size() > 1 && res[0] == '0') res.pop_back();
-        return res;
+        return res[0] == '0' ? "0" : res;
     }
 };
