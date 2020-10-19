@@ -7,7 +7,7 @@
 using namespace std;
 
 long long lazy[360001*4];
-long long nodes[3600001*4];
+long long nodes[360001*4];
 
 void setlazy(int id, int s, int e){
     nodes[id] += lazy[id]*(e-s+1);
@@ -17,7 +17,6 @@ void setlazy(int id, int s, int e){
     }
     lazy[id] = 0;
 }
-
 
 void init(int id, int l, int r, int s, int e){
     if(r < s || e < l) return;
@@ -30,8 +29,8 @@ void init(int id, int l, int r, int s, int e){
 }
 
 void sum(int id, int l, int r, int s, int e){
-    if(e < l || r < s) return;
     setlazy(id, l,r);
+    if(e < l || r < s) return;
 
     if(s<=l && r <= e) {
         lazy[id] += 1;
@@ -45,8 +44,8 @@ void sum(int id, int l, int r, int s, int e){
 }
 
 long long getsum(int id, int l, int r, int s, int e){
-    if(e < l || r < s) return 0;
     setlazy(id, l,r);
+    if(e < l || r < s) return 0;
     if(s<=l && r <= e) {
         return nodes[id];
     }
@@ -74,14 +73,26 @@ string stostr(int sec){
     res[7] = sec%10 + '0';
     return res;
 }
+//TETS
+vector<int> st;
+vector<int> ed;
+//
 
 string solution(string play_time, string adv_time, vector<string> logs) {
     string answer = "";
     int pt = tosec(play_time);
     int at = tosec(adv_time);
     init(1,0,pt,0,pt);
+    st.push_back(0);
+    st.push_back(70);
+    ed.push_back(100);
+    ed.push_back(150);
     int cnt = 0;
+    for(int i = 0; i < st.size(); ++i){
+        //sum(1,0,200, st[i], ed[i]);
+    }
     for(auto it : logs){
+        //continue;
         string t;
         stringstream stream;
         stream.str("");
@@ -98,9 +109,9 @@ string solution(string play_time, string adv_time, vector<string> logs) {
         if(mmax < res){
             mmax = res;
             answer = stostr(i);
-            cout << answer << ' ' << res << endl;;
         }
     }
+    cout <<"mmax " << mmax << endl;
 
     return answer;
 }
@@ -111,9 +122,11 @@ int main(){
     string ptime = "99:59:59";
     string atime = "10:00:00";
     string log = "00:00:00-99:59:59";
-    vector<string> v(300000, log);
+    bool use_tc = false;
+    int size = use_tc ? 0 : 299999;
+    vector<string> v(size, log);
+    v.push_back("01:00:00-99:59:59");
 
-    bool use_tc = true;
     if(use_tc){
         v.clear();
         cin >> ptime;
