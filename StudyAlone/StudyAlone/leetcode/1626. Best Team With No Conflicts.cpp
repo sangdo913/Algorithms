@@ -28,3 +28,34 @@ public:
         return res;
     }
 };
+
+/*
+class Solution {
+public:
+    int bestTeamScore(vector<int>& scores, vector<int>& ages) {
+        vector<pair<int,int>> v;
+        int n = scores.size();
+        for(int i = 0; i < n; ++i){
+            v.push_back({ages[i], scores[i]});
+        }
+        sort(v.begin(), v.end());
+        map<int,int> mp;
+        mp[0] = 0;
+        for(int i = 0; i < n; ++i){
+            auto[_,s] = v[i]; 
+            auto it = mp.upper_bound(s);
+            auto cur= prev(it);
+            int sum = cur->second + s;
+            while(it != mp.end() && it->second <= sum){
+                it = mp.erase(it);
+            }
+            mp[s] = cur->second + s;
+        }
+        int res = 0;
+        for(auto it : mp){
+            res = max(res,it.second);
+        }
+        return res;
+    }
+};
+*/
