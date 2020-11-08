@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-#include"MemoryAllocUser.cpp"
+#include"MemoryAllocUser2.cpp"
 #include<memory.h>
+/* 전역 변수를 쓰지 마시오 */
 
 char memory[400000000];
 char atbl[100000000];

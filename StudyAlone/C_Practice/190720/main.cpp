@@ -2,7 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include<cstring>
-#include"user.cpp"
+#include"user2.cpp"
+#include<cstdio>
 using namespace std;
 
 
@@ -62,9 +63,11 @@ int main() {
    int count = 0;
    int loop = 0;
 
-   int checksum = 399999000;
    while (unit_total != 400000000) {
       loop++;
+      // if(loop %1000000 == 0){
+      //    //printf("alloc: %d\n", alloc_total);
+      // }
       int unit = rand() % 4;
       char* ptr = alloc_memory(atbl, unit_size[unit]);
 
@@ -96,7 +99,7 @@ int main() {
    if (_verify() == false) 
        SCORE = 0;
 
-   printf("%lld\n", SCORE);
+   printf("score: %lld\n", SCORE);
    printf("time : %d\n", exectime);
    printf("loop : %d\ncount : %d\n",loop, count);
    
