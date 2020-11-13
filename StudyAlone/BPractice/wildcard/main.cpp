@@ -1,8 +1,8 @@
 #include<iostream>
 #include<fstream>
 #include<ctime>
-#define ADDMAX 50000
-#define ADDINIT 10000
+#define ADDMAX 10000
+#define ADDINIT 1000
 #define QUERY_MAX 100000
 
 #define MAKETEST 0
@@ -11,14 +11,17 @@
 #include"hyeon9.cpp"
 #else
 // #include"hyeon9.cpp"
-#include"user2.cpp"
+#include"user3.cpp"
+// #include"user2.cpp"
 #endif
 
 #define CASCADE 30
 #define RANDOM 90
 
 #define ADD 40
-#define SEARCH 90
+#define SEARCH 100
+
+#define TC 1
 
 using namespace std;
 
@@ -93,7 +96,6 @@ int main() {
 #else
     freopen("0Text.txt", "r", stdin);
 #endif
-    int TC = 5;
     int add_count = 0;
     char query_str[8];
     clock_t s,e;
@@ -111,6 +113,7 @@ int main() {
         int query= QUERY_MAX;
         while(slen < ADDINIT){
             make_str(0,slen);
+            // printf("ADD: %s\n",str_table[slen]);
             add_str(str_table[slen], str_len[slen]);
             slen++;
         }
@@ -162,7 +165,7 @@ int main() {
 #else
                 cin >>res;
 #endif
-                // printf("REMOVE: query(%s), %d\n",query_str, user_res);
+                 printf("REMOVE: query(%s), %d\n",query_str, user_res);
                 if(user_res != res){
                     score = 0;
                 }
