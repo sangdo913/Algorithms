@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<ctime>
-#include"user.cpp"
+#include"user2.cpp"
 
 /*
 문제
