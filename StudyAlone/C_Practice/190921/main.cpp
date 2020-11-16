@@ -58,18 +58,23 @@ A와 B의 승리를 결정지을 수 있는 경우의 수는 몇 개인지 출�
 char * A[1000000][5], *B[1000000][5];
 extern int test( char *A[1000000][5],  char *B[1000000][5]);
 
-int main(){
-    srand(5);
+long long seed = 5;
+static int pseudo_rand(void) {
+   seed = seed * 214013 + 2531011;
+   return (seed >> 16) & 0x7FFF;
+}
 
+int main(){
     int cardidx[25];
-    clock_t st, ti = 0;
+    clock_t st;
+    double ti = 0;
     for(int i = 0; i < 25; ++i) cardidx[i] = i;
     for(int tc = 1; tc <= 10; ++ tc){
         for(int i = 0; i < 1000000; ++i){
             int cnt = 10;
             while(cnt--){
-                int a = rand()%25;
-                int b = rand()%25;
+                int a = pseudo_rand()%25;
+                int b = pseudo_rand()%25;
 
                 int temp;
                 temp = cardidx[a];
@@ -84,9 +89,9 @@ int main(){
         }
         st = clock();
         int res = test(A,B);
-        ti += clock()-st;
+        ti += (double)(clock()-st)/CLOCKS_PER_SEC;
 
         printf("#%d %d\n", tc, res);
     }
-    printf("SCORE : %d\n", ti);
+    printf("SCORE : %lf\n", ti);
 }

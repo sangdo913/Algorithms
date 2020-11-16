@@ -50,7 +50,7 @@ void add_str (char *str, int l) {
     }
 }
 
-int get_str (char *str, int l){
+int get_str (char *str, int l) {
     int res = 0;
     int s= 0 , e = 0;
     int el =0;
