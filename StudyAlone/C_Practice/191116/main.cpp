@@ -2,8 +2,11 @@
 #include<time.h>
 #include<stdlib.h>
 #include<string.h>
-#include"user.cpp"
+#include"user2.cpp"
 
+/*
+전역 변수를 쓰지말고 Score 를 최소화하는 코드를 작성하시오.
+*/
 char alpha[1111];
 char dest[65536];
 int dummy[10000];
@@ -27,7 +30,7 @@ void init(){
 
 int build(){
      for(int i = 0; i < 1024; ++i){
-        ndic[i] = rand()%7 + 1;
+        ndic[i] = rand()%4 + 4;
         for(int j = 0; j < ndic[i]; ++j) dic[i][j] = alpha[rand()%1111];
      }
      int len = 0;
@@ -59,6 +62,11 @@ int main(){
         for (int i = s; i < 65536; ++i) src[i] = 0;
 
         decode(src, dest, s);
+        for(int i = 0; i < len; ++i){
+            if(dest[i] != paper[i]){
+                int x = 1;
+            }
+        }
         
         if(memcmp(dest, paper, len)){
             RATE += 100000;
