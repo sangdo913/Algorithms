@@ -16,16 +16,6 @@ void mymerge(int s1, int e1, int s2, int e2, int n1, int n2){
     for(int i = m2; i < e2; ++i){
         temp[i] = n2;
     }
-    int res = check(temp);
-    if(res >> 8) == 2){
-
-    }
-    else if(res >>8) == 0){
-        
-    }
-    else{
-
-    }
 }
 void func(int in[200]){
     arr = in;
@@ -40,11 +30,9 @@ void func(int in[200]){
             }
             ++n;
         }
-        int res = check(temp);
         int nn = n;
         for(int i = 6; i >= 0; --i) {
             --nn;
-            if(res & (1<<i)) candidate[clen++] = nn;
         }
     }
 }
