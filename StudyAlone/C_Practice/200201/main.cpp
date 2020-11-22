@@ -16,11 +16,16 @@ solution.cpp에 대한 코드리뷰를 철저하게 진행할 것입니다.
 using namespace std;
 #define SIZE 1048576
 #define MAX_COUNT 2048
+#define M 1000000007
 
 extern void test(unsigned int data[SIZE]);
 unsigned int mdata[SIZE];
 
 long long Score;
+long long seed;
+long long mrand(){
+	return seed = (seed*214013 + 2531011)%M;
+}
 short buf[1024];
 
 unsigned int bak_data[SIZE];
@@ -72,9 +77,10 @@ int main()
 {
 	Score = 0;
 	srand(time(0));
+	seed = rand();
 	while (TC--) {
 		for (register int i = 0; i < MAX_COUNT; ++i) {
-			num[i] = ((long long)rand() * 1007) &0xffff;
+			num[i] = mrand() &0xffff;
 		}
 
 		for (register int i = 0; i < SIZE; ++i) {
@@ -94,7 +100,7 @@ int main()
 			}
 		}
 
-		for (register int i = 0; i < 10; ++i) {
+		for (register int i = 0; i < 100; ++i) {
 			int idx = rand() % SIZE;
 
 			bool check = false;
