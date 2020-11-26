@@ -96,10 +96,10 @@ static void _insert(void)
 	insert_file(file_name_arg, offset, data, data_size);
 	file_size[file] += data_size;
 	disk_total += data_size;
-	if(fcnt[5] != file_size[file]){
-		printf("wrong\n");
-		int debug = 1;
-	}
+	// if(fcnt[5] != file_size[file]){
+	// 	printf("wrong\n");
+	// 	int debug = 1;
+	// }
 	// else printf("%d %d\n", fcnt[5], file_size[file]);
 }
 
@@ -123,10 +123,10 @@ static void _delete(void)
 
 	file_size[file] -= data_size;
 	disk_total -= data_size;
-	if(fcnt[5] != file_size[file]){
-		int debug = 1;
-		printf("wrong\n");
-	}
+	// if(fcnt[5] != file_size[file]){
+	// 	int debug = 1;
+	// 	printf("wrong\n");
+	// }
 	// else printf("%d %d %d\n", file, fcnt[5], file_size[file]);
 }
 
