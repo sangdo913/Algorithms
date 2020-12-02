@@ -4,19 +4,36 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
+    {
+        "name": "(gdb) Windows 시작의 Bash",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}/main",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "pipeTransport": {
+            "debuggerPath": "/usr/bin/gdb",
+            "pipeProgram": "${env:windir}\\system32\\bash.exe",
+            "pipeArgs": ["-c"],
+            "pipeCwd": ""
+        },
+        "setupCommands": [
+            {
+                "description": "gdb에 자동 서식 지정 사용",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ]
+    },
         {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
-        },
-        {
-            "type": "lldb-mi",
-            "request": "launch",
-            "name": "Launch Program",
-            "target": "${workspaceRoot}/StudyAlone/StudyAlone/0source", //"./bin/executable",
-            "cwd": "${workspaceRoot}/StudyAlone/StudyAlone/"
         },
         {
             "name": "(gdb)Launch - 0source",
@@ -57,20 +74,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "Launch - 0source",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe"
-            // "args": ["--args \"${fileDirname}/0Text.txt\""]
-        },
-        {
-            "name": "Launch",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe"
-            //"args": ["gdb --args ${fileDirname}/0Text.txt"]
         },
         {
             "name": "(gdb) Launch 0source in window",
@@ -119,6 +122,26 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Launch window(main)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/main.exe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
