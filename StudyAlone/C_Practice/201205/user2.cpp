@@ -2,6 +2,7 @@ void culture(int n, int a, int b);
 int covid_check(int n);
 void clear(int n);
 const int MAX_SIZE = 50000000;
+#define RANGE 1000
 
 void test(){
     int s = 0, e = MAX_SIZE;
@@ -10,7 +11,7 @@ void test(){
     int c = MAX_SIZE;
     while(s< e) {
         l = s;
-        r = l + 1000 > MAX_SIZE ? MAX_SIZE : l + 1000;
+        r = l + RANGE > MAX_SIZE ? MAX_SIZE : l + RANGE;
         c++;
         for(int i = l; i < r; ++i) culture(c,c,i);
         if(!covid_check(c)){
