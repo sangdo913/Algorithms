@@ -97,6 +97,8 @@ static void cmd_countMember()
 	if (ans != userAns)
 	{
 		score = 0;
+		printf("%s %d\n", name,dist);
+		printf("diff:%d\n", ans-userAns);
 	}
 }
 
