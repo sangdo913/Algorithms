@@ -5,33 +5,17 @@
 #include<cmath>
 
 using namespace std;
-int segment[2100000];
-
-int update(int i, int id, int v, int s, int e) {
-    if(id < s || e <= id) return 0x3f3f3f3f;
-    if(s+1 == e) return segment[i] = min(segment[i], v);
-    int m = (s+e)/2;
-    segment[i] = min(segment[i], update(i*2, id, v, s,m));
-    segment[i] = min(segment[i], update(i*2+1, id, v, m, e));
-    return segment[i];
-}
-
-int query(int i, int s, int e, int l, int r){
-    if(r <= s ||e <= l) 
-        return 0x3f3f3f3f;
-    if(l <= s && e <= r) 
-        return segment[i];
-    int m = (s+e)/2;
-    return min(query(i*2, s,m,l,r), query(i*2+1, m,e,l,r));
-}
+int segment[1100000];
 
 int main(){
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     freopen("0Text.txt", "r", stdin);
     int n;
     cin >> n;
+
     vector<int> grade[2] = {vector<int>(n), vector<int>(n)};
     vector<int> p[2] = {vector<int>(n+1), vector<int>(n+1)};
-    for(int i = 0; i < 2100000 ; ++i){
+    for(int i = 0; i < n*2; ++i){
         segment[i] = 0x3f3f3f3f;
     }
 
@@ -50,13 +34,25 @@ int main(){
         int g = grade[0][i];
         int p1 = p[0][g];
         int p2 = p[1][g];
-        int minp1 = query(1, 0,n, 0, p2+1);
+        int minp1 = 0x3f3f3f3f;
+        int l = n;
+        int r = n + p2;
+        while(l <= r){
+            minp1 = min(minp1, segment[l]);
+            minp1 = min(minp1, segment[r]);
+            l = (l+1)/2;
+            r = (r-1)/2;
+        }
         if(minp1 == 0x3f3f3f3f || (minp1 > p1 || p[1][grade[1][minp1]] > p2)){
             res++;
-            update(1, p2, p1, 0,n);
+            int idx = n + p2;
+            while(idx) {
+                segment[idx] = min(segment[idx], p1);
+                idx /=2;
+            }
         }
     }
-    printf("%d\n", res);
+    cout << res;
 
     return 0;
 }
