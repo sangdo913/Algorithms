@@ -2,9 +2,11 @@ void culture(int n, int a, int b);
 int covid_check(int n);
 void clear(int n);
 const int MAX_SIZE = 50000000;
-#define RANGE 1000
+#define RANGE 1024
+#include<cstdio>
 
 void test(){
+    printf("range: %d\n", RANGE);
     int s = 0, e = MAX_SIZE;
 
     int l =0, r;

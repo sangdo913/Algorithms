@@ -39,6 +39,7 @@ char* alloc_memory(char atbl[100000000], int size){
     char *st_end = ((char**)(atbl + ST_END))[idx];
     char **stcur = (char**)(atbl + ST_CUR);
     char* (*st)[2000000] = (char*(*)[2000000])(atbl + ST);
+   
     if(st_pointer[idx]) {
         ret = st[idx][--st_pointer[idx]];
     }
