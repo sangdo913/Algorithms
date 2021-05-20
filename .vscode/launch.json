@@ -4,30 +4,38 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
-    {
-        "name": "(gdb) Windows 시작의 Bash",
-        "type": "cppdbg",
-        "request": "launch",
-        "program": "${fileDirname}/main",
-        "args": [],
-        "stopAtEntry": false,
-        "cwd": "${workspaceFolder}",
-        "environment": [],
-        "externalConsole": false,
-        "pipeTransport": {
-            "debuggerPath": "/usr/bin/gdb",
-            "pipeProgram": "${env:windir}\\system32\\bash.exe",
-            "pipeArgs": ["-c"],
-            "pipeCwd": ""
+        {
+            "type": "cppvsdbg",
+            "request": "launch",
+            "name": "Cargo launch",
+            "program": "${fileDirname}/../target/debug/cargo",//"${cargo:program}",
+            "args": [],
+            "cwd": "${fileDirname}/../target/debug"
         },
-        "setupCommands": [
-            {
-                "description": "gdb에 자동 서식 지정 사용",
-                "text": "-enable-pretty-printing",
-                "ignoreFailures": true
-            }
-        ]
-    },
+        {
+            "name": "(gdb) Windows 시작의 Bash",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "pipeTransport": {
+                "debuggerPath": "/usr/bin/gdb",
+                "pipeProgram": "${env:windir}\\system32\\bash.exe",
+                "pipeArgs": ["-c"],
+                "pipeCwd": ""
+            },
+            "setupCommands": [
+                {
+                    "description": "gdb에 자동 서식 지정 사용",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
         {
             "name": "Python: Current File",
             "type": "python",

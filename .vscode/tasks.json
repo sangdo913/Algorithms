@@ -31,6 +31,12 @@
                 }
             }
         },
+        //rust 컴파일
+        {
+            "label": "save and compile for rust",
+            "command": "cargo new",
+            "group": "build"
+        },
 
 
 

@@ -74,5 +74,6 @@
         "memory_resource": "cpp",
         "optional": "cpp"
     },
-    "python.pythonPath": "C:\\Users\\SD\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
+    "python.pythonPath": "C:\\Users\\SD\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "rust-analyzer.debug.engine": "vadimcn.vscode-lldb"
 }
