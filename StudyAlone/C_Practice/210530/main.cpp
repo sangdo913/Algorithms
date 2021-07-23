@@ -1,5 +1,5 @@
 // #include <bits/stdc++.h>
-#include "user.cpp"
+#include "user2.cpp"
 #include<math.h>
 #include<ctime>
 #include<cstdio>
@@ -28,7 +28,7 @@ int main() {
     double base_cost = 0;
     double cost1 = 0;
     double cost2 = 0;
-    int test_case = 100;
+    int test_case = 1;
     for (register int k = 0; k < test_case; ++k) {
         seed = mrand();
         int cnt[17] = {};
@@ -40,9 +40,7 @@ int main() {
         }
 
         printf("Test%d : ", k + 1);
-        // for (register int i = 0; i < 17; ++i)
-        //     printf("%d ", cnt[i]);
-        //     puts("");
+
         for (register int i = 0; i < 100000; ++i) {
             double min_dist = 1e15;
             for (register int j = 0; j < 3; ++j) {
@@ -69,23 +67,8 @@ int main() {
             }
             cost1 += msqrt(min_dist);
         }
-        // result[0] = result[1] = result[2] = 0;
-        // uest(coord1, result);
-        // for (int i = 0; i < 100000; ++i) {
-        //     double min_dist = 1e15;
-        //     for (int j = 0; j < 3; ++j) {
-        //         double dist = mpow(coord[i][0] - coord[result[j]][0]) + \
-        //             mpow(coord[i][1] - coord[result[j]][1]) + \
-        //             mpow(coord[i][2] - coord[result[j]][2]);
-
-        //         if (dist < min_dist)
-        //         min_dist = dist;
-        //     }
-        //     cost2 += msqrt(min_dist);
-        // }
     }
     printf("base : %lf\n", base_cost / test_case);
     printf("result1 : %lf\n", cost1 / test_case);
-    printf("result2 : %lf\n\n", cost2 / test_case);
 }
    
