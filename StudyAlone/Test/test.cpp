@@ -3,8 +3,7 @@
 using namespace std;
 
 int main(){
-    vector<int> v;
-    v.resize(10);
+    int arg[2] = {};
     
     return 0;
 }
