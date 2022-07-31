@@ -1,0 +1,1 @@
+C:\Users\SD\Desktop\Git\Algorithms\StudyAlone\rust\test4\target\debug\test4.exe: C:\Users\SD\Desktop\Git\Algorithms\StudyAlone\rust\test4\src\lib.rs C:\Users\SD\Desktop\Git\Algorithms\StudyAlone\rust\test4\src\main.rs

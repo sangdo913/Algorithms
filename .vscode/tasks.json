@@ -161,6 +161,15 @@
             "group": "test",
             "args": [
             ]
+        },
+        {
+            "label": "execute now in window",
+            "command": 
+            //    "${workspaceRoot}/StudyAlone/StudyAlone/0source.exe",// < \"${fileDirname}/0Text.txt\"" ,
+            "${fileDirname}/main.exe",
+            "group": "test",
+            "args": [
+            ]
         }
     ]
 }
